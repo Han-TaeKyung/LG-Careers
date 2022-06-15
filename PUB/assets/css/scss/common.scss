@@ -1,0 +1,315 @@
+@import "_variables", "_mixin";
+
+//공통가이드 
+.componentWrap{
+    .tabs{
+        position: fixed;
+        left:0;
+        width: 20rem;
+        padding: 4rem 3rem 3rem;
+        li{
+            margin-bottom: 2rem;
+            a{
+                font-size: 1.8rem;
+                font-weight: bold;
+                letter-spacing: -0.04rem;
+            }
+        }
+        .current{
+            border-right:0.2rem solid #B70F28;
+            a{
+                color:#B70F28;
+            }
+        }
+    }
+    .tab-content{
+        display: none;
+        position: absolute;
+        left: 20rem;
+        padding: 3rem 0;
+        width: calc(100% - 23rem);
+        &.current{
+            display: block;
+        }
+        >h2{
+            font-size: 2.4rem;
+            font-weight: 600;
+            color:#222;
+            letter-spacing: -0.04rem;
+            border-bottom: 0.3rem solid #f3f3f3;
+            padding-bottom: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .tabContent1{
+            ul{
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                padding: 2rem 2.5rem;
+                &:nth-child(odd){
+                    background-color: #f5f5f5;
+                }
+                li{
+                    &:first-child{
+                        width: 45rem;
+                        p{
+                            font-size: 1.6rem;
+                            letter-spacing: -0.04rem;
+                            color:#555;
+                        }
+                        span{
+                            font-size: 1.1rem;
+                            color: #c0c0c0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+//margin
+.mT10{
+    margin-top: 1rem;
+}
+.mB10{
+    margin-bottom: 1rem;
+}
+//padding
+
+//text-align
+.tCenter{
+    text-align: center !important;
+}
+.tLeft{
+    text-align: left !important;
+}
+.tRight{
+    text-align: right !important;
+}
+
+//공통 class
+h1.title1{
+    @include title1;
+}
+h2.title2 {
+    @include title2;
+}
+h3.title3 {
+    @include title3;
+}
+.subTitle1{
+    @include subTitle1;
+}
+.subTitle2 {
+    @include subTitle2;
+}
+.subText1 {
+    @include subText1;
+}
+//버튼
+.btnType1{
+    font-size:1.6rem;
+    color:$White;
+    background-color: #555;
+    padding: 0.8rem 1.5rem;
+    border-radius: 0.5rem;
+    &:hover{
+        background-color: #222;
+        transition: 0.4s;
+    }
+}
+//form(체크박스, 라디오버튼, selectbox)
+
+
+//input, textbox
+.inputType1{
+    label{
+        @include hiddenText;
+    }
+    input{
+        border:0.1rem solid #ccc;
+        font-size: 1.6rem;
+        padding: 1.4rem;
+    }
+}
+.textBox1{
+    label{
+        @include hiddenText;
+    }
+    textarea{
+        border:0.1rem solid #ccc;
+        font-size: 1.6rem;
+        padding:1.4rem;
+        min-height: 15rem;
+    }
+}
+
+//table
+.tableCol{
+    table{
+        width: 100%;
+        border-top:0.1rem solid #222; 
+        thead {
+            tr {
+                th {
+                    background-color: #f8f8f8;
+                    font-size: 1.6rem;
+                    font-weight: bold;
+                    color: #222;
+                    border-bottom: 0.1rem solid #eee;
+                    border-right: 0.1rem solid #eee;
+                    text-align: center;
+                    padding: 1.2rem 1.5rem;
+    
+                    &:last-child {
+                        border-right: 0;
+                    }
+                }
+            }
+        }
+        tbody{
+            tr{
+                td{
+                    font-size: 1.4rem;
+                    color:#555;
+                    border-bottom: 0.1rem solid #eee;
+                    border-right: 0.1rem solid #eee;
+                    padding: 1.2rem 1.5rem;
+                    &:last-child {
+                        border-right: 0;
+                    }
+                }
+            }
+        }
+    }
+}
+.tableRow{
+    table{
+        width: 100%;
+        border-top: 0.1rem solid #222;
+        thead {
+                tr {
+                    th {
+                        background-color: #f8f8f8;
+                        font-size: 1.6rem;
+                        font-weight: bold;
+                        color: #222;
+                        border-bottom: 0.1rem solid #eee;
+                        border-right: 0.1rem solid #eee;
+                        text-align: center;
+                        padding: 1.2rem 1.5rem;
+        
+                        &:last-child {
+                            border-right: 0;
+                        }
+                    }
+                }
+            }
+        tbody{
+            tr{
+                th{
+                    background-color: #f8f8f8;
+                    font-size: 1.6rem;
+                    font-weight: bold;
+                    color: #222;
+                    border-bottom: 0.1rem solid #eee;
+                    border-right: 0.1rem solid #eee;
+                    padding: 1.2rem 1.5rem;
+                }
+                td{
+                    font-size: 1.4rem;
+                    color: #555;
+                    border-bottom: 0.1rem solid #eee;
+                    border-right: 0.1rem solid #eee;
+                    padding: 1.2rem 1.5rem;
+                    &:last-child{
+                        border-right: 0;
+                    }
+                }
+            }
+        }
+    }
+}
+
+//Bullet
+.typeDot{
+    >li{
+        @include subText1;
+        margin-bottom: 0.5rem;
+        position: relative;
+        padding-left: 0.8rem;
+
+        &::before {
+            content: " ";
+            width: 0.2rem;
+            height: 0.2rem;
+            background-color: #222;
+            position: absolute;
+            left: 0;
+            top: 0.9rem;
+        }
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+.typeHy {
+    >li {
+        @include subText1;
+        margin-bottom: 0.5rem;
+
+        &::before {
+            content: "- ";
+        }
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+.typeNum{
+    list-style: auto;
+    padding-left: 1.45rem;
+    li{
+        list-style: inherit;
+        @include subText1;
+            margin-bottom: 0.5rem;
+    }
+}
+
+//페이징
+.paging {
+    ul{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        li{
+            margin: 0 0.2rem;
+        }
+    }
+    .paging_num {
+        width: 36px;
+        height: 36px;
+        text-align: center;
+        line-height: 36px;
+        border-radius: 3px;
+        border: 1px solid #cccccc;
+
+        a {
+            font-size: 14px;
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+
+        &.paging_num_on {
+            border: 1px solid #eb6565 !important;
+
+            a {
+                color: #eb6565 !important;
+            }
+        }
+    }
+}
+//아코디언

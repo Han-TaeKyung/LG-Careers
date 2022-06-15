@@ -1,0 +1,24 @@
+body,
+html {
+  height: 100%;
+}
+
+.mainPage01 {
+  width: 100%;
+  height: 100%;
+}
+
+.mainPage02 {
+  width: 100%;
+  height: auto;
+}
+
+.mainPage03 {
+  width: 100%;
+  height: 100%;
+}
+
+.mainPage04 {
+  width: 100%;
+  height: 100%;
+}
