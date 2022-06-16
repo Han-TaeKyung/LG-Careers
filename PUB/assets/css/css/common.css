@@ -1,3 +1,47 @@
+.fileListWrap {
+  width: 120rem;
+  margin: 3rem auto;
+}
+
+.fileListWrap table {
+  margin-top: 2rem;
+  width: 100%;
+  border: 0.1rem solid #999;
+}
+
+.fileListWrap table thead tr th {
+  background-color: #f1f1f1;
+  border-bottom: 0.1rem solid #999;
+  font-size: 1.4rem;
+  color: #222;
+  text-align: center;
+  padding: 0.8rem 1.5rem;
+}
+
+.fileListWrap table tbody tr td {
+  border-bottom: 0.1rem solid #999;
+  font-size: 1.3rem;
+  color: #555;
+  padding: 1rem 1.2rem;
+}
+
+.fileListWrap table tbody tr td label {
+  background-color: #6b6b6b;
+  color: #fff;
+  font-size: 1.2rem;
+  padding: 0.3rem 0.8rem 0.4rem;
+  border-radius: 0.5rem;
+  cursor: default;
+}
+
+.fileListWrap table tbody tr td a {
+  font-weight: bold;
+}
+
+.fileListWrap table tbody tr td a:hover {
+  color: #a50034;
+}
+
 .componentWrap .tabs {
   position: fixed;
   left: 0;
