@@ -1,0 +1,9 @@
+@import "_variables", "_mixin";
+
+#header{
+    position: fixed;
+    z-index: 1000;
+    width: 100%;
+    height: 8rem;
+    background-color:rgba(0,0,0,0.1);
+}
