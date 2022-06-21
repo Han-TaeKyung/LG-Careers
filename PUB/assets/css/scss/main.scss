@@ -1,13 +1,15 @@
 @import "_variables", "_mixin";
+
 body,
 html {
     height: 100%;
 }
+
 .mainPage01 {
     width: 100%;
     height: 100%;
     padding-top: 8rem;
-    
+
 }
 
 .mainPage02 {
@@ -24,8 +26,9 @@ html {
     width: 100%;
     height: 100%;
 }
-.mainNav{
+
+.mainNav {
     position: fixed;
-    top:10rem;
-    left:5rem;
+    top: 10rem;
+    left: 5rem;
 }
