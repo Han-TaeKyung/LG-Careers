@@ -2,57 +2,58 @@
 /*@import url(http://fonts.googleapis.com/earlyaccess/nanummgothic.css);*/
 
 @font-face {
-    font-family: 'LGSmart';
-    font-style: normal;
-    font-weight: 400;
-    src: url('/assets/fonts/LGSMHATR.eot');
-    src: url('/assets/fonts/LGSMHATR.eot?#iefix') format('embedded-opentype'),
-        url('/assets/fonts/LGSMHATR.woff') format('woff');
+  font-family: "LGSmart";
+  font-style: normal;
+  font-weight: 400;
+  src: url("/assets/fonts/LGSMHATR.eot");
+  src: url("/assets/fonts/LGSMHATR.eot?#iefix") format("embedded-opentype"),
+    url("/assets/fonts/LGSMHATR.woff") format("woff");
 }
 
 @font-face {
-    font-family: 'LGSmart';
-    font-style: normal;
-    font-weight: 500;/* 세미볼드 */
-    src: url('/assets/fonts/LGSMHATSB.eot');
-    src: url('/assets/fonts/LGSMHATSB.eot?#iefix') format('embedded-opentype'),
-        url('/assets/fonts/LGSMHATSB.woff') format('woff');
+  font-family: "LGSmart";
+  font-style: normal;
+  font-weight: 500; /* 세미볼드 */
+  src: url("/assets/fonts/LGSMHATSB.eot");
+  src: url("/assets/fonts/LGSMHATSB.eot?#iefix") format("embedded-opentype"),
+    url("/assets/fonts/LGSMHATSB.woff") format("woff");
 }
 @font-face {
-    font-family: 'LGSmart';
-    font-style: normal;
-    font-weight: 700; /* 볼드 */
-    /* 세미볼드 */
-    src: url('/assets/fonts/LGSMHATB.eot');
-    src: url('/assets/fonts/LGSMHATB.eot?#iefix') format('embedded-opentype'),
-        url('/assets/fonts/LGSMHATB.woff') format('woff');
+  font-family: "LGSmart";
+  font-style: normal;
+  font-weight: 700; /* 볼드 */
+  /* 세미볼드 */
+  src: url("/assets/fonts/LGSMHATB.eot");
+  src: url("/assets/fonts/LGSMHATB.eot?#iefix") format("embedded-opentype"),
+    url("/assets/fonts/LGSMHATB.woff") format("woff");
 }
 
 * {
-    font-family: 'LGSmart', sans-serif;
-    font-weight: normal;
-    // font-size: 1.6rem;
-    letter-spacing: -0.05em;
+  font-family: "LGSmart", sans-serif;
+  font-weight: normal;
+  // font-size: 1.6rem;
+  letter-spacing: -0.05em;
 }
 
 :root {
-    font-size: 62.5%;
+  font-size: 62.5%;
 }
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    font-size: 1.6rem;
-    font-weight: 400;
-    font-family: 'LGSmart', -apple-system, BlinkMacSystemFont, 'Malgun Gothic', Roboto, "Helvetica Neue", sans-serif;
-    text-align: left;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    word-break: keep-all;
+  font-size: 1.6rem;
+  font-weight: 400;
+  font-family: "LGSmart", -apple-system, BlinkMacSystemFont, "Malgun Gothic",
+    Roboto, "Helvetica Neue", sans-serif;
+  text-align: left;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  word-break: keep-all;
 }
 /* reset */
 html,
@@ -137,20 +138,19 @@ audio,
 video,
 input,
 textarea {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    vertical-align: baseline;
-    /*outline:none;*/
-    -webkit-text-size-adjust: none;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-
+  margin: 0;
+  padding: 0;
+  border: 0;
+  vertical-align: baseline;
+  /*outline:none;*/
+  -webkit-text-size-adjust: none;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
-    overflow-x: hidden;
+  overflow-x: hidden;
 }
 
 article,
@@ -163,52 +163,52 @@ header,
 menu,
 nav,
 section {
-    display: block;
+  display: block;
 }
 
 ol,
 ul {
-    list-style: none;
+  list-style: none;
 }
 
 blockquote,
 q {
-    quotes: none;
+  quotes: none;
 }
 
 blockquote:before,
 blockquote:after,
 q:before,
 q:after {
-    content: '';
-    content: none;
+  content: "";
+  content: none;
 }
 
 strong {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 table {
-    border-collapse: collapse;
-    border-spacing: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
 }
 
 img {
-    border: 0;
-    max-width: 100%;
-    vertical-align: top
+  border: 0;
+  max-width: 100%;
+  vertical-align: top;
 }
 
 img,
 fieldset {
-    border: 0
+  border: 0;
 }
 
 ul,
 ol,
 li,
 dl {
-    list-style: none;
+  list-style: none;
 }
 
 h1,
@@ -217,31 +217,30 @@ h3,
 h4,
 h5,
 h6 {
- 
-    font-weight: normal;
+  font-weight: normal;
 }
 
 hr {
-    display: none;
+  display: none;
 }
 
 a {
-    color: inherit;
+  color: inherit;
 }
 
 a,
 a:link {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 a:visited {
-    /*color:#333;*/
+  /*color:#333;*/
 }
 
 a:hover,
 a:active {
-    /*color:#333;*/
-    text-decoration: none;
+  /*color:#333;*/
+  text-decoration: none;
 }
 
 /*a:hover, a:focus { border:1px solid #ee6600; }*/
@@ -249,14 +248,14 @@ a:active {
 em,
 i,
 address {
-    font-style: normal;
-    font-weight: normal;
+  font-style: normal;
+  font-weight: normal;
 }
 
 legend,
 caption {
-    display: none;
-    clear: both;
+  display: none;
+  clear: both;
 }
 
 input,
@@ -264,9 +263,9 @@ textarea,
 select,
 button,
 table {
-    font-size: inherit;
-    font-family: inherit;
-    line-height: inherit;
+  font-size: inherit;
+  font-family: inherit;
+  line-height: inherit;
 }
 
 section,
@@ -275,170 +274,176 @@ article,
 aside,
 header,
 footer {
-    display: block
+  display: block;
 }
 
 textarea,
 input {
-    background: none;
-    -webkit-border-radius: 1px;
-    -webkit-apprearance: none;
+  background: none;
+  border-radius: 1px;
+  -webkit-apprearance: none;
 }
 
 textarea {
-    resize: none;
+  resize: none;
 }
 
 label {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 table {
-    /*border-collapse: collapse;table-layout:fixed; */
-    display: table;
-    border-spacing: 0;
-    border-collapse: collapse;
-    font-size: 12px;
+  /*border-collapse: collapse;table-layout:fixed; */
+  display: table;
+  border-spacing: 0;
+  border-collapse: collapse;
+  font-size: 12px;
 }
 
 caption {
-    display: table-caption;
+  display: table-caption;
 }
 
 colgroup {
-    display: table-column-group;
+  display: table-column-group;
 }
 
 col {
-    display: table-column;
+  display: table-column;
 }
 
 thead {
-    display: table-header-group;
+  display: table-header-group;
 }
 
 tbody {
-    display: table-row-group;
+  display: table-row-group;
 }
 
 tfoot {
-    display: table-footer-group;
+  display: table-footer-group;
 }
 
 tr {
-    display: table-row;
-    padding: 0;
-    margin: 0
+  display: table-row;
+  padding: 0;
+  margin: 0;
 }
 
 td,
 th {
-    display: table-cell;
-    padding: 0;
-    margin: 0
+  display: table-cell;
+  padding: 0;
+  margin: 0;
 }
 
 button {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    cursor: pointer
+  margin: 0;
+  padding: 0;
+  border: 0;
+  cursor: pointer;
 }
 
 /*layout setting*/
 
-body {}
+body {
+}
 
 * {
-    text-rendering: optimizeLegibility;
+  text-rendering: optimizeLegibility;
 }
 
 .ellipsis {
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .clearfix:before,
 .clearfix:after {
-    content: " ";
-    display: table
+  content: " ";
+  display: table;
 }
 
 .clearfix:after {
-    clear: both
+  clear: both;
 }
 
 .clearfix {
-    *zoom: 1
+  *zoom: 1;
 }
 
 .blind,
 legend,
 hr {
-    display: block;
-    width: 1px;
-    height: 1px;
-    overflow: hidden;
-    position: absolute;
-    top: 0;
-    left: -1000em
+  display: block;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: -1000em;
 }
 
 caption {
-    width: 0;
-    height: 0;
-    font-size: 0;
-    line-height: 0;
-    text-indent: -9999px;
-    overflow: hidden
+  width: 0;
+  height: 0;
+  font-size: 0;
+  line-height: 0;
+  text-indent: -9999px;
+  overflow: hidden;
 }
 
 .ellipsis {
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 /* skipNav */
 #skipNav {
-    position: relative;
-    width: 100%;
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  a {
+    display: block;
+    height: 1px;
+    margin-bottom: -1px;
     overflow: hidden;
-    a {
-        display: block;
-        height: 1px;
-        margin-bottom: -1px;
-        overflow: hidden;
-        text-align: center;
-        text-decoration: none;
-        color: #333;
-        font-size: 12px;
-    }
+    text-align: center;
+    text-decoration: none;
+    color: #333;
+    font-size: 12px;
+  }
 }
-
 
 #skipNav a:hover,
 #skipNav a:focus,
 #skipNav a:active {
-    display: block;
-    height: 25px;
-    padding: 5px 0;
-    background: none repeat scroll 0 0 #f2f2f2;
+  display: block;
+  height: 25px;
+  padding: 5px 0;
+  background: none repeat scroll 0 0 #f2f2f2;
 }
 
 .transparent {
-    filter: alpha(opacity=50);
-    /* internet explorer */
-    -khtml-opacity: 0.5;
-    /* khtml, old safari */
-    -moz-opacity: 0.5;
-    /* mozilla, netscape */
-    opacity: 0.5;
-    /* fx, safari, opera */
+  filter: alpha(opacity=50);
+  /* internet explorer */
+  -khtml-opacity: 0.5;
+  /* khtml, old safari */
+  -moz-opacity: 0.5;
+  /* mozilla, netscape */
+  opacity: 0.5;
+  /* fx, safari, opera */
 }
 
 /*body{
     min-width:320px;
     font-size:100% !important
 }*/
+
+:before,
+:after {
+  display: none;
+  content: "";
+}
