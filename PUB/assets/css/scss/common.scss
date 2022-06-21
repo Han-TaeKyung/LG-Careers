@@ -91,7 +91,7 @@
       display: block;
     }
 
-    >h2 {
+    > h2 {
       font-size: 2.4rem;
       font-weight: 600;
       color: #222;
@@ -140,34 +140,34 @@
 
 @for $i from 1 through 10 {
   .mT#{$i*5} {
-    margin-top: (0.5*$i)rem;
+    margin-top: 0.5 * $i + rem;
   }
   .mB#{$i*5} {
-    margin-bottom: (0.5*$i)rem;
+    margin-bottom: 0.5 * $i + rem;
   }
   .mL#{$i*5} {
-    margin-left: (0.5*$i)rem;
+    margin-left: (0.5 * $i) rem;
   }
   .mR#{$i*5} {
-    margin-right: (0.5*$i)rem;
+    margin-right: (0.5 * $i) rem;
   }
   .p#{$i*5} {
-    margin: (0.5*$i)rem;
+    margin: (0.5 * $i) rem;
   }
   .pT#{$i*5} {
-    padding-top: (0.5*$i)rem;
+    padding-top: (0.5 * $i) rem;
   }
   .pB#{$i*5} {
-    padding-bottom: (0.5*$i)rem;
+    padding-bottom: (0.5 * $i) rem;
   }
   .pL#{$i*5} {
-    padding-left: (0.5*$i)rem;
+    padding-left: (0.5 * $i) rem;
   }
   .pR#{$i*5} {
-    padding-right: (0.5*$i)rem;
+    padding-right: (0.5 * $i) rem;
   }
   .p#{$i*5} {
-    padding: (0.5*$i)rem;
+    padding: (0.5 * $i) rem;
   }
 }
 
@@ -348,7 +348,7 @@ h3.title3 {
 
 //Bullet
 .typeDot {
-  >li {
+  > li {
     @include subText1;
     margin-bottom: 0.5rem;
     position: relative;
@@ -371,7 +371,7 @@ h3.title3 {
 }
 
 .typeHy {
-  >li {
+  > li {
     @include subText1;
     margin-bottom: 0.5rem;
 
