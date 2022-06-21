@@ -91,7 +91,7 @@
       display: block;
     }
 
-    >h2 {
+    > h2 {
       font-size: 2.4rem;
       font-weight: 600;
       color: #222;
@@ -140,43 +140,43 @@
 
 @for $i from 1 through 10 {
   .mT#{$i*5} {
-    margin-top: 0.5*$i+rem;
+    margin-top: 0.5 * $i + rem;
   }
 
   .mB#{$i*5} {
-    margin-bottom: 0.5*$i+rem;
+    margin-bottom: 0.5 * $i + rem;
   }
 
   .mL#{$i*5} {
-    margin-left: 0.5*$i+rem;
+    margin-left: 0.5 * $i + rem;
   }
 
   .mR#{$i*5} {
-    margin-right: 0.5*$i+rem;
+    margin-right: 0.5 * $i + rem;
   }
 
   .p#{$i*5} {
-    margin: 0.5*$i+rem;
+    margin: 0.5 * $i + rem;
   }
 
   .pT#{$i*5} {
-    padding-top: 0.5*$i+rem;
+    padding-top: 0.5 * $i + rem;
   }
 
   .pB#{$i*5} {
-    padding-bottom: 0.5*$i+rem;
+    padding-bottom: 0.5 * $i + rem;
   }
 
   .pL#{$i*5} {
-    padding-left: 0.5*$i+rem;
+    padding-left: 0.5 * $i + rem;
   }
 
   .pR#{$i*5} {
-    padding-right: 0.5*$i+rem;
+    padding-right: 0.5 * $i + rem;
   }
 
   .p#{$i*5} {
-    padding: 0.5*$i+rem;
+    padding: 0.5 * $i + rem;
   }
 }
 
@@ -257,7 +257,6 @@ p {
       background-color: $BrandColorRed;
       color: $White;
       border: 0.1rem solid $BrandColorRed;
-
     }
   }
 
@@ -267,7 +266,7 @@ p {
     cursor: default;
   }
 
-  &+.btn {
+  & + .btn {
     margin-left: 1rem;
   }
 }
@@ -290,7 +289,7 @@ p {
     border: 0;
     opacity: 0;
 
-    &+label {
+    & + label {
       position: relative;
       display: inline-block;
       padding-left: 3rem;
@@ -313,7 +312,7 @@ p {
     }
 
     &:checked {
-      &+label {
+      & + label {
         &:after {
           display: block;
           position: absolute;
@@ -331,13 +330,12 @@ p {
     }
 
     &:disabled {
-      &+label {
+      & + label {
         color: #999;
 
         &::before {
           background-color: #ccc;
           border-color: #ccc;
-
         }
       }
     }
@@ -354,7 +352,7 @@ p {
     border: 0;
     opacity: 0;
 
-    &+label {
+    & + label {
       position: relative;
       display: inline-block;
       padding-left: 3rem;
@@ -378,7 +376,7 @@ p {
     }
 
     &:checked {
-      &+label {
+      & + label {
         &:after {
           display: block;
           position: absolute;
@@ -397,13 +395,12 @@ p {
     }
 
     &:disabled {
-      &+label {
+      & + label {
         color: #999;
 
         &::before {
           background-color: #ccc;
           border-color: #ccc;
-
         }
       }
     }
@@ -421,7 +418,6 @@ p {
     font-size: 1.6rem;
     font-weight: 400;
     color: $BrandColorGray;
-
   }
 }
 
@@ -543,11 +539,9 @@ p {
   }
 }
 
-
-
 //Bullet
 .bu {
-  >li {
+  > li {
     @include subText1;
     margin-bottom: 0.5rem;
     position: relative;
@@ -567,10 +561,10 @@ p {
       margin-bottom: 0;
     }
 
-    >ul {
+    > ul {
       margin-top: 0.5rem;
 
-      >li {
+      > li {
         @include subText1;
         margin-bottom: 0.5rem;
         position: relative;
@@ -594,7 +588,7 @@ p {
   }
 
   &.type2 {
-    >li {
+    > li {
       @include subText1;
       margin-bottom: 0.5rem;
 
