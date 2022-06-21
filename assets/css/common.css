@@ -102,403 +102,47 @@
 }
 
 .mT5 {
-  margin-top: 0.5 rem;
-}
-
-.mB5 {
-  margin-bottom: 0.5 rem;
-}
-
-.mL5 {
-  margin-left: 0.5 rem;
-}
-
-.mR5 {
-  margin-right: 0.5 rem;
-}
-
-.p5 {
-  margin: 0.5 rem;
-}
-
-.pT5 {
-  padding-top: 0.5 rem;
-}
-
-.pB5 {
-  padding-bottom: 0.5 rem;
-}
-
-.pL5 {
-  padding-left: 0.5 rem;
-}
-
-.pR5 {
-  padding-right: 0.5 rem;
-}
-
-.p5 {
-  padding: 0.5 rem;
+  margin-top: 0.3333 rem;
 }
 
 .mT10 {
-  margin-top: 1 rem;
-}
-
-.mB10 {
-  margin-bottom: 1 rem;
-}
-
-.mL10 {
-  margin-left: 1 rem;
-}
-
-.mR10 {
-  margin-right: 1 rem;
-}
-
-.p10 {
-  margin: 1 rem;
-}
-
-.pT10 {
-  padding-top: 1 rem;
-}
-
-.pB10 {
-  padding-bottom: 1 rem;
-}
-
-.pL10 {
-  padding-left: 1 rem;
-}
-
-.pR10 {
-  padding-right: 1 rem;
-}
-
-.p10 {
-  padding: 1 rem;
+  margin-top: 0.6666 rem;
 }
 
 .mT15 {
-  margin-top: 1.5 rem;
-}
-
-.mB15 {
-  margin-bottom: 1.5 rem;
-}
-
-.mL15 {
-  margin-left: 1.5 rem;
-}
-
-.mR15 {
-  margin-right: 1.5 rem;
-}
-
-.p15 {
-  margin: 1.5 rem;
-}
-
-.pT15 {
-  padding-top: 1.5 rem;
-}
-
-.pB15 {
-  padding-bottom: 1.5 rem;
-}
-
-.pL15 {
-  padding-left: 1.5 rem;
-}
-
-.pR15 {
-  padding-right: 1.5 rem;
-}
-
-.p15 {
-  padding: 1.5 rem;
+  margin-top: 0.9999 rem;
 }
 
 .mT20 {
-  margin-top: 2 rem;
-}
-
-.mB20 {
-  margin-bottom: 2 rem;
-}
-
-.mL20 {
-  margin-left: 2 rem;
-}
-
-.mR20 {
-  margin-right: 2 rem;
-}
-
-.p20 {
-  margin: 2 rem;
-}
-
-.pT20 {
-  padding-top: 2 rem;
-}
-
-.pB20 {
-  padding-bottom: 2 rem;
-}
-
-.pL20 {
-  padding-left: 2 rem;
-}
-
-.pR20 {
-  padding-right: 2 rem;
-}
-
-.p20 {
-  padding: 2 rem;
+  margin-top: 1.3332 rem;
 }
 
 .mT25 {
-  margin-top: 2.5 rem;
-}
-
-.mB25 {
-  margin-bottom: 2.5 rem;
-}
-
-.mL25 {
-  margin-left: 2.5 rem;
-}
-
-.mR25 {
-  margin-right: 2.5 rem;
-}
-
-.p25 {
-  margin: 2.5 rem;
-}
-
-.pT25 {
-  padding-top: 2.5 rem;
-}
-
-.pB25 {
-  padding-bottom: 2.5 rem;
-}
-
-.pL25 {
-  padding-left: 2.5 rem;
-}
-
-.pR25 {
-  padding-right: 2.5 rem;
-}
-
-.p25 {
-  padding: 2.5 rem;
+  margin-top: 1.6665 rem;
 }
 
 .mT30 {
-  margin-top: 3 rem;
-}
-
-.mB30 {
-  margin-bottom: 3 rem;
-}
-
-.mL30 {
-  margin-left: 3 rem;
-}
-
-.mR30 {
-  margin-right: 3 rem;
-}
-
-.p30 {
-  margin: 3 rem;
-}
-
-.pT30 {
-  padding-top: 3 rem;
-}
-
-.pB30 {
-  padding-bottom: 3 rem;
-}
-
-.pL30 {
-  padding-left: 3 rem;
-}
-
-.pR30 {
-  padding-right: 3 rem;
-}
-
-.p30 {
-  padding: 3 rem;
+  margin-top: 1.9998 rem;
 }
 
 .mT35 {
-  margin-top: 3.5 rem;
-}
-
-.mB35 {
-  margin-bottom: 3.5 rem;
-}
-
-.mL35 {
-  margin-left: 3.5 rem;
-}
-
-.mR35 {
-  margin-right: 3.5 rem;
-}
-
-.p35 {
-  margin: 3.5 rem;
-}
-
-.pT35 {
-  padding-top: 3.5 rem;
-}
-
-.pB35 {
-  padding-bottom: 3.5 rem;
-}
-
-.pL35 {
-  padding-left: 3.5 rem;
-}
-
-.pR35 {
-  padding-right: 3.5 rem;
-}
-
-.p35 {
-  padding: 3.5 rem;
+  margin-top: 2.3331 rem;
 }
 
 .mT40 {
-  margin-top: 4 rem;
-}
-
-.mB40 {
-  margin-bottom: 4 rem;
-}
-
-.mL40 {
-  margin-left: 4 rem;
-}
-
-.mR40 {
-  margin-right: 4 rem;
-}
-
-.p40 {
-  margin: 4 rem;
-}
-
-.pT40 {
-  padding-top: 4 rem;
-}
-
-.pB40 {
-  padding-bottom: 4 rem;
-}
-
-.pL40 {
-  padding-left: 4 rem;
-}
-
-.pR40 {
-  padding-right: 4 rem;
-}
-
-.p40 {
-  padding: 4 rem;
+  margin-top: 2.6664 rem;
 }
 
 .mT45 {
-  margin-top: 4.5 rem;
-}
-
-.mB45 {
-  margin-bottom: 4.5 rem;
-}
-
-.mL45 {
-  margin-left: 4.5 rem;
-}
-
-.mR45 {
-  margin-right: 4.5 rem;
-}
-
-.p45 {
-  margin: 4.5 rem;
-}
-
-.pT45 {
-  padding-top: 4.5 rem;
-}
-
-.pB45 {
-  padding-bottom: 4.5 rem;
-}
-
-.pL45 {
-  padding-left: 4.5 rem;
-}
-
-.pR45 {
-  padding-right: 4.5 rem;
-}
-
-.p45 {
-  padding: 4.5 rem;
+  margin-top: 2.9997 rem;
 }
 
 .mT50 {
-  margin-top: 5 rem;
+  margin-top: 3.333 rem;
 }
 
-.mB50 {
-  margin-bottom: 5 rem;
-}
-
-.mL50 {
-  margin-left: 5 rem;
-}
-
-.mR50 {
-  margin-right: 5 rem;
-}
-
-.p50 {
-  margin: 5 rem;
-}
-
-.pT50 {
-  padding-top: 5 rem;
-}
-
-.pB50 {
-  padding-bottom: 5 rem;
-}
-
-.pL50 {
-  padding-left: 5 rem;
-}
-
-.pR50 {
-  padding-right: 5 rem;
-}
-
-.p50 {
-  padding: 5 rem;
+.mB10 {
+  margin-bottom: 1rem;
 }
 
 .tCenter {
