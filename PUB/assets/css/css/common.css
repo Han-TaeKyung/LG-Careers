@@ -881,6 +881,7 @@ p {
 }
 
 .bu > li::before {
+  display: block;
   content: " ";
   width: 0.2rem;
   height: 0.2rem;
@@ -908,6 +909,7 @@ p {
 }
 
 .bu > li > ul > li::before {
+  display: block;
   content: " ";
   width: 0.5rem;
   height: 0.1rem;

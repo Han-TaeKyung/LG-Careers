@@ -91,7 +91,7 @@
       display: block;
     }
 
-    > h2 {
+    >h2 {
       font-size: 2.4rem;
       font-weight: 600;
       color: #222;
@@ -266,7 +266,7 @@ p {
     cursor: default;
   }
 
-  & + .btn {
+  &+.btn {
     margin-left: 1rem;
   }
 }
@@ -289,7 +289,7 @@ p {
     border: 0;
     opacity: 0;
 
-    & + label {
+    &+label {
       position: relative;
       display: inline-block;
       padding-left: 3rem;
@@ -312,7 +312,7 @@ p {
     }
 
     &:checked {
-      & + label {
+      &+label {
         &:after {
           display: block;
           position: absolute;
@@ -330,7 +330,7 @@ p {
     }
 
     &:disabled {
-      & + label {
+      &+label {
         color: #999;
 
         &::before {
@@ -352,7 +352,7 @@ p {
     border: 0;
     opacity: 0;
 
-    & + label {
+    &+label {
       position: relative;
       display: inline-block;
       padding-left: 3rem;
@@ -376,7 +376,7 @@ p {
     }
 
     &:checked {
-      & + label {
+      &+label {
         &:after {
           display: block;
           position: absolute;
@@ -394,7 +394,7 @@ p {
     }
 
     &:disabled {
-      & + label {
+      &+label {
         color: #999;
 
         &::before {
@@ -540,13 +540,14 @@ p {
 
 //Bullet
 .bu {
-  > li {
+  >li {
     @include subText1;
     margin-bottom: 0.5rem;
     position: relative;
     padding-left: 0.8rem;
 
     &::before {
+      display: block;
       content: " ";
       width: 0.2rem;
       height: 0.2rem;
@@ -560,16 +561,17 @@ p {
       margin-bottom: 0;
     }
 
-    > ul {
+    >ul {
       margin-top: 0.5rem;
 
-      > li {
+      >li {
         @include subText1;
         margin-bottom: 0.5rem;
         position: relative;
         padding-left: 0.8rem;
 
         &::before {
+          display: block;
           content: " ";
           width: 0.5rem;
           height: 0.1rem;
@@ -587,7 +589,7 @@ p {
   }
 
   &.type2 {
-    > li {
+    >li {
       @include subText1;
       margin-bottom: 0.5rem;
 
