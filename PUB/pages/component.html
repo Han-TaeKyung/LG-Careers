@@ -50,6 +50,7 @@
       $tabBtn
         .click(function () {
           var tabId = $(this).attr("data-tab");
+
           $.ajax({
             url: "./components/" + tabId + ".html",
           }).done(function (data) {
