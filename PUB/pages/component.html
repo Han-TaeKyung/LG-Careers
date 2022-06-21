@@ -48,20 +48,20 @@
       var $tabCon = $(".tab-content");
       var $tabBtn = $("ul.tabs li");
 
-      $tabBtn
-        .click(function () {
-          var $this = $(this);
-          var tabId = $this.attr("data-tab");
-          $tabBtn.removeClass("current");
-          $this.addClass("current");
-          $.ajax({
-            url: "./components/" + tabId + ".html",
-          }).done(function (data) {
-            $tabCon.html(data);
-            $.getScript("./components/component.js");
-          });
-        })
-        .triggerHandler("click");
+      $tabBtn.click(function () {
+        var $this = $(this);
+        var tabId = $this.attr("data-tab");
+        $tabBtn.removeClass("current");
+        $this.addClass("current");
+        $.ajax({
+          url: "./components/" + tabId + ".html",
+        }).done(function (data) {
+          $tabCon.html(data);
+          $.getScript("./components/component.js");
+          console.log("get");
+        });
+      });
+      $("ul.tabs li:nth-child(9)").trigger("click");
     </script>
     <!-- componentWrap END -->
   </body>

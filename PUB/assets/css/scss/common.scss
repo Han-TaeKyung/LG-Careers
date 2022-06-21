@@ -434,3 +434,65 @@ h3.title3 {
 }
 
 //아코디언
+.guideAcc {
+  .accItem {
+    & + .accItem {
+      margin-top: 10px;
+    }
+  }
+  .q {
+    .qBtn {
+      display: block;
+      width: 100%;
+      padding: 20px 10px;
+      text-align: left;
+      font-size: 0;
+      line-height: 0;
+      .accTitle {
+        display: inline-block;
+        margin-right: 20px;
+        font-size: 1.6rem;
+        line-height: 1.5;
+        font-weight: bold;
+        vertical-align: top;
+
+        &:before {
+          display: inline-block;
+          content: "Q";
+          font-size: 20px;
+          line-height: 1;
+          margin-right: 10px;
+          vertical-align: top;
+        }
+      }
+      .accQuery {
+        display: inline-block;
+        vertical-align: top;
+        font-size: 1.6rem;
+        line-height: 1.5;
+      }
+    }
+  }
+  .a {
+    display: none;
+    position: relative;
+    padding: 10px;
+    .accCon {
+      position: relative;
+      padding-left: 30px;
+      font-size: 1.6rem;
+      &:before {
+        display: inline-block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        content: "A";
+        color: $BrandColorRed;
+        font-size: 20px;
+        line-height: 1;
+        font-weight: bold;
+        vertical-align: top;
+      }
+    }
+  }
+}
