@@ -142,30 +142,39 @@
   .mT#{$i*5} {
     margin-top: (0.5*$i)rem;
   }
+
   .mB#{$i*5} {
     margin-bottom: (0.5*$i)rem;
   }
+
   .mL#{$i*5} {
     margin-left: (0.5*$i)rem;
   }
+
   .mR#{$i*5} {
     margin-right: (0.5*$i)rem;
   }
+
   .p#{$i*5} {
     margin: (0.5*$i)rem;
   }
+
   .pT#{$i*5} {
     padding-top: (0.5*$i)rem;
   }
+
   .pB#{$i*5} {
     padding-bottom: (0.5*$i)rem;
   }
+
   .pL#{$i*5} {
     padding-left: (0.5*$i)rem;
   }
+
   .pR#{$i*5} {
     padding-right: (0.5*$i)rem;
   }
+
   .p#{$i*5} {
     padding: (0.5*$i)rem;
   }
@@ -185,19 +194,20 @@
 }
 
 //공통 class
-h1.title1 {
+h3 {
   @include title1;
 }
 
-h2.title2 {
+h4 {
   @include title2;
 }
 
-h3.title3 {
+h5 {
   @include title3;
 }
 
-.subTitle1 {
+h6 {
+  //서브타이틀
   @include subTitle1;
 }
 
@@ -205,7 +215,7 @@ h3.title3 {
   @include subTitle2;
 }
 
-.subText1 {
+p {
   @include subText1;
 }
 

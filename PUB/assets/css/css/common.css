@@ -2,11 +2,13 @@
   width: 120rem;
   margin: 3rem auto;
 }
+
 .fileListWrap table {
   margin-top: 2rem;
   width: 100%;
   border: 0.1rem solid #999;
 }
+
 .fileListWrap table thead tr th {
   background-color: #f1f1f1;
   border-bottom: 0.1rem solid #999;
@@ -15,12 +17,14 @@
   text-align: center;
   padding: 0.8rem 1.5rem;
 }
+
 .fileListWrap table tbody tr td {
   border-bottom: 0.1rem solid #999;
   font-size: 1.3rem;
   color: #555;
   padding: 1rem 1.2rem;
 }
+
 .fileListWrap table tbody tr td label {
   background-color: #6b6b6b;
   color: #fff;
@@ -29,9 +33,11 @@
   border-radius: 0.5rem;
   cursor: default;
 }
+
 .fileListWrap table tbody tr td a {
   font-weight: bold;
 }
+
 .fileListWrap table tbody tr td a:hover {
   color: #a50034;
 }
@@ -42,20 +48,25 @@
   width: 20rem;
   padding: 4rem 3rem 3rem;
 }
+
 .componentWrap .tabs li {
   margin-bottom: 2rem;
 }
+
 .componentWrap .tabs li a {
   font-size: 1.8rem;
   font-weight: bold;
   letter-spacing: -0.04rem;
 }
+
 .componentWrap .tabs .current {
   border-right: 0.2rem solid #b70f28;
 }
+
 .componentWrap .tabs .current a {
   color: #b70f28;
 }
+
 .componentWrap .tab-content {
   display: none;
   position: absolute;
@@ -63,9 +74,11 @@
   padding: 3rem 0;
   width: calc(100% - 23rem);
 }
+
 .componentWrap .tab-content.current {
   display: block;
 }
+
 .componentWrap .tab-content > h2 {
   font-size: 2.4rem;
   font-weight: 600;
@@ -75,23 +88,34 @@
   padding-bottom: 1.5rem;
   margin-bottom: 1.5rem;
 }
+
 .componentWrap .tab-content .tabContent1 ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: flex-start;
-  align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   padding: 2rem 2.5rem;
 }
+
 .componentWrap .tab-content .tabContent1 ul:nth-child(odd) {
   background-color: #f5f5f5;
 }
+
 .componentWrap .tab-content .tabContent1 ul li:first-child {
   width: 45rem;
 }
+
 .componentWrap .tab-content .tabContent1 ul li:first-child p {
   font-size: 1.6rem;
   letter-spacing: -0.04rem;
   color: #555;
 }
+
 .componentWrap .tab-content .tabContent1 ul li:first-child span {
   font-size: 1.1rem;
   color: #c0c0c0;
@@ -513,40 +537,40 @@
   text-align: right !important;
 }
 
-h1.title1 {
+h3 {
   font-size: 2.4rem;
-  letter-spacing: -0.04rem;
+  letter-spacing: -.04rem;
   line-height: 3rem;
   font-weight: 400;
 }
 
-h2.title2 {
+h4 {
   font-size: 2.2rem;
-  letter-spacing: -0.04rem;
+  letter-spacing: -.04rem;
   line-height: 2.6rem;
 }
 
-h3.title3 {
+h5 {
   font-size: 2rem;
-  letter-spacing: -0.04rem;
+  letter-spacing: -.04rem;
   line-height: 2.4rem;
 }
 
-.subTitle1 {
+h6 {
   font-size: 1.8rem;
-  letter-spacing: -0.04rem;
+  letter-spacing: -.04rem;
   line-height: 2.2rem;
 }
 
 .subTitle2 {
   font-size: 1.6rem;
-  letter-spacing: -0.04rem;
+  letter-spacing: -.04rem;
   line-height: 2rem;
 }
 
-.subText1 {
+p {
   font-size: 1.4rem;
-  letter-spacing: -0.04rem;
+  letter-spacing: -.04rem;
   line-height: 1.8rem;
 }
 
@@ -557,8 +581,10 @@ h3.title3 {
   padding: 0.8rem 1.5rem;
   border-radius: 0.5rem;
 }
+
 .btnType1:hover {
   background-color: #222;
+  -webkit-transition: 0.4s;
   transition: 0.4s;
 }
 
@@ -574,6 +600,7 @@ h3.title3 {
   -webkit-clip-path: inset(1px);
           clip-path: inset(1px);
 }
+
 .inputType1 input {
   border: 0.1rem solid #ccc;
   font-size: 1.6rem;
@@ -592,6 +619,7 @@ h3.title3 {
   -webkit-clip-path: inset(1px);
           clip-path: inset(1px);
 }
+
 .textBox1 textarea {
   border: 0.1rem solid #ccc;
   font-size: 1.6rem;
@@ -603,6 +631,7 @@ h3.title3 {
   width: 100%;
   border-top: 0.1rem solid #222;
 }
+
 .tableCol table thead tr th {
   background-color: #f8f8f8;
   font-size: 1.6rem;
@@ -613,9 +642,11 @@ h3.title3 {
   text-align: center;
   padding: 1.2rem 1.5rem;
 }
+
 .tableCol table thead tr th:last-child {
   border-right: 0;
 }
+
 .tableCol table tbody tr td {
   font-size: 1.4rem;
   color: #555;
@@ -623,6 +654,7 @@ h3.title3 {
   border-right: 0.1rem solid #eee;
   padding: 1.2rem 1.5rem;
 }
+
 .tableCol table tbody tr td:last-child {
   border-right: 0;
 }
@@ -631,6 +663,7 @@ h3.title3 {
   width: 100%;
   border-top: 0.1rem solid #222;
 }
+
 .tableRow table thead tr th {
   background-color: #f8f8f8;
   font-size: 1.6rem;
@@ -641,9 +674,11 @@ h3.title3 {
   text-align: center;
   padding: 1.2rem 1.5rem;
 }
+
 .tableRow table thead tr th:last-child {
   border-right: 0;
 }
+
 .tableRow table tbody tr th {
   background-color: #f8f8f8;
   font-size: 1.6rem;
@@ -653,6 +688,7 @@ h3.title3 {
   border-right: 0.1rem solid #eee;
   padding: 1.2rem 1.5rem;
 }
+
 .tableRow table tbody tr td {
   font-size: 1.4rem;
   color: #555;
@@ -660,18 +696,20 @@ h3.title3 {
   border-right: 0.1rem solid #eee;
   padding: 1.2rem 1.5rem;
 }
+
 .tableRow table tbody tr td:last-child {
   border-right: 0;
 }
 
 .typeDot > li {
   font-size: 1.4rem;
-  letter-spacing: -0.04rem;
+  letter-spacing: -.04rem;
   line-height: 1.8rem;
   margin-bottom: 0.5rem;
   position: relative;
   padding-left: 0.8rem;
 }
+
 .typeDot > li::before {
   content: " ";
   width: 0.2rem;
@@ -681,19 +719,22 @@ h3.title3 {
   left: 0;
   top: 0.9rem;
 }
+
 .typeDot > li:last-child {
   margin-bottom: 0;
 }
 
 .typeHy > li {
   font-size: 1.4rem;
-  letter-spacing: -0.04rem;
+  letter-spacing: -.04rem;
   line-height: 1.8rem;
   margin-bottom: 0.5rem;
 }
+
 .typeHy > li::before {
   content: "- ";
 }
+
 .typeHy > li:last-child {
   margin-bottom: 0;
 }
@@ -702,22 +743,31 @@ h3.title3 {
   list-style: auto;
   padding-left: 1.45rem;
 }
+
 .typeNum li {
   list-style: inherit;
   font-size: 1.4rem;
-  letter-spacing: -0.04rem;
+  letter-spacing: -.04rem;
   line-height: 1.8rem;
   margin-bottom: 0.5rem;
 }
 
 .paging ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
+
 .paging ul li {
   margin: 0 0.2rem;
 }
+
 .paging .paging_num {
   width: 36px;
   height: 36px;
@@ -726,15 +776,18 @@ h3.title3 {
   border-radius: 3px;
   border: 1px solid #cccccc;
 }
+
 .paging .paging_num a {
   font-size: 14px;
   display: block;
   width: 100%;
   height: 100%;
 }
+
 .paging .paging_num.paging_num_on {
   border: 1px solid #eb6565 !important;
 }
+
 .paging .paging_num.paging_num_on a {
   color: #eb6565 !important;
 }
