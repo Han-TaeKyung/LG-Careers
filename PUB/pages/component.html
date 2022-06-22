@@ -39,6 +39,9 @@
           <li class="tab-link" data-tab="tab-9">
             <a href="#">Accordion</a>
           </li>
+          <li class="tab-link" data-tab="tab-10">
+            <a href="#">기타</a>
+          </li>
         </ul>
         <div class="tab-content current"></div>
       </div>
@@ -58,12 +61,12 @@
             url: "./components/" + tabId + ".html",
           }).done(function (data) {
             $tabCon.html(data);
+            $.getScript("../../assets/js/lib/slick.1.6.0.min.js");
             $.getScript("./components/component.js");
-            console.log("get");
           });
         })
         .triggerHandler("click");
-      //$("ul.tabs li:nth-child(9)").trigger("click");
+      $("ul.tabs li:nth-child(10)").trigger("click");
     </script>
     <!-- componentWrap END -->
   </body>
