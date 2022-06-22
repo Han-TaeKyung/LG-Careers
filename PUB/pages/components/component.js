@@ -18,4 +18,40 @@ $(function () {
       $thisAnswer.attr("title", "닫힘");
     }
   });
+
+  //slick
+  var $lists = $(".slide-list");
+  $lists.slick({
+    //기본
+    autoplay: true,
+    dots: false,
+    swipe: true,
+    draggable: true,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    variableWidth: false,
+    infinite: true,
+    //prevArrow: $infoBanner1.find(".prev"),
+    //nextArrow: $infoBanner1.find(".next"),
+    //추가 기능
+    autoArrow: $(".banner1 .auto"),
+    isRunOnLowIE: false,
+    pauseOnArrowClick: true,
+    pauseOnDirectionKeyPush: true,
+    pauseOnSwipe: true,
+    pauseOnDotsClick: true,
+    pauseText: "정지",
+    playText: "재생",
+    responsive: [
+      {
+        breakpoint: 1001,
+        settings: {
+          swipe: true,
+          draggable: true,
+          verticalSwiping: true,
+          swipeToSlide: true,
+        },
+      },
+    ],
+  });
 });

@@ -6,7 +6,6 @@
     <title>LG Careers</title>
     <link rel="stylesheet" type="text/css" href="../../assets/css/style.css" />
     <script src="../../assets/js/lib/jquery-3.6.0.min.js"></script>
-    <script src="../../assets/js/lib/slick.1.6.0.min.js"></script>
     <script src="../../assets/js/lib/jquery.mousewheel.js"></script>
     <script src="../../assets/js/layout.js"></script>
     <script src="../../assets/js/main.js"></script>
@@ -21,15 +20,7 @@
     </header>
     <!--mainHeader END-->
 
-    <div id="container" class="mainPage01 page" data-page="1">
-      <div class="list">
-        <div class="item">hi~</div>
-        <div class="item">hi~2</div>
-        <div class="item">hi~3</div>
-        <div class="item">hi~4</div>
-        <div class="item">hi~5</div>
-      </div>
-    </div>
+    <div id="container" class="mainPage01 page" data-page="1"></div>
     <!--mainPage01 END-->
     <div class="mainPage02 page" data-page="2">두번째 영역</div>
     <!--mainPage02 END-->
@@ -37,42 +28,6 @@
     <!--mainPage03 END-->
     <div class="mainPage04 page" data-page="4">네번째 영역</div>
     <!--mainPage04 END-->
-    <script>
-      var $lists = $(".mainPage01 .list");
-      $lists.slick({
-        //기본
-        autoplay: true,
-        dots: false,
-        swipe: true,
-        draggable: true,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        variableWidth: false,
-        infinite: true,
-        //prevArrow: $infoBanner1.find(".prev"),
-        //nextArrow: $infoBanner1.find(".next"),
-        //추가 기능
-        autoArrow: $(".banner1 .auto"),
-        isRunOnLowIE: false,
-        pauseOnArrowClick: true,
-        pauseOnDirectionKeyPush: true,
-        pauseOnSwipe: true,
-        pauseOnDotsClick: true,
-        pauseText: "정지",
-        playText: "재생",
-        responsive: [
-          {
-            breakpoint: 1001,
-            settings: {
-              swipe: true,
-              draggable: true,
-              verticalSwiping: true,
-              swipeToSlide: true,
-            },
-          },
-        ],
-      });
-    </script>
     <div class="mainNav">
       <ul>
         <li data-n="1" class="mainOn mainNav01">1</li>
