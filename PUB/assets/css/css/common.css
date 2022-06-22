@@ -738,3 +738,59 @@ h3.title3 {
 .paging .paging_num.paging_num_on a {
   color: #eb6565 !important;
 }
+
+.guideAcc .accItem + .accItem {
+  margin-top: 10px;
+}
+.guideAcc .q .qBtn {
+  display: block;
+  width: 100%;
+  padding: 20px 10px;
+  text-align: left;
+  font-size: 0;
+  line-height: 0;
+}
+.guideAcc .q .qBtn .accTitle {
+  display: inline-block;
+  margin-right: 20px;
+  font-size: 1.6rem;
+  line-height: 1.5;
+  font-weight: bold;
+  vertical-align: top;
+}
+.guideAcc .q .qBtn .accTitle:before {
+  display: inline-block;
+  content: "Q";
+  font-size: 20px;
+  line-height: 1;
+  margin-right: 10px;
+  vertical-align: top;
+}
+.guideAcc .q .qBtn .accQuery {
+  display: inline-block;
+  vertical-align: top;
+  font-size: 1.6rem;
+  line-height: 1.5;
+}
+.guideAcc .a {
+  display: none;
+  position: relative;
+  padding: 10px;
+}
+.guideAcc .a .accCon {
+  position: relative;
+  padding-left: 30px;
+  font-size: 1.6rem;
+}
+.guideAcc .a .accCon:before {
+  display: inline-block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  content: "A";
+  color: #a50034;
+  font-size: 20px;
+  line-height: 1;
+  font-weight: bold;
+  vertical-align: top;
+}

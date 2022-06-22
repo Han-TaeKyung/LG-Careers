@@ -59,9 +59,11 @@
           }).done(function (data) {
             $tabCon.html(data);
             $.getScript("./components/component.js");
+            console.log("get");
           });
         })
         .triggerHandler("click");
+      //$("ul.tabs li:nth-child(9)").trigger("click");
     </script>
     <!-- componentWrap END -->
   </body>
