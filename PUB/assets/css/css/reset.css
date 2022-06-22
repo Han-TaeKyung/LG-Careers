@@ -2,27 +2,34 @@
 /*@import url(http://fonts.googleapis.com/earlyaccess/nanummgothic.css);*/
 @font-face {
   font-family: "LGSmart";
+  font-style: light;
+  font-weight: 200;
+  src: url("/assets/fonts/subset-LGSmHaTL.woff") format("woff"),
+    url("/assets/fonts/subset-LGSmHaTL.woff2") format("woff2");
+}
+@font-face {
+  font-family: "LGSmart";
   font-style: normal;
   font-weight: 400;
-  src: url("/assets/fonts/LGSMHATR.eot");
-  src: url("/assets/fonts/LGSMHATR.eot?#iefix") format("embedded-opentype"), url("/assets/fonts/LGSMHATR.woff") format("woff");
+  src: url("/assets/fonts/subset-LGSmHaTR.woff") format("woff"),
+    url("/assets/fonts/subset-LGSmHaTR.woff2") format("woff2");
 }
 @font-face {
   font-family: "LGSmart";
-  font-style: normal;
+  font-style: bold;
   font-weight: 500;
   /* 세미볼드 */
-  src: url("/assets/fonts/LGSMHATSB.eot");
-  src: url("/assets/fonts/LGSMHATSB.eot?#iefix") format("embedded-opentype"), url("/assets/fonts/LGSMHATSB.woff") format("woff");
+  src: url("/assets/fonts/subset-LGSmHaTSB.woff") format("woff"),
+    url("/assets/fonts/subset-LGSmHaTSB.woff2") format("woff2");
 }
 @font-face {
   font-family: "LGSmart";
-  font-style: normal;
+  font-style: black;
   font-weight: 700;
   /* 볼드 */
   /* 세미볼드 */
-  src: url("/assets/fonts/LGSMHATB.eot");
-  src: url("/assets/fonts/LGSMHATB.eot?#iefix") format("embedded-opentype"), url("/assets/fonts/LGSMHATB.woff") format("woff");
+  src: url("/assets/fonts/subset-LGSmHaTB.woff") format("woff"),
+    url("/assets/fonts/subset-LGSmHaTB.woff2") format("woff2");
 }
 * {
   font-family: "LGSmart", sans-serif;
@@ -43,7 +50,8 @@
 body {
   font-size: 1.6rem;
   font-weight: 400;
-  font-family: "LGSmart", -apple-system, BlinkMacSystemFont, "Malgun Gothic", Roboto, "Helvetica Neue", sans-serif;
+  font-family: "LGSmart", -apple-system, BlinkMacSystemFont, "Malgun Gothic",
+    Roboto, "Helvetica Neue", sans-serif;
   text-align: left;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
