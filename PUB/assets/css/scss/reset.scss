@@ -5,34 +5,42 @@
   font-family: "LGSmart";
   font-style: normal;
   font-weight: 400;
-  src: url("/assets/fonts/LGSMHATR.eot");
-  src: url("/assets/fonts/LGSMHATR.eot?#iefix") format("embedded-opentype"),
-    url("/assets/fonts/LGSMHATR.woff") format("woff");
+  // src: url("/assets/fonts/LGSMHATR.eot");
+  // src: url("/assets/fonts/LGSMHATR.eot?#iefix") format("embedded-opentype"),
+  //   url("/assets/fonts/LGSMHATR.woff") format("woff");
+  src: url("/assets/fonts/subset-LGSmHaTR.woff") format("woff"),
+    url("/assets/fonts/subset-LGSmHaTR.woff2") format("woff2"),
 }
 
 @font-face {
   font-family: "LGSmart";
   font-style: normal;
-  font-weight: 500; /* 세미볼드 */
-  src: url("/assets/fonts/LGSMHATSB.eot");
-  src: url("/assets/fonts/LGSMHATSB.eot?#iefix") format("embedded-opentype"),
-    url("/assets/fonts/LGSMHATSB.woff") format("woff");
+  font-weight: 600;
+  /* 세미볼드 */
+  // src: url("/assets/fonts/LGSMHATSB.eot");
+  // src: url("/assets/fonts/LGSMHATSB.eot?#iefix") format("embedded-opentype"),
+  //   url("/assets/fonts/LGSMHATSB.woff") format("woff");
+  src: url("/assets/fonts/subset-LGSmHaTSB.woff") format("woff"),
+    url("/assets/fonts/subset-LGSmHaTSB.woff2") format("woff2"),
 }
+
 @font-face {
   font-family: "LGSmart";
   font-style: normal;
-  font-weight: 700; /* 볼드 */
-  /* 세미볼드 */
-  src: url("/assets/fonts/LGSMHATB.eot");
-  src: url("/assets/fonts/LGSMHATB.eot?#iefix") format("embedded-opentype"),
-    url("/assets/fonts/LGSMHATB.woff") format("woff");
+  font-weight: 700;
+  /* 볼드 */
+  // src: url("/assets/fonts/LGSMHATB.eot");
+  // src: url("/assets/fonts/LGSMHATB.eot?#iefix") format("embedded-opentype"),
+  //   url("/assets/fonts/LGSMHATB.woff") format("woff");
+  src: url("/assets/fonts/subset-LGSmHaTB.woff") format("woff"),
+    url("/assets/fonts/subset-LGSmHaTB.woff2") format("woff2"),
 }
 
 * {
   font-family: "LGSmart", sans-serif;
   font-weight: normal;
   // font-size: 1.6rem;
-  letter-spacing: -0.05em;
+  // letter-spacing: -0.05em;
 }
 
 :root {
@@ -55,6 +63,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   word-break: keep-all;
 }
+
 /* reset */
 html,
 body,
@@ -346,8 +355,7 @@ button {
 
 /*layout setting*/
 
-body {
-}
+body {}
 
 * {
   text-rendering: optimizeLegibility;
@@ -405,6 +413,7 @@ caption {
   position: relative;
   width: 100%;
   overflow: hidden;
+
   a {
     display: block;
     height: 1px;

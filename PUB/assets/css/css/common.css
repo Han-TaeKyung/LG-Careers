@@ -584,7 +584,7 @@ p {
   border-radius: 0.5rem;
   text-align: center;
   vertical-align: middle;
-  min-width: 8rem;
+  min-width: 10rem;
   height: auto;
 }
 
@@ -608,12 +608,14 @@ p {
 .btn.type2 {
   background-color: #a50034;
   color: #ffffff;
+  font-weight: 600;
   border: 0.1rem solid #a50034;
 }
 
 .btn.type2:hover {
   background-color: #a50034;
   color: #ffffff;
+  font-weight: 600;
   border: 0.1rem solid #a50034;
 }
 
@@ -621,6 +623,13 @@ p {
   border: 0.1rem solid #999;
   color: #999;
   cursor: default;
+}
+
+.btn.round {
+  height: 5.6rem;
+  line-height: 5.6rem;
+  border-radius: 2.8rem;
+  padding: 0 1.2rem;
 }
 
 .btn + .btn {
@@ -778,8 +787,14 @@ p {
 
 .inputBox input {
   border: 0.1rem solid #ccc;
-  font-size: 1.6rem;
-  padding: 1.4rem;
+  font-size: 1.4rem;
+  padding: 1.5rem;
+  color: #6b6b6b;
+}
+
+.inputBox.type2 input {
+  border: 0;
+  height: 100%;
 }
 
 .inputBox label {
