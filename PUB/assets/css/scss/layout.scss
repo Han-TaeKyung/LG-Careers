@@ -190,3 +190,243 @@
         }
     }
 }
+
+#lnb {
+    width: 34rem;
+    height: auto;
+    background-color: $White;
+    box-shadow: 1rem 0.8rem 4rem rgba(0, 0, 0, 0.06);
+    border-radius: 1.5rem;
+    padding: 3.7rem 2rem 4rem;
+
+    .lnbLogo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        span {
+            &:first-child {
+                margin-right: 0.4rem;
+            }
+
+            img {
+                vertical-align: middle;
+            }
+        }
+    }
+
+    .lnbSearch {
+        width: 100%;
+        height: 5.4rem;
+        border-radius: 2.7rem;
+        background-color: #F5F5F5;
+        padding: 0 2rem;
+        margin: 4rem 0 5rem;
+
+        input {
+            width: calc(100% - 3rem);
+            padding: 1.5rem 1rem;
+            font-size: 1.6rem;
+
+            &::placeholder {
+                color: #aeaeae;
+            }
+
+        }
+    }
+
+    .lnbMenu {
+        li {
+            margin-bottom: 3rem;
+            padding: 0 2rem;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+
+            a {
+                display: inline-block;
+
+                span {
+                    font-size: 1.7rem;
+                    line-height: 2.3rem;
+                    letter-spacing: -0.02em;
+                    color: $LGBlack;
+                }
+
+                padding-left: 3.9rem;
+                background-position: left center;
+                background-repeat: no-repeat;
+
+                &:hover,
+                &:focus {
+                    span {
+                        color: $BrandColorRed;
+                        font-weight: 600;
+                    }
+                }
+            }
+
+            &.lnbMenuOn {
+                a {
+                    span {
+                        color: $BrandColorRed;
+                        font-weight: 600;
+                    }
+                }
+            }
+
+
+            &.lnbIco01 {
+                a {
+                    background-image: url(../../images/icon/lnbIco01.png);
+                }
+            }
+
+            &.lnbIco02 {
+                a {
+                    background-image: url(../../images/icon/lnbIco02.png);
+                }
+            }
+
+            &.lnbIco03 {
+                a {
+                    background-image: url(../../images/icon/lnbIco03.png);
+                }
+            }
+
+            &.lnbIco04 {
+                a {
+                    background-image: url(../../images/icon/lnbIco04.png);
+                }
+            }
+
+            &.lnbIco05 {
+                a {
+                    background-image: url(../../images/icon/lnbIco05.png);
+                }
+            }
+
+            &.lnbIco06 {
+                a {
+                    background-image: url(../../images/icon/lnbIco06.png);
+                }
+            }
+        }
+    }
+
+    .lnbSns {
+        padding: 8rem 2rem;
+
+        h4 {
+            font-weight: 600;
+            color: $LGBlack;
+            letter-spacing: -0.02em;
+        }
+
+        ul {
+            display: flex;
+
+            li {
+                margin-right: 1.2rem;
+
+                &:last-child {
+                    margin-right: 0;
+                }
+
+                a {
+                    background-image: url(../../images/icon/sns.png);
+                    background-repeat: no-repeat;
+                    display: block;
+                    width: 5.6rem;
+                    height: 5.6rem;
+
+                    &:hover,
+                    &:focus {
+                        background-image: url(../../images/icon/snsOn.png);
+                    }
+                }
+
+                &.sns01 {
+                    a {
+                        background-position: left;
+                    }
+                }
+
+                &.sns02 {
+                    a {
+                        background-position: -6.8rem;
+                    }
+                }
+
+                &.sns03 {
+                    a {
+                        background-position: -13.6rem;
+                    }
+                }
+
+                &.sns04 {
+                    a {
+                        background-position: -20.4rem;
+                    }
+                }
+
+            }
+        }
+    }
+
+    .postList {
+        h5 {
+            font-weight: 600;
+            color: $LGBlack;
+            padding: 0 2rem 0.4rem;
+        }
+
+        ul {
+            li {
+                padding: 2.6rem 1.5rem;
+                border-radius: 1rem;
+
+                &:nth-child(2n) {
+                    background-color: #f5f5f5;
+                }
+
+                a {
+                    display: block;
+
+                    .postTitle {
+                        font-size: 1.6rem;
+                        line-height: 1.6rem;
+                        letter-spacing: -0.02em;
+                        color: $LGBlack;
+                        margin-bottom: 1.5rem;
+                    }
+
+                    .postCon {
+                        font-size: 1.6rem;
+                        line-height: 1.6rem;
+                        letter-spacing: -0.02em;
+                        color: $LGBlack;
+
+                        .pointC {
+                            color: $BrandColorRed;
+                            position: relative;
+                            padding-right: 1.1rem;
+                            margin-right: 1rem;
+
+                            &::before {
+                                display: block;
+                                width: 0.1rem;
+                                height: 1.1rem;
+                                background-color: $LGLightGray;
+                                position: absolute;
+                                right: 0;
+                                top: 0.5rem;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

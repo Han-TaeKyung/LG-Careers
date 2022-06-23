@@ -195,3 +195,224 @@
   line-height: 1.2rem;
   color: #aeaeae;
 }
+
+#lnb {
+  width: 34rem;
+  height: auto;
+  background-color: #ffffff;
+  -webkit-box-shadow: 1rem 0.8rem 4rem rgba(0, 0, 0, 0.06);
+          box-shadow: 1rem 0.8rem 4rem rgba(0, 0, 0, 0.06);
+  border-radius: 1.5rem;
+  padding: 3.7rem 2rem 4rem;
+}
+
+#lnb .lnbLogo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#lnb .lnbLogo span:first-child {
+  margin-right: 0.4rem;
+}
+
+#lnb .lnbLogo span img {
+  vertical-align: middle;
+}
+
+#lnb .lnbSearch {
+  width: 100%;
+  height: 5.4rem;
+  border-radius: 2.7rem;
+  background-color: #F5F5F5;
+  padding: 0 2rem;
+  margin: 4rem 0 5rem;
+}
+
+#lnb .lnbSearch input {
+  width: calc(100% - 3rem);
+  padding: 1.5rem 1rem;
+  font-size: 1.6rem;
+}
+
+#lnb .lnbSearch input::-webkit-input-placeholder {
+  color: #aeaeae;
+}
+
+#lnb .lnbSearch input:-ms-input-placeholder {
+  color: #aeaeae;
+}
+
+#lnb .lnbSearch input::-ms-input-placeholder {
+  color: #aeaeae;
+}
+
+#lnb .lnbSearch input::placeholder {
+  color: #aeaeae;
+}
+
+#lnb .lnbMenu li {
+  margin-bottom: 3rem;
+  padding: 0 2rem;
+}
+
+#lnb .lnbMenu li:last-child {
+  margin-bottom: 0;
+}
+
+#lnb .lnbMenu li a {
+  display: inline-block;
+  padding-left: 3.9rem;
+  background-position: left center;
+  background-repeat: no-repeat;
+}
+
+#lnb .lnbMenu li a span {
+  font-size: 1.7rem;
+  line-height: 2.3rem;
+  letter-spacing: -0.02em;
+  color: #1D1D1B;
+}
+
+#lnb .lnbMenu li a:hover span, #lnb .lnbMenu li a:focus span {
+  color: #a50034;
+  font-weight: 600;
+}
+
+#lnb .lnbMenu li.lnbMenuOn a span {
+  color: #a50034;
+  font-weight: 600;
+}
+
+#lnb .lnbMenu li.lnbIco01 a {
+  background-image: url(../../images/icon/lnbIco01.png);
+}
+
+#lnb .lnbMenu li.lnbIco02 a {
+  background-image: url(../../images/icon/lnbIco02.png);
+}
+
+#lnb .lnbMenu li.lnbIco03 a {
+  background-image: url(../../images/icon/lnbIco03.png);
+}
+
+#lnb .lnbMenu li.lnbIco04 a {
+  background-image: url(../../images/icon/lnbIco04.png);
+}
+
+#lnb .lnbMenu li.lnbIco05 a {
+  background-image: url(../../images/icon/lnbIco05.png);
+}
+
+#lnb .lnbMenu li.lnbIco06 a {
+  background-image: url(../../images/icon/lnbIco06.png);
+}
+
+#lnb .lnbSns {
+  padding: 8rem 2rem;
+}
+
+#lnb .lnbSns h4 {
+  font-weight: 600;
+  color: #1D1D1B;
+  letter-spacing: -0.02em;
+}
+
+#lnb .lnbSns ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+#lnb .lnbSns ul li {
+  margin-right: 1.2rem;
+}
+
+#lnb .lnbSns ul li:last-child {
+  margin-right: 0;
+}
+
+#lnb .lnbSns ul li a {
+  background-image: url(../../images/icon/sns.png);
+  background-repeat: no-repeat;
+  display: block;
+  width: 5.6rem;
+  height: 5.6rem;
+}
+
+#lnb .lnbSns ul li a:hover, #lnb .lnbSns ul li a:focus {
+  background-image: url(../../images/icon/snsOn.png);
+}
+
+#lnb .lnbSns ul li.sns01 a {
+  background-position: left;
+}
+
+#lnb .lnbSns ul li.sns02 a {
+  background-position: -6.8rem;
+}
+
+#lnb .lnbSns ul li.sns03 a {
+  background-position: -13.6rem;
+}
+
+#lnb .lnbSns ul li.sns04 a {
+  background-position: -20.4rem;
+}
+
+#lnb .postList h5 {
+  font-weight: 600;
+  color: #1D1D1B;
+  padding: 0 2rem 0.4rem;
+}
+
+#lnb .postList ul li {
+  padding: 2.6rem 1.5rem;
+  border-radius: 1rem;
+}
+
+#lnb .postList ul li:nth-child(2n) {
+  background-color: #f5f5f5;
+}
+
+#lnb .postList ul li a {
+  display: block;
+}
+
+#lnb .postList ul li a .postTitle {
+  font-size: 1.6rem;
+  line-height: 1.6rem;
+  letter-spacing: -0.02em;
+  color: #1D1D1B;
+  margin-bottom: 1.5rem;
+}
+
+#lnb .postList ul li a .postCon {
+  font-size: 1.6rem;
+  line-height: 1.6rem;
+  letter-spacing: -0.02em;
+  color: #1D1D1B;
+}
+
+#lnb .postList ul li a .postCon .pointC {
+  color: #a50034;
+  position: relative;
+  padding-right: 1.1rem;
+  margin-right: 1rem;
+}
+
+#lnb .postList ul li a .postCon .pointC::before {
+  display: block;
+  width: 0.1rem;
+  height: 1.1rem;
+  background-color: #d9dadb;
+  position: absolute;
+  right: 0;
+  top: 0.5rem;
+}
