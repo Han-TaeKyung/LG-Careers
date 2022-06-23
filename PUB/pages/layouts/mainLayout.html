@@ -15,100 +15,32 @@
   <body>
     <div id="headers"></div>
     <!--mainHeader END-->
-
-    <div id="container" class="mainPage01 page" data-page="1">
-      <div class="list">
-        <div class="item">hi~</div>
-        <div class="item">hi~2</div>
-        <div class="item">hi~3</div>
-        <div class="item">hi~4</div>
-        <div class="item">hi~5</div>
-      </div>
-    </div>
-    <!--mainPage01 END-->
-    <div class="mainPage02 page" data-page="2">두번째 영역</div>
-    <!--mainPage02 END-->
-    <div class="mainPage03 page" data-page="3">세번째 영역</div>
-    <!--mainPage03 END-->
-    <div class="mainPage04 page" data-page="4">네번째 영역</div>
-    <!--mainPage04 END-->
-    <script>
-      var $lists = $(".mainPage01 .list");
-      $lists.slick({
-        //기본
-        autoplay: true,
-        dots: false,
-        swipe: true,
-        draggable: true,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        variableWidth: false,
-        infinite: true,
-        //prevArrow: $infoBanner1.find(".prev"),
-        //nextArrow: $infoBanner1.find(".next"),
-        //추가 기능
-        autoArrow: $(".banner1 .auto"),
-        isRunOnLowIE: false,
-        pauseOnArrowClick: true,
-        pauseOnDirectionKeyPush: true,
-        pauseOnSwipe: true,
-        pauseOnDotsClick: true,
-        pauseText: "정지",
-        playText: "재생",
-        responsive: [
-          {
-            breakpoint: 1001,
-            settings: {
-              swipe: true,
-              draggable: true,
-              verticalSwiping: true,
-              swipeToSlide: true,
-            },
-          },
-        ],
-      });
-    </script>
-    <div class="mainNav">
-      <ul>
-        <li data-n="1" class="mainOn mainNav01">1</li>
-        <li data-n="2" class="mainNav02">2</li>
-        <li data-n="3" class="mainNav03">3</li>
-        <li data-n="4" class="mainNav04">4</li>
-      </ul>
-    </div>
+    <div id="container"></div>
     <!--main_line END-->
 
-    <footer id="footer">
-      <div class="footerWrap">
-        <div class="footerCon">
-          <ul class="footerMenu">
-            <li>
-              <a href="#"><strong>개인정보처리방침</strong></a>
-            </li>
-            <li><a href="#">이용약관</a></li>
-            <li><a href="#">법적고지</a></li>
-            <li><a href="#">이메일무단수집거부</a></li>
-          </ul>
-          <ul class="subscribe">
-            <li>LG Subscribe</li>
-            <li class="scribeBox">
-              <span class="inputBox type2">
-                <label for="subscribe">LG Subscribe</label>
-                <input
-                  type="text"
-                  placeholder="이메일을 입력하시면 LG의 채용소식을 가장 빠르게 만날 수 있습니다."
-                  id="subscribe"
-                />
-              </span>
-              <a href="#" class="btn type2 round">구독하기</a>
-            </li>
-          </ul>
-        </div>
-        <div class="copyright">
-          <p><span>LG</span>Careers</p>
-          <span>Copyright ⓒ Careers LG. All Rights Reserved.</span>
-        </div>
-      </div>
-    </footer>
+    <footer id="footer"></footer>
+    <script>
+      $.ajax({
+        url: "./include/header.html",
+      }).done(function (data) {
+        $("#header").html(data);
+        $.getScript("../../assets/js/lib/slick.1.6.0.min.js");
+        $.getScript("../../assets/js/include.js");
+      });
+      $.ajax({
+        url: "./../main/main.html",
+      }).done(function (data) {
+        $("#container").html(data);
+        $.getScript("../../assets/js/lib/slick.1.6.0.min.js");
+        $.getScript("../../assets/js/main.js");
+      });
+      $.ajax({
+        url: "./include/footer.html",
+      }).done(function (data) {
+        console.log(data);
+        $("#footer").html(data);
+        $.getScript("../../assets/js/include.js");
+      });
+    </script>
   </body>
 </html>
