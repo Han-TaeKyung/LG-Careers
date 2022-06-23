@@ -1,10 +1,10 @@
 $(function () {
   if ($(window).width() > 1199) {
-    $("#gnb > ul > li").bind("mouseenter focusin", function () {
+    $(document).on("mouseenter focusin", "#gnb > ul > li", function () {
       $(this).addClass("gnbOn").siblings().removeClass("gnbOn");
     });
 
-    $("#gnb > ul > li").bind("mouseleave focusout", function () {
+    $(document).on("mouseleave focusout", "#gnb > ul > li", function () {
       $(this).removeClass("gnbOn");
     });
   }
