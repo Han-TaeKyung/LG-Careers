@@ -61,3 +61,14 @@ $(function () {
     }
   });
 });
+//키보드 방향키 막기
+$(document).keydown(function (event) {
+  if (
+    event.keyCode == 38 ||
+    event.keyCode == 40 /*|| event.keyCode == 37 || event.keyCode == 39*/
+  ) {
+    console.log(event);
+    event.preventDefault();
+  }
+  //38(↑), 40(↓), 37(←), 39(→)
+});

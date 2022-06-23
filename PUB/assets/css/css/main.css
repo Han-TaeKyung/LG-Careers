@@ -2,11 +2,31 @@ body,
 html {
   position: relative;
   height: 100%;
+}
+
+.mainPage01 {
+  width: 100%;
+  height: 100%;
+  padding-top: 8rem;
+}
+
+.mainPage02 {
+  width: 100%;
+  height: 100%;
+}
+
+.mainPage03 {
+  width: 100%;
+  height: 100%;
+}
+
+.mainPage04 {
+  width: 100%;
+  height: 100%;
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
-body::-webkit-scrollbar,
-html::-webkit-scrollbar {
+.mainPage04::-webkit-scrollbar {
   display: none;
 }
 
@@ -260,4 +280,9 @@ html::-webkit-scrollbar {
 }
 .page2 .storyList .storyItem .storyCon {
   width: inherit;
+}
+.mainNav {
+  position: fixed;
+  top: 10rem;
+  left: 5rem;
 }

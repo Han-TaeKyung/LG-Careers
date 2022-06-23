@@ -1,9 +1,192 @@
 @import "_variables", "_mixin";
 
-#header{
+#header {
     position: fixed;
     z-index: 1000;
     width: 100%;
     height: 8rem;
-    background-color:rgba(0,0,0,0.1);
+    background-color: rgba(0, 0, 0, 0.1);
+
+    .headerWrap {
+        display: flex;
+        height: 8rem;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 4rem;
+
+        .logo {
+            a {
+                font-size: 2.8rem;
+                color: $White;
+                font-weight: 600;
+
+                span {
+                    font-size: 3rem;
+                    font-weight: 700;
+                    padding-right: 1rem;
+                }
+            }
+        }
+
+        #gnb {
+            >ul {
+                display: flex;
+
+                >li {
+                    margin: 0 2.5rem;
+                    position: relative;
+
+                    &.aPoint {
+                        position: relative;
+
+                        &::before {
+                            display: block;
+                            position: absolute;
+                            width: .6rem;
+                            height: .6rem;
+                            right: -1rem;
+                            border-radius: 50%;
+                            background-color: #D00042;
+                        }
+                    }
+
+                    &.gnbOn {
+                        >ul {
+                            height: auto;
+                        }
+                    }
+
+                    >ul {
+                        position: absolute;
+                        height: 0;
+                        overflow: hidden;
+
+                        li {
+                            a {
+                                color: $Black;
+                            }
+                        }
+                    }
+
+                    a {
+                        font-size: 1.7rem;
+                        font-weight: 600;
+                        color: $White;
+                    }
+                }
+            }
+        }
+
+        .logMenu {
+            a {
+                background-image: url(../../images/icon/ico.png);
+                background-repeat: no-repeat;
+                background-position: left;
+                padding-left: 1.9rem;
+                font-size: 1.5rem;
+                line-height: 1.5rem;
+                color: #d4d4d4;
+
+                span {
+                    width: 0.1rem;
+                    height: 1rem;
+                    margin: 0 .8rem;
+                    display: inline-block;
+                    background-color: #d4d4d4;
+                    transform: rotate(24.15deg);
+                }
+            }
+        }
+    }
+}
+
+#footer {
+    width: 100%;
+    height: auto;
+    background-color: #f5f5f5;
+    padding: 4rem;
+
+    .footerCon {
+        border-bottom: 0.1rem solid #e7e7e7;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-bottom: 4rem;
+
+        ul {
+            display: flex;
+            align-items: center;
+        }
+
+        .footerMenu {
+            li {
+                margin-right: 2rem;
+
+                a {
+                    font-size: 1.5rem;
+                    line-height: 1.5rem;
+                    color: $BrandColorGray;
+
+                    strong {
+                        color: $Black;
+                    }
+                }
+            }
+        }
+
+        .subscribe {
+            li {
+                font-size: 1.8rem;
+                line-height: 1.8rem;
+                color: $Black;
+                font-weight: 600;
+                margin-left: 2rem;
+            }
+
+            .scribeBox {
+                width: 60rem;
+                height: 5.6rem;
+                background-color: $White;
+                border-radius: 2.8rem;
+                display: flex;
+                justify-content: space-between;
+
+                >span {
+                    width: calc(100% - 12rem);
+                    display: block;
+
+                    input {
+                        padding: 0 0 0 3rem;
+                        width: 100%;
+
+                    }
+                }
+
+            }
+        }
+    }
+
+    .copyright {
+        margin-top: 4rem;
+
+        p {
+            font-size: 3rem;
+            font-weight: 600;
+            color: #aeaeae;
+            margin-bottom: 1.5rem;
+
+            span {
+                font-size: 3rem;
+                font-weight: 700;
+                color: $BrandColorRed;
+                padding-right: 1rem;
+            }
+        }
+
+        span {
+            font-size: 1.2rem;
+            line-height: 1.2rem;
+            color: #aeaeae;
+        }
+    }
 }

@@ -10,6 +10,7 @@
   clip: rect(1px, 1px, 1px, 1px);
   clip-path: inset(1px);
 }
+
 @mixin ellipsis {
   white-space: nowrap;
   overflow: hidden;
@@ -44,29 +45,33 @@
   line-height: 3rem;
   font-weight: 400;
 }
+
 @mixin title2 {
   font-size: 2.2rem;
   letter-spacing: -.04rem;
   line-height: 2.6rem;
 }
+
 @mixin title3 {
   font-size: 2rem;
   letter-spacing: -.04rem;
   line-height: 2.4rem;
 }
+
 @mixin subTitle1 {
   font-size: 1.8rem;
   letter-spacing: -.04rem;
   line-height: 2.2rem;
 }
+
 @mixin subTitle2 {
   font-size: 1.6rem;
   letter-spacing: -.04rem;
   line-height: 2rem;
 }
+
 @mixin subText1 {
   font-size: 1.4rem;
   letter-spacing: -.04rem;
   line-height: 1.8rem;
 }
-
