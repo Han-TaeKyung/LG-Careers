@@ -268,7 +268,7 @@
 }
 
 .subConWrap .tabMenu .chStoryList {
-  margin-bottom: 0;
+  margin-bottom: -3.5rem;
 }
 
 .subConWrap .tabMenu .tabOn[data-tab-content] {
