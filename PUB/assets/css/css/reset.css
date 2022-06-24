@@ -226,13 +226,8 @@ a:link {
   text-decoration: none;
 }
 
-a:visited {
-  /*color:#333;*/
-}
-
 a:hover,
 a:active {
-  /*color:#333;*/
   text-decoration: none;
 }
 

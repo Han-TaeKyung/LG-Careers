@@ -97,7 +97,8 @@
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  margin-bottom: 3.5rem;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
 .subConWrap .subContent .chStoryList ul li {
@@ -105,6 +106,7 @@
   height: 42rem;
   border-radius: 1.5rem;
   background-color: #ffffff;
+  margin-bottom: 3.5rem;
 }
 
 .subConWrap .subContent .chStoryList ul li a {
@@ -164,8 +166,16 @@
   -webkit-box-orient: vertical;
 }
 
-.subConWrap .subContent .chStoryList ul.chStListHalf li {
+.subConWrap .subContent .chStoryList ul li.listTT {
+  width: 66.7rem;
+}
+
+.subConWrap .subContent .chStoryList ul li.listHalf {
   width: 49.2rem;
+}
+
+.subConWrap .subContent .chStoryList ul li.thumbNoImg .thumbCon p {
+  -webkit-line-clamp: 10;
 }
 
 .subConWrap .chPostList ul {
@@ -251,4 +261,46 @@
   position: absolute;
   right: 0;
   top: 0.5rem;
+}
+
+.subConWrap .tabMenu [data-tab-content] {
+  display: none;
+}
+
+.subConWrap .tabMenu .chStoryList {
+  margin-bottom: 0;
+}
+
+.subConWrap .tabMenu .tabOn[data-tab-content] {
+  display: block;
+}
+
+.subConWrap .tabMenu .tabs {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 1.8rem;
+  line-height: 1.8rem;
+  letter-spacing: -0.02em;
+  font-weight: 600;
+  color: #aeaeae;
+  margin-bottom: 3rem;
+}
+
+.subConWrap .tabMenu .tabs .tab {
+  cursor: pointer;
+  margin-right: 2.5rem;
+  padding-top: 0.8rem;
+}
+
+.subConWrap .tabMenu .tabs .tab.tabOn {
+  color: #a50034;
+  border-top: 0.2rem solid #a50034;
+  padding-top: 0.6rem;
+}
+
+.subConWrap .tabMenu .tabs .tab:hover {
+  color: #a50034;
+  border-top: 0.2rem solid #a50034;
+  padding-top: 0.6rem;
 }

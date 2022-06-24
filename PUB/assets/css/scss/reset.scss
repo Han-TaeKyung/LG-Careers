@@ -242,13 +242,10 @@ a:link {
   text-decoration: none;
 }
 
-a:visited {
-  /*color:#333;*/
-}
+// a:visited {}
 
 a:hover,
 a:active {
-  /*color:#333;*/
   text-decoration: none;
 }
 
@@ -354,8 +351,6 @@ button {
 }
 
 /*layout setting*/
-
-body {}
 
 * {
   text-rendering: optimizeLegibility;
