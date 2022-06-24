@@ -1,7 +1,175 @@
+@charset "UTF-8";
 .subContainer {
   width: 100%;
   height: auto;
   background-color: #eee;
+}
+
+/*명화*/
+.visualWrap .wrap {
+  width: 144rem;
+  margin: 0 auto;
+}
+.visualWrap .visualBg {
+  width: 178rem;
+  height: 630px;
+  margin: 0 auto;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 1.5rem;
+  overflow: hidden;
+}
+.visualWrap .visualBg .title {
+  margin-top: 7rem;
+  color: #fff;
+}
+.visualWrap .visualBg .title h2 {
+  margin-top: 3.5rem;
+  margin-bottom: 1rem;
+}
+.visualWrap .visualBg .title h2 span {
+  display: block;
+  font-size: 5rem;
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+}
+.visualWrap .visualBg .title p {
+  margin-top: 2.5rem;
+  margin-bottom: 7.1rem;
+}
+.visualWrap .visualBg .title p span {
+  font-size: 20px;
+  line-height: 1;
+}
+.visualWrap .visualBg .title p span:not(:last-child):after {
+  display: inline-block;
+  margin: 0 10px;
+  width: 1px;
+  height: 12px;
+  background-color: #d9dadb;
+  vertical-align: middle;
+}
+.visualWrap .visualBg .title .more {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 180px;
+  height: 58px;
+  border-radius: 30px;
+  border: 1px solid #fff;
+  font-size: 1.6rem;
+  line-height: 1;
+}
+.visualWrap .visualCon {
+  display: flex;
+  align-items: center;
+  height: 24rem;
+  margin-top: -12rem;
+  padding: 20px 40px;
+  background-color: #fff;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 1.5rem;
+}
+.visualWrap .visualCon .title {
+  display: inline-block;
+  flex-grow: 1;
+  color: #1d1d1b;
+  line-height: 1;
+}
+.visualWrap .visualCon .title h3 {
+  margin-bottom: 2.2rem;
+  font-weight: 600;
+  font-size: 2.2rem;
+  letter-spacing: -0.02em;
+}
+.visualWrap .visualCon .title p span {
+  display: block;
+  font-size: 1.6rem;
+  letter-spacing: -0.02em;
+  line-height: 1.5;
+}
+.visualWrap .visualCon .slideWrap {
+  display: inline-flex;
+  position: relative;
+  overflow: hidden;
+  width: 97rem;
+  padding: 0 65px;
+}
+.visualWrap .visualCon .slideWrap .slideList {
+  width: 84rem;
+}
+.visualWrap .visualCon .slideWrap .slideList .slideItem {
+  overflow: hidden;
+  position: relative;
+  width: 19rem;
+  height: 19rem;
+  margin: 0 1.25rem;
+  border-radius: 1rem;
+}
+.visualWrap .visualCon .slideWrap .slideList .slideItem .slideAnchor {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.visualWrap .visualCon .slideWrap .slideList .slideItem .slideAnchor .con {
+  position: absolute;
+  visibility: hidden;
+  opacity: 0;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 1.5rem;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  transition: all 0.2s;
+}
+.visualWrap .visualCon .slideWrap .slideList .slideItem .slideAnchor .con .part {
+  color: #d9d9d9;
+  margin-bottom: 10px;
+}
+.visualWrap .visualCon .slideWrap .slideList .slideItem .slideAnchor .con .name {
+  color: #fff;
+}
+.visualWrap .visualCon .slideWrap .slideList .slideItem:hover .slideAnchor .con {
+  visibility: visible;
+  opacity: 1;
+  bottom: 20px;
+}
+.visualWrap .visualCon .slideWrap .slideCtrl {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: calc(50% - 17px);
+}
+.visualWrap .visualCon .slideWrap .slideCtrl button {
+  display: flex;
+  position: absolute;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  width: 42px;
+  height: 42px;
+  background-color: #aeaeae;
+  font-size: 0;
+  line-height: 0;
+}
+.visualWrap .visualCon .slideWrap .slideCtrl button.prev {
+  left: 0;
+}
+.visualWrap .visualCon .slideWrap .slideCtrl button.next {
+  right: 0;
+}
+.visualWrap .visualCon .slideWrap .slideCtrl button:before {
+  display: block;
+  width: 10px;
+  height: 10px;
+  border-width: 0 0 2px 2px;
+  border-style: solid;
+  border-color: #fff;
+  transform: rotate(45deg);
+}
+.visualWrap .visualCon .slideWrap .slideCtrl button.next:before {
+  transform: rotate(-135deg);
 }
 
 .subConWrap {
@@ -9,45 +177,26 @@
   width: 144rem;
   height: auto;
   margin: 0 auto;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
+  justify-content: space-between;
+  align-items: flex-start;
 }
-
 .subConWrap .subContent {
   width: 101.8rem;
   height: auto;
   padding: 4rem 0 0;
 }
-
 .subConWrap .subContent .subTitle2 {
   color: #6b6b6b;
 }
-
 .subConWrap .subContent .subContentTop {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: end;
-      -ms-flex-align: end;
-          align-items: flex-end;
+  justify-content: space-between;
+  align-items: flex-end;
 }
-
 .subConWrap .subContent .sta ul {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
 }
-
 .subConWrap .subContent .sta ul li {
   position: relative;
   padding-right: 2.1rem;
@@ -56,16 +205,13 @@
   letter-spacing: -0.02em;
   color: #6b6b6b;
 }
-
 .subConWrap .subContent .sta ul li.staOn {
   text-decoration: underline;
 }
-
 .subConWrap .subContent .sta ul li a img {
   vertical-align: middle;
   margin-top: -0.2rem;
 }
-
 .subConWrap .subContent .sta ul li::before {
   display: block;
   width: 0.6rem;
@@ -76,58 +222,43 @@
   right: 0;
   top: 0.3rem;
 }
-
 .subConWrap .subContent .sta ul li:last-child {
   padding-right: 0;
   margin-right: 0;
 }
-
 .subConWrap .subContent .sta ul li:last-child::before {
   width: 0;
 }
-
 .subConWrap .subContent .chStoryList {
   margin-bottom: 12rem;
 }
-
 .subConWrap .subContent .chStoryList ul {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  justify-content: space-between;
   margin-bottom: 3.5rem;
 }
-
 .subConWrap .subContent .chStoryList ul li {
   width: 31.6rem;
   height: 42rem;
   border-radius: 1.5rem;
   background-color: #ffffff;
 }
-
 .subConWrap .subContent .chStoryList ul li a {
   display: block;
   width: 100%;
   height: 100%;
   border-radius: 1.5rem;
 }
-
 .subConWrap .subContent .chStoryList ul li a:hover, .subConWrap .subContent .chStoryList ul li a:focus {
-  -webkit-box-shadow: 0.8rem 0.9rem 4rem -0.8rem rgba(0, 0, 0, 0.2);
-          box-shadow: 0.8rem 0.9rem 4rem -0.8rem rgba(0, 0, 0, 0.2);
+  box-shadow: 0.8rem 0.9rem 4rem -0.8rem rgba(0, 0, 0, 0.2);
 }
-
 .subConWrap .subContent .chStoryList ul li .thumbImg {
   border-radius: 1.5rem 1.5rem 0 0;
   overflow: hidden;
 }
-
 .subConWrap .subContent .chStoryList ul li .thumbImg.video {
   position: relative;
 }
-
 .subConWrap .subContent .chStoryList ul li .thumbImg.video::before {
   position: absolute;
   display: block;
@@ -138,11 +269,9 @@
   bottom: 2rem;
   z-index: 10;
 }
-
 .subConWrap .subContent .chStoryList ul li .thumbCon {
   padding: 3rem 3rem 4rem;
 }
-
 .subConWrap .subContent .chStoryList ul li .thumbCon span {
   display: block;
   font-size: 1.4rem;
@@ -150,7 +279,6 @@
   letter-spacing: -0.02em;
   color: #a50034;
 }
-
 .subConWrap .subContent .chStoryList ul li .thumbCon p {
   font-size: 2.2rem;
   font-weight: 600;
@@ -163,22 +291,14 @@
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
 }
-
 .subConWrap .subContent .chStoryList ul.chStListHalf li {
   width: 49.2rem;
 }
-
 .subConWrap .chPostList ul {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
-
 .subConWrap .chPostList ul li {
   width: 31.6rem;
   height: 32rem;
@@ -187,14 +307,12 @@
   margin-bottom: 3.5rem;
   position: relative;
 }
-
 .subConWrap .chPostList ul li a {
   display: block;
   width: 100%;
   height: 100%;
   padding: 3rem 2.5rem;
 }
-
 .subConWrap .chPostList ul li a .dDay {
   display: block;
   width: 6.2rem;
@@ -208,7 +326,6 @@
   text-align: center;
   line-height: 3.1rem;
 }
-
 .subConWrap .chPostList ul li a .category {
   display: block;
   margin-top: 3rem;
@@ -217,7 +334,6 @@
   color: #8e8e8e;
   margin-bottom: 2rem;
 }
-
 .subConWrap .chPostList ul li a p {
   font-size: 2.2rem;
   line-height: 3.08rem;
@@ -225,7 +341,6 @@
   color: #000000;
   font-weight: 600;
 }
-
 .subConWrap .chPostList ul li a .postCon {
   position: absolute;
   bottom: 3rem;
@@ -235,14 +350,12 @@
   letter-spacing: -0.02em;
   color: #1D1D1B;
 }
-
 .subConWrap .chPostList ul li a .postCon .pointC {
   color: #a50034;
   position: relative;
   padding-right: 1.1rem;
   margin-right: 1rem;
 }
-
 .subConWrap .chPostList ul li a .postCon .pointC::before {
   display: block;
   width: 0.1rem;

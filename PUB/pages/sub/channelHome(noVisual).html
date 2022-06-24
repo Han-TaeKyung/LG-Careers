@@ -14,6 +14,189 @@
     <div id="headers"></div>
     <!--header END-->
     <div id="container" class="subContainer">
+      <div class="visualWrap">
+        <div
+          class="visualBg"
+          style="background-image: url(/assets/images/sub/channelVisual1.png)"
+        >
+          <div class="wrap">
+            <div class="title">
+              <div class="logo">
+                <img
+                  src="/assets/images/sub/channelLogo1.png"
+                  alt="LG디스플레이"
+                />
+              </div>
+              <h2>
+                <span>소자 개발의 </span>
+                <span>프로페셔널리스트</span>
+              </h2>
+              <p><span>R&D Panel</span><span>허은아 선임</span></p>
+              <a href="" class="more">인터뷰 보기</a>
+            </div>
+          </div>
+        </div>
+        <div class="visualCon wrap">
+          <div class="title">
+            <h3>LG디스플레이 人터뷰</h3>
+            <p>
+              <span>LG디스플레이의</span
+              ><span>핵심 선배를 미리 만나보세요.</span>
+            </p>
+          </div>
+          <div class="slideWrap">
+            <div class="slideList">
+              <div
+                class="slideItem"
+                style="
+                  background-image: url(/assets/images/sub/channelThumb1.png);
+                "
+              >
+                <a href="" class="slideAnchor">
+                  <div class="con">
+                    <div class="part">영업/마케팅</div>
+                    <div class="name">유현종 책임</div>
+                  </div>
+                </a>
+              </div>
+              <div
+                class="slideItem"
+                style="
+                  background-image: url(/assets/images/sub/channelThumb2.png);
+                "
+              >
+                <a href="" class="slideAnchor">
+                  <div class="con">
+                    <div class="part">영업/마케팅</div>
+                    <div class="name">유현종 책임</div>
+                  </div>
+                </a>
+              </div>
+              <div
+                class="slideItem"
+                style="
+                  background-image: url(/assets/images/sub/channelThumb3.png);
+                "
+              >
+                <a href="" class="slideAnchor">
+                  <div class="con">
+                    <div class="part">영업/마케팅</div>
+                    <div class="name">유현종 책임</div>
+                  </div>
+                </a>
+              </div>
+              <div
+                class="slideItem"
+                style="
+                  background-image: url(/assets/images/sub/channelThumb4.png);
+                "
+              >
+                <a href="" class="slideAnchor">
+                  <div class="con">
+                    <div class="part">영업/마케팅</div>
+                    <div class="name">유현종 책임</div>
+                  </div>
+                </a>
+              </div>
+              <div
+                class="slideItem"
+                style="
+                  background-image: url(/assets/images/sub/channelThumb1.png);
+                "
+              >
+                <a href="" class="slideAnchor">
+                  <div class="con">
+                    <div class="part">영업/마케팅</div>
+                    <div class="name">유현종 책임</div>
+                  </div>
+                </a>
+              </div>
+              <div
+                class="slideItem"
+                style="
+                  background-image: url(/assets/images/sub/channelThumb2.png);
+                "
+              >
+                <a href="" class="slideAnchor">
+                  <div class="con">
+                    <div class="part">영업/마케팅</div>
+                    <div class="name">유현종 책임</div>
+                  </div>
+                </a>
+              </div>
+              <div
+                class="slideItem"
+                style="
+                  background-image: url(/assets/images/sub/channelThumb3.png);
+                "
+              >
+                <a href="" class="slideAnchor">
+                  <div class="con">
+                    <div class="part">영업/마케팅</div>
+                    <div class="name">유현종 책임</div>
+                  </div>
+                </a>
+              </div>
+              <div
+                class="slideItem"
+                style="
+                  background-image: url(/assets/images/sub/channelThumb4.png);
+                "
+              >
+                <a href="" class="slideAnchor">
+                  <div class="con">
+                    <div class="part">영업/마케팅</div>
+                    <div class="name">유현종 책임</div>
+                  </div>
+                </a>
+              </div>
+            </div>
+            <div class="slideCtrl">
+              <button type="button" class="prev"><span>이전</span></button>
+              <button type="button" class="next"><span>다음</span></button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <script src="../../assets/js/lib/slick.1.6.0.min.js"></script>
+      <script>
+        //slick
+        var $channelSlideWrap = $(".visualWrap .slideWrap"),
+          $channelSlide = $channelSlideWrap.find(".slideList"),
+          $channelCtrl = $channelSlideWrap.find(".slideCtrl"),
+          $channelPrev = $channelCtrl.find(".prev"),
+          $channelNext = $channelCtrl.find(".next");
+        $channelSlide.slick({
+          //기본
+          autoplay: false,
+          dots: false,
+          swipe: true,
+          draggable: true,
+          slidesToShow: 4,
+          slidesToScroll: 1,
+          variableWidth: true,
+          infinite: true,
+          prevArrow: $channelPrev,
+          nextArrow: $channelNext,
+          //추가 기능
+          isRunOnLowIE: false,
+          pauseOnArrowClick: true,
+          pauseOnDirectionKeyPush: true,
+          pauseOnSwipe: true,
+          pauseOnDotsClick: true,
+          responsive: [
+            {
+              breakpoint: 1001,
+              settings: {
+                swipe: true,
+                draggable: true,
+                verticalSwiping: true,
+                swipeToSlide: true,
+              },
+            },
+          ],
+        });
+      </script>
       <div class="subConWrap">
         <div id="lnb">
           <div class="lnbWrap">

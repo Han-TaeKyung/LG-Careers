@@ -1,242 +1,410 @@
 @import "_variables", "_mixin";
 
 .subContainer {
-    width: 100%;
-    height: auto;
-    background-color: #eee;
+  width: 100%;
+  height: auto;
+  background-color: #eee;
+}
+/*명화*/
+.visualWrap {
+  .wrap {
+    width: 144rem;
+    margin: 0 auto;
+  }
+  .visualBg {
+    width: 178rem;
+    height: 630px;
+    margin: 0 auto;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 1.5rem;
+    overflow: hidden;
+    .title {
+      margin-top: 7rem;
+      color: #fff;
+      h2 {
+        margin-top: 3.5rem;
+        margin-bottom: 1rem;
+        span {
+          display: block;
+          font-size: 5rem;
+          line-height: 1.3;
+          letter-spacing: -0.02em;
+        }
+      }
+      p {
+        margin-top: 2.5rem;
+        margin-bottom: 7.1rem;
+        span {
+          font-size: 20px;
+          line-height: 1;
+          &:not(:last-child):after {
+            display: inline-block;
+            margin: 0 10px;
+            width: 1px;
+            height: 12px;
+            background-color: #d9dadb;
+            vertical-align: middle;
+          }
+        }
+      }
+      .more {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 180px;
+        height: 58px;
+        border-radius: 30px;
+        border: 1px solid #fff;
+        font-size: 1.6rem;
+        line-height: 1;
+      }
+    }
+  }
+  .visualCon {
+    display: flex;
+    align-items: center;
+    height: 24rem;
+    margin-top: -12rem;
+    padding: 20px 40px;
+    background-color: #fff;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 1.5rem;
+    .title {
+      display: inline-block;
+      flex-grow: 1;
+      color: #1d1d1b;
+      line-height: 1;
+      h3 {
+        margin-bottom: 2.2rem;
+        font-weight: 600;
+        font-size: 2.2rem;
+        letter-spacing: -0.02em;
+      }
+      p {
+        span {
+          display: block;
+          font-size: 1.6rem;
+          letter-spacing: -0.02em;
+          line-height: 1.5;
+        }
+      }
+    }
+    .slideWrap {
+      display: inline-flex;
+      position: relative;
+      overflow: hidden;
+      width: 97rem;
+      padding: 0 65px;
+      .slideList {
+        width: 84rem;
+        .slideItem {
+          overflow: hidden;
+          position: relative;
+          width: 19rem;
+          height: 19rem;
+          margin: 0 1.25rem;
+          border-radius: 1rem;
+          .slideAnchor {
+            display: block;
+            width: 100%;
+            height: 100%;
+            .con {
+              position: absolute;
+              visibility: hidden;
+              opacity: 0;
+              bottom: 0;
+              width: 100%;
+              text-align: center;
+              font-size: 1.5rem;
+              line-height: 1;
+              letter-spacing: -0.02em;
+              transition: all 0.2s;
+              .part {
+                color: #d9d9d9;
+                margin-bottom: 10px;
+              }
+              .name {
+                color: #fff;
+              }
+            }
+          }
+          &:hover {
+            .slideAnchor .con {
+              visibility: visible;
+              opacity: 1;
+              bottom: 20px;
+            }
+          }
+        }
+      }
+      .slideCtrl {
+        position: absolute;
+        width: 100%;
+        left: 0;
+        top: calc(50% - 17px);
+        button {
+          display: flex;
+          position: absolute;
+          align-items: center;
+          justify-content: center;
+          border-radius: 50%;
+          width: 42px;
+          height: 42px;
+          background-color: #aeaeae;
+          font-size: 0;
+          line-height: 0;
+          &.prev {
+            left: 0;
+          }
+          &.next {
+            right: 0;
+          }
+          &:before {
+            display: block;
+            width: 10px;
+            height: 10px;
+            border-width: 0 0 2px 2px;
+            border-style: solid;
+            border-color: #fff;
+            transform: rotate(45deg);
+          }
+          &.next:before {
+            transform: rotate(-135deg);
+          }
+        }
+      }
+    }
+  }
 }
 
 .subConWrap {
-    padding: 15rem 0;
-    width: 144rem;
+  padding: 15rem 0;
+  width: 144rem;
+  height: auto;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  .subContent {
+    width: 101.8rem;
     height: auto;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
+    padding: 4rem 0 0;
 
-    .subContent {
-        width: 101.8rem;
-        height: auto;
-        padding: 4rem 0 0;
-
-        .subTitle2 {
-            color: $BrandColorGray;
-        }
-
-        .subContentTop {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-end;
-        }
-
-        .sta {
-            ul {
-                display: flex;
-
-                li {
-                    position: relative;
-                    padding-right: 2.1rem;
-                    margin-right: 1rem;
-                    font-size: 1.4rem;
-                    letter-spacing: -0.02em;
-                    color: $BrandColorGray;
-
-                    &.staOn {
-                        text-decoration: underline;
-                    }
-
-                    a {
-                        img {
-                            vertical-align: middle;
-                            margin-top: -0.2rem;
-                        }
-                    }
-
-                    &::before {
-                        display: block;
-                        width: 0.6rem;
-                        height: 1.2rem;
-                        background-image: url(../../images/icon/arrowR.png);
-                        background-repeat: no-repeat;
-                        position: absolute;
-                        right: 0;
-                        top: 0.3rem;
-                    }
-
-                    &:last-child {
-                        padding-right: 0;
-                        margin-right: 0;
-
-                        &::before {
-                            width: 0;
-                        }
-                    }
-                }
-            }
-        }
-
-        .chStoryList {
-            margin-bottom: 12rem;
-
-            ul {
-                display: flex;
-                justify-content: space-between;
-                margin-bottom: 3.5rem;
-
-
-                li {
-                    width: 31.6rem;
-                    height: 42rem;
-                    border-radius: 1.5rem;
-                    // overflow: hidden;
-                    background-color: $White;
-
-                    a {
-                        display: block;
-                        width: 100%;
-                        height: 100%;
-                        border-radius: 1.5rem;
-
-                        &:hover,
-                        &:focus {
-                            box-shadow: 0.8rem 0.9rem 4rem -.8rem rgba(0, 0, 0, 0.2);
-                        }
-                    }
-
-                    .thumbImg {
-                        border-radius: 1.5rem 1.5rem 0 0;
-                        overflow: hidden;
-
-                        &.video {
-                            position: relative;
-
-                            &::before {
-                                position: absolute;
-                                display: block;
-                                width: 6rem;
-                                height: 6rem;
-                                background-image: url(../../images/icon/play.png);
-                                right: 2rem;
-                                bottom: 2rem;
-                                z-index: 10;
-                            }
-                        }
-                    }
-
-                    .thumbCon {
-                        padding: 3rem 3rem 4rem;
-
-                        span {
-                            display: block;
-                            font-size: 1.4rem;
-                            margin-bottom: 2rem;
-                            letter-spacing: -0.02em;
-                            color: $BrandColorRed;
-                        }
-
-                        p {
-                            font-size: 2.2rem;
-                            font-weight: 600;
-                            line-height: 3.08rem;
-                            letter-spacing: -0.02em;
-                            color: $Black;
-                            @include ellipsis2row;
-
-                        }
-                    }
-                }
-
-                &.chStListHalf {
-                    li {
-                        width: 49.2rem;
-                    }
-                }
-            }
-        }
+    .subTitle2 {
+      color: $BrandColorGray;
     }
 
-    .chPostList {
-        ul {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-
-            li {
-                width: 31.6rem;
-                height: 32rem;
-                background: $White;
-                border-radius: 1.5rem;
-                margin-bottom: 3.5rem;
-                position: relative;
-
-                a {
-                    display: block;
-                    width: 100%;
-                    height: 100%;
-                    padding: 3rem 2.5rem;
-
-                    .dDay {
-                        display: block;
-                        width: 6.2rem;
-                        height: 3rem;
-                        border-radius: 1.5rem;
-                        background-color: $BrandColorRed;
-                        font-size: 1.4rem;
-                        font-weight: 700;
-                        color: $White;
-                        letter-spacing: -0.02em;
-                        text-align: center;
-                        line-height: 3.1rem;
-                    }
-
-                    .category {
-                        display: block;
-                        margin-top: 3rem;
-                        font-size: 1.6rem;
-                        letter-spacing: -0.02em;
-                        color: #8e8e8e;
-                        margin-bottom: 2rem;
-                    }
-
-                    p {
-                        font-size: 2.2rem;
-                        line-height: 3.08rem;
-                        letter-spacing: -0.02em;
-                        color: $Black;
-                        font-weight: 600;
-                    }
-
-                    .postCon {
-                        position: absolute;
-                        bottom: 3rem;
-                        left: 2.5rem;
-                        font-size: 1.6rem;
-                        line-height: 1.6rem;
-                        letter-spacing: -0.02em;
-                        color: $LGBlack;
-
-                        .pointC {
-                            color: $BrandColorRed;
-                            position: relative;
-                            padding-right: 1.1rem;
-                            margin-right: 1rem;
-
-                            &::before {
-                                display: block;
-                                width: 0.1rem;
-                                height: 1.1rem;
-                                background-color: $LGLightGray;
-                                position: absolute;
-                                right: 0;
-                                top: 0.5rem;
-                            }
-                        }
-                    }
-                }
-            }
-        }
+    .subContentTop {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
     }
 
+    .sta {
+      ul {
+        display: flex;
 
+        li {
+          position: relative;
+          padding-right: 2.1rem;
+          margin-right: 1rem;
+          font-size: 1.4rem;
+          letter-spacing: -0.02em;
+          color: $BrandColorGray;
+
+          &.staOn {
+            text-decoration: underline;
+          }
+
+          a {
+            img {
+              vertical-align: middle;
+              margin-top: -0.2rem;
+            }
+          }
+
+          &::before {
+            display: block;
+            width: 0.6rem;
+            height: 1.2rem;
+            background-image: url(../../images/icon/arrowR.png);
+            background-repeat: no-repeat;
+            position: absolute;
+            right: 0;
+            top: 0.3rem;
+          }
+
+          &:last-child {
+            padding-right: 0;
+            margin-right: 0;
+
+            &::before {
+              width: 0;
+            }
+          }
+        }
+      }
+    }
+
+    .chStoryList {
+      margin-bottom: 12rem;
+
+      ul {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 3.5rem;
+
+        li {
+          width: 31.6rem;
+          height: 42rem;
+          border-radius: 1.5rem;
+          // overflow: hidden;
+          background-color: $White;
+
+          a {
+            display: block;
+            width: 100%;
+            height: 100%;
+            border-radius: 1.5rem;
+
+            &:hover,
+            &:focus {
+              box-shadow: 0.8rem 0.9rem 4rem -0.8rem rgba(0, 0, 0, 0.2);
+            }
+          }
+
+          .thumbImg {
+            border-radius: 1.5rem 1.5rem 0 0;
+            overflow: hidden;
+
+            &.video {
+              position: relative;
+
+              &::before {
+                position: absolute;
+                display: block;
+                width: 6rem;
+                height: 6rem;
+                background-image: url(../../images/icon/play.png);
+                right: 2rem;
+                bottom: 2rem;
+                z-index: 10;
+              }
+            }
+          }
+
+          .thumbCon {
+            padding: 3rem 3rem 4rem;
+
+            span {
+              display: block;
+              font-size: 1.4rem;
+              margin-bottom: 2rem;
+              letter-spacing: -0.02em;
+              color: $BrandColorRed;
+            }
+
+            p {
+              font-size: 2.2rem;
+              font-weight: 600;
+              line-height: 3.08rem;
+              letter-spacing: -0.02em;
+              color: $Black;
+              @include ellipsis2row;
+            }
+          }
+        }
+
+        &.chStListHalf {
+          li {
+            width: 49.2rem;
+          }
+        }
+      }
+    }
+  }
+
+  .chPostList {
+    ul {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+
+      li {
+        width: 31.6rem;
+        height: 32rem;
+        background: $White;
+        border-radius: 1.5rem;
+        margin-bottom: 3.5rem;
+        position: relative;
+
+        a {
+          display: block;
+          width: 100%;
+          height: 100%;
+          padding: 3rem 2.5rem;
+
+          .dDay {
+            display: block;
+            width: 6.2rem;
+            height: 3rem;
+            border-radius: 1.5rem;
+            background-color: $BrandColorRed;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: $White;
+            letter-spacing: -0.02em;
+            text-align: center;
+            line-height: 3.1rem;
+          }
+
+          .category {
+            display: block;
+            margin-top: 3rem;
+            font-size: 1.6rem;
+            letter-spacing: -0.02em;
+            color: #8e8e8e;
+            margin-bottom: 2rem;
+          }
+
+          p {
+            font-size: 2.2rem;
+            line-height: 3.08rem;
+            letter-spacing: -0.02em;
+            color: $Black;
+            font-weight: 600;
+          }
+
+          .postCon {
+            position: absolute;
+            bottom: 3rem;
+            left: 2.5rem;
+            font-size: 1.6rem;
+            line-height: 1.6rem;
+            letter-spacing: -0.02em;
+            color: $LGBlack;
+
+            .pointC {
+              color: $BrandColorRed;
+              position: relative;
+              padding-right: 1.1rem;
+              margin-right: 1rem;
+
+              &::before {
+                display: block;
+                width: 0.1rem;
+                height: 1.1rem;
+                background-color: $LGLightGray;
+                position: absolute;
+                right: 0;
+                top: 0.5rem;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }

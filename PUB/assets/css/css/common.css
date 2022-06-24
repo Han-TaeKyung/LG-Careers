@@ -55,13 +55,11 @@
   width: 120rem;
   margin: 3rem auto;
 }
-
 .fileListWrap table {
   margin-top: 2rem;
   width: 100%;
   border: 0.1rem solid #999;
 }
-
 .fileListWrap table thead tr th {
   background-color: #f1f1f1;
   border-bottom: 0.1rem solid #999;
@@ -70,14 +68,12 @@
   text-align: center;
   padding: 0.8rem 1.5rem;
 }
-
 .fileListWrap table tbody tr td {
   border-bottom: 0.1rem solid #999;
   font-size: 1.3rem;
   color: #555;
   padding: 1rem 1.2rem;
 }
-
 .fileListWrap table tbody tr td label {
   background-color: #6b6b6b;
   color: #fff;
@@ -86,11 +82,9 @@
   border-radius: 0.5rem;
   cursor: default;
 }
-
 .fileListWrap table tbody tr td a {
   font-weight: bold;
 }
-
 .fileListWrap table tbody tr td a:hover {
   color: #a50034;
 }
@@ -101,25 +95,20 @@
   width: 20rem;
   padding: 4rem 3rem 3rem;
 }
-
 .componentWrap .tabs li {
   margin-bottom: 2rem;
 }
-
 .componentWrap .tabs li a {
   font-size: 1.8rem;
   font-weight: bold;
   letter-spacing: -0.04rem;
 }
-
 .componentWrap .tabs .current {
   border-right: 0.2rem solid #b70f28;
 }
-
 .componentWrap .tabs .current a {
   color: #b70f28;
 }
-
 .componentWrap .tab-content {
   display: none;
   position: absolute;
@@ -127,11 +116,9 @@
   padding: 3rem 0;
   width: calc(100% - 23rem);
 }
-
 .componentWrap .tab-content.current {
   display: block;
 }
-
 .componentWrap .tab-content > h2 {
   font-size: 2.4rem;
   font-weight: 600;
@@ -141,34 +128,23 @@
   padding-bottom: 1.5rem;
   margin-bottom: 1.5rem;
 }
-
 .componentWrap .tab-content .tabContent1 ul {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: flex-start;
+  align-items: center;
   padding: 2rem 2.5rem;
 }
-
 .componentWrap .tab-content .tabContent1 ul:nth-child(odd) {
   background-color: #f5f5f5;
 }
-
 .componentWrap .tab-content .tabContent1 ul li:first-child {
   width: 45rem;
 }
-
 .componentWrap .tab-content .tabContent1 ul li:first-child p {
   font-size: 1.6rem;
   letter-spacing: -0.04rem;
   color: #555;
 }
-
 .componentWrap .tab-content .tabContent1 ul li:first-child span {
   font-size: 1.1rem;
   color: #c0c0c0;
@@ -592,38 +568,38 @@
 
 h3 {
   font-size: 3rem;
-  letter-spacing: -.02em;
+  letter-spacing: -0.02em;
   line-height: 3rem;
   font-weight: 700;
 }
 
 h4 {
   font-size: 2.2rem;
-  letter-spacing: -.04rem;
+  letter-spacing: -0.04rem;
   line-height: 2.6rem;
 }
 
 h5 {
   font-size: 2rem;
-  letter-spacing: -.04rem;
+  letter-spacing: -0.04rem;
   line-height: 2.4rem;
 }
 
 h6 {
   font-size: 1.8rem;
-  letter-spacing: -.04rem;
+  letter-spacing: -0.04rem;
   line-height: 2.2rem;
 }
 
 .subTitle2 {
   font-size: 1.6rem;
-  letter-spacing: -.02em;
+  letter-spacing: -0.02em;
   line-height: 1.6rem;
 }
 
 p {
   font-size: 1.4rem;
-  letter-spacing: -.04rem;
+  letter-spacing: -0.04rem;
   line-height: 1.8rem;
 }
 
@@ -639,63 +615,52 @@ p {
   min-width: 10rem;
   height: auto;
 }
-
 .btn:hover {
   border: 0.1rem solid #555;
   color: #000000;
-  -webkit-transition: 0.4s;
   transition: 0.4s;
 }
-
 .btn.smail {
   font-size: 1.4rem;
   padding: 0.6rem 1rem;
 }
-
 .btn.large {
   font-size: 1.8rem;
   padding: 1rem 2rem;
 }
-
 .btn.type2 {
   background-color: #a50034;
   color: #ffffff;
   font-weight: 600;
   border: 0.1rem solid #a50034;
 }
-
 .btn.type2:hover {
   background-color: #a50034;
   color: #ffffff;
   font-weight: 600;
   border: 0.1rem solid #a50034;
 }
-
 .btn.type3 {
   background-color: #e7e7e7;
   color: #1D1D1B;
   border: 0;
 }
-
 .btn.type3:hover {
   background-color: #e7e7e7;
   color: #1D1D1B;
   border: 0;
 }
-
 .btn.disabl {
   border: 0.1rem solid #999;
   color: #999;
   cursor: default;
 }
-
 .btn.round {
   height: 5.6rem;
   line-height: 5.6rem;
   border-radius: 2.8rem;
   padding: 0 1.2rem;
 }
-
 .btn.ico {
   width: auto;
   height: auto;
@@ -703,21 +668,18 @@ p {
   min-width: inherit;
   padding: 0;
 }
-
 .btn.more {
   height: 5.8rem;
   line-height: 5.8rem;
   border-radius: 2.9rem;
   min-width: 18rem;
 }
-
 .btn.more span {
   padding-right: 1.7rem;
   background-image: url(../../images/icon/arrowR2.png);
   background-position: right center;
   background-repeat: no-repeat;
 }
-
 .btn + .btn {
   margin-left: 1rem;
 }
@@ -728,8 +690,7 @@ p {
   margin: 0.2rem;
   vertical-align: top;
 }
-
-.input input[type="checkbox"] {
+.input input[type=checkbox] {
   display: inline-block;
   position: absolute;
   left: 0;
@@ -740,8 +701,7 @@ p {
   border: 0;
   opacity: 0;
 }
-
-.input input[type="checkbox"] + label {
+.input input[type=checkbox] + label {
   position: relative;
   display: inline-block;
   padding-left: 3rem;
@@ -749,8 +709,7 @@ p {
   line-height: 2.2rem;
   vertical-align: top;
 }
-
-.input input[type="checkbox"] + label::before {
+.input input[type=checkbox] + label::before {
   display: block;
   position: absolute;
   content: " ";
@@ -760,11 +719,9 @@ p {
   height: 2.1rem;
   background-color: #fff;
   border: 0.2rem solid #6b6b6b;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
-
-.input input[type="checkbox"]:checked + label:after {
+.input input[type=checkbox]:checked + label:after {
   display: block;
   position: absolute;
   content: " ";
@@ -775,20 +732,16 @@ p {
   border-top: 0;
   left: 0.65rem;
   top: 0.4rem;
-  -webkit-transform: rotate(45deg);
-          transform: rotate(45deg);
+  transform: rotate(45deg);
 }
-
-.input input[type="checkbox"]:disabled + label {
+.input input[type=checkbox]:disabled + label {
   color: #999;
 }
-
-.input input[type="checkbox"]:disabled + label::before {
+.input input[type=checkbox]:disabled + label::before {
   background-color: #ccc;
   border-color: #ccc;
 }
-
-.input input[type="radio"] {
+.input input[type=radio] {
   display: inline-block;
   position: absolute;
   left: 0;
@@ -799,8 +752,7 @@ p {
   border: 0;
   opacity: 0;
 }
-
-.input input[type="radio"] + label {
+.input input[type=radio] + label {
   position: relative;
   display: inline-block;
   padding-left: 3rem;
@@ -808,8 +760,7 @@ p {
   line-height: 2.2rem;
   vertical-align: top;
 }
-
-.input input[type="radio"] + label::before {
+.input input[type=radio] + label::before {
   display: block;
   position: absolute;
   content: " ";
@@ -820,11 +771,9 @@ p {
   border-radius: 50%;
   background-color: #fff;
   border: 0.2rem solid #6b6b6b;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
-
-.input input[type="radio"]:checked + label:after {
+.input input[type=radio]:checked + label:after {
   display: block;
   position: absolute;
   content: "●";
@@ -837,12 +786,10 @@ p {
   height: 2rem;
   line-height: 2rem;
 }
-
-.input input[type="radio"]:disabled + label {
+.input input[type=radio]:disabled + label {
   color: #999;
 }
-
-.input input[type="radio"]:disabled + label::before {
+.input input[type=radio]:disabled + label::before {
   background-color: #ccc;
   border-color: #ccc;
 }
@@ -870,14 +817,12 @@ p {
   -webkit-clip-path: inset(1px);
           clip-path: inset(1px);
 }
-
 .inputBox input {
   border: 0.1rem solid #ccc;
   font-size: 1.4rem;
   padding: 1.5rem;
   color: #6b6b6b;
 }
-
 .inputBox.type2 input {
   border: 0;
   height: 100%;
@@ -895,7 +840,6 @@ p {
   -webkit-clip-path: inset(1px);
           clip-path: inset(1px);
 }
-
 .inputBox textarea {
   border: 0.1rem solid #ccc;
   font-size: 1.6rem;
@@ -907,7 +851,6 @@ p {
   width: 100%;
   border-top: 0.1rem solid #222;
 }
-
 .tabel table thead tr th {
   background-color: #f8f8f8;
   font-size: 1.6rem;
@@ -918,11 +861,9 @@ p {
   text-align: center;
   padding: 1.2rem 1.5rem;
 }
-
 .tabel table thead tr th:last-child {
   border-right: 0;
 }
-
 .tabel table tbody tr td {
   font-size: 1.4rem;
   color: #555;
@@ -930,11 +871,9 @@ p {
   border-right: 0.1rem solid #eee;
   padding: 1.2rem 1.5rem;
 }
-
 .tabel table tbody tr td:last-child {
   border-right: 0;
 }
-
 .tabel.type2 table thead tr th {
   background-color: #f8f8f8;
   font-size: 1.6rem;
@@ -945,11 +884,9 @@ p {
   text-align: center;
   padding: 1.2rem 1.5rem;
 }
-
 .tabel.type2 table thead tr th:last-child {
   border-right: 0;
 }
-
 .tabel.type2 table tbody tr th {
   background-color: #f8f8f8;
   font-size: 1.6rem;
@@ -959,7 +896,6 @@ p {
   border-right: 0.1rem solid #eee;
   padding: 1.2rem 1.5rem;
 }
-
 .tabel.type2 table tbody tr td {
   font-size: 1.4rem;
   color: #555;
@@ -967,20 +903,18 @@ p {
   border-right: 0.1rem solid #eee;
   padding: 1.2rem 1.5rem;
 }
-
 .tabel.type2 table tbody tr td:last-child {
   border-right: 0;
 }
 
 .bu > li {
   font-size: 1.4rem;
-  letter-spacing: -.04rem;
+  letter-spacing: -0.04rem;
   line-height: 1.8rem;
   margin-bottom: 0.5rem;
   position: relative;
   padding-left: 0.8rem;
 }
-
 .bu > li::before {
   display: block;
   content: " ";
@@ -991,24 +925,20 @@ p {
   left: 0;
   top: 0.9rem;
 }
-
 .bu > li:last-child {
   margin-bottom: 0;
 }
-
 .bu > li > ul {
   margin-top: 0.5rem;
 }
-
 .bu > li > ul > li {
   font-size: 1.4rem;
-  letter-spacing: -.04rem;
+  letter-spacing: -0.04rem;
   line-height: 1.8rem;
   margin-bottom: 0.5rem;
   position: relative;
   padding-left: 0.8rem;
 }
-
 .bu > li > ul > li::before {
   display: block;
   content: " ";
@@ -1019,18 +949,15 @@ p {
   top: 0.8rem;
   position: absolute;
 }
-
 .bu > li > ul > li:last-child {
   margin-bottom: 0;
 }
-
 .bu.type2 > li {
   font-size: 1.4rem;
-  letter-spacing: -.04rem;
+  letter-spacing: -0.04rem;
   line-height: 1.8rem;
   margin-bottom: 0.5rem;
 }
-
 .bu.type2 > li::before {
   content: " ";
   width: 0.5rem;
@@ -1040,46 +967,34 @@ p {
   top: 0.8rem;
   position: absolute;
 }
-
 .bu.type2 > li:last-child {
   margin-bottom: 0;
 }
-
 .bu.type3 {
   list-style: auto;
   padding-left: 1.45rem;
 }
-
 .bu.type3 li {
   list-style: inherit;
   font-size: 1.4rem;
-  letter-spacing: -.04rem;
+  letter-spacing: -0.04rem;
   line-height: 1.8rem;
   margin-bottom: 0.5rem;
   padding-left: 0;
 }
-
 .bu.type3 li::before {
   width: 0;
   height: 0;
 }
 
 .paging ul {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: center;
+  align-items: center;
 }
-
 .paging ul li {
   margin: 0 0.2rem;
 }
-
 .paging .paging_num {
   width: 36px;
   height: 36px;
@@ -1088,18 +1003,15 @@ p {
   border-radius: 3px;
   border: 1px solid #cccccc;
 }
-
 .paging .paging_num a {
   font-size: 14px;
   display: block;
   width: 100%;
   height: 100%;
 }
-
 .paging .paging_num.paging_num_on {
   border: 1px solid #eb6565 !important;
 }
-
 .paging .paging_num.paging_num_on a {
   color: #eb6565 !important;
 }
@@ -1107,7 +1019,6 @@ p {
 .guideAcc .accItem + .accItem {
   margin-top: 10px;
 }
-
 .guideAcc .q .qBtn {
   display: block;
   width: 100%;
@@ -1116,7 +1027,6 @@ p {
   font-size: 0;
   line-height: 0;
 }
-
 .guideAcc .q .qBtn .accTitle {
   display: inline-block;
   margin-right: 20px;
@@ -1125,7 +1035,6 @@ p {
   font-weight: bold;
   vertical-align: top;
 }
-
 .guideAcc .q .qBtn .accTitle:before {
   display: inline-block;
   content: "Q";
@@ -1134,26 +1043,22 @@ p {
   margin-right: 10px;
   vertical-align: top;
 }
-
 .guideAcc .q .qBtn .accQuery {
   display: inline-block;
   vertical-align: top;
   font-size: 1.6rem;
   line-height: 1.5;
 }
-
 .guideAcc .a {
   display: none;
   position: relative;
   padding: 10px;
 }
-
 .guideAcc .a .accCon {
   position: relative;
   padding-left: 30px;
   font-size: 1.6rem;
 }
-
 .guideAcc .a .accCon:before {
   display: inline-block;
   position: absolute;
