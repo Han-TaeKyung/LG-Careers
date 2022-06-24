@@ -4,7 +4,7 @@
   font-family: "LGSmart";
   font-style: normal;
   font-weight: 400;
-  src: url("/PUB/assets/fonts/subset-LGSmHaTR.woff") format("woff"), url("/PUB/assets/fonts/subset-LGSmHaTR.woff2") format("woff2");
+  src: url("/assets/fonts/subset-LGSmHaTR.woff") format("woff"), url("/assets/fonts/subset-LGSmHaTR.woff2") format("woff2");
 }
 
 @font-face {
@@ -12,7 +12,7 @@
   font-style: normal;
   font-weight: 600;
   /* 세미볼드 */
-  src: url("/PUB/assets/fonts/subset-LGSmHaTSB.woff") format("woff"), url("/PUB/assets/fonts/subset-LGSmHaTSB.woff2") format("woff2");
+  src: url("/assets/fonts/subset-LGSmHaTSB.woff") format("woff"), url("/assets/fonts/subset-LGSmHaTSB.woff2") format("woff2");
 }
 
 @font-face {
@@ -20,7 +20,7 @@
   font-style: normal;
   font-weight: 700;
   /* 볼드 */
-  src: url("/PUB/assets/fonts/subset-LGSmHaTB.woff") format("woff"), url("/PUB/assets/fonts/subset-LGSmHaTB.woff2") format("woff2");
+  src: url("/assets/fonts/subset-LGSmHaTB.woff") format("woff"), url("/assets/fonts/subset-LGSmHaTB.woff2") format("woff2");
 }
 
 * {
