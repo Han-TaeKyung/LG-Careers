@@ -7,6 +7,7 @@
 }
 /*명화*/
 .visualWrap {
+  margin-top: 130px;
   .wrap {
     width: 144rem;
     margin: 0 auto;
@@ -229,7 +230,7 @@
             display: block;
             width: 0.6rem;
             height: 1.2rem;
-            background-image: url(../../images/icon/arrowR.png);
+            background-image: url(./../images/icon/arrowR.png);
             background-repeat: no-repeat;
             position: absolute;
             right: 0;
@@ -287,7 +288,7 @@
                 display: block;
                 width: 6rem;
                 height: 6rem;
-                background-image: url(../../images/icon/play.png);
+                background-image: url(./../images/icon/play.png);
                 right: 2rem;
                 bottom: 2rem;
                 z-index: 10;
