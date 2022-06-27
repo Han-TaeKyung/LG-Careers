@@ -254,14 +254,14 @@
       ul {
         display: flex;
         justify-content: space-between;
-        margin-bottom: 3.5rem;
+        flex-wrap: wrap;
 
         li {
           width: 31.6rem;
           height: 42rem;
           border-radius: 1.5rem;
-          // overflow: hidden;
           background-color: $White;
+          margin-bottom: 3.5rem;
 
           a {
             display: block;
@@ -315,13 +315,29 @@
               @include ellipsis2row;
             }
           }
-        }
 
-        &.chStListHalf {
-          li {
+          &.listTT {
+            width: 66.7rem;
+          }
+
+          &.listHalf {
             width: 49.2rem;
           }
+
+          &.thumbNoImg {
+            .thumbCon {
+              p {
+                -webkit-line-clamp: 10;
+              }
+            }
+          }
         }
+
+        // &.chStListHalf {
+        //     li {
+        //         width: 49.2rem;
+        //     }
+        // }
       }
     }
   }
@@ -403,6 +419,48 @@
               }
             }
           }
+        }
+      }
+    }
+  }
+
+  .tabMenu {
+    [data-tab-content] {
+      display: none;
+    }
+
+    .chStoryList {
+      margin-bottom: -3.5rem;
+    }
+
+    .tabOn[data-tab-content] {
+      display: block;
+    }
+
+    .tabs {
+      display: flex;
+      font-size: 1.8rem;
+      line-height: 1.8rem;
+      letter-spacing: -0.02em;
+      font-weight: 600;
+      color: #aeaeae;
+      margin-bottom: 3rem;
+
+      .tab {
+        cursor: pointer;
+        margin-right: 2.5rem;
+        padding-top: 0.8rem;
+
+        &.tabOn {
+          color: $BrandColorRed;
+          border-top: 0.2rem solid $BrandColorRed;
+          padding-top: 0.6rem;
+        }
+
+        &:hover {
+          color: $BrandColorRed;
+          border-top: 0.2rem solid $BrandColorRed;
+          padding-top: 0.6rem;
         }
       }
     }

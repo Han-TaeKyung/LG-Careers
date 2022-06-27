@@ -2,7 +2,7 @@
 <html lang="ko">
   @@include('./../layouts/include/subHead.html')
   <body>
-    <div id="headers"></div>
+    <div id="headers">@@include('./../layouts/include/header.html')</div>
     <!--header END-->
     <div id="container" class="subContainer">
       <div class="visualWrap">
@@ -149,45 +149,6 @@
           </div>
         </div>
       </div>
-      <script src="../../assets/js/lib/slick.1.6.0.min.js"></script>
-      <script>
-        //slick
-        var $channelSlideWrap = $(".visualWrap .slideWrap"),
-          $channelSlide = $channelSlideWrap.find(".slideList"),
-          $channelCtrl = $channelSlideWrap.find(".slideCtrl"),
-          $channelPrev = $channelCtrl.find(".prev"),
-          $channelNext = $channelCtrl.find(".next");
-        $channelSlide.slick({
-          //기본
-          autoplay: false,
-          dots: false,
-          swipe: true,
-          draggable: true,
-          slidesToShow: 4,
-          slidesToScroll: 1,
-          variableWidth: true,
-          infinite: true,
-          prevArrow: $channelPrev,
-          nextArrow: $channelNext,
-          //추가 기능
-          isRunOnLowIE: false,
-          pauseOnArrowClick: true,
-          pauseOnDirectionKeyPush: true,
-          pauseOnSwipe: true,
-          pauseOnDotsClick: true,
-          responsive: [
-            {
-              breakpoint: 1001,
-              settings: {
-                swipe: true,
-                draggable: true,
-                verticalSwiping: true,
-                swipeToSlide: true,
-              },
-            },
-          ],
-        });
-      </script>
       <div class="subConWrap">
         <div id="lnb">
           <div class="lnbWrap">
@@ -307,8 +268,8 @@
           </div>
           <!-- subContentTop END -->
           <div class="chStoryList">
-            <ul class="chStListHalf">
-              <li>
+            <ul>
+              <li class="listHalf">
                 <a href="#">
                   <div class="thumbImg video">
                     <img
@@ -324,7 +285,7 @@
                   </div>
                 </a>
               </li>
-              <li>
+              <li class="listHalf">
                 <a href="#">
                   <div class="thumbImg">
                     <img
@@ -338,8 +299,6 @@
                   </div>
                 </a>
               </li>
-            </ul>
-            <ul>
               <li>
                 <a href="#">
                   <div class="thumbImg">
@@ -475,6 +434,46 @@
         </div>
         <!-- subContent END -->
       </div>
+      <!-- subConWrap END -->
+      <script src="../../assets/js/lib/slick.1.6.0.min.js"></script>
+      <script>
+        //slick
+        var $channelSlideWrap = $(".visualWrap .slideWrap"),
+          $channelSlide = $channelSlideWrap.find(".slideList"),
+          $channelCtrl = $channelSlideWrap.find(".slideCtrl"),
+          $channelPrev = $channelCtrl.find(".prev"),
+          $channelNext = $channelCtrl.find(".next");
+        $channelSlide.slick({
+          //기본
+          autoplay: false,
+          dots: false,
+          swipe: true,
+          draggable: true,
+          slidesToShow: 4,
+          slidesToScroll: 1,
+          variableWidth: true,
+          infinite: true,
+          prevArrow: $channelPrev,
+          nextArrow: $channelNext,
+          //추가 기능
+          isRunOnLowIE: false,
+          pauseOnArrowClick: true,
+          pauseOnDirectionKeyPush: true,
+          pauseOnSwipe: true,
+          pauseOnDotsClick: true,
+          responsive: [
+            {
+              breakpoint: 1001,
+              settings: {
+                swipe: true,
+                draggable: true,
+                verticalSwiping: true,
+                swipeToSlide: true,
+              },
+            },
+          ],
+        });
+      </script>
       <!-- subConWrap END -->
     </div>
 
