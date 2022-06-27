@@ -352,12 +352,10 @@ button {
 
 /*layout setting*/
 
-<<<<<<< HEAD:pub/src/assets/css/reset.scss body {
-}
-
-=======>>>>>>>e704315759a0e150db8cd6ecd5410f8d25035078:pub/assets/css/scss/reset.scss
+body {
   * {
-  text-rendering: optimizeLegibility;
+    text-rendering: optimizeLegibility;
+  }
 }
 
 .ellipsis {
