@@ -1,15 +1,10 @@
 @charset "UTF-8";
 /*@import url(http://fonts.googleapis.com/earlyaccess/nanummgothic.css);*/
-
 @font-face {
   font-family: "LGSmart";
   font-style: normal;
   font-weight: 400;
-  // src: url("/assets/fonts/LGSMHATR.eot");
-  // src: url("/assets/fonts/LGSMHATR.eot?#iefix") format("embedded-opentype"),
-  //   url("/assets/fonts/LGSMHATR.woff") format("woff");
-  src: url("/assets/fonts/subset-LGSmHaTR.woff") format("woff"),
-    url("/assets/fonts/subset-LGSmHaTR.woff2") format("woff2");
+  src: url("/assets/fonts/subset-LGSmHaTR.woff") format("woff"), url("/assets/fonts/subset-LGSmHaTR.woff2") format("woff2");
 }
 
 @font-face {
@@ -17,11 +12,7 @@
   font-style: normal;
   font-weight: 600;
   /* 세미볼드 */
-  // src: url("/assets/fonts/LGSMHATSB.eot");
-  // src: url("/assets/fonts/LGSMHATSB.eot?#iefix") format("embedded-opentype"),
-  //   url("/assets/fonts/LGSMHATSB.woff") format("woff");
-  src: url("/assets/fonts/subset-LGSmHaTSB.woff") format("woff"),
-    url("/assets/fonts/subset-LGSmHaTSB.woff2") format("woff2");
+  src: url("/assets/fonts/subset-LGSmHaTSB.woff") format("woff"), url("/assets/fonts/subset-LGSmHaTSB.woff2") format("woff2");
 }
 
 @font-face {
@@ -29,18 +20,12 @@
   font-style: normal;
   font-weight: 700;
   /* 볼드 */
-  // src: url("/assets/fonts/LGSMHATB.eot");
-  // src: url("/assets/fonts/LGSMHATB.eot?#iefix") format("embedded-opentype"),
-  //   url("/assets/fonts/LGSMHATB.woff") format("woff");
-  src: url("/assets/fonts/subset-LGSmHaTB.woff") format("woff"),
-    url("/assets/fonts/subset-LGSmHaTB.woff2") format("woff2");
+  src: url("/assets/fonts/subset-LGSmHaTB.woff") format("woff"), url("/assets/fonts/subset-LGSmHaTB.woff2") format("woff2");
 }
 
 * {
   font-family: "LGSmart", sans-serif;
   font-weight: normal;
-  // font-size: 1.6rem;
-  // letter-spacing: -0.05em;
 }
 
 :root {
@@ -50,14 +35,14 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 body {
   font-size: 1.6rem;
   font-weight: 400;
-  font-family: "LGSmart", -apple-system, BlinkMacSystemFont, "Malgun Gothic",
-    Roboto, "Helvetica Neue", sans-serif;
+  font-family: "LGSmart", -apple-system, BlinkMacSystemFont, "Malgun Gothic", Roboto, "Helvetica Neue", sans-serif;
   text-align: left;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -154,7 +139,6 @@ textarea {
   /*outline:none;*/
   -webkit-text-size-adjust: none;
   -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
 
@@ -242,15 +226,12 @@ a:link {
   text-decoration: none;
 }
 
-// a:visited {}
-
 a:hover,
 a:active {
   text-decoration: none;
 }
 
 /*a:hover, a:focus { border:1px solid #ee6600; }*/
-
 em,
 i,
 address {
@@ -351,12 +332,7 @@ button {
 }
 
 /*layout setting*/
-
-<<<<<<< HEAD:pub/src/assets/css/reset.scss body {
-}
-
-=======>>>>>>>e704315759a0e150db8cd6ecd5410f8d25035078:pub/assets/css/scss/reset.scss
-  * {
+* {
   text-rendering: optimizeLegibility;
 }
 
@@ -412,17 +388,17 @@ caption {
   position: relative;
   width: 100%;
   overflow: hidden;
+}
 
-  a {
-    display: block;
-    height: 1px;
-    margin-bottom: -1px;
-    overflow: hidden;
-    text-align: center;
-    text-decoration: none;
-    color: #333;
-    font-size: 12px;
-  }
+#skipNav a {
+  display: block;
+  height: 1px;
+  margin-bottom: -1px;
+  overflow: hidden;
+  text-align: center;
+  text-decoration: none;
+  color: #333;
+  font-size: 12px;
 }
 
 #skipNav a:hover,
@@ -449,7 +425,6 @@ caption {
     min-width:320px;
     font-size:100% !important
 }*/
-
 :before,
 :after {
   display: none;

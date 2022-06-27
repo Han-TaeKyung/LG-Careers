@@ -1,0 +1,301 @@
+@import "_variables", "_mixin";
+
+.subContainer {
+    width: 100%;
+    height: auto;
+    background-color: #eee;
+
+}
+
+.subConWrap {
+    padding: 15rem 0;
+    width: 144rem;
+    height: auto;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    .subContent {
+        width: 101.8rem;
+        height: auto;
+        padding: 4rem 0 0;
+
+
+        .subTitle2 {
+            color: $BrandColorGray;
+        }
+
+        .subContentTop {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+
+        .sta {
+            ul {
+                display: flex;
+
+                li {
+                    position: relative;
+                    padding-right: 2.1rem;
+                    margin-right: 1rem;
+                    font-size: 1.4rem;
+                    letter-spacing: -0.02em;
+                    color: $BrandColorGray;
+
+                    &.staOn {
+                        text-decoration: underline;
+                    }
+
+                    a {
+                        img {
+                            vertical-align: middle;
+                            margin-top: -0.2rem;
+                        }
+                    }
+
+                    &::before {
+                        display: block;
+                        width: 0.6rem;
+                        height: 1.2rem;
+                        background-image: url(../../images/icon/arrowR.png);
+                        background-repeat: no-repeat;
+                        position: absolute;
+                        right: 0;
+                        top: 0.3rem;
+                    }
+
+                    &:last-child {
+                        padding-right: 0;
+                        margin-right: 0;
+
+                        &::before {
+                            width: 0;
+                        }
+                    }
+                }
+            }
+        }
+
+        .chStoryList {
+            margin-bottom: 12rem;
+
+            ul {
+                display: flex;
+                justify-content: space-between;
+                flex-wrap: wrap;
+
+
+                li {
+                    width: 31.6rem;
+                    height: 42rem;
+                    border-radius: 1.5rem;
+                    background-color: $White;
+                    margin-bottom: 3.5rem;
+
+                    a {
+                        display: block;
+                        width: 100%;
+                        height: 100%;
+                        border-radius: 1.5rem;
+
+                        &:hover,
+                        &:focus {
+                            box-shadow: 0.8rem 0.9rem 4rem -.8rem rgba(0, 0, 0, 0.2);
+                        }
+                    }
+
+                    .thumbImg {
+                        border-radius: 1.5rem 1.5rem 0 0;
+                        overflow: hidden;
+
+                        &.video {
+                            position: relative;
+
+                            &::before {
+                                position: absolute;
+                                display: block;
+                                width: 6rem;
+                                height: 6rem;
+                                background-image: url(../../images/icon/play.png);
+                                right: 2rem;
+                                bottom: 2rem;
+                                z-index: 10;
+                            }
+                        }
+                    }
+
+                    .thumbCon {
+                        padding: 3rem 3rem 4rem;
+
+                        span {
+                            display: block;
+                            font-size: 1.4rem;
+                            margin-bottom: 2rem;
+                            letter-spacing: -0.02em;
+                            color: $BrandColorRed;
+                        }
+
+                        p {
+                            font-size: 2.2rem;
+                            font-weight: 600;
+                            line-height: 3.08rem;
+                            letter-spacing: -0.02em;
+                            color: $Black;
+                            @include ellipsis2row;
+
+                        }
+                    }
+
+                    &.listTT {
+                        width: 66.7rem;
+                    }
+
+                    &.listHalf {
+                        width: 49.2rem;
+                    }
+
+                    &.thumbNoImg {
+                        .thumbCon {
+                            p {
+                                -webkit-line-clamp: 10;
+                            }
+                        }
+                    }
+                }
+
+
+                // &.chStListHalf {
+                //     li {
+                //         width: 49.2rem;
+                //     }
+                // }
+            }
+        }
+    }
+
+    .chPostList {
+        ul {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+
+            li {
+                width: 31.6rem;
+                height: 32rem;
+                background: $White;
+                border-radius: 1.5rem;
+                margin-bottom: 3.5rem;
+                position: relative;
+
+                a {
+                    display: block;
+                    width: 100%;
+                    height: 100%;
+                    padding: 3rem 2.5rem;
+
+                    .dDay {
+                        display: block;
+                        width: 6.2rem;
+                        height: 3rem;
+                        border-radius: 1.5rem;
+                        background-color: $BrandColorRed;
+                        font-size: 1.4rem;
+                        font-weight: 700;
+                        color: $White;
+                        letter-spacing: -0.02em;
+                        text-align: center;
+                        line-height: 3.1rem;
+                    }
+
+                    .category {
+                        display: block;
+                        margin-top: 3rem;
+                        font-size: 1.6rem;
+                        letter-spacing: -0.02em;
+                        color: #8e8e8e;
+                        margin-bottom: 2rem;
+                    }
+
+                    p {
+                        font-size: 2.2rem;
+                        line-height: 3.08rem;
+                        letter-spacing: -0.02em;
+                        color: $Black;
+                        font-weight: 600;
+                    }
+
+                    .postCon {
+                        position: absolute;
+                        bottom: 3rem;
+                        left: 2.5rem;
+                        font-size: 1.6rem;
+                        line-height: 1.6rem;
+                        letter-spacing: -0.02em;
+                        color: $LGBlack;
+
+                        .pointC {
+                            color: $BrandColorRed;
+                            position: relative;
+                            padding-right: 1.1rem;
+                            margin-right: 1rem;
+
+                            &::before {
+                                display: block;
+                                width: 0.1rem;
+                                height: 1.1rem;
+                                background-color: $LGLightGray;
+                                position: absolute;
+                                right: 0;
+                                top: 0.5rem;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .tabMenu {
+        [data-tab-content] {
+            display: none;
+        }
+
+        .chStoryList {
+            margin-bottom: -3.5rem;
+        }
+
+        .tabOn[data-tab-content] {
+            display: block;
+        }
+
+        .tabs {
+            display: flex;
+            font-size: 1.8rem;
+            line-height: 1.8rem;
+            letter-spacing: -0.02em;
+            font-weight: 600;
+            color: #aeaeae;
+            margin-bottom: 3rem;
+
+            .tab {
+                cursor: pointer;
+                margin-right: 2.5rem;
+                padding-top: 0.8rem;
+
+                &.tabOn {
+                    color: $BrandColorRed;
+                    border-top: 0.2rem solid $BrandColorRed;
+                    padding-top: 0.6rem;
+                }
+
+                &:hover {
+                    color: $BrandColorRed;
+                    border-top: 0.2rem solid $BrandColorRed;
+                    padding-top: 0.6rem;
+                }
+            }
+        }
+    }
+}
