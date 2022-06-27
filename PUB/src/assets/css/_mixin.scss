@@ -1,0 +1,77 @@
+// _mixin.scss
+@mixin hiddenText {
+  display: block;
+  overflow: hidden;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  white-space: nowrap;
+  clip: rect(1px 1px 1px 1px);
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(1px);
+}
+
+@mixin ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@mixin ellipsis2row {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+@mixin ellipsis3row {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+@mixin flexbox {
+  display: flex;
+  align-items: center;
+}
+
+//폰트
+@mixin title1 {
+  font-size: 3rem;
+  letter-spacing: -0.02em;
+  line-height: 3rem;
+  font-weight: 700;
+}
+
+@mixin title2 {
+  font-size: 2.2rem;
+  letter-spacing: -0.04rem;
+  line-height: 2.6rem;
+}
+
+@mixin title3 {
+  font-size: 2rem;
+  letter-spacing: -0.04rem;
+  line-height: 2.4rem;
+}
+
+@mixin subTitle1 {
+  font-size: 1.8rem;
+  letter-spacing: -0.04rem;
+  line-height: 2.2rem;
+}
+
+@mixin subTitle2 {
+  font-size: 1.6rem;
+  letter-spacing: -0.02em;
+  line-height: 1.6rem;
+}
+
+@mixin subText1 {
+  font-size: 1.4rem;
+  letter-spacing: -0.04rem;
+  line-height: 1.8rem;
+}
