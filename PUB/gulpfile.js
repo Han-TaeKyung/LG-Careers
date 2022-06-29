@@ -79,6 +79,7 @@ function brwSync() {
     server: {
       baseDir: paths.dist.src,
     },
+    port: 8000,
   });
 }
 function setClean() {
