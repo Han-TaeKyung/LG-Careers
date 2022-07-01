@@ -75,3 +75,10 @@
   letter-spacing: -0.04rem;
   line-height: 1.8rem;
 }
+
+/* 기타 */
+@mixin bgInclude($size) {
+  background-position: center center;
+  background-size: $size;
+  background-repeat: no-repeat;
+}

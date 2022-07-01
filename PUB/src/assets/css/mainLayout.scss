@@ -5,6 +5,12 @@ html {
   position: relative;
   height: 100%;
 }
+body {
+  -ms-overflow-style: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
 
 .mainPage01 {
   width: 100%;
@@ -25,11 +31,6 @@ html {
 .mainPage04 {
   width: 100%;
   height: 100%;
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-  &::-webkit-scrollbar {
-    display: none;
-  }
 }
 .mainNav {
   position: fixed;
@@ -42,12 +43,13 @@ html {
 .page {
   width: 100%;
   height: 100vh;
+  background-color: #ddd;
   // font-size: 0;
   // line-height: 0;
 }
 .wrap {
   position: relative;
-  width: 94.5rem;
+  width: 144rem;
   margin: 0 auto;
 }
 
@@ -59,7 +61,7 @@ html {
   position: relative;
   background: url(/assets/images/main/visual.jpg) no-repeat center center;
   background-size: cover;
-  .page1Bg {
+  &Bg {
     display: block;
     position: absolute;
     left: 0;
@@ -69,9 +71,11 @@ html {
     background-color: rgba(0, 0, 0, 0.5);
   }
   .wrap {
+    width: 94.5rem;
     z-index: 10;
     text-align: center;
     h2 {
+      margin-bottom: 9rem;
       color: #fff;
       font-weight: 600;
       font-size: 6.8rem;
@@ -79,33 +83,53 @@ html {
 
       span {
         display: block;
+        &:nth-child(n + 2) {
+          margin-top: 1.5rem;
+        }
       }
     }
   }
   .form {
     position: relative;
+    margin-bottom: 6rem;
+    &Wrap {
+      display: flex;
+      flex: 1 0;
+      align-items: center;
+    }
     .formList {
       display: inline-flex;
-      width: calc(100% - 200px);
+      width: 100%;
       gap: 20px;
       li {
         display: block;
-        width: 30%;
+        flex: 1;
       }
     }
     .select {
       position: relative;
-      height: 40px;
+      height: 5.4rem;
       font-size: 2.2rem;
       .selectBtn {
         display: block;
         width: 100%;
         height: 100%;
-        padding: 10px;
+        padding: 10px 10px 10px 0;
         border-bottom: 2px solid #fff;
         background: transparent;
         color: #fff;
         text-align: left;
+        &:after {
+          display: block;
+          position: absolute;
+          right: 0;
+          top: calc(50% - 1px);
+          width: 12px;
+          height: 8px;
+          background: url(./../images/main/visual_arrow.svg) no-repeat center
+            center;
+          background-size: contain;
+        }
       }
       .selectList {
         display: none;
@@ -122,8 +146,10 @@ html {
         }
       }
       &.active {
-        .selectList {
-          display: block;
+        .selectBtn {
+          &:after {
+            transform: rotate(180deg);
+          }
         }
       }
     }
@@ -131,53 +157,56 @@ html {
       display: inline-flex;
       justify-content: center;
       align-items: center;
+      position: relative;
       border-radius: 50%;
       width: 6rem;
       height: 6rem;
       background-color: $BrandColorRed;
+      background-image: url(./../images/main/search.svg);
+      background-repeat: no-repeat;
+      background-position: center center;
       font-size: 0;
       line-height: 0;
-      &:before {
-        display: inline-block;
-      }
+      margin-left: 3rem;
     }
   }
   @keyframes scrollAni {
     0% {
-      top: 7px;
+      top: 0.7rem;
     }
     100% {
-      top: 15px;
+      top: 1.5rem;
       opacity: 0;
     }
   }
   .scroll {
     position: absolute;
-    left: calc(50% - 50px);
-    bottom: 50px;
-    width: 100px;
-    height: 100px;
-    padding-top: 60px;
+    left: calc(50% - 5rem);
+    bottom: 2.5rem;
+    width: 10rem;
+    height: 7rem;
+    padding-top: 4.6rem;
     color: #fff;
+    font-size: 1.2rem;
     text-align: center;
     i {
       display: block;
       position: absolute;
-      left: calc(50% - 12px);
-      bottom: 50px;
-      width: 23px;
-      height: 34px;
-      border-radius: 23px;
-      border: 2px solid #fff;
+      left: calc(50% - 1.2rem);
+      bottom: 3.2rem;
+      width: 2.3rem;
+      height: 3.4rem;
+      border-radius: 2.3rem;
+      border: 0.2rem solid #fff;
       &:before {
         display: block;
         position: absolute;
-        top: 7px;
-        left: calc(50% - 1px);
-        width: 2px;
-        height: 10px;
+        top: 0.7rem;
+        left: calc(50% - 0.1rem);
+        width: 0.2rem;
+        height: 1rem;
         background: #fff;
-        border-radius: 5px;
+        border-radius: 0.5rem;
         animation: scrollAni 1s infinite;
       }
     }
@@ -190,18 +219,26 @@ html {
     line-height: 1;
   }
   p {
+    margin-top: 30px;
     font-weight: 400;
     font-size: 1.8rem;
     line-height: 1;
+    letter-spacing: 0;
   }
 }
 .page2 {
+  padding: 180px 0 30px;
   background-color: #f5f5f5;
+  overflow-y: auto;
+
+  .scrollWrap {
+  }
   .titleWrap {
     position: relative;
-    margin-bottom: 50px;
+    margin-bottom: 70px;
     .more {
       display: inline-block;
+      margin-left: 15px;
       vertical-align: top;
       color: #666;
       font-size: 1.5rem;
@@ -222,7 +259,7 @@ html {
       flex-wrap: wrap;
       position: absolute;
       right: 0;
-      top: 0;
+      top: 18px;
       width: 400px;
       .hashBtn {
         display: inline-flex;
@@ -250,16 +287,15 @@ html {
     }
   }
   .conWrap {
-    height: calc(100vh - 158px);
-    overflow-y: auto;
   }
   .storyList {
     display: block;
-    column-width: 240px;
-    column-gap: 15px;
+    column-width: 400px;
+    column-gap: 70px;
     .storyItem {
       display: inline-block;
       position: relative;
+      padding-bottom: 150px;
 
       .storyAnchor {
         display: block;
@@ -269,15 +305,154 @@ html {
       .storyImg {
         width: inherit;
         border-radius: 20px;
+        overflow: hidden;
         img {
-          overflow: hidden;
+          width: 100%;
         }
       }
       .storyCon {
         width: inherit;
+        padding-top: 20px;
         h3.tag {
+          color: #aeaeae;
+          font-size: 18px;
+          font-weight: 400;
         }
         p {
+          margin-top: 12px;
+          font-weight: 600;
+          font-size: 22px;
+          line-height: 34px;
+        }
+      }
+    }
+  }
+}
+.page3 {
+  .titleWrap {
+    color: #fff;
+    h2 {
+    }
+    p {
+    }
+  }
+  .channelList {
+    .channelItem {
+      h3 {
+        .accBtn {
+          font-size: 2.2rem;
+          font-weight: 600;
+          color: #fff;
+          background-color: transparent;
+          sup {
+            vertical-align: super;
+            font-size: small;
+          }
+        }
+      }
+      .items {
+        .partBtn {
+          width: 92px;
+          height: 92px;
+          border-radius: 1rem;
+          @include bgInclude(cover);
+          &:not(:first-child) {
+            margin-left: 1rem;
+          }
+        }
+      }
+    }
+  }
+  .channelDest {
+    h4 {
+    }
+    p {
+    }
+    .goBtn {
+      span {
+      }
+    }
+  }
+}
+
+@keyframes rollingleft1 {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-100%);
+  }
+  50.01% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes rollingleft2 {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-200%);
+  }
+}
+
+.page4 {
+  padding: 180px 0;
+  .titleWrap {
+    position: relative;
+    margin-bottom: 65px;
+    h2 {
+    }
+    p {
+    }
+    .more {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      &:after {
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        margin-left: 5px;
+        background: url(./../images/main/plus_btn.svg) no-repeat center center;
+        background-size: contain;
+        vertical-align: middle;
+      }
+    }
+  }
+  .leftScrollWrap {
+    height: 600px;
+    .leftScroll {
+      .scrollItem {
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+        position: absolute;
+        width: auto;
+        .peopleRow {
+          display: inline-flex;
+          flex-direction: column;
+          gap: 1.5rem;
+          .peopleItem {
+            display: inline-block;
+            width: 360px;
+            height: 262px;
+            margin: 15px;
+            border-radius: 1.5rem;
+            background-color: #000;
+            @include bgInclude(cover);
+            font-size: 0;
+            line-height: 0;
+          }
+        }
+        &:not(.cloneItem) {
+          animation: 70s linear 0s infinite normal forwards running rollingleft1;
+        }
+        &.cloneItem {
+          animation: 70s linear 0s infinite normal none running rollingleft2;
         }
       }
     }
@@ -286,6 +461,38 @@ html {
 
 .mainNav {
   position: fixed;
-  top: 10rem;
-  left: 5rem;
+  left: 2vw;
+  top: 50%;
+  width: 20px;
+  transform: translateY(-50%);
+  .navBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem auto;
+    font-size: 0;
+    line-height: 0;
+    width: 18px;
+    height: 18px;
+
+    background-color: transparent;
+    &:before {
+      display: block;
+      width: 6px;
+      height: 6px;
+      border: 2px solid #fff;
+      border-radius: 50%;
+      background: #fff;
+      transition-duration: 0.3s;
+      transition-property: width, height;
+      box-sizing: border-box;
+    }
+    &.active {
+      &:before {
+        width: 18px;
+        height: 18px;
+        background: transparent;
+      }
+    }
+  }
 }
