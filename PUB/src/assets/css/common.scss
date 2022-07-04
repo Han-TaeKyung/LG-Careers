@@ -85,7 +85,7 @@
           padding: 1rem 1.2rem;
 
           label {
-            background-color: $BrandColorGray;
+            background-color: $Gray6B;
             color: #fff;
             font-size: 1.2rem;
             padding: 0.3rem 0.8rem 0.4rem;
@@ -404,7 +404,7 @@ p {
         width: 2.1rem;
         height: 2.1rem;
         background-color: #fff;
-        border: 0.2rem solid $BrandColorGray;
+        border: 0.2rem solid $Gray6B;
         box-sizing: border-box;
       }
     }
@@ -468,7 +468,7 @@ p {
         height: 2.1rem;
         border-radius: 50%;
         background-color: #fff;
-        border: 0.2rem solid $BrandColorGray;
+        border: 0.2rem solid $Gray6B;
         box-sizing: border-box;
       }
     }
@@ -479,7 +479,7 @@ p {
           display: block;
           position: absolute;
           content: "●";
-          color: $BrandColorGray;
+          color: $Gray6B;
           font-size: 1.4rem;
           left: 0;
           top: 0;
@@ -510,11 +510,11 @@ p {
     width: 18rem;
     height: 4rem;
     padding: 0.8rem 3.5rem 0.8rem 1rem;
-    border: 0.1rem solid $BrandColorGray;
+    border: 0.1rem solid $Gray6B;
     border-radius: 0.3rem;
     font-size: 1.6rem;
     font-weight: 400;
-    color: $BrandColorGray;
+    color: $Gray6B;
   }
 }
 
@@ -528,7 +528,7 @@ p {
     border: 0.1rem solid #ccc;
     font-size: 1.4rem;
     padding: 1.5rem;
-    color: $BrandColorGray;
+    color: $Gray6B;
   }
 
   &.type2 {
@@ -681,7 +681,7 @@ p {
           content: " ";
           width: 0.5rem;
           height: 0.1rem;
-          background-color: $BrandColorGray;
+          background-color: $Gray6B;
           left: 0;
           top: 0.8rem;
           position: absolute;
@@ -703,7 +703,7 @@ p {
         content: " ";
         width: 0.5rem;
         height: 0.1rem;
-        background-color: $BrandColorGray;
+        background-color: $Gray6B;
         left: 0;
         top: 0.8rem;
         position: absolute;
