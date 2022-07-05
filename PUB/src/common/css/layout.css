@@ -77,7 +77,7 @@
 }
 
 #header .headerWrap .logMenu a {
-  background-image: url(/assets/images/icon/ico.png);
+  background-image: url(/common/images/icon/ico.png);
   background-repeat: no-repeat;
   background-position: left;
   padding-left: 1.9rem;
@@ -113,7 +113,7 @@
 }
 
 #header.headerDefault .headerWrap .logMenu a {
-  background-image: url(/assets/images/icon/icoDefault.png);
+  background-image: url(/common/images/icon/icoDefault.png);
   color: #6b6b6b;
 }
 

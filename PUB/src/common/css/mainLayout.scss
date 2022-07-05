@@ -1,4 +1,4 @@
-@import "_variables", "_mixin";
+@import "_variables", "_mixin","_scroll";
 
 body,
 html {
@@ -44,8 +44,9 @@ body {
   width: 100%;
   height: 100vh;
   background-color: #ddd;
-  // font-size: 0;
-  // line-height: 0;
+  letter-spacing: -0.02em;
+  font-size: 0;
+  line-height: 0;
 }
 .wrap {
   position: relative;
@@ -59,7 +60,7 @@ body {
   align-items: center;
   justify-content: center;
   position: relative;
-  background: url(/assets/images/main/visual.jpg) no-repeat center center;
+  background: url(/common/images/main/visual.jpg) no-repeat center center;
   background-size: cover;
   &Bg {
     display: block;
@@ -114,7 +115,7 @@ body {
         display: block;
         width: 100%;
         height: 100%;
-        padding: 10px 10px 10px 0;
+        padding: 1rem 1rem 1rem 0;
         border-bottom: 2px solid #fff;
         background: transparent;
         color: #fff;
@@ -136,6 +137,10 @@ body {
         position: absolute;
         left: 0;
         top: 100%;
+        width:100%;
+        .selectWrap {
+          height:100px;
+        }
         button {
           display: block;
           width: 100%;
@@ -143,6 +148,7 @@ body {
           background-color: transparent;
           color: #fff;
           padding: 10px;
+          text-align:left;
         }
       }
       &.active {
@@ -223,7 +229,6 @@ body {
     font-weight: 400;
     font-size: 1.8rem;
     line-height: 1;
-    letter-spacing: 0;
   }
 }
 .page2 {
@@ -442,7 +447,7 @@ body {
             height: 262px;
             margin: 15px;
             border-radius: 1.5rem;
-            background-color: #000;
+            background-color:$LGBlack;
             @include bgInclude(cover);
             font-size: 0;
             line-height: 0;

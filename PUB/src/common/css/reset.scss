@@ -5,11 +5,11 @@
   font-family: "LGSmart";
   font-style: normal;
   font-weight: 400;
-  // src: url("/assets/fonts/LGSMHATR.eot");
-  // src: url("/assets/fonts/LGSMHATR.eot?#iefix") format("embedded-opentype"),
-  //   url("/assets/fonts/LGSMHATR.woff") format("woff");
-  src: url("/assets/fonts/subset-LGSmHaTR.woff") format("woff"),
-    url("/assets/fonts/subset-LGSmHaTR.woff2") format("woff2");
+  // src: url("/common/fonts/LGSMHATR.eot");
+  // src: url("/common/fonts/LGSMHATR.eot?#iefix") format("embedded-opentype"),
+  //   url("/common/fonts/LGSMHATR.woff") format("woff");
+  src: url("/common/fonts/subset-LGSmHaTR.woff") format("woff"),
+    url("/common/fonts/subset-LGSmHaTR.woff2") format("woff2");
 }
 
 @font-face {
@@ -17,11 +17,11 @@
   font-style: normal;
   font-weight: 600;
   /* 세미볼드 */
-  // src: url("/assets/fonts/LGSMHATSB.eot");
-  // src: url("/assets/fonts/LGSMHATSB.eot?#iefix") format("embedded-opentype"),
-  //   url("/assets/fonts/LGSMHATSB.woff") format("woff");
-  src: url("/assets/fonts/subset-LGSmHaTSB.woff") format("woff"),
-    url("/assets/fonts/subset-LGSmHaTSB.woff2") format("woff2");
+  // src: url("/common/fonts/LGSMHATSB.eot");
+  // src: url("/common/fonts/LGSMHATSB.eot?#iefix") format("embedded-opentype"),
+  //   url("/common/fonts/LGSMHATSB.woff") format("woff");
+  src: url("/common/fonts/subset-LGSmHaTSB.woff") format("woff"),
+    url("/common/fonts/subset-LGSmHaTSB.woff2") format("woff2");
 }
 
 @font-face {
@@ -29,11 +29,11 @@
   font-style: normal;
   font-weight: 700;
   /* 볼드 */
-  // src: url("/assets/fonts/LGSMHATB.eot");
-  // src: url("/assets/fonts/LGSMHATB.eot?#iefix") format("embedded-opentype"),
-  //   url("/assets/fonts/LGSMHATB.woff") format("woff");
-  src: url("/assets/fonts/subset-LGSmHaTB.woff") format("woff"),
-    url("/assets/fonts/subset-LGSmHaTB.woff2") format("woff2");
+  // src: url("/common/fonts/LGSMHATB.eot");
+  // src: url("/common/fonts/LGSMHATB.eot?#iefix") format("embedded-opentype"),
+  //   url("/common/fonts/LGSMHATB.woff") format("woff");
+  src: url("/common/fonts/subset-LGSmHaTB.woff") format("woff"),
+    url("/common/fonts/subset-LGSmHaTB.woff2") format("woff2");
 }
 
 * {
