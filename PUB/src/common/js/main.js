@@ -3,7 +3,7 @@ $(function () {
     $html = $("html");
 
   var $container = $("#container"),
-    $conSection = $container.find(" > section"),
+    $conSection = $container.find(".page"),
     sectionLength = $conSection.length,
     sectionRate = 1 / sectionLength,
     $mainNavItem = $(".mainNav .navBtn");
@@ -17,7 +17,7 @@ $(function () {
       if (page) {
         var dataPage;
         dataPage = page <= 0 ? 1 : page;
-        dataPage = page >= sectionLength ? 4 : page;
+        dataPage = page >= sectionLength ? sectionLength : page;
         $html.attr("data-page", dataPage);
       }
       $("body,html")
@@ -27,6 +27,7 @@ $(function () {
       return false; //기본마우스 휠 기능 제거
     });
 
+    //page 안쪽 콘텐츠가 길어질 때
     $(".page.innerScroll").on("mousewheel", function (e, delta) {
       var h = $window.height();
       var page = parseInt($(this).attr("data-page")) - 1;
@@ -53,16 +54,31 @@ $(function () {
     var nav = $html.attr("data-page");
   }
   //스크롤이벤트
-  $mainNavItem.click(function () {
+  $mainNavItem.on('click', function () {
     //스크롤 애니메이션
     n = $(this).attr("data-n");
     target = $(".page" + n).offset().top;
     $("body,html").stop().animate({ scrollTop: target }, speed);
   });
-  $window.scroll(function () {
+
+  $window.on('scroll', function () {
     //스크롤 이벤트가 발생했을때
-    st = $window.scrollTop(); //수직스크롤 값을 가져오기
-    h = $window.height();
+    var st = $window.scrollTop(), //수직스크롤 값을 가져오기
+    h = $window.height(),
+    pageInfo = [];
+    
+    $conSection.each(function(){
+      var $this = $(this),
+      thisIndex= $this.attr('data-n'),
+      obj = {};
+      obj.id = thisIndex;
+      obj.offsetTop = $this.offset().top;
+      pageInfo.push(obj);
+    })
+    
+    console.log(pageInfo)
+    
+
     offset2 = $(".page2").offset().top;
     offset3 = $(".page3").offset().top;
     offset4 = $(".page4").offset().top;
@@ -125,8 +141,23 @@ $(function () {
               "scrolly": "advanced"
           });
       });
-  }
+    }
   });
+  
+//selectbox 마우스 휠 액션
+$('.selectWrap').on('mousewheel', function(e,delta){
+  e.stopPropagation();
+  var $this = $(this),
+  $thisParent = $this.closest('.selectList').find('>div'),
+  thisHeight = $this.height();
+  thisScrollTop = $this.scrollTop(),      
+  thisScrollBottom = thisScrollTop + thisHeight;
+  if(thisScrollTop <= 0 && delta > 0){
+    e.preventDefault()
+  } else if (thisScrollBottom > thisHeight && delta < 0){
+    e.preventDefault()
+  }
+});
 
   //page2-our story
   var $tagContainer = $(".page2 .hash");
@@ -159,9 +190,9 @@ $(function () {
     var $item = $(
       '<li class="storyItem">\n' +
         '<a href="#n" class="storyAnchor">\n' +
-        '<div class="storyImg">\n' +
+        '<div class="imgWrap"><div class="storyImg">\n' +
         '<img src="" alt="">\n' +
-        "</div>\n" +
+        "</div></div>\n" +
         '<div class="storyCon">\n' +
         '<h3 class="tag">LG Life</h3>\n' +
         "<p>장애 청소년들에게 LG 스탠바이미를 기부하고자 세 사람이 모이게 된 사연은?</p>\n" +
@@ -181,6 +212,7 @@ $(function () {
   var $page3 = $(".page3"),
     $channelList = $page3.find(".channelList"),
     $channelDesc = $page3.find(".channelDesc");
+   
   group.map(function (obj, i) {
     var $channelItem = $(
       '<li class="channelItem">\n' +
@@ -190,12 +222,15 @@ $(function () {
         '<div class="items"></div>\n' +
         "</li>"
     );
+
+       
     $channelItem.find("h3 .accBtn").text(obj);
     var filteredData = departData.filter(function (x) {
       return x.group === obj;
     });
     var length = filteredData.length;
     $channelItem.find("h3 .accBtn").append("<sup>" + length + "</sup>");
+
     filteredData.map(function (obj, i) {
       var $partBtn = $(
         '<button type="button" class="partBtn" data-index="' +
@@ -204,9 +239,22 @@ $(function () {
           obj.title +
           "</button>"
       );
-      $partBtn.on("click", function () {
+      $channelItem.find(".items").append($partBtn);
+
+    });
+    $channelList.append($channelItem);
+  });
+  var $partBtn = $('.channelItem .partBtn');
+        $partBtn.on("click", function () {
+          var $this = $(this),
+          thisIndex = parseInt($this.attr('data-index'));
+        $partBtn.removeClass('active')
+        $this.addClass('active');
         $channelDesc.html("");
-        $page3.css("backgroundImage", obj.image);
+        var obj = departData.find(function(x){
+          return x.id === thisIndex;
+        });
+        $page3.css("backgroundImage", 'url(' + obj.image + ')');
         var $desc = $(
           '<div class="desc"><h4>로고요~~</h4>\n' +
             "<p></p>\n" +
@@ -223,10 +271,8 @@ $(function () {
         });
         $channelDesc.append($desc);
       });
-      $channelItem.find(".items").append($partBtn);
-    });
-    $channelList.append($channelItem);
-  });
+  $('.channelItem:first-child .partBtn:first-child').trigger('click')
+  
 
   // page4 - our people
   var $rollingScroll = $(".page4 .leftScroll");
