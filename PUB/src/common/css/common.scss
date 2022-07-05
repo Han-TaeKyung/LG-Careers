@@ -277,14 +277,14 @@ p {
 //버튼
 .btn {
   display: inline-block;
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   color: $Black;
   border: 0.1rem solid #555;
   padding: 0.8rem 1.5rem;
   border-radius: 0.5rem;
   text-align: center;
   vertical-align: middle;
-  min-width: 10rem;
+  min-width: 9rem;
   height: auto;
 
   &:hover {
@@ -336,9 +336,9 @@ p {
   }
 
   &.round {
-    height: 5.6rem;
-    line-height: 5.6rem;
-    border-radius: 2.8rem;
+    height: 4.8rem;
+    line-height: 4.8rem;
+    border-radius: 2.4rem;
     padding: 0 1.2rem;
   }
 
@@ -528,7 +528,7 @@ p {
     border: 0.1rem solid #ccc;
     font-size: 1.4rem;
     padding: 1.5rem;
-    color: $Gray6B;
+    color: $Gray8E;
   }
 
   &.type2 {
