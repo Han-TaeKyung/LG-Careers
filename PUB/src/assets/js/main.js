@@ -112,6 +112,20 @@ $(function () {
       $thisPanel.slideUp(200);
       $thisPanel.attr("title", "닫힘");
     }
+    
+    setScrollBar();
+    
+    //family site scrollbar
+    function setScrollBar() {
+      $('.family_site_wrap .family_site').each(function(){
+         var $this = $(this);
+         $this.find('.scrollbar-janos').scrollbar({
+              "showArrows": true,
+              "scrollx": "advanced",
+              "scrolly": "advanced"
+          });
+      });
+  }
   });
 
   //page2-our story
