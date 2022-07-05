@@ -1,11 +1,13 @@
 $(function () {
   if ($(window).width() > 1199) {
     $("#gnb > ul > li").on("mouseenter focusin", function () {
-      $(this).addClass("gnbOn").siblings().removeClass("gnbOn");
+      $(this).parent().addClass("gnbOn").parent().removeClass("gnbOn");
+      $('#header').addClass("mainHeaderHover");
     });
 
-    $("#gnb > ul > li").on("mouseleave focusout", function () {
+    $("#gnb > ul").on("mouseleave focusout", function () {
       $(this).removeClass("gnbOn");
+      $('#header').removeClass("mainHeaderHover");
     });
   }
 });
