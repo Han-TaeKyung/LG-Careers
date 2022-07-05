@@ -8,21 +8,22 @@ var browserSync = require("browser-sync").create();
 var paths = {
   dev: {
     src: "./src",
-    css: "./src/assets/css/*.scss",
-    js: "./src/assets/**/*.js",
-    html: ["./src/pages/**/*.html", "!./src/pages/**/include/*.html"],
+    css: "./src/common/css/*.scss",
+    js: "./src/common/**/*.js",
+    html: ["./src/common/html/**/*.html", "!./src/pages/**/include/*.html"],
     resource: [
-      "./src/assets/**/*",
-      "!./src/assets/**/*.js",
-      "!./src/assets/**/*.scss",
+      "./src/common/**/*",
+      "!./src/common/**/*.js",
+      "!./src/common/**/*.scss",
+      "!./src/common/**/*.html",
     ],
   },
   dist: {
     src: "./dist",
-    css: "./dist/assets/css",
-    js: "./dist/assets",
-    html: "./dist/pages",
-    resource: "./dist/assets",
+    css: "./dist/common/css",
+    js: "./dist/common",
+    html: "./dist/common/html",
+    resource: "./dist/common",
   },
 };
 
