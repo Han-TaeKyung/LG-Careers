@@ -1,4 +1,4 @@
-@import "_variables", "_mixin";
+@import "_variables", "_mixin","_scroll";
 
 body,
 html {
@@ -137,6 +137,10 @@ body {
         position: absolute;
         left: 0;
         top: 100%;
+        width:100%;
+        .selectWrap {
+          height:100px;
+        }
         button {
           display: block;
           width: 100%;
@@ -144,6 +148,7 @@ body {
           background-color: transparent;
           color: #fff;
           padding: 10px;
+          text-align:left;
         }
       }
       &.active {

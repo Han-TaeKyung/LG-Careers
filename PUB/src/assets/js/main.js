@@ -117,9 +117,9 @@ $(function () {
     
     //family site scrollbar
     function setScrollBar() {
-      $('.family_site_wrap .family_site').each(function(){
+      $('.page1 .form .select').each(function(){
          var $this = $(this);
-         $this.find('.scrollbar-janos').scrollbar({
+         $this.find('.scrollbar').scrollbar({
               "showArrows": true,
               "scrollx": "advanced",
               "scrolly": "advanced"
