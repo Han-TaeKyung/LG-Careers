@@ -1,0 +1,101 @@
+@import "_variables", "_mixin";
+
+//subLayout으로 옮기기
+#header{
+    background-color: $White;
+
+    .headerWrap {
+        .logo {
+        a {
+            color: $LGBlack;
+
+            span {
+            color: $BrandColorRed;
+            }
+        }
+        }
+
+        #gnb {
+        >ul {
+            >li {
+            a {
+                color: $LGBlack;
+            }
+            }
+        }
+        }
+
+        .logMenu {
+        background-image: url(/common/images/icon/icoDefault.png);
+        a {
+            
+            color: $Gray6B;
+
+            span {
+            background-color: $GrayAE;
+            }
+        }
+        }
+    }
+}
+
+//서브 배경색상
+.subBGW{
+    background-color: $White;
+}
+.loginWrap{
+    max-width: 50rem;
+    width: 100%;
+    height: auto;
+    margin: 4.2rem auto 0;
+    text-align: center;
+    .loginForm{
+        margin-top: 6rem;
+        .inputBox + .inputBox{
+            margin-top: 1.2rem;
+        }
+    }
+    .loginMenu{
+        display: flex;
+        justify-content: center;
+        margin: 3rem 0 6rem;
+        li{
+            position: relative;
+            padding-right: 1.5rem;
+            margin-right: 1.4rem;
+            &::before{
+                display: block;
+                width: 0.1rem;
+                height: 1.2rem;
+                background-color: $GrayD9;
+                position: absolute;
+                right: 0;
+                top:0.3rem;
+            }
+            a{
+                @include subText1;
+                color: $Gray6B;
+                line-height: 1.4rem;
+            }
+            &:last-child{
+                margin-right: 0;
+                padding-right: 0;
+                &::before{
+                    width: 0;
+                }
+            }
+        }
+    }
+    .subTitle2{
+        font-weight: 600;
+        color:$LGBlack;
+    }
+    .loginSNS{
+        margin-top: 2rem;
+        display: flex;
+        justify-content: center;
+        li{
+            margin: 0 1rem;
+        }
+    }
+}

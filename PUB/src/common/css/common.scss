@@ -249,6 +249,9 @@
 }
 
 //공통 class
+h3.subTitle {
+  @include title0;
+}
 h3 {
   @include title1;
 }
@@ -277,43 +280,61 @@ p {
 //버튼
 .btn {
   display: inline-block;
-  font-size: 1.4rem;
-  color: $Black;
-  border: 0.1rem solid #555;
-  padding: 0.8rem 1.5rem;
+  font-size: 1.6rem;
+  line-height: 1.6rem;
+  color: $LGBlack;
+  border: 0.1rem solid $GrayAE;
+  padding: 0 2.8rem;
   border-radius: 0.5rem;
   text-align: center;
   vertical-align: middle;
   min-width: 9rem;
+  min-height: 4.8rem;
+  line-height: 4.8rem;
   height: auto;
 
   &:hover {
-    border: 0.1rem solid #555;
-    color: $Black;
+    border: 0.1rem solid $LGBlack;
+    color: $LGBlack;
     transition: 0.4s;
   }
 
   &.smail {
     font-size: 1.4rem;
-    padding: 0.6rem 1rem;
+    padding: 0 1.9rem;
   }
 
   &.large {
-    font-size: 1.8rem;
-    padding: 1rem 2rem;
+    font-size: 1.6rem;
+    padding:0 3rem;
+    min-width: 24.4rem;
+    min-height: 5.8rem;
+    line-height: 5.8rem;
+  }
+  &.xlarge {
+    font-size: 1.6rem;
+    padding:0 3rem;
+    min-width: 50rem;
+    min-height: 5.8rem;
+    line-height: 5.8rem;
+  }
+
+  &.minW{
+    min-width: 15rem;
+    padding:0 2rem;
   }
 
   &.type2 {
-    background-color: $BrandColorRed;
+    background-color: $RedD0;
     color: $White;
     font-weight: 600;
-    border: 0.1rem solid $BrandColorRed;
+    border: 0.1rem solid $RedD0;
 
     &:hover {
-      background-color: $BrandColorRed;
+      background-color: $RedD0;
       color: $White;
       font-weight: 600;
-      border: 0.1rem solid $BrandColorRed;
+      border: 0.1rem solid $RedD0;
     }
   }
 
@@ -329,6 +350,44 @@ p {
     }
   }
 
+  &.type4 {
+    background-color: $BrandColorRed;
+    color: $White;
+    font-weight: 600;
+    border: 0.1rem solid $BrandColorRed;
+
+    &:hover {
+      background-color: $BrandColorRed;
+      color: $White;
+      font-weight: 600;
+      border: 0.1rem solid $BrandColorRed;
+    }
+  }
+
+  &.type5 {
+    background-color: $LGBlack;
+    color: $White;
+    font-weight: 600;
+    border: 0.1rem solid $LGBlack;
+
+    &:hover {
+      background-color: $RedD0;
+      color: $White;
+      font-weight: 600;
+      border: 0.1rem solid $RedD0;
+    }
+  }
+
+
+  &.icoImg{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    span{
+      display: flex;
+      margin-right: 0.5rem;
+    }
+  }
   &.disabl {
     border: 0.1rem solid #999;
     color: #999;
@@ -336,10 +395,11 @@ p {
   }
 
   &.round {
-    height: 4.8rem;
-    line-height: 4.8rem;
     border-radius: 2.4rem;
     padding: 0 1.2rem;
+    &.xlarge{
+      border-radius: 2.9rem;
+    }
   }
 
   &.ico {
@@ -520,15 +580,23 @@ p {
 
 //input, textbox
 .inputBox {
+  
   label {
     @include hiddenText;
   }
 
   input {
-    border: 0.1rem solid #ccc;
+    border: 0.1rem solid $GrayD9;
     font-size: 1.4rem;
-    padding: 1.5rem;
-    color: $Gray8E;
+    padding:0 1.5rem;
+    border-radius: 0.5rem;
+    color: $LGBlack;
+    width: 100%;
+    line-height: 4.8rem;
+    height:4.8rem;
+    &::placeholder{
+      color: $GrayAE;
+    }
   }
 
   &.type2 {
