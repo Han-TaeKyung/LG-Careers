@@ -207,6 +207,7 @@
         padding-top: 1.5rem;
         margin-top: 5rem;
     }
+
 }
 /* 폼 오류 */
 .formError{
@@ -226,4 +227,92 @@ p.formError{
     letter-spacing: -0.02em;
     color:$RedD0;
     margin-top: 1.2rem;
+}
+/* step */
+.step{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 6rem;
+    li{
+        text-align: center;
+        position: relative;
+        width: 9.2rem;
+        padding-right: 1.5rem;
+        margin-right: 0.3rem;
+        span{
+            display: block;
+            font-size: 1.5rem;
+            line-height: 1.5rem;
+            letter-spacing: -0.02em;
+            color:$GrayAE;
+            &.stepNum{
+                width: 3.5rem;
+                height: 3.5rem;
+                border-radius: 50%;
+                border:.1rem solid $GrayD9;
+                font-size: 1.6rem;
+                font-weight: 600;
+                line-height: 3.5rem;
+                letter-spacing: -0.02em;
+                text-align: center;
+                color:$GrayAE;
+                margin: 0 auto 1.3rem;
+            }
+        }
+        &.stepOn{
+            .stepNum{
+                border: .1rem solid $RedD0;
+            }
+            span{
+                color:$RedD0;
+                font-weight: 600;
+            }
+        }
+        &::before{
+            display: block;
+            width: 1.2rem;
+            height:0.3rem;
+            background-image: url(/common/images/icon/dot.png);
+            background-repeat: no-repeat;
+            position: absolute;
+            right:0;
+            top:1.6rem;
+        }
+        &:last-child{
+            margin-right: 0;
+            padding-right: 0;
+            width: 7.7rem;
+            &::before{
+                width: 0;
+            }
+        }
+    }
+}
+.joinnWrap{
+    max-width: 90rem;
+    width: 100%;
+    height: auto;
+    margin: 4.2rem auto 0;
+    h3{
+        text-align: center;
+    }
+    .joinStep1{
+        >h5{
+            color:$Black;
+            font-weight: 600;
+            span{
+                color:$RedD0;
+                font-weight: 600;
+            }
+        }
+        .subTitle2{
+            color:$Gray6B;
+            line-height: 2.56rem;
+        }
+    }
+    .conBox{
+        background-color: #f8f8f8;
+        border-radius: 0.5rem;
+        padding: 3rem 3rem 4.2rem;
+    }
 }
