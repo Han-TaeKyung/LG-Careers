@@ -1,89 +1,89 @@
-var storyData = [
-  {
-    id: 1,
-    tag: "LG Life",
-    title:
-      "장애 청소년들에게 LG 스탠바이미를 기부하고자 세 사람이 모이게 된 사연은?",
-    image:
-      "https://images.unsplash.com/photo-1586227740560-8cf2732c1531?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=961&q=80",
-    href: "/",
-  },
-  {
-    id: 2,
-    tag: "LG Life",
-    title:
-      "장애 청소년들에게 LG 스탠바이미를 기부하고자 세 사람이 모이게 된 사연은?",
-    image:
-      "https://images.unsplash.com/photo-1586227740560-8cf2732c1531?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=961&q=80",
-    href: "/",
-  },
-  {
-    id: 3,
-    tag: "LG Life",
-    title:
-      "장애 청소년들에게 LG 스탠바이미를 기부하고자 세 사람이 모이게 된 사연은?",
-    image:
-      "https://images.unsplash.com/photo-1655853522212-c40d5814b33e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=388&q=80",
-    href: "/",
-  },
-  {
-    id: 4,
-    tag: "LG Life",
-    title:
-      "4.장애 청소년들에게 LG 스탠바이미를 기부하고자 세 사람이 모이게 된 사연은?",
-    image:
-      "https://images.unsplash.com/photo-1586227740560-8cf2732c1531?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=961&q=80",
-    href: "/",
-  },
-  {
-    id: 5,
-    tag: "LG Life",
-    title:
-      "5.장애 청소년들에게 LG 스탠바이미를 기부하고자 세 사람이 모이게 된 사연은?",
-    image:
-      "https://images.unsplash.com/photo-1655720031554-a929595ffad7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=580&q=80",
-    href: "/",
-  },
-  {
-    id: 6,
-    tag: "LG Life",
-    title:
-      "6.장애 청소년들에게 LG 스탠바이미를 기부하고자 세 사람이 모이게 된 사연은?",
-    image:
-      "https://images.unsplash.com/photo-1655853522212-c40d5814b33e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=388&q=80",
-    href: "/",
-  },
-  {
-    id: 7,
-    tag: "LG Life",
-    title:
-      "7.장애 청소년들에게 LG 스탠바이미를 기부하고자 세 사람이 모이게 된 사연은?",
-    image:
-      "https://images.unsplash.com/photo-1655720031554-a929595ffad7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=580&q=80",
-    href: "/",
-  },
-  {
-    id: 8,
-    tag: "LG Life",
-    title:
-      "8.장애 청소년들에게 LG 스탠바이미를 기부하고자 세 사람이 모이게 된 사연은?",
-    image:
-      "https://images.unsplash.com/photo-1586227740560-8cf2732c1531?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=961&q=80",
-    href: "/",
-  },
-  {
-    id: 9,
-    tag: "LG Life",
-    title:
-      "9.장애 청소년들에게 LG 스탠바이미를 기부하고자 세 사람이 모이게 된 사연은?",
-    image:
-      "https://images.unsplash.com/photo-1655720031554-a929595ffad7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=580&q=80",
-    href: "/",
-  },
-];
+// var storyData = [
+//   {
+//     id: 1,
+//     tag: "LG Life",
+//     title:
+//       "장애 청소년들에게 LG 스탠바이미를 기부하고자 세 사람이 모이게 된 사연은?",
+//     image:
+//       "https://images.unsplash.com/photo-1586227740560-8cf2732c1531?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=961&q=80",
+//     href: "/",
+//   },
+//   {
+//     id: 2,
+//     tag: "LG Life",
+//     title:
+//       "장애 청소년들에게 LG 스탠바이미를 기부하고자 세 사람이 모이게 된 사연은?",
+//     image:
+//       "https://images.unsplash.com/photo-1586227740560-8cf2732c1531?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=961&q=80",
+//     href: "/",
+//   },
+//   {
+//     id: 3,
+//     tag: "LG Life",
+//     title:
+//       "장애 청소년들에게 LG 스탠바이미를 기부하고자 세 사람이 모이게 된 사연은?",
+//     image:
+//       "https://images.unsplash.com/photo-1655853522212-c40d5814b33e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=388&q=80",
+//     href: "/",
+//   },
+//   {
+//     id: 4,
+//     tag: "LG Life",
+//     title:
+//       "4.장애 청소년들에게 LG 스탠바이미를 기부하고자 세 사람이 모이게 된 사연은?",
+//     image:
+//       "https://images.unsplash.com/photo-1586227740560-8cf2732c1531?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=961&q=80",
+//     href: "/",
+//   },
+//   {
+//     id: 5,
+//     tag: "LG Life",
+//     title:
+//       "5.장애 청소년들에게 LG 스탠바이미를 기부하고자 세 사람이 모이게 된 사연은?",
+//     image:
+//       "https://images.unsplash.com/photo-1655720031554-a929595ffad7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=580&q=80",
+//     href: "/",
+//   },
+//   {
+//     id: 6,
+//     tag: "LG Life",
+//     title:
+//       "6.장애 청소년들에게 LG 스탠바이미를 기부하고자 세 사람이 모이게 된 사연은?",
+//     image:
+//       "https://images.unsplash.com/photo-1655853522212-c40d5814b33e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=388&q=80",
+//     href: "/",
+//   },
+//   {
+//     id: 7,
+//     tag: "LG Life",
+//     title:
+//       "7.장애 청소년들에게 LG 스탠바이미를 기부하고자 세 사람이 모이게 된 사연은?",
+//     image:
+//       "https://images.unsplash.com/photo-1655720031554-a929595ffad7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=580&q=80",
+//     href: "/",
+//   },
+//   {
+//     id: 8,
+//     tag: "LG Life",
+//     title:
+//       "8.장애 청소년들에게 LG 스탠바이미를 기부하고자 세 사람이 모이게 된 사연은?",
+//     image:
+//       "https://images.unsplash.com/photo-1586227740560-8cf2732c1531?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=961&q=80",
+//     href: "/",
+//   },
+//   {
+//     id: 9,
+//     tag: "LG Life",
+//     title:
+//       "9.장애 청소년들에게 LG 스탠바이미를 기부하고자 세 사람이 모이게 된 사연은?",
+//     image:
+//       "https://images.unsplash.com/photo-1655720031554-a929595ffad7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=580&q=80",
+//     href: "/",
+//   },
+// ];
 
-var tags = ["LG Way", "직무소개", "LG Tube", "LG Life", "LG Social Media"];
-page3 - channel
+//var tags = ["LG Way", "직무소개", "LG Tube", "LG Life", "LG Social Media"];
+//page3 - channel
 var departData = [
   {
     id: 1,

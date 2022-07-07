@@ -226,54 +226,54 @@ $(function () {
 
   //page2-our story
 
-
-  var $tagContainer = $(".page2 .hash");
-  var $storyList = $(".page2 .storyList");
-  storyData.forEach(function (obj, i) {
-    setStoryData(obj, $storyList);
-  });
-  tags.forEach(function (elem, i) {
-    var $hashBtn = $('<button type="button" class="hashBtn"></button>');
-    $hashBtn.text("#" + elem);
-    $tagContainer.append($hashBtn);
-  });
-  $document.on("click", ".page2 .hashBtn", function () {
-    var $this = $(this),
-      thisText = $this.text().replace("#", "");
-    var filterData = storyData.filter(function (x) {
-      return x.tag === thisText;
-    });
-    $storyList.html("");
-    if (filterData.length !== 0) {
-      filterData.forEach(function (obj, i) {
-        setStoryData(obj, $storyList);
-      });
-    } else {
-      var $empty = $('<li class="empty">내용이 없습니다.</li>');
-      $storyList.append($empty);
-    }
-  });
-  function setStoryData(obj, $parent) {
-    var $item = $(
-      '<li class="storyItem">\n' +
-      '<a href="#n" class="storyAnchor">\n' +
-      '<div class="imgWrap"><div class="storyImg">\n' +
-      '<img src="" alt="">\n' +
-      "</div></div>\n" +
-      '<div class="storyCon">\n' +
-      '<h3 class="tag">LG Life</h3>\n' +
-      "<p>장애 청소년들에게 LG 스탠바이미를 기부하고자 세 사람이 모이게 된 사연은?</p>\n" +
-      "</div>\n" +
-      "</a>\n" +
-      "</li>"
-    );
-    $item.find(".storyAnchor").attr("href", obj.href);
-    $item.find("img").attr({ src: obj.image, alt: obj.title });
-    $item.find("h3").text(obj.tag);
-    $item.find("p").text(obj.title);
-    $parent.append($item);
-  }
-  $storyCon = $(".page2 .conWrap");
+  //
+  // var $tagContainer = $(".page2 .hash");
+  // var $storyList = $(".page2 .storyList");
+  // storyData.forEach(function (obj, i) {
+  //   setStoryData(obj, $storyList);
+  // });
+  // tags.forEach(function (elem, i) {
+  //   var $hashBtn = $('<button type="button" class="hashBtn"></button>');
+  //   $hashBtn.text("#" + elem);
+  //   $tagContainer.append($hashBtn);
+  // });
+  // $document.on("click", ".page2 .hashBtn", function () {
+  //   var $this = $(this),
+  //     thisText = $this.text().replace("#", "");
+  //   var filterData = storyData.filter(function (x) {
+  //     return x.tag === thisText;
+  //   });
+  //   $storyList.html("");
+  //   if (filterData.length !== 0) {
+  //     filterData.forEach(function (obj, i) {
+  //       setStoryData(obj, $storyList);
+  //     });
+  //   } else {
+  //     var $empty = $('<li class="empty">내용이 없습니다.</li>');
+  //     $storyList.append($empty);
+  //   }
+  // });
+  // function setStoryData(obj, $parent) {
+  //   var $item = $(
+  //     '<li class="storyItem">\n' +
+  //     '<a href="#n" class="storyAnchor">\n' +
+  //     '<div class="imgWrap"><div class="storyImg">\n' +
+  //     '<img src="" alt="">\n' +
+  //     "</div></div>\n" +
+  //     '<div class="storyCon">\n' +
+  //     '<h3 class="tag">LG Life</h3>\n' +
+  //     "<p>장애 청소년들에게 LG 스탠바이미를 기부하고자 세 사람이 모이게 된 사연은?</p>\n" +
+  //     "</div>\n" +
+  //     "</a>\n" +
+  //     "</li>"
+  //   );
+  //   $item.find(".storyAnchor").attr("href", obj.href);
+  //   $item.find("img").attr({ src: obj.image, alt: obj.title });
+  //   $item.find("h3").text(obj.tag);
+  //   $item.find("p").text(obj.title);
+  //   $parent.append($item);
+  // }
+  // $storyCon = $(".page2 .conWrap");
 
   // page3 - Our Affiliate Channel
   var $page3 = $(".page3"),
