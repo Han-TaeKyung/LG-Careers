@@ -248,7 +248,20 @@
   text-align: right !important;
 }
 
+.fw600{
+  font-weight: 600;
+}
+.fwB{
+  font-weight: bold;
+}
+.wpNow{
+  white-space: nowrap;
+}
+
 //공통 class
+h3.subTitle {
+  @include title0;
+}
 h3 {
   @include title1;
 }
@@ -277,43 +290,61 @@ p {
 //버튼
 .btn {
   display: inline-block;
-  font-size: 1.4rem;
-  color: $Black;
-  border: 0.1rem solid #555;
-  padding: 0.8rem 1.5rem;
+  font-size: 1.6rem;
+  line-height: 1.6rem;
+  color: $LGBlack;
+  border: 0.1rem solid $GrayAE;
+  padding: 0 2.8rem;
   border-radius: 0.5rem;
   text-align: center;
   vertical-align: middle;
   min-width: 9rem;
+  min-height: 4.8rem;
+  line-height: 4.8rem;
   height: auto;
 
   &:hover {
-    border: 0.1rem solid #555;
-    color: $Black;
+    border: 0.1rem solid $LGBlack;
+    color: $LGBlack;
     transition: 0.4s;
   }
 
   &.smail {
     font-size: 1.4rem;
-    padding: 0.6rem 1rem;
+    padding: 0 1.9rem;
   }
 
   &.large {
-    font-size: 1.8rem;
-    padding: 1rem 2rem;
+    font-size: 1.6rem;
+    padding:0 3rem;
+    min-width: 24.4rem;
+    min-height: 5.8rem;
+    line-height: 5.8rem;
+  }
+  &.xlarge {
+    font-size: 1.6rem;
+    padding:0 3rem;
+    min-width: 50rem;
+    min-height: 5.8rem;
+    line-height: 5.8rem;
+  }
+
+  &.minW{
+    min-width: 15rem;
+    padding:0 2rem;
   }
 
   &.type2 {
-    background-color: $BrandColorRed;
+    background-color: $RedD0;
     color: $White;
     font-weight: 600;
-    border: 0.1rem solid $BrandColorRed;
+    border: 0.1rem solid $RedD0;
 
     &:hover {
-      background-color: $BrandColorRed;
+      background-color: $RedD0;
       color: $White;
       font-weight: 600;
-      border: 0.1rem solid $BrandColorRed;
+      border: 0.1rem solid $RedD0;
     }
   }
 
@@ -329,6 +360,44 @@ p {
     }
   }
 
+  &.type4 {
+    background-color: $BrandColorRed;
+    color: $White;
+    font-weight: 600;
+    border: 0.1rem solid $BrandColorRed;
+
+    &:hover {
+      background-color: $BrandColorRed;
+      color: $White;
+      font-weight: 600;
+      border: 0.1rem solid $BrandColorRed;
+    }
+  }
+
+  &.type5 {
+    background-color: $LGBlack;
+    color: $White;
+    font-weight: 600;
+    border: 0.1rem solid $LGBlack;
+
+    &:hover {
+      background-color: $RedD0;
+      color: $White;
+      font-weight: 600;
+      border: 0.1rem solid $RedD0;
+    }
+  }
+
+
+  &.icoImg{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    span{
+      display: flex;
+      margin-right: 0.5rem;
+    }
+  }
   &.disabl {
     border: 0.1rem solid #999;
     color: #999;
@@ -336,10 +405,11 @@ p {
   }
 
   &.round {
-    height: 4.8rem;
-    line-height: 4.8rem;
     border-radius: 2.4rem;
     padding: 0 1.2rem;
+    &.xlarge{
+      border-radius: 2.9rem;
+    }
   }
 
   &.ico {
@@ -520,21 +590,37 @@ p {
 
 //input, textbox
 .inputBox {
+  
   label {
     @include hiddenText;
   }
 
   input {
-    border: 0.1rem solid #ccc;
+    border: 0.1rem solid $GrayD9;
     font-size: 1.4rem;
-    padding: 1.5rem;
-    color: $Gray8E;
+    padding:0 1.5rem;
+    border-radius: 0.5rem;
+    color: $LGBlack;
+    width: 100%;
+    line-height: 4.8rem;
+    height:4.8rem;
+    &::placeholder{
+      color: $GrayAE;
+    }
   }
 
   &.type2 {
     input {
       border: 0;
       height: 100%;
+    }
+  }
+  &.inputDis{
+    
+    input{
+      border: .1rem solid #f5f5f5;
+      background-color: #f5f5f5;
+      color:$LGBlack;
     }
   }
 }
@@ -648,19 +734,21 @@ p {
 .bu {
   > li {
     @include subText1;
-    margin-bottom: 0.5rem;
+    margin-bottom:1rem;
     position: relative;
-    padding-left: 0.8rem;
+    padding-left: 1.1rem;
+    color:$Gray6B;
 
     &::before {
       display: block;
       content: " ";
-      width: 0.2rem;
-      height: 0.2rem;
-      background-color: #222;
+      width: 0.3rem;
+      height: 0.3rem;
+      border-radius: 50%;
+      background-color: $Gray6B;
       position: absolute;
       left: 0;
-      top: 0.9rem;
+      top: 0.55rem;
     }
 
     &:last-child {
@@ -839,3 +927,37 @@ p {
     }
   }
 }
+
+/* alert */
+.alert{
+  margin-top: 7.2rem;
+  width: 100%;
+  height:6rem;
+  position: fixed;
+  line-height: 6rem;
+  text-align: center;
+  
+  p{
+    display: inline;
+    @include subText1;
+    color: $White;
+    background-repeat: no-repeat;
+    background-position: left center;
+  }
+
+  &.alertGray{
+    background-color: #CDC8C8;
+    p{
+      background-image: url(/common/images/icon/alert.png);
+      padding-left: 1.2rem;
+    }
+  }
+  &.alertRed{
+    background-color: #DD3860;
+    p{
+      background-image: url(/common/images/icon/alertChk.png);
+      padding-left: 2.6rem;
+    }
+  }
+}
+
