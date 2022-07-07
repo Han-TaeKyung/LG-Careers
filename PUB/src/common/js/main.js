@@ -16,11 +16,11 @@ $(function () {
   //pageInfo 설정
   var pageInfo = [];
   var timer = null;
+  setPageInfo();
   $window.on('resize', function () {
     clearTimeout(timer);
     timer = setTimeout(setPageInfo, 200)
   });
-  $window.on('load', setPageInfo);
 
   function setPageInfo() {
     pageInfo = [];
@@ -80,18 +80,19 @@ $(function () {
 
   }
 
-  //마우스 스크롤
+  //마우스 스크롤 이벤트
   $conSection.on('mousewheel', function (e, delta) {
     var $this = $(this);
     moveContainer(e, delta, $this);
   });
 
+  // 스크롤 이벤트 실행 함수
   function moveContainer(e, delta, $this) {
-    //플러그인 호출 후 사용가능
     var h = $window.height(),
       currentIndex = parseInt($this.attr("data-page")),
-      nextIndex = currentIndex - delta,
-      customIndex = 0,
+      nextIndex = currentIndex - delta;
+    if (nextIndex > pageInfo.length) return; // 마지막 페이지 이후에 스크롤을 넘길 경우, 아래 내용을 실행하지 않음
+    var customIndex = 0,
       thisScrollTop = $this.scrollTop(),
       thisScrollBottom = thisScrollTop + $this.height(),
       thisHeight = $this.find(".scrollWrap").height();
@@ -113,54 +114,58 @@ $(function () {
         setCustomIndex(nextIndex, customIndex);
         return false;
       }
-    } else if ($window.width() < 2000) { //1200 이하일 때
+    } else if ($window.width() < 1200) { //1200 이하일 때
       var scrollTop = $html.scrollTop(),
         windowHeight = $container.height();
     }
   }
 
-  $window.on('scroll', function () {
-  })
-
   //키보드 방향키 막기
   $document.keydown(function (e) {
     console.log(e.keyCode);
-    var a = $html.attr('data-page');
+    var index = $html.attr('data-page');
+    var $thisElem = $('#container').find('section[data-page="' + index + '"]');
     if ($window.width() > 1199) {
       if (
-        e.keyCode == 38 ||
-        e.keyCode == 40 /*|| e.keyCode == 37 || e.keyCode == 39*/
+        e.keyCode === 38 ||
+        e.keyCode === 40 /*|| e.keyCode == 37 || e.keyCode == 39*/
       ) {
         e.preventDefault();
-      } else if (e.keycode == 43) {
-        //moveContainer(e, 1);
-      } else if (e.keycode == 44) {
-        //moveContainer(e, -1);
+      }
+      if (e.keyCode === 33) { //pageUp 일 때, 위 화면으로 위동
+        e.preventDefault();
+        moveContainer(e, 1, $thisElem);
+      }
+      if (e.keyCode === 34) { //pageDown1 일 때, 아래 화면으로 이동
+        e.preventDefault();
+        moveContainer(e, -1, $thisElem);
       }
     }
     //38(↑), 40(↓), 37(←), 39(→)
   });
 
+  //index custom 함수
   function setCustomIndex(nextIndex, customIndex) {
     if (nextIndex <= 0) {
       customIndex = 1;
-    } else if (nextIndex >= sectionLength) {
-      customIndex = sectionLength;
     } else {
       customIndex = nextIndex;
     }
+    var color = $container.find('section[data-page=' + customIndex + ']').attr('data-color');
     $html.attr({
       'data-page': customIndex,
-      'data-color': $container.find('section[data-page=' + customIndex + ']').attr('data-color')
+      'data-color': color,
     });
     setNav(customIndex)
   }
 
 
   //page1-visual
+  //select
   var $formList = $(".formList"),
     $formSelect = $formList.find(".select"),
-    $formBtn = $formSelect.find(".selectBtn");
+    $formBtn = $formSelect.find(".selectBtn"),
+    $selectBtn = $formSelect.find(".selectWrap button");
   $formBtn.on("click", function () {
     var $this = $(this),
       $thisParent = $this.closest(".select"),
@@ -168,27 +173,41 @@ $(function () {
     $thisParent.toggleClass("active");
     if ($thisParent.hasClass("active")) {
       $this.attr("title", "닫기");
-      $thisPanel.slideDown(200);
+      $thisPanel.stop().slideDown(200);
       $thisPanel.attr("title", "열림");
     } else {
       $this.attr("title", "열기");
-      $thisPanel.slideUp(200);
+      $thisPanel.stop().slideUp(200);
       $thisPanel.attr("title", "닫힘");
     }
     setScrollBar();
-
-    //family site scrollbar
-    function setScrollBar() {
-      $('.page1 .form .select').each(function () {
-        var $this = $(this);
-        $this.find('.scrollbar').scrollbar({
-          "showArrows": true,
-          "scrollx": "advanced",
-          "scrolly": "advanced"
-        });
-      });
-    }
   });
+
+  $selectBtn.on('click', function () {
+    var $this = $(this),
+      thisValue = $this.attr('data-value'),
+      $thisPanel = $this.closest('.selectList'),
+      $thisParent = $this.closest('.select');
+    $thisParentBtn = $thisParent.find('.selectBtn');
+
+    $this.addClass('active').attr('title', '선택됨')
+      .siblings().removeClass('active').removeAttr('title');
+    $thisPanel.stop().slideUp(200).attr('title', '닫기');
+    $thisParent.removeClass('active').attr('title', '열림')
+    $thisParentBtn.attr('data-value', thisValue);
+
+  })
+  //scrollbar(jquery.scroll.js 플러그인)
+  function setScrollBar() {
+    $('.page1 .form .select').each(function () {
+      var $this = $(this);
+      $this.find('.scrollbar').scrollbar({
+        "showArrows": true,
+        "scrollx": "advanced",
+        "scrolly": "advanced"
+      });
+    });
+  }
 
   //selectbox 마우스 휠 액션
   $('.selectWrap').mousewheel(function (e, delta) {
@@ -206,6 +225,8 @@ $(function () {
   });
 
   //page2-our story
+
+
   var $tagContainer = $(".page2 .hash");
   var $storyList = $(".page2 .storyList");
   storyData.forEach(function (obj, i) {
@@ -320,8 +341,74 @@ $(function () {
   $('.channelItem:first-child .partBtn:first-child').trigger('click')
 
 
-  // page4 - our people
-  var $rollingScroll = $(".page4 .leftScroll");
+  // page4 - our job posting
+  var $postWrap = $(".page4 .conWrap"),
+    $postSlide = $postWrap.find('.postList'),
+    itemLength = $postSlide.find('.postItem').length,
+    $postCtrl = $postWrap.find('.postCtrl'),
+    $postDots = $postCtrl.find('.postDots'),
+    $postPrev = $postCtrl.find('.prev'),
+    $postNext = $postCtrl.find('.next'),
+    $postProgress = $postCtrl.find('.progress'),
+    showCount = 4,
+    current = 0;
+  total = 0;
+
+  $postSlide.slick({
+    //기본
+    autoplay: false,
+    swipe: true,
+    infinite: false,
+    draggable: true,
+    slidesToShow: showCount,
+    slidesToScroll: 1,
+    variableWidth: false,
+    pauseOnHover: false,
+    arrows: true,
+    prevArrow: $postPrev,
+    nextArrow: $postNext,
+    dots: true,
+    appendDots: $postDots,
+    customPaging: function (slider, i) {
+      current = i + 1;
+      total = (slider.slideCount - showCount + 1);
+      return '<button type="button"><span class="current">' + current + '</span><span class="total">/' + total + '</span></button>'
+    },
+    isRunOnLowIE: false,
+    pauseOnArrowClick: true,
+    pauseOnDirectionKeyPush: true,
+    pauseOnSwipe: true,
+    pauseOnDotsClick: true,
+    rows: 2,
+    swipeToSlide: true,
+    responsive: [
+      {
+        breakpoint: 1001,
+        settings: {
+          swipe: true,
+          draggable: true,
+          swipeToSlide: true
+        }
+      }]
+  });
+  var progressWidth = 100 / total;
+  var nextSlide = 0;
+  $postProgress.css('width', progressWidth + '%');
+  $postSlide.on('beforeChange', function (slide, e, crr, next) {
+    nextSlide = next;
+    $postProgress.css('width', total === (next + 1) ? '100%' : progressWidth * (next + 1) + '%');
+  });
+  $postSlide.on('mousewheel', function (e, delta) {
+    e.preventDefault();
+    e.stopPropagation()
+    $postSlide.slick('slickGoTo', nextSlide - delta);
+  })
+
+
+
+
+  // page5 - our people
+  var $rollingScroll = $(".page5 .leftScroll");
   var $scrollItem = $rollingScroll.find(".scrollItem");
   var rowCount = 0;
   var count = 1;

@@ -83,7 +83,7 @@ var storyData = [
 ];
 
 var tags = ["LG Way", "직무소개", "LG Tube", "LG Life", "LG Social Media"];
-//page3 - channel
+page3 - channel
 var departData = [
   {
     id: 1,

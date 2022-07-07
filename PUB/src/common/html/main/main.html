@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="ko">
-  @@include('./../layouts/include/mainHead.html')
-  <body>
-    <div id="headers">@@include('./../layouts/include/header.html')</div>
-    <div id="container">
+@@include('./../layouts/include/mainHead.html')
+
+<body>
+  <div id="headers">@@include('./../layouts/include/header.html')</div>
+  <div id="container">
     <section class="page page1" data-page="1" data-color="white">
       <div class="page1Bg"></div>
       <div class="wrap">
@@ -13,18 +14,19 @@
             <ul class="formList">
               <li class="formItem1">
                 <div class="select">
-                  <button class="selectBtn"><span>전체회사</span></button>
+                  <!-- 패널의 버튼을 선택하면 .selectBtn[data-value]에 값이 저장됩니다. -->
+                  <button class="selectBtn" data-value=""><span>전체회사</span></button>
                   <div class="selectList">
                     <div class="selectWrap scrollbar">
-                    <button type="button" data-value="">회사1</button>
-                    <button type="button" data-value="">회사2</button>
-                    <button type="button" data-value="">회사3</button>
-                    <button type="button" data-value="">회사4</button>
-                    <button type="button" data-value="">회사1</button>
-                    <button type="button" data-value="">회사2</button>
-                    <button type="button" data-value="">회사3</button>
-                    <button type="button" data-value="">회사4</button>
-                  </div>
+                      <button type="button" data-value="1">회사1</button>
+                      <button type="button" data-value="2">회사2</button>
+                      <button type="button" data-value="3">회사3</button>
+                      <button type="button" data-value="4">회사4</button>
+                      <button type="button" data-value="5">회사5</button>
+                      <button type="button" data-value="6">회사6</button>
+                      <button type="button" data-value="7">회사7</button>
+                      <button type="button" data-value="8">회사8</button>
+                    </div>
                   </div>
                 </div>
               </li>
@@ -33,10 +35,10 @@
                   <button class="selectBtn"><span>채용유형</span></button>
                   <div class="selectList">
                     <div class="selectWrap scrollbar">
-                    <button type="button" data-value="">회사1</button>
-                    <button type="button" data-value="">회사2</button>
-                    <button type="button" data-value="">회사3</button>
-                    <button type="button" data-value="">회사4</button>
+                      <button type="button" data-value="">회사1</button>
+                      <button type="button" data-value="">회사2</button>
+                      <button type="button" data-value="">회사3</button>
+                      <button type="button" data-value="">회사4</button>
                     </div>
                   </div>
                 </div>
@@ -46,12 +48,12 @@
                   <button class="selectBtn">
                     <span>직무를 선택해주세요.</span>
                   </button>
-                  <div class="selectList">                    
+                  <div class="selectList">
                     <div class="selectWrap scrollbar">
-                    <button type="button" data-value="">회사1</button>
-                    <button type="button" data-value="">회사2</button>
-                    <button type="button" data-value="">회사3</button>
-                    <button type="button" data-value="">회사4</button>
+                      <button type="button" data-value="">회사1</button>
+                      <button type="button" data-value="">회사2</button>
+                      <button type="button" data-value="">회사3</button>
+                      <button type="button" data-value="">회사4</button>
                     </div>
                   </div>
                 </div>
@@ -73,11 +75,96 @@
               LG의 직무, 사람, 라이프와 관련된 모든 이야기를 만나보세요
               <a href="/" class="more">자세히 보기</a>
             </p>
-            <div class="hash"></div>
+            <div class="hash">
+              <button type="button" class="hashBtn">LG Way</button>
+              <button type="button" class="hashBtn">직무소개</button>
+              <button type="button" class="hashBtn">LG Tube</button>
+              <button type="button" class="hashBtn">LG Life</button>
+              <button type="button" class="hashBtn">LG Social Media</button>
+            </div>
           </div>
 
           <div class="conWrap">
-            <ul class="storyList"></ul>
+            <ul class="storyList">
+              <li class="storyItem">
+                <a href="#n" class="storyAnchor">
+                  <div class="imgWrap">
+                    <div class="storyImg"><img
+                        src="https://images.unsplash.com/photo-1586227740560-8cf2732c1531?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=961&q=80"
+                        alt="LG의 직무, 사람, 라이프와 관련된 모든 이야기를 만나보세요"></div>
+                    <div class="storyCon">
+                      <h3 class="tag">LG Life</h3>
+                      <p>장애 청소년들에게 LG 스탠바이미를 기부하고자 세 사람이 모이게 된 사연은?</p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+              <li class="storyItem">
+                <a href="#n" class="storyAnchor">
+                  <div class="imgWrap">
+                    <div class="storyImg"><img
+                        src="https://images.unsplash.com/photo-1586227740560-8cf2732c1531?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=961&q=80"
+                        alt="LG의 직무, 사람, 라이프와 관련된 모든 이야기를 만나보세요"></div>
+                    <div class="storyCon">
+                      <h3 class="tag">LG Life</h3>
+                      <p>2.장애 청소년들에게 LG 스탠바이미를 기부하고자 세 사람이 모이게 된 사연은?</p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+              <li class="storyItem">
+                <a href="#n" class="storyAnchor">
+                  <div class="imgWrap">
+                    <div class="storyImg"><img
+                        src="https://images.unsplash.com/photo-1655720031554-a929595ffad7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=580&q=80"
+                        alt="장애 청소년들에게 LG 스탠바이미를 기부하고자 세 사람이 모이게 된 사연은?"></div>
+                    <div class="storyCon">
+                      <h3 class="tag">LG Life</h3>
+                      <p>3.장애 청소년들에게 LG 스탠바이미를 기부하고자 세 사람이 모이게 된 사연은?</p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+              <li class="storyItem">
+                <a href="#n" class="storyAnchor">
+                  <div class="imgWrap">
+                    <div class="storyImg"><img
+                        src="https://images.unsplash.com/photo-1586227740560-8cf2732c1531?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=961&q=80"
+                        alt="LG의 직무, 사람, 라이프와 관련된 모든 이야기를 만나보세요"></div>
+                    <div class="storyCon">
+                      <h3 class="tag">LG Life</h3>
+                      <p>장애 청소년들에게 LG 스탠바이미를 기부하고자 세 사람이 모이게 된 사연은?</p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+              <li class="storyItem">
+                <a href="#n" class="storyAnchor">
+                  <div class="imgWrap">
+                    <div class="storyImg"><img
+                        src="https://images.unsplash.com/photo-1586227740560-8cf2732c1531?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=961&q=80"
+                        alt="LG의 직무, 사람, 라이프와 관련된 모든 이야기를 만나보세요"></div>
+                    <div class="storyCon">
+                      <h3 class="tag">LG Life</h3>
+                      <p>2.장애 청소년들에게 LG 스탠바이미를 기부하고자 세 사람이 모이게 된 사연은?</p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+              <li class="storyItem">
+                <a href="#n" class="storyAnchor">
+                  <div class="imgWrap">
+                    <div class="storyImg"><img
+                        src="https://images.unsplash.com/photo-1655720031554-a929595ffad7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=580&q=80"
+                        alt="장애 청소년들에게 LG 스탠바이미를 기부하고자 세 사람이 모이게 된 사연은?"></div>
+                    <div class="storyCon">
+                      <h3 class="tag">LG Life</h3>
+                      <p>3.장애 청소년들에게 LG 스탠바이미를 기부하고자 세 사람이 모이게 된 사연은?</p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            </ul>
           </div>
         </div>
       </div>
@@ -91,16 +178,144 @@
             관심있는 계열사 채널을 선택하시면 더 자세한 정보를 볼 수 있습니다.
           </p>
         </div>
-        <ul class="channelList"></ul>
+        <ul class="channelList">
+          <li class="channelItem">
+            <h3>Electronics</h3>
+            <div class="items">
+              <button type="button" class="partBtn">LG전자</button>
+              <button type="button" class="partBtn">LG디스플레이</button>
+              <button type="button" class="partBtn">LG이노텍</button>
+            </div>
+          </li>
+          <li class="channelItem">
+            <h3>Chemicals</h3>
+            <div class="items">
+              <button type="button" class="partBtn">LG화확</button>
+              <button type="button" class="partBtn">LG에너지솔루션</button>
+              <button type="button" class="partBtn">LG생활건강</button>
+            </div>
+          </li>
+          <li class="channelItem">
+            <h3>Communication & Services</h3>
+            <div class="items">
+              <button type="button" class="partBtn">LG유플러스</button>
+              <button type="button" class="partBtn">LG헬로비전</button>
+              <button type="button" class="partBtn">LG CNS</button>
+              <button type="button" class="partBtn">LG D&O</button>
+              <button type="button" class="partBtn">지투알</button>
+            </div>
+          </li>
+        </ul>
         <div class="channelDesc">
-          <h4>로고요~~</h4>
-          <p></p>
+          <h4><img href="/common/images/main/page3_logo1.png"></h4>
+          <p>LG이노텍은 ‘글로벌 No.1 소재∙부품기업’을 비전으로 <br />
+            차량, 모바일, IoT, 디스플레이, 반도체 분야에서 사업을 전개하고 있습니다.<br />
+            특히 카메라모듈, 포토마스크, 테이프 서브스트레이트 등은 <br />
+            글로벌 시장을 선도해 나가고 있으며, <br />
+            산기술과 품질 향상으로 수익성을 강화해 나가고 있습니다.</p>
           <a href="" class="goBtn"><span>채널 바로가기</span></a>
         </div>
       </div>
     </section>
     <!--mainPage03 END-->
     <section class="page page4" data-page="4" data-color="black">
+      <div class="wrap">
+        <div class="titleWrap">
+          <h2>Our Job Posting</h2>
+          <a href="#n" class="more">자세히 보기</a>
+        </div>
+        <div class="conWrap">
+          <div class="postWrap">
+            <div class="postList">
+              <div class="postItem">
+                <div class="label">
+                  <span class="part">LG유플러스</span>
+                  <span class="experience">경력</span>
+                </div>
+                <h3>중소형 사업부_Module 기술 분야 경력사원 모집</h3>
+                <div class="duration">D-100</div>
+              </div>
+              <div class="postItem">
+                <div class="label">
+                  <span class="part">LG유플러스</span>
+                  <span class="experience">경력</span>
+                </div>
+                <h3>중소형 사업부_Module 기술 분야 경력사원 모집</h3>
+                <div class="duration">D-100</div>
+              </div>
+              <div class="postItem">
+                <div class="label">
+                  <span class="part">LG유플러스</span>
+                  <span class="experience">경력</span>
+                </div>
+                <h3>중소형 사업부_Module 기술 분야 경력사원 모집</h3>
+                <div class="duration">D-100</div>
+              </div>
+              <div class="postItem">
+                <div class="label">
+                  <span class="part">LG유플러스</span>
+                  <span class="experience">경력</span>
+                </div>
+                <h3>중소형 사업부_Module 기술 분야 경력사원 모집</h3>
+                <div class="duration">D-100</div>
+              </div>
+              <div class="postItem">
+                <div class="label">
+                  <span class="part">LG유플러스</span>
+                  <span class="experience">경력</span>
+                </div>
+                <h3>중소형 사업부_Module 기술 분야 경력사원 모집</h3>
+                <div class="duration">D-100</div>
+              </div>
+              <div class="postItem">
+                <div class="label">
+                  <span class="part">LG유플러스</span>
+                  <span class="experience">경력</span>
+                </div>
+                <h3>중소형 사업부_Module 기술 분야 경력사원 모집</h3>
+                <div class="duration">D-100</div>
+              </div>
+              <div class="postItem">
+                <div class="label">
+                  <span class="part">LG유플러스</span>
+                  <span class="experience">경력</span>
+                </div>
+                <h3>중소형 사업부_Module 기술 분야 경력사원 모집</h3>
+                <div class="duration">D-100</div>
+              </div>
+              <div class="postItem">
+                <div class="label">
+                  <span class="part">LG유플러스</span>
+                  <span class="experience">경력</span>
+                </div>
+                <h3>중소형 사업부_Module 기술 분야 경력사원 모집</h3>
+                <div class="duration">D-100</div>
+              </div>
+              <div class="postItem">
+                <div class="label">
+                  <span class="part">LG유플러스</span>
+                  <span class="experience">경력</span>
+                </div>
+                <h3>중소형 사업부_Module 기술 분야 경력사원 모집</h3>
+                <div class="duration">D-100</div>
+              </div>
+            </div>
+            <div class="postCtrl">
+              <div class="postDots"></div>
+              <div class="postBar">
+                <div class="progress"></div>
+              </div>
+              <div class="btns">
+                <button type="button" class="prev">이전</button>
+                <button type="button" class="next">다음</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--mainPage04 END-->
+    <section class="page page5" data-page="5" data-color="black">
       <div class="wrap">
         <div class="titleWrap">
           <h2>Our People</h2>
@@ -116,11 +331,11 @@
         </div>
       </div>
     </section>
-    <!--mainPage04 END-->
-    <div class="mainNav">
-    </div>
+    <!--mainPage05 END-->
+    <div class="mainNav"></div>
     <!--main_line END-->
   </div>
-  </body>
-  <footer id="footer">@@include('./../layouts/include/footer.html')</footer>
+</body>
+<footer id="footer">@@include('./../layouts/include/footer.html')</footer>
+
 </html>
