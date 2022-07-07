@@ -12,7 +12,8 @@ var paths = {
     js: "./src/common/**/*.js",
     html: ["./src/common/html/**/*.html", "!./src/pages/**/include/*.html"],
     resource: [
-      "./src/common/**/*",
+      "./src/**/*",
+      "./src/favicon.ico",
       "!./src/common/**/*.js",
       "!./src/common/**/*.scss",
       "!./src/common/**/*.html",
@@ -23,7 +24,7 @@ var paths = {
     css: "./dist/common/css",
     js: "./dist/common",
     html: "./dist/common/html",
-    resource: "./dist/common",
+    resource: "./dist",
   },
 };
 

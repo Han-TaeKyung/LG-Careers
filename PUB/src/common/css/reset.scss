@@ -36,6 +36,12 @@
     url("/common/fonts/subset-LGSmHaTB.woff2") format("woff2");
 }
 
+@font-face {
+  font-family: "pretendard";
+  font-style: normal;
+  src: url("/common/fonts/PretendardVariable.woff2") format("woff2");
+}
+
 * {
   font-family: "LGSmart", sans-serif;
   font-weight: normal;

@@ -94,13 +94,12 @@ $(function () {
     if (nextIndex > pageInfo.length) return; // 마지막 페이지 이후에 스크롤을 넘길 경우, 아래 내용을 실행하지 않음
     var customIndex = 0,
       thisScrollTop = $this.scrollTop(),
-      thisScrollBottom = thisScrollTop + $this.height(),
-      thisHeight = $this.find(".scrollWrap").height();
+      thisScrollBottom = thisScrollTop + $this.outerHeight(),
+      thisHeight = $this.find(".scrollWrap").outerHeight();
 
     if ($window.width() >= 1200) {
       if ($this.hasClass('innerScroll')) { //page 안쪽 콘텐츠가 길어질 때
         if ((thisScrollTop <= 0 && delta > 0) || (thisScrollBottom >= thisHeight && delta < 0)) {
-          e.preventDefault();
           $("body,html")
             .stop()
             .animate({ scrollTop: (nextIndex - 1) * h }, speed);
@@ -224,135 +223,47 @@ $(function () {
     }
   });
 
-  //page2-our story
-
-  //
-  // var $tagContainer = $(".page2 .hash");
-  // var $storyList = $(".page2 .storyList");
-  // storyData.forEach(function (obj, i) {
-  //   setStoryData(obj, $storyList);
-  // });
-  // tags.forEach(function (elem, i) {
-  //   var $hashBtn = $('<button type="button" class="hashBtn"></button>');
-  //   $hashBtn.text("#" + elem);
-  //   $tagContainer.append($hashBtn);
-  // });
-  // $document.on("click", ".page2 .hashBtn", function () {
-  //   var $this = $(this),
-  //     thisText = $this.text().replace("#", "");
-  //   var filterData = storyData.filter(function (x) {
-  //     return x.tag === thisText;
-  //   });
-  //   $storyList.html("");
-  //   if (filterData.length !== 0) {
-  //     filterData.forEach(function (obj, i) {
-  //       setStoryData(obj, $storyList);
-  //     });
-  //   } else {
-  //     var $empty = $('<li class="empty">내용이 없습니다.</li>');
-  //     $storyList.append($empty);
-  //   }
-  // });
-  // function setStoryData(obj, $parent) {
-  //   var $item = $(
-  //     '<li class="storyItem">\n' +
-  //     '<a href="#n" class="storyAnchor">\n' +
-  //     '<div class="imgWrap"><div class="storyImg">\n' +
-  //     '<img src="" alt="">\n' +
-  //     "</div></div>\n" +
-  //     '<div class="storyCon">\n' +
-  //     '<h3 class="tag">LG Life</h3>\n' +
-  //     "<p>장애 청소년들에게 LG 스탠바이미를 기부하고자 세 사람이 모이게 된 사연은?</p>\n" +
-  //     "</div>\n" +
-  //     "</a>\n" +
-  //     "</li>"
-  //   );
-  //   $item.find(".storyAnchor").attr("href", obj.href);
-  //   $item.find("img").attr({ src: obj.image, alt: obj.title });
-  //   $item.find("h3").text(obj.tag);
-  //   $item.find("p").text(obj.title);
-  //   $parent.append($item);
-  // }
-  // $storyCon = $(".page2 .conWrap");
 
   // page3 - Our Affiliate Channel
   var $page3 = $(".page3"),
     $channelList = $page3.find(".channelList"),
-    $channelDesc = $page3.find(".channelDesc");
-
-  group.map(function (obj, i) {
-    var $channelItem = $(
-      '<li class="channelItem">\n' +
-      "<h3>\n" +
-      '<button type="button" class="accBtn"></button>\n' +
-      "</h3>\n" +
-      '<div class="items"></div>\n' +
-      "</li>"
-    );
-
-
-    $channelItem.find("h3 .accBtn").text(obj);
-    var filteredData = departData.filter(function (x) {
-      return x.group === obj;
-    });
-    var length = filteredData.length;
-    $channelItem.find("h3 .accBtn").append("<sup>" + length + "</sup>");
-
-    filteredData.map(function (obj, i) {
-      var $partBtn = $(
-        '<button type="button" class="partBtn" data-index="' +
-        obj.id +
-        '">' +
-        obj.title +
-        "</button>"
-      );
-      $channelItem.find(".items").append($partBtn);
-
-    });
-    $channelList.append($channelItem);
-  });
-  var $partBtn = $('.channelItem .partBtn');
+    $channelDescWrap = $page3.find(".channelDesc"),
+    $channelDesc = $channelDescWrap.find('.disc'),
+    $partBtn = $('.channelItem .partBtn');
   $partBtn.on("click", function () {
     var $this = $(this),
-      thisIndex = parseInt($this.attr('data-index'));
-    $partBtn.removeClass('active')
+      thisIndex = parseInt($this.attr('data-part'));
+    $partBtn.removeClass('active');
     $this.addClass('active');
-    $channelDesc.html("");
-    var obj = departData.filter(function (x) {
-      return x.id === thisIndex;
-    })[0];
-    $page3.css("backgroundImage", 'url(' + obj.image + ')');
-    var $desc = $(
-      '<div class="desc"><h4>로고요~~</h4>\n' +
-      "<p></p>\n" +
-      '<a href="" class="descAnchor"><span>채널 바로가기</span></a></div>'
-    );
-    $desc
-      .find("h4")
-      .html('<img src="' + obj.logo + '" alt="' + obj.title + '">');
-    var content = obj.content;
-    var conDevide = content.split("\n").join("<br/>");
-    $desc.find("p").html(conDevide);
-    $desc.find(".descAnchor").attr({
-      href: obj.href,
-    });
-    $channelDesc.append($desc);
+    $channelDesc.removeClass('active');
+    $channelDesc.eq(thisIndex).addClass('active');
   });
-  $('.channelItem:first-child .partBtn:first-child').trigger('click')
+  $channelList.find('.channelItem:first-child .partBtn:first-child').trigger('click')
 
 
-  // page4 - our job posting
-  var $postWrap = $(".page4 .conWrap"),
+  // page4 - our people
+  var $rollingScroll = $(".page4 .leftScroll");
+  var $scrollItem = $rollingScroll.find(".scrollItem");
+  var $scrollItemInner = $scrollItem.html();
+  $scrollItem.append($scrollItemInner);
+  $scrollItem.clone().addClass("cloneItem").appendTo($rollingScroll);
+  $scrollItem.css("left", 0);
+  $rollingScroll.find(".cloneItem").css("left", $scrollItem.width() + "px");
+
+  // page5 - our job posting
+  var $postWrap = $(".page5 .conWrap"),
     $postSlide = $postWrap.find('.postList'),
     itemLength = $postSlide.find('.postItem').length,
     $postCtrl = $postWrap.find('.postCtrl'),
     $postDots = $postCtrl.find('.postDots'),
     $postPrev = $postCtrl.find('.prev'),
     $postNext = $postCtrl.find('.next'),
+    $postBar = $postCtrl.find('.postBar'),
     $postProgress = $postCtrl.find('.progress'),
+    $postBtns = $postCtrl.find('.btns'),
     showCount = 4,
-    current = 0;
-  total = 0;
+    current = 0,
+    total = 0;
 
   $postSlide.slick({
     //기본
@@ -391,6 +302,8 @@ $(function () {
         }
       }]
   });
+
+  //슬라이드 바
   var progressWidth = 100 / total;
   var nextSlide = 0;
   $postProgress.css('width', progressWidth + '%');
@@ -398,49 +311,21 @@ $(function () {
     nextSlide = next;
     $postProgress.css('width', total === (next + 1) ? '100%' : progressWidth * (next + 1) + '%');
   });
+  //마우스 휠 액션
   $postSlide.on('mousewheel', function (e, delta) {
     e.preventDefault();
     e.stopPropagation()
     $postSlide.slick('slickGoTo', nextSlide - delta);
   })
 
+  // 하단 슬라이드 박스 너비 맞춤
 
 
+  // ie대응 bar 넓이값
+  var postContainerWidth = $postCtrl.width(),
+    dotsWidth = Math.ceil($postDots.outerWidth()),
+    btnsWidth = Math.ceil($postBtns.outerWidth());
+  console.log(dotsWidth, btnsWidth);
+  $postBar.css('width', (postContainerWidth - dotsWidth - btnsWidth - 40))
 
-  // page5 - our people
-  var $rollingScroll = $(".page5 .leftScroll");
-  var $scrollItem = $rollingScroll.find(".scrollItem");
-  var rowCount = 0;
-  var count = 1;
-  var peopleLength = peopleData.length;
-  for (var i = 0; i < peopleLength; i++) {
-    var $rowItem = $('<div class="peopleRow"></div>');
-    for (var j = 0; j < 2; j++) {
-      var index = rowCount < peopleLength ? rowCount : rowCount % peopleLength;
-      var elem = peopleData.filter(function (x) {
-        return x.id === index;
-      })[0];
-      var $item = $('<div class="peopleItem"></div>'),
-        $anchorItem = $('<a class="peopleItem"></a>');
-      if (!elem.href) {
-        $item.text(elem.title);
-        $item.css("backgroundImage", "url(" + elem.img + ")");
-        $rowItem.append($item);
-      } else {
-        $anchorItem.attr("href", elem.href);
-        $anchorItem.text(elem.title);
-        $anchorItem.css("backgroundImage", "url(" + elem.img + ")");
-        $rowItem.append($anchorItem);
-      }
-      rowCount++;
-      count += 1;
-      if (count > 2) {
-        $scrollItem.append($rowItem);
-        count = 1;
-      }
-    }
-  }
-  $scrollItem.clone().addClass("cloneItem").appendTo($rollingScroll);
-  $scrollItem.css("left", 0);
-  $rollingScroll.find(".cloneItem").css("left", $scrollItem.width() + "px");
 });
