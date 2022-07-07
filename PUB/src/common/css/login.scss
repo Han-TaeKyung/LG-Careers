@@ -26,7 +26,11 @@
         }
 
         .logMenu {
-        background-image: url(/common/images/icon/icoDefault.png);
+            svg{
+                path{
+                    stroke: $Gray6B;
+                }
+            }
         a {
             
             color: $Gray6B;
@@ -44,11 +48,16 @@
     background-color: $White;
 }
 .loginWrap{
-    max-width: 50rem;
+    max-width: 58rem;
     width: 100%;
     height: auto;
     margin: 4.2rem auto 0;
     text-align: center;
+    >div{
+        max-width: 50rem;
+        width: 100%;
+        margin: 0 auto;
+    }
     .loginForm{
         margin-top: 6rem;
         .inputBox + .inputBox{
@@ -87,8 +96,15 @@
         }
     }
     .subTitle2{
-        font-weight: 600;
         color:$LGBlack;
+
+        &.pwText{
+            line-height: 2.56rem;
+            span{
+                color:$RedD0;
+                text-decoration: underline;
+            }
+        }
     }
     .loginSNS{
         margin-top: 2rem;
@@ -98,4 +114,116 @@
             margin: 0 1rem;
         }
     }
+    /* 비밀번호 변경 */
+    .formPWC{
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        >p{
+            width: calc(100% - 36rem);
+            @include subTitle2;
+            color: $LGBlack;
+            text-align: left;
+            padding-top: 1.7rem;
+
+        }
+        .inputBox{
+            width: 36rem;
+        }
+        &+.formPWC{
+            margin-top: 2rem;
+        }
+        .forminfo{
+            font-size: 1.3rem;
+            line-height: 1.3rem;
+            letter-spacing: -0.02em;
+            color:$Gray6B;
+            text-align: left;
+            margin-top: 1rem;
+        }
+    }
+    .pwInfo{
+        border-top:.1rem solid $GrayD9;
+        text-align: left;
+        padding-top: 1.5rem;
+        margin-top: 3rem;
+        padding-left: 2.6rem;
+        @include subText1;
+        line-height: 1.8rem;
+        color:$Gray6B;
+        background-image: url(/common/images/icon/infoAlert.png);
+        background-repeat: no-repeat;
+        background-position: left 1.5rem;
+    }
+    /*로그인 완료*/
+    .completeTxt{
+       font-size: 2.4rem;
+       line-height: 2.4rem;
+       letter-spacing: -0.02em;
+       font-weight: 600;
+       color: $LGBlack;
+       margin: 2.5rem 0 6rem;
+       span{
+        font-weight: 600;
+        color:$RedD0;
+       }
+    }
+    .loginComBox{
+        .boxGray{
+            width: 100%;
+            height: 20rem;
+            background-image: url(/common/images/sub/grayBG.png);
+            padding: 4rem ;
+            margin-bottom: 2rem;
+           p{
+            @include subTitle2;
+            color:$Gray6B;
+            line-height: 2.56rem;
+
+
+           }
+           .name{
+            margin-bottom: 2rem;
+            font-size: 1.8rem;
+            line-height: 2.1rem;
+            letter-spacing: -0.02em;
+            color:$Gray6B;
+         
+            span{
+                color:$LGBlack;
+                background-image: url(/common/images/icon/smile.png);
+                background-repeat: no-repeat;
+                background-position: left center;
+                padding-left: 2.9rem;
+                line-height: 2.1rem;
+                display: inline-block;
+            }
+           }
+        }
+        
+    }
+    .loginComInfo{
+        border-top:.1rem solid $GrayD9;
+        padding-top: 1.5rem;
+        margin-top: 5rem;
+    }
+}
+/* 폼 오류 */
+.formError{
+    &.inputBox{
+        input{
+            border: 0.1rem solid $RedD0;
+        }
+    }
+   &+.formError{
+    margin-top: 1.2rem;
+   }
+}
+p.formError{
+    text-align: left;
+    font-size: 1.3rem;
+    line-height: 1.3rem;
+    letter-spacing: -0.02em;
+    color:$RedD0;
+    margin-top: 1.2rem;
 }

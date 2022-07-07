@@ -8,6 +8,9 @@
 
   // background-color: rgba(0, 0, 0, 0.1);
   .headerWrap {
+    *{
+      transition: all 0.3s;
+    }
     display: flex;
     height: 7.2rem;
     justify-content: space-between;
@@ -116,10 +119,12 @@
     }
 
     .logMenu {
-      background-image: url(/common/images/icon/ico.png);
-      background-repeat: no-repeat;
-      background-position: left;
-      padding-left: 2.2rem;
+      svg{
+        vertical-align: middle;
+        path{
+         stroke: $GrayD9;
+        }
+      }
       a {
         font-size: 1.4rem;
         line-height: 1.4rem;
@@ -163,11 +168,12 @@
       }
 
       .logMenu {
-        background-image: url(/common/images/icon/icoDefault.png);
-        a {
-          
+          svg{
+            path{
+              stroke: $Gray6B;
+            }
+          }
           color: $Gray6B;
-
           span {
             background-color: $GrayAE;
           }
@@ -175,7 +181,7 @@
       }
     }
   }
-}
+
 
 #footer {
   width: 100%;
