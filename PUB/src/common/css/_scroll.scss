@@ -261,13 +261,13 @@
 
 
 /* custom */
-.scrollbar > .scroll-element.scroll-y {width:5px;border-left:0;background-image: none;background-color: transparent;}
+.scrollbar > .scroll-element.scroll-y {width:3px;border-left:0;background-image: none;background-color: transparent;}
 .scrollbar > .scroll-element.scroll-y.scroll-element_arrows_visible .scroll-arrow_less,
 .scrollbar > .scroll-element.scroll-y.scroll-element_arrows_visible .scroll-arrow_more {display:none;height:0;}
 .scrollbar > .scroll-element.scroll-y.scroll-element_arrows_visible .scroll-element_size {top:0;}
 .scrollbar > .scroll-element.scroll-y.scroll-element_arrows_visible .scroll-element_outer {top:0;}
 .scrollbar > .scroll-element.scroll-y.scroll-element_arrows_visible .scroll-element_track {top:0;}
-.scrollbar > .scroll-element.scroll-y .scroll-bar .scroll-bar_body {border-radius:10px;background-image:none;background-color:#ced3da;}
+.scrollbar > .scroll-element.scroll-y .scroll-bar .scroll-bar_body {border-radius:10px;background-image:none;background-color:#AEAEAE;}
 .scrollbar > .scroll-element.scroll-y .scroll-element_track {background-image:none;background-color:transparent;}
 .scrollbar > .scroll-element.scroll-y,
 .scrollbar > .scroll-element.scroll-y .scroll-bar {background-image:none;box-shadow:none;}
@@ -276,3 +276,4 @@
 
 .scrollbar > .scroll-element.scroll-element_arrows_visible .scroll-arrow {display:none;}
 .scrollbar > .scroll-element.scroll-y .scroll-element_track {background:transparent;}
+ 
