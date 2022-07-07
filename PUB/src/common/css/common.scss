@@ -386,9 +386,21 @@ p {
       font-weight: 600;
       border: 0.1rem solid $RedD0;
     }
+    
   }
+  &.type6 {
+    background-color: $White;
+    color: $LGBlack;
+    font-weight: 600;
+    border: 0.1rem solid $LGBlack;
 
-
+    &:hover {
+      background-color: $GrayE7;
+      color: $LGBlack;
+      font-weight: 600;
+      border: 0.1rem solid $GrayE7;
+    }
+  }
   &.icoImg{
     display: inline-flex;
     justify-content: center;
@@ -407,6 +419,9 @@ p {
   &.round {
     border-radius: 2.4rem;
     padding: 0 1.2rem;
+    &.large{
+      border-radius: 2.9rem;
+    }
     &.xlarge{
       border-radius: 2.9rem;
     }
@@ -435,7 +450,7 @@ p {
   }
 
   & + .btn {
-    margin-left: 1rem;
+    margin-left: 1.2rem;
   }
 }
 
