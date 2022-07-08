@@ -16,8 +16,8 @@
     }
 
     #gnb {
-      >ul {
-        >li {
+      > ul {
+        > li {
           a {
             color: $LGBlack;
           }
@@ -55,7 +55,7 @@
   margin: 4.2rem auto 0;
   text-align: center;
 
-  >div {
+  > div {
     max-width: 50rem;
     width: 100%;
     margin: 0 auto;
@@ -64,7 +64,7 @@
   .loginForm {
     margin-top: 6rem;
 
-    .inputBox+.inputBox {
+    .inputBox + .inputBox {
       margin-top: 1.2rem;
     }
   }
@@ -135,20 +135,19 @@
     justify-content: center;
     align-items: flex-start;
 
-    >p {
+    > p {
       width: calc(100% - 36rem);
       @include subTitle2;
       color: $LGBlack;
       text-align: left;
       padding-top: 1.7rem;
-
     }
 
     .inputBox {
       width: 36rem;
     }
 
-    &+.formPWC {
+    & + .formPWC {
       margin-top: 2rem;
     }
 
@@ -163,7 +162,7 @@
   }
 
   .pwInfo {
-    border-top: .1rem solid $GrayD9;
+    border-top: 0.1rem solid $GrayD9;
     text-align: left;
     padding-top: 1.5rem;
     margin-top: 3rem;
@@ -203,8 +202,6 @@
         @include subTitle2;
         color: $Gray6B;
         line-height: 2.56rem;
-
-
       }
 
       .name {
@@ -225,15 +222,13 @@
         }
       }
     }
-
   }
 
   .loginComInfo {
-    border-top: .1rem solid $GrayD9;
+    border-top: 0.1rem solid $GrayD9;
     padding-top: 1.5rem;
     margin-top: 5rem;
   }
-
 }
 
 /* 폼 오류 */
@@ -244,7 +239,7 @@
     }
   }
 
-  &+.formError {
+  & + .formError {
     margin-top: 1.2rem;
   }
 }
@@ -282,7 +277,7 @@ p.formError {
         width: 3.5rem;
         height: 3.5rem;
         border-radius: 50%;
-        border: .1rem solid $GrayD9;
+        border: 0.1rem solid $GrayD9;
         font-size: 1.6rem;
         font-weight: 600;
         line-height: 3.5rem;
@@ -295,7 +290,7 @@ p.formError {
 
     &.stepOn {
       .stepNum {
-        border: .1rem solid $RedD0;
+        border: 0.1rem solid $RedD0;
       }
 
       span {
@@ -338,7 +333,7 @@ p.formError {
   }
 
   .joinStep1 {
-    >h5 {
+    > h5 {
       color: $Black;
       font-weight: 600;
 
@@ -361,13 +356,13 @@ p.formError {
   }
 }
 
-/* email 찾기 - login 공유 */
-.subConWrap.findEmail {
+/* email 찾기 - login 공유, */
+.subConWrap.find {
   display: block;
 
   .loginWrap {
     display: block;
-    width: 500px;
+    width: 50rem;
     text-align: left;
 
     .titleWrap {
@@ -376,9 +371,7 @@ p.formError {
       p {
         margin-top: 2.5rem;
         font-size: 1.6rem;
-
       }
-
     }
 
     .loginForm {
@@ -408,8 +401,17 @@ p.formError {
 
       .inputBox {
         width: calc(100% - 14rem);
-
-        input {}
+      }
+      .input {
+        input[type="radio"] + label {
+          width: auto;
+          height: auto;
+          font-size: 1.4rem;
+          line-height: 1.6;
+          letter-spacing: -0.02em;
+          color: $LGBlack;
+          clip-path: inset(0);
+        }
       }
 
       .warning {
@@ -425,7 +427,7 @@ p.formError {
 
         .btn {
           &:nth-child(2n) {
-            margin-left: 10px;
+            margin-left: 1rem;
           }
         }
       }
@@ -437,13 +439,113 @@ p.formError {
       .inputBox {
         .inputWrap {
           display: flex;
-
+          width: 100%;
+          .inputInner {
+            flex: 1;
+            position: relative;
+            .count {
+              position: absolute;
+              right: 1rem;
+              top: 50%;
+              color: $LGBlack;
+              font-size: 1.4rem;
+              line-height: 1;
+              letter-spacing: -0.02em;
+              transform: translateY(-50%);
+            }
+          }
           .btn {
-            margin-left: 10px;
+            margin-left: 1rem;
+            color: $LGBlack;
           }
         }
       }
+    }
+  }
+  .loginWrap.step3 {
+    .result {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 14.2rem;
+      border-radius: 1.5rem;
+      background-color: #f8f8f8;
+      text-align: center;
+      margin-bottom: 2.7rem;
 
+      p {
+        color: $LGBlack;
+        span {
+          display: block;
+          font-size: 1.8rem;
+          line-height: 1;
+        }
+        em {
+          display: block;
+          margin-top: 2rem;
+          font-weight: 600;
+          font-size: 2.4rem;
+          line-height: 1;
+        }
+      }
+    }
+    .bottomWrap {
+      border-top: 0;
+    }
+  }
+}
+
+/* pw 찾기 */
+.subConWrap.find.findPw {
+  .loginWrap.step2 {
+    .titleWrap p {
+      letter-spacing: -0.037em;
+    }
+    .loginForm {
+      .inputInner {
+        display: flex;
+        align-items: center;
+      }
+
+      .list.crt1 {
+        height: 5rem;
+        margin-bottom: 1rem;
+        .inputBox {
+          .inputWrap .btn {
+            width: 15rem;
+          }
+        }
+      }
+      .list.crt2 {
+        margin-top: 0;
+        .inputBox .inputWrap .btn {
+          color: $White;
+        }
+      }
+    }
+  }
+  .loginWrap.step3 {
+    .result {
+      height: 20rem;
+      p {
+        width: 36rem;
+        em {
+          font-size: 1.8rem;
+          line-height: 1.6;
+          margin-top: 0;
+        }
+        span {
+          margin-top: 1.5rem;
+          font-size: 1.6rem;
+          line-height: 1.6;
+          > em {
+            display: inline;
+            font-size: 1.6rem;
+            line-height: 1.6;
+            color: $LGBlack;
+          }
+        }
+      }
     }
   }
 }

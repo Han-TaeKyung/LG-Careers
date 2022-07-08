@@ -140,7 +140,7 @@
     padding: 3rem 0;
     width: calc(100% - 23rem);
 
-    >div {
+    > div {
       display: none;
 
       &.active {
@@ -148,7 +148,7 @@
       }
     }
 
-    >h2 {
+    > h2 {
       font-size: 2.4rem;
       font-weight: 600;
       color: #222;
@@ -307,11 +307,11 @@ p {
   min-height: 4.8rem;
   line-height: 4.8rem;
   height: auto;
+  transition: all 0.3s;
 
   &:hover {
     border: 0.1rem solid $LGBlack;
     color: $LGBlack;
-    transition: 0.4s;
   }
 
   &.smail {
@@ -392,7 +392,6 @@ p {
       font-weight: 600;
       border: 0.1rem solid $RedD0;
     }
-
   }
 
   &.type6 {
@@ -461,7 +460,7 @@ p {
     }
   }
 
-  &+.btn {
+  & + .btn {
     margin-left: 1.2rem;
   }
 }
@@ -484,7 +483,7 @@ p {
     border: 0;
     opacity: 0;
 
-    &+label {
+    & + label {
       position: relative;
       display: inline-block;
       padding-left: 3rem;
@@ -498,39 +497,52 @@ p {
         content: " ";
         top: 0.1rem;
         left: 0;
-        width: 2.1rem;
-        height: 2.1rem;
-        background-color: #fff;
-        border: 0.2rem solid $Gray6B;
+        width: 2rem;
+        height: 2rem;
+        background-color: $RedD0;
+        border-radius: 0.5rem;
+        border: 1px solid #d9dadb;
+        background-color: $White;
         box-sizing: border-box;
+        transition: all 0.2s;
+      }
+      &:after {
+        display: block;
+        position: absolute;
+        left: 0.5rem;
+        top: 0.7rem;
+        width: 1.1rem;
+        height: 0.8rem;
+        background: url(/common/images/icon/checkGray.svg) no-repeat center
+          center;
+        transition: all 0.2s;
       }
     }
 
     &:checked {
-      &+label {
+      & + label {
+        &:before {
+          background-color: $RedD0;
+          border-color: $RedD0;
+        }
         &:after {
-          display: block;
-          position: absolute;
-          content: " ";
-          width: 0.7rem;
-          height: 1rem;
-          border: 0.1rem solid #000;
-          border-left: 0;
-          border-top: 0;
-          left: 0.65rem;
-          top: 0.4rem;
-          transform: rotate(45deg);
+          visibility: visible;
+          opacity: 1;
+          background-image: url(/common/images/icon/check.svg);
         }
       }
     }
 
     &:disabled {
-      &+label {
+      & + label {
         color: #999;
 
         &::before {
           background-color: #ccc;
           border-color: #ccc;
+        }
+        &:after {
+          background: url(/common/images/icon/check.svg) no-repeat center center;
         }
       }
     }
@@ -547,7 +559,7 @@ p {
     border: 0;
     opacity: 0;
 
-    &+label {
+    & + label {
       position: relative;
       display: inline-block;
       padding-left: 3rem;
@@ -561,35 +573,46 @@ p {
         content: " ";
         top: 0.1rem;
         left: 0;
-        width: 2.1rem;
-        height: 2.1rem;
+        width: 2rem;
+        height: 2rem;
         border-radius: 50%;
         background-color: #fff;
         border: 0.2rem solid $Gray6B;
         box-sizing: border-box;
+        transition: all 0.2s;
+      }
+      &:after {
+        display: block;
+        position: absolute;
+        opacity: 0;
+        width: 1rem;
+        height: 1rem;
+        border-radius: 50%;
+        background-color: $White;
+        color: $Gray6B;
+        font-size: 1.4rem;
+        left: 0.5rem;
+        top: 0.6rem;
+        text-align: center;
+        line-height: 2rem;
+        transition: all 0.2s;
       }
     }
 
     &:checked {
-      &+label {
+      & + label {
+        &:before {
+          background-color: $RedD0;
+          border-color: $RedD0;
+        }
         &:after {
-          display: block;
-          position: absolute;
-          content: "●";
-          color: $Gray6B;
-          font-size: 1.4rem;
-          left: 0;
-          top: 0;
-          text-align: center;
-          width: 2rem;
-          height: 2rem;
-          line-height: 2rem;
+          opacity: 1;
         }
       }
     }
 
     &:disabled {
-      &+label {
+      & + label {
         color: #999;
 
         &::before {
@@ -617,7 +640,6 @@ p {
 
 //input, textbox
 .inputBox {
-
   label {
     @include hiddenText;
   }
@@ -645,9 +667,8 @@ p {
   }
 
   &.inputDis {
-
     input {
-      border: .1rem solid #f5f5f5;
+      border: 0.1rem solid #f5f5f5;
       background-color: #f5f5f5;
       color: $LGBlack;
     }
@@ -761,7 +782,7 @@ p {
 
 //Bullet
 .bu {
-  >li {
+  > li {
     @include subText1;
     margin-bottom: 1rem;
     position: relative;
@@ -784,10 +805,10 @@ p {
       margin-bottom: 0;
     }
 
-    >ul {
+    > ul {
       margin-top: 0.5rem;
 
-      >li {
+      > li {
         @include subText1;
         margin-bottom: 0.5rem;
         position: relative;
@@ -812,7 +833,7 @@ p {
   }
 
   &.type2 {
-    >li {
+    > li {
       @include subText1;
       margin-bottom: 0.5rem;
 
@@ -890,7 +911,7 @@ p {
 //아코디언
 .guideAcc {
   .accItem {
-    &+.accItem {
+    & + .accItem {
       margin-top: 10px;
     }
   }
@@ -982,7 +1003,6 @@ p {
   a {
     color: $RedD0;
     text-decoration: underline !important;
-
   }
 }
 
@@ -1004,7 +1024,7 @@ p {
   }
 
   &.alertGray {
-    background-color: #CDC8C8;
+    background-color: #cdc8c8;
 
     p {
       background-image: url(/common/images/icon/alert.png);
@@ -1013,7 +1033,7 @@ p {
   }
 
   &.alertRed {
-    background-color: #DD3860;
+    background-color: #dd3860;
 
     p {
       background-image: url(/common/images/icon/alertChk.png);
