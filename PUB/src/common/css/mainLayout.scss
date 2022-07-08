@@ -127,7 +127,7 @@ body {
         width: 100%;
         height: 100%;
         padding: 1rem 1rem 1rem 0;
-        border-bottom: 2px solid #fff;
+        border-bottom: 0.2rem solid #fff;
         background: transparent;
         color: #fff;
         text-align: left;
@@ -136,9 +136,9 @@ body {
           display: block;
           position: absolute;
           right: 0;
-          top: calc(50% - 5px);
-          width: 12px;
-          height: 8px;
+          top: calc(50% - 0.5rem);
+          width: 1.2rem;
+          height: 0.8rem;
           background: url(./../images/main/visual_arrow.svg) no-repeat center center;
           background-size: contain;
         }
@@ -148,7 +148,7 @@ body {
         display: none;
         position: absolute;
         left: 0;
-        top: calc(100% + 24px);
+        top: calc(100% + 2.4rem);
         width: 100%;
 
         .selectWrap {
@@ -195,7 +195,7 @@ body {
       align-items: center;
       position: relative;
       border-radius: 50%;
-      top: -4px;
+      top: -0.4rem;
       width: 6rem;
       height: 6rem;
       background-color: $RedD0;
@@ -265,7 +265,7 @@ body {
   }
 
   p {
-    margin-top: 30px;
+    margin-top: 3rem;
     font-weight: 400;
     font-size: 1.8rem;
     line-height: 1;
@@ -290,7 +290,7 @@ body {
 
   .titleWrap {
     position: relative;
-    margin-bottom: 70px;
+    margin-bottom: 7rem;
 
     .more {
       display: inline-block;
@@ -305,7 +305,7 @@ body {
         position: relative;
         width: 1.6rem;
         height: 1.6rem;
-        margin-left: 6px;
+        margin-left: 0.6rem;
         background: url(./../images/main/more.svg) no-repeat center center;
         background-size: contain;
         vertical-align: top;
@@ -324,12 +324,12 @@ body {
         display: inline-flex;
         justify-content: center;
         align-items: center;
-        height: 44px;
-        min-width: 100px;
-        margin: 5px 0 5px 6px;
-        padding: 0 13px;
-        border: 1px solid #d9dadb;
-        border-radius: 50px;
+        height: 4.4rem;
+        min-width: 10rem;
+        margin: 0.5rem 0 0.5rem 0.6rem;
+        padding: 0 1.3rem;
+        border: 0.1rem solid #d9dadb;
+        border-radius: 5rem;
         background-color: #fff;
         color: #d9dadb;
         font-size: 1.7rem;
@@ -380,16 +380,16 @@ body {
       }
 
       &:hover .imgWrap {
-        box-shadow: 0 20px 20px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 2rem 2rem rgba(0, 0, 0, 0.1);
 
       }
 
       .storyImg {
         position: relative;
         width: inherit;
-        border-radius: 20px;
+        border-radius: 2rem;
         overflow: hidden;
-        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0);
+        box-shadow: 0 0.4rem 0.4rem rgba(0, 0, 0, 0);
         transition: all 0.3s;
 
         img {
@@ -398,7 +398,7 @@ body {
       }
 
       &:hover .storyImg {
-        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        box-shadow: 0 0.4rem 0.4rem rgba(0, 0, 0, 0.25);
 
       }
 
@@ -408,15 +408,15 @@ body {
 
         h3.tag {
           color: $Gray8E;
-          font-size: 18px;
+          font-size: 1.8rem;
           font-weight: 400;
         }
 
         p {
-          margin-top: 6px;
+          margin-top: 0.6rem;
           font-weight: 600;
-          font-size: 22px;
-          line-height: 34px;
+          font-size: 2.2rem;
+          line-height: 3.4rem;
         }
       }
     }
@@ -428,10 +428,10 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 180px;
-    height: 58px;
-    border-radius: 30px;
-    border: 1px solid $LGBlack;
+    width: 18rem;
+    height: 5.8rem;
+    border-radius: 3rem;
+    border: 0.1rem solid $LGBlack;
 
     span {
       position: relative;
@@ -441,10 +441,10 @@ body {
       &:after {
         display: inline-block;
         position: relative;
-        top: -1px;
-        margin-left: 10px;
-        width: 9px;
-        height: 9px;
+        top: -0.1rem;
+        margin-left: 1rem;
+        width: 0.9rem;
+        height: 0.9rem;
         border-width: 0 0.1rem 0.1rem 0;
         border-color: $LGBlack;
         border-style: solid;
@@ -479,8 +479,8 @@ body {
       position: absolute;
       left: 0;
       top: 0;
-      width: 30px;
-      height: 2px;
+      width: 3rem;
+      height: 0.2rem;
       background-color: $RedD0;
     }
 
@@ -568,7 +568,7 @@ body {
       align-items: center;
       width: 18rem;
       height: 5.8rem;
-      border-radius: 50px;
+      border-radius: 5rem;
       border: 1px solid $White;
 
       span {
@@ -580,7 +580,7 @@ body {
         &:after {
           display: inline-block;
           position: relative;
-          top: 1px;
+          top: 0.1rem;
           margin-left: 1rem;
 
           width: 1.4rem;
@@ -607,8 +607,8 @@ body {
         &:after {
           display: inline-block;
           position: relative;
-          top: -2px;
-          margin-left: 10px;
+          top: -0.2rem;
+          margin-left: 1rem;
           vertical-align: middle;
           width: 1.6rem;
           height: 1.6rem;
@@ -676,7 +676,7 @@ body {
         &:after {
           display: block;
           position: absolute;
-          top: calc(100% + 0px);
+          top: 100%;
           left: 0;
           width: 100%;
           height: 1px;
@@ -689,9 +689,9 @@ body {
 
       &:after {
         display: inline-block;
-        width: 16px;
-        height: 16px;
-        margin-left: 5px;
+        width: 1.6rem;
+        height: 1.6rem;
+        margin-left: 0.5rem;
         background: url(./../images/main/plus_btn.svg) no-repeat center center;
         background-size: contain;
         vertical-align: middle;
@@ -700,7 +700,7 @@ body {
   }
 
   .leftScrollWrap {
-    height: 600px;
+    height: 60rem;
     margin-top: 6.3rem;
 
     .leftScroll {
@@ -719,14 +719,14 @@ body {
             display: inline-block;
             position: relative;
             overflow: hidden;
-            width: 360px;
-            height: 262px;
-            margin: 15px;
+            width: 36rem;
+            height: 26.2rem;
+            margin: 1.5rem;
             border-radius: 1.5rem;
             @include bgInclude(cover);
             font-size: 0;
             line-height: 0;
-            box-shadow: 16px 14px 45px -4px rgba(0, 0, 0, 0);
+            box-shadow: 1.6rem 1.4rem 4.5rem -0.4rem rgba(0, 0, 0, 0);
             transition: all 0.3s;
 
             &:before {
@@ -777,7 +777,7 @@ body {
 
 
             &:not(.empty):hover:before {
-              box-shadow: 16px 14px 45px -4px rgba(0, 0, 0, 0.2);
+              box-shadow: 1.6rem 1.4rem 4.5rem -0.4rem rgba(0, 0, 0, 0.2);
               opacity: 0.3;
 
             }
@@ -862,7 +862,7 @@ body {
             &:before {
               display: inline-block;
               width: 1px;
-              height: 11px;
+              height: 1.1rem;
               margin: 0 1rem;
               background-color: $GrayD9;
               vertical-align: middle;
@@ -926,7 +926,7 @@ body {
         vertical-align: middle;
         position: relative;
         width: 100%;
-        height: 2px;
+        height: 0.2rem;
         background-color: #D9D9D9;
 
         .progress {
@@ -956,8 +956,8 @@ body {
 
           &:before {
             display: block;
-            width: 8px;
-            height: 16px;
+            width: 0.8rem;
+            height: 1.6rem;
             background: url(/common/images/main/arrow.svg) center center;
             background-size: contain;
           }
@@ -981,7 +981,7 @@ body {
   position: fixed;
   left: 2vw;
   top: 50%;
-  width: 20px;
+  width: 2rem;
   transform: translateY(-50%);
 
   .navBtn {
@@ -991,16 +991,16 @@ body {
     margin: 2rem auto;
     font-size: 0;
     line-height: 0;
-    width: 18px;
-    height: 18px;
+    width: 1.8rem;
+    height: 1.8rem;
 
     background-color: transparent;
 
     &:before {
       display: block;
-      width: 6px;
-      height: 6px;
-      border: 2px solid #fff;
+      width: 0.6rem;
+      height: 0.6rem;
+      border: 0.2rem solid #fff;
       border-radius: 50%;
       background: #fff;
       transition-duration: 0.3s;
@@ -1011,8 +1011,8 @@ body {
 
     &.active {
       &:before {
-        width: 18px;
-        height: 18px;
+        width: 1.8rem;
+        height: 1.8rem;
         background: transparent;
       }
     }
