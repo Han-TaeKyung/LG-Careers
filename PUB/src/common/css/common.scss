@@ -570,14 +570,13 @@ p {
       &::before {
         display: block;
         position: absolute;
-        content: " ";
         top: 0.1rem;
         left: 0;
         width: 2rem;
         height: 2rem;
         border-radius: 50%;
         background-color: #fff;
-        border: 0.2rem solid $Gray6B;
+        border: 1px solid $GrayD9;
         box-sizing: border-box;
         transition: all 0.2s;
       }
