@@ -17,10 +17,4 @@ $(function () {
     });
   });
 
-  $( '.joinSlider' ).slick( {
-    autoplay: false,
-    autoplaySpeed: 3000,
-    slidesToShow: 2,
-    slidesToScroll: 1,
-  } );
 });

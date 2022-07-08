@@ -81,7 +81,15 @@
     <footer id="footer">@@include('./../layouts/include/footer.html')</footer>
 
   </body>
-  <script src="/commn/js/lib/jquery-3.6.0.min.js"></script>
   <script src="/common/js/lib/slick.1.6.0.min.js"></script>
-  <script src="/common/js/sub/js"></script>
+  <script>
+    
+  $( '.joinSlider' ).slick( {
+    autoplay: false,
+    autoplaySpeed: 3000,
+    slidesToShow: 2,
+    slidesToScroll: 1,
+  } );
+  </script>
 </html>
+
