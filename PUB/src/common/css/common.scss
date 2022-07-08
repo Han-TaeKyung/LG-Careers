@@ -189,8 +189,17 @@
 }
 
 //margin
+.mT0{
+  margin-top: 0 !important;
+}
 .mT10 {
   margin-top: 1rem;
+}
+.mT60{
+  margin-top: 6rem;
+}
+.mT80 {
+  margin-top: 8rem;
 }
 
 @for $i from 1 through 10 {
@@ -256,6 +265,9 @@
 }
 .wpNow{
   white-space: nowrap;
+}
+.point{
+  color:$RedD0 !important;
 }
 
 //공통 class
@@ -458,7 +470,7 @@ p {
 .input {
   display: inline-block;
   position: relative;
-  margin: 0.2rem;
+  // margin: 0.2rem;
   vertical-align: top;
 
   input[type="checkbox"] {
@@ -591,20 +603,44 @@ p {
 
 //select
 .input {
+  &.selectBox{
+    position: relative;
+    .icoArrow{
+      position: absolute;
+      right:1.5rem;
+      top:50%;
+      margin-top: -0.3rem;
+      img{
+        transition: .3s;
+      }
+    }
+   
+  }
   select {
-    width: 18rem;
-    height: 4rem;
+    width: 100%;
+    height: 4.8rem;
     padding: 0.8rem 3.5rem 0.8rem 1rem;
-    border: 0.1rem solid $Gray6B;
-    border-radius: 0.3rem;
+    border: 0.1rem solid $GrayD9;
+    border-radius: 0.5rem;
     font-size: 1.6rem;
     font-weight: 400;
-    color: $Gray6B;
+    color: $GrayAE;
+    -webkit-appearance: none; 
+    -moz-appearance: none;
+    appearance: none;
+    &::-ms-expand { 
+      display: none;
+    }
+    &:focus + .icoArrow img{
+      transform: rotate(180deg);
+    }
   }
 }
 
 //input, textbox
 .inputBox {
+  width:100%;
+  display: block;
   
   label {
     @include hiddenText;
@@ -825,15 +861,28 @@ p {
     li {
       list-style: inherit;
       @include subText1;
-      margin-bottom: 0.5rem;
+      margin-bottom: 2.8rem;
       padding-left: 0;
+      color:$LGBlack;
+      font-weight: 600;
+      >ul{
+        margin-top: 0.8rem;
+        li{
+          color:$Gray6B;
+          font-weight: 400;
+        }
+      }
 
       &::before {
         width: 0;
         height: 0;
       }
+      &:last-child{
+        margin-bottom: 0;
+      }
     }
   }
+ 
 }
 
 //페이징
@@ -976,3 +1025,17 @@ p {
   }
 }
 
+/* 스크롤바 설정*/
+.scroll{
+  &::-webkit-scrollbar{
+    width: 0.4rem;
+  }
+  &::-webkit-scrollbar-thumb{/* 스크롤바 막대 설정*/
+    height: 10%;
+    background-color:$GrayD9;
+    border-radius:0.5rem;  
+  }
+  &::-webkit-scrollbar-track{/* 스크롤바 뒷 배경 설정*/
+    background-color: transparent
+  }
+}
