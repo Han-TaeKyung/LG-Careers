@@ -193,7 +193,7 @@ $(function () {
       .siblings().removeClass('active').removeAttr('title');
     $thisPanel.stop().slideUp(200).attr('title', '닫기');
     $thisParent.removeClass('active').attr('title', '열림')
-    $thisParentBtn.attr('data-value', thisValue);
+    $thisParentBtn.attr('data-value', thisValue).text($this.text());
 
   })
   //scrollbar(jquery.scroll.js 플러그인)

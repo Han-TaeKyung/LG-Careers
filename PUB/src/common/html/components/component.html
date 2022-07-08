@@ -1,79 +1,85 @@
 <!DOCTYPE html>
 <html lang="ko">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>LG Careers</title>
-    <link rel="stylesheet" type="text/css" href="/common/css/style.css" />
-    <script src="/common/js/lib/jquery-3.6.0.min.js"></script>
-    <script src="/common/js/lib/slick.1.6.0.min.js"></script>
-    <script src="/common/js/component.js"></script>
-  </head>
-  <body>
-    <div class="componentWrap">
-      <div>
-        <ul class="tabs">
-          <li class="tab-link current" data-tab="tab-1">
-            <a href="#">Fonts</a>
-          </li>
-          <li class="tab-link" data-tab="tab-2">
-            <a href="#">Button</a>
-          </li>
-          <li class="tab-link" data-tab="tab-3">
-            <a href="#">Form</a>
-          </li>
-          <li class="tab-link" data-tab="tab-4">
-            <a href="#">Input</a>
-          </li>
-          <li class="tab-link" data-tab="tab-5">
-            <a href="#">Table</a>
-          </li>
-          <li class="tab-link" data-tab="tab-6">
-            <a href="#">Bullet</a>
-          </li>
-          <li class="tab-link" data-tab="tab-7">
-            <a href="#">Pagination</a>
-          </li>
-          <li class="tab-link" data-tab="tab-8">
-            <a href="#">Tab</a>
-          </li>
-          <li class="tab-link" data-tab="tab-9">
-            <a href="#">Accordion</a>
-          </li>
-          <li class="tab-link" data-tab="tab-10">
-            <a href="#">기타</a>
-          </li>
-        </ul>
-        <div class="tab-content">
-          @@include('./include/tab-1.html') @@include('./include/tab-2.html')
-          @@include('./include/tab-3.html') @@include('./include/tab-4.html')
-          @@include('./include/tab-5.html') @@include('./include/tab-6.html')
-          @@include('./include/tab-7.html') @@include('./include/tab-8.html')
-          @@include('./include/tab-9.html') @@include('./include/tab-10.html')
-        </div>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LG Careers</title>
+  <link rel="stylesheet" type="text/css" href="/common/css/style.css" />
+  <script src="/common/js/lib/jquery-3.6.0.min.js"></script>
+  <script src="/common/js/lib/slick.1.6.0.min.js"></script>
+  <script src="/common/js/component.js"></script>
+</head>
+
+<body>
+  <div class="componentWrap">
+    <div>
+      <ul class="tabs">
+        <li class="tab-link current" data-tab="tab-1">
+          <a href="#">Fonts</a>
+        </li>
+        <li class="tab-link" data-tab="tab-2">
+          <a href="#">Button</a>
+        </li>
+        <li class="tab-link" data-tab="tab-3">
+          <a href="#">Form</a>
+        </li>
+        <li class="tab-link" data-tab="tab-4">
+          <a href="#">Input</a>
+        </li>
+        <li class="tab-link" data-tab="tab-5">
+          <a href="#">Table</a>
+        </li>
+        <li class="tab-link" data-tab="tab-6">
+          <a href="#">Bullet</a>
+        </li>
+        <li class="tab-link" data-tab="tab-7">
+          <a href="#">Pagination</a>
+        </li>
+        <li class="tab-link" data-tab="tab-8">
+          <a href="#">Tab</a>
+        </li>
+        <li class="tab-link" data-tab="tab-9">
+          <a href="#">Accordion</a>
+        </li>
+        <li class="tab-link" data-tab="tab-10">
+          <a href="#">기타</a>
+        </li>
+        <li class="tab-link" data-tab="tab-11">
+          <a href="#">텍스트</a>
+        </li>
+      </ul>
+      <div class="tab-content">
+        @@include('./include/tab-1.html') @@include('./include/tab-2.html')
+        @@include('./include/tab-3.html') @@include('./include/tab-4.html')
+        @@include('./include/tab-5.html') @@include('./include/tab-6.html')
+        @@include('./include/tab-7.html') @@include('./include/tab-8.html')
+        @@include('./include/tab-9.html') @@include('./include/tab-10.html')@@include('./include/tab-11.html')
       </div>
     </div>
-    <!-- <script src="./components/component.js"></script> -->
-    <script>
-      var $tabCon = $(".tab-content");
-      var $tabBtn = $("ul.tabs li");
+  </div>
+  <!-- <script src="./components/component.js"></script> -->
+  <script>
+    var $tabCon = $(".tab-content");
+    var $tabBtn = $("ul.tabs li");
 
-      $tabBtn
-        .click(function () {
-          var $this = $(this),
-            thisTab = $this.attr("data-tab");
-          $tabBtn.removeClass("current");
-          $this.addClass("current");
-          $tabCon.find(">div").map(function () {
-            if ($(this).hasClass(thisTab)) {
-              $(this).addClass("active");
-            } else {
-              $(this).removeClass("active");
-            }
-          });
-        })
-        .triggerHandler("click");
-    </script>
-    <!-- componentWrap END -->
-  </body>
+    $tabBtn
+      .click(function () {
+        var $this = $(this),
+          thisTab = $this.attr("data-tab");
+        $tabBtn.removeClass("current");
+        $this.addClass("current");
+        $tabCon.find(">div").map(function () {
+          if ($(this).hasClass(thisTab)) {
+            $(this).addClass("active");
+          } else {
+            $(this).removeClass("active");
+          }
+        });
+      })
+      .triggerHandler("click");
+  </script>
+  <!-- componentWrap END -->
+</body>
+
 </html>
