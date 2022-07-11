@@ -191,13 +191,13 @@
 }
 
 //margin
-.mT0{
+.mT0 {
   margin-top: 0 !important;
 }
 .mT10 {
   margin-top: 1rem;
 }
-.mT60{
+.mT60 {
   margin-top: 6rem;
 }
 .mT80 {
@@ -270,8 +270,8 @@
 .wpNow {
   white-space: nowrap;
 }
-.point{
-  color:$RedD0 !important;
+.point {
+  color: $RedD0 !important;
 }
 
 //공통 class
@@ -404,7 +404,6 @@ p {
       font-weight: 600;
       border: 0.1rem solid $RedD0;
     }
-    
   }
   &.type6 {
     background-color: $White;
@@ -419,7 +418,7 @@ p {
     }
   }
 
-  &.icoImg{
+  &.icoImg {
     display: inline-flex;
     justify-content: center;
     align-items: center;
@@ -440,11 +439,10 @@ p {
     border-radius: 2.4rem;
     padding: 0 1.2rem;
 
-    &.large{
+    &.large {
       border-radius: 2.9rem;
     }
-    &.xlarge{
-
+    &.xlarge {
       border-radius: 2.9rem;
     }
   }
@@ -636,18 +634,17 @@ p {
 
 //select
 .input {
-  &.selectBox{
+  &.selectBox {
     position: relative;
-    .icoArrow{
+    .icoArrow {
       position: absolute;
-      right:1.5rem;
-      top:50%;
+      right: 1.5rem;
+      top: 50%;
       margin-top: -0.3rem;
-      img{
-        transition: .3s;
+      img {
+        transition: 0.3s;
       }
     }
-   
   }
   select {
     width: 100%;
@@ -658,13 +655,13 @@ p {
     font-size: 1.6rem;
     font-weight: 400;
     color: $GrayAE;
-    -webkit-appearance: none; 
+    -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-    &::-ms-expand { 
+    &::-ms-expand {
       display: none;
     }
-    &:focus + .icoArrow img{
+    &:focus + .icoArrow img {
       transform: rotate(180deg);
     }
   }
@@ -672,10 +669,8 @@ p {
 
 //input, textbox
 .inputBox {
-
-  width:100%;
+  width: 100%;
   display: block;
-  
 
   label {
     @include hiddenText;
@@ -899,12 +894,12 @@ p {
       @include subText1;
       margin-bottom: 2.8rem;
       padding-left: 0;
-      color:$LGBlack;
+      color: $LGBlack;
       font-weight: 600;
-      >ul{
+      > ul {
         margin-top: 0.8rem;
-        li{
-          color:$Gray6B;
+        li {
+          color: $Gray6B;
           font-weight: 400;
         }
       }
@@ -913,12 +908,11 @@ p {
         width: 0;
         height: 0;
       }
-      &:last-child{
+      &:last-child {
         margin-bottom: 0;
       }
     }
   }
- 
 }
 
 //페이징
@@ -960,44 +954,57 @@ p {
 
 //아코디언
 .guideAcc {
+  margin: 10px 0;
+  border-top: 1px solid $Gray6B;
+  > * {
+    box-sizing: border-box;
+  }
   .accItem {
-    & + .accItem {
-      margin-top: 10px;
-    }
+    border-bottom: 1px solid #e8e8e8;
   }
 
   .q {
     .qBtn {
       display: block;
+      position: relative;
       width: 100%;
-      padding: 20px 10px;
+      min-height: 7rem;
+      padding: 10px 32px;
       text-align: left;
       font-size: 0;
       line-height: 0;
+      background-color: transparent;
+      &:after {
+        display: block;
+        position: absolute;
+        right: 13px;
+        top: calc(50% - 4px);
+        width: 14px;
+        height: 7px;
+        background: url(../images/icon/accArrow.svg) no-repeat center center;
+      }
 
       .accTitle {
         display: inline-block;
+        width: 107px;
         margin-right: 20px;
-        font-size: 1.6rem;
+        font-size: 1.8rem;
         line-height: 1.5;
-        font-weight: bold;
+        font-weight: 600;
+        letter-spacing: -0.02em;
         vertical-align: top;
-
-        &:before {
-          display: inline-block;
-          content: "Q";
-          font-size: 20px;
-          line-height: 1;
-          margin-right: 10px;
-          vertical-align: top;
-        }
+        color: $LGBlack;
       }
 
       .accQuery {
         display: inline-block;
         vertical-align: top;
-        font-size: 1.6rem;
+        font-size: 1.8rem;
         line-height: 1.5;
+        letter-spacing: -0.02em;
+        color: $LGBlack;
+        font-weight: 600;
+        transition: all 0.2s;
       }
     }
   }
@@ -1005,25 +1012,65 @@ p {
   .a {
     display: none;
     position: relative;
-    padding: 10px;
 
     .accCon {
       position: relative;
-      padding-left: 30px;
+      padding: 10px 32px 40px 32px;
       font-size: 1.6rem;
+    }
+  }
 
-      &:before {
-        display: inline-block;
-        position: absolute;
-        left: 0;
-        top: 0;
-        content: "A";
-        color: $BrandColorRed;
-        font-size: 20px;
-        line-height: 1;
-        font-weight: bold;
-        vertical-align: top;
+  .accItem.active {
+    .q {
+      .qBtn {
+        &:after {
+          transform: rotate(180deg);
+        }
+        .accQuery {
+          color: $RedD0;
+        }
       }
+    }
+  }
+}
+.guideAcc.type2 {
+  .accItem {
+    border-bottom: 0;
+  }
+  .q {
+    .qBtn {
+      min-height: 90px;
+      .accTitle {
+        width: 50px;
+        color: $LGBlack;
+        font-size: 1.6rem;
+        line-height: 1.5;
+        text-align: center;
+      }
+      .accQuery {
+        .title {
+          display: block;
+          color: $LGBlack;
+          font-size: 1.6rem;
+          line-height: 1.5;
+          font-weight: 600;
+        }
+        .date {
+          display: block;
+          color: $Gray6B;
+          font-size: 1.4rem;
+          line-height: 1.5;
+          font-weight: 300;
+        }
+      }
+    }
+  }
+  .a {
+    padding: 30px 20px 40px 70px;
+    background-color: #fff9fb;
+    a {
+      color: #5d5fef;
+      text-decoration: underline;
     }
   }
 }
@@ -1092,19 +1139,19 @@ p {
   }
 }
 
-
 /* 스크롤바 설정*/
-.scroll{
-  &::-webkit-scrollbar{
+.scroll {
+  &::-webkit-scrollbar {
     width: 0.4rem;
   }
-  &::-webkit-scrollbar-thumb{/* 스크롤바 막대 설정*/
+  &::-webkit-scrollbar-thumb {
+    /* 스크롤바 막대 설정*/
     height: 10%;
-    background-color:$GrayD9;
-    border-radius:0.5rem;  
+    background-color: $GrayD9;
+    border-radius: 0.5rem;
   }
-  &::-webkit-scrollbar-track{/* 스크롤바 뒷 배경 설정*/
-    background-color: transparent
+  &::-webkit-scrollbar-track {
+    /* 스크롤바 뒷 배경 설정*/
+    background-color: transparent;
   }
 }
-
