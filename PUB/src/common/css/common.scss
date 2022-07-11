@@ -139,8 +139,10 @@
     left: 20rem;
     padding: 3rem 0;
     width: calc(100% - 23rem);
+
     > div {
       display: none;
+
       &.active {
         display: block;
       }
@@ -248,13 +250,15 @@
   text-align: right !important;
 }
 
-.fw600{
+.fw600 {
   font-weight: 600;
 }
-.fwB{
+
+.fwB {
   font-weight: bold;
 }
-.wpNow{
+
+.wpNow {
   white-space: nowrap;
 }
 
@@ -262,6 +266,7 @@
 h3.subTitle {
   @include title0;
 }
+
 h3 {
   @include title1;
 }
@@ -302,11 +307,11 @@ p {
   min-height: 4.8rem;
   line-height: 4.8rem;
   height: auto;
+  transition: all 0.3s;
 
   &:hover {
     border: 0.1rem solid $LGBlack;
     color: $LGBlack;
-    transition: 0.4s;
   }
 
   &.smail {
@@ -316,22 +321,23 @@ p {
 
   &.large {
     font-size: 1.6rem;
-    padding:0 3rem;
+    padding: 0 3rem;
     min-width: 24.4rem;
     min-height: 5.8rem;
     line-height: 5.8rem;
   }
+
   &.xlarge {
     font-size: 1.6rem;
-    padding:0 3rem;
+    padding: 0 3rem;
     min-width: 50rem;
     min-height: 5.8rem;
     line-height: 5.8rem;
   }
 
-  &.minW{
+  &.minW {
     min-width: 15rem;
-    padding:0 2rem;
+    padding: 0 2rem;
   }
 
   &.type2 {
@@ -388,16 +394,31 @@ p {
     }
   }
 
+  &.type6 {
+    background-color: $White;
+    color: $LGBlack;
+    font-weight: 600;
+    border: 0.1rem solid $LGBlack;
 
-  &.icoImg{
+    &:hover {
+      background-color: $GrayE7;
+      color: $LGBlack;
+      font-weight: 600;
+      border: 0.1rem solid $GrayE7;
+    }
+  }
+
+  &.icoImg {
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    span{
+
+    span {
       display: flex;
       margin-right: 0.5rem;
     }
   }
+
   &.disabl {
     border: 0.1rem solid #999;
     color: #999;
@@ -407,7 +428,12 @@ p {
   &.round {
     border-radius: 2.4rem;
     padding: 0 1.2rem;
-    &.xlarge{
+
+    &.large {
+      border-radius: 2.9rem;
+    }
+
+    &.xlarge {
       border-radius: 2.9rem;
     }
   }
@@ -435,7 +461,7 @@ p {
   }
 
   & + .btn {
-    margin-left: 1rem;
+    margin-left: 1.2rem;
   }
 }
 
@@ -471,28 +497,38 @@ p {
         content: " ";
         top: 0.1rem;
         left: 0;
-        width: 2.1rem;
-        height: 2.1rem;
-        background-color: #fff;
-        border: 0.2rem solid $Gray6B;
+        width: 2rem;
+        height: 2rem;
+        background-color: $RedD0;
+        border-radius: 0.5rem;
+        border: 1px solid #d9dadb;
+        background-color: $White;
         box-sizing: border-box;
+        transition: all 0.2s;
+      }
+      &:after {
+        display: block;
+        position: absolute;
+        left: 0.5rem;
+        top: 0.7rem;
+        width: 1.1rem;
+        height: 0.8rem;
+        background: url(/common/images/icon/checkGray.svg) no-repeat center
+          center;
+        transition: all 0.2s;
       }
     }
 
     &:checked {
       & + label {
+        &:before {
+          background-color: $RedD0;
+          border-color: $RedD0;
+        }
         &:after {
-          display: block;
-          position: absolute;
-          content: " ";
-          width: 0.7rem;
-          height: 1rem;
-          border: 0.1rem solid #000;
-          border-left: 0;
-          border-top: 0;
-          left: 0.65rem;
-          top: 0.4rem;
-          transform: rotate(45deg);
+          visibility: visible;
+          opacity: 1;
+          background-image: url(/common/images/icon/check.svg);
         }
       }
     }
@@ -504,6 +540,9 @@ p {
         &::before {
           background-color: #ccc;
           border-color: #ccc;
+        }
+        &:after {
+          background: url(/common/images/icon/check.svg) no-repeat center center;
         }
       }
     }
@@ -531,32 +570,42 @@ p {
       &::before {
         display: block;
         position: absolute;
-        content: " ";
         top: 0.1rem;
         left: 0;
-        width: 2.1rem;
-        height: 2.1rem;
+        width: 2rem;
+        height: 2rem;
         border-radius: 50%;
         background-color: #fff;
-        border: 0.2rem solid $Gray6B;
+        border: 1px solid $GrayD9;
         box-sizing: border-box;
+        transition: all 0.2s;
+      }
+      &:after {
+        display: block;
+        position: absolute;
+        opacity: 0;
+        width: 1rem;
+        height: 1rem;
+        border-radius: 50%;
+        background-color: $White;
+        color: $Gray6B;
+        font-size: 1.4rem;
+        left: 0.5rem;
+        top: 0.6rem;
+        text-align: center;
+        line-height: 2rem;
+        transition: all 0.2s;
       }
     }
 
     &:checked {
       & + label {
+        &:before {
+          background-color: $RedD0;
+          border-color: $RedD0;
+        }
         &:after {
-          display: block;
-          position: absolute;
-          content: "●";
-          color: $Gray6B;
-          font-size: 1.4rem;
-          left: 0;
-          top: 0;
-          text-align: center;
-          width: 2rem;
-          height: 2rem;
-          line-height: 2rem;
+          opacity: 1;
         }
       }
     }
@@ -590,7 +639,6 @@ p {
 
 //input, textbox
 .inputBox {
-  
   label {
     @include hiddenText;
   }
@@ -598,13 +646,14 @@ p {
   input {
     border: 0.1rem solid $GrayD9;
     font-size: 1.4rem;
-    padding:0 1.5rem;
+    padding: 0 1.5rem;
     border-radius: 0.5rem;
     color: $LGBlack;
     width: 100%;
     line-height: 4.8rem;
-    height:4.8rem;
-    &::placeholder{
+    height: 4.8rem;
+
+    &::placeholder {
       color: $GrayAE;
     }
   }
@@ -615,12 +664,12 @@ p {
       height: 100%;
     }
   }
-  &.inputDis{
-    
-    input{
-      border: .1rem solid #f5f5f5;
+
+  &.inputDis {
+    input {
+      border: 0.1rem solid #f5f5f5;
       background-color: #f5f5f5;
-      color:$LGBlack;
+      color: $LGBlack;
     }
   }
 }
@@ -734,10 +783,10 @@ p {
 .bu {
   > li {
     @include subText1;
-    margin-bottom:1rem;
+    margin-bottom: 1rem;
     position: relative;
     padding-left: 1.1rem;
-    color:$Gray6B;
+    color: $Gray6B;
 
     &::before {
       display: block;
@@ -928,16 +977,44 @@ p {
   }
 }
 
+// text.warning
+.warning {
+  position: relative;
+  padding-left: 11px;
+  color: $Gray6B;
+  font-size: 1.4rem;
+  line-height: 1.6;
+  letter-spacing: -0.02em;
+  margin: 10px 0;
+  word-break: keep-all;
+
+  &:before {
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 8px;
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background-color: $Gray6B;
+  }
+
+  a {
+    color: $RedD0;
+    text-decoration: underline !important;
+  }
+}
+
 /* alert */
-.alert{
+.alert {
   margin-top: 7.2rem;
   width: 100%;
-  height:6rem;
+  height: 6rem;
   position: fixed;
   line-height: 6rem;
   text-align: center;
-  
-  p{
+
+  p {
     display: inline;
     @include subText1;
     color: $White;
@@ -945,19 +1022,21 @@ p {
     background-position: left center;
   }
 
-  &.alertGray{
-    background-color: #CDC8C8;
-    p{
+  &.alertGray {
+    background-color: #cdc8c8;
+
+    p {
       background-image: url(/common/images/icon/alert.png);
       padding-left: 1.2rem;
     }
   }
-  &.alertRed{
-    background-color: #DD3860;
-    p{
+
+  &.alertRed {
+    background-color: #dd3860;
+
+    p {
       background-image: url(/common/images/icon/alertChk.png);
       padding-left: 2.6rem;
     }
   }
 }
-
