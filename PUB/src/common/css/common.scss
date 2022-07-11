@@ -973,7 +973,7 @@ p {
       text-align: left;
       font-size: 0;
       line-height: 0;
-      background-color: transparent;
+      background-color: $White;
       &:after {
         display: block;
         position: absolute;
@@ -1039,38 +1039,57 @@ p {
   }
   .q {
     .qBtn {
+      padding-top: 9px;
+      padding-left: 30px;
       min-height: 90px;
+      &:after {
+        right: 25px;
+      }
       .accTitle {
-        width: 50px;
+        width: 32px;
         color: $LGBlack;
         font-size: 1.6rem;
         line-height: 1.5;
         text-align: center;
+        min-width: 40px;
+        margin-right: 0;
+        padding-right: 5px;
+        text-align: left;
+        vertical-align: top;
       }
       .accQuery {
+        vertical-align: top;
         .title {
           display: block;
           color: $LGBlack;
           font-size: 1.6rem;
           line-height: 1.5;
           font-weight: 600;
+          letter-spacing: 0;
         }
         .date {
           display: block;
+          margin-top: 6px;
           color: $Gray6B;
           font-size: 1.4rem;
           line-height: 1.5;
           font-weight: 300;
+          letter-spacing: 0;
         }
       }
     }
   }
   .a {
-    padding: 30px 20px 40px 70px;
-    background-color: #fff9fb;
-    a {
-      color: #5d5fef;
-      text-decoration: underline;
+    .accCon {
+      padding: 30px 20px 40px 70px;
+      background-color: #fff9fb;
+      font-size: 1.6rem;
+      line-height: 1.6;
+      letter-spacing: 0;
+      a {
+        color: #5d5fef;
+        text-decoration: underline;
+      }
     }
   }
 }
