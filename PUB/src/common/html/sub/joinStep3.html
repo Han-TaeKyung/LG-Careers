@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ko">
+  @@include('./../layouts/include/subHead.html')
+  <body>
+    <div id="headers">@@include('./../layouts/include/header.html')</div>
+    <!--header END-->
+    <div id="container" class="subContainer subBGW">
+      <div class="subConWrap">
+        <div class="joinnWrap">
+          <h3 class="subTitle">회원가입</h3>
+          
+          <ul class="step mT50">
+            <li class="stepEnd">
+              <span class="stepNum">1</span>
+              <span>약관동의</span>
+            </li>
+            <li class="stepEnd">
+              <span class="stepNum">2</span>
+              <span>정보입력</span>
+            </li>
+            <li class="stepOn">
+              <span class="stepNum">3</span>
+              <span>가입완료</span>
+            </li>
+          </ul><!-- step END -->
+          <div class="joinComp">
+            <h5>꿈과 열정을 가진 김엘지님, 회원가입이 <span class="point">완료</span>되었습니다.</h5>
+            <p>도전을 꿈꾸는 LG인으로서의 첫 걸음을 환영합니다.</p>
+            <div class="joinSlide">
+              <p class="name"><span>김엘지</span>님, 입사 전 선배들의 솔직한 이야기를 들어보는건 어때요?</p>
+              <div class="joinSlider">
+                <div>
+                  <a href="#">
+                    <img src="/common/images/sub/joinImg1.png" alt="">
+                    <p>
+                      <span class="joinJob">소프트웨어개발</span>
+                      <span class="joinName">박상철</span>
+                    </p>
+                  </a>
+                </div>
+                <div>
+                  <a href="#">
+                    <img src="/common/images/sub/joinImg2.png" alt="">
+                    <p>
+                      <span class="joinJob">해외마케팅</span>
+                      <span class="joinName">윤예원</span>
+                    </p>
+                  </a>
+                </div>
+                <div>
+                  <a href="#">
+                    <img src="/common/images/sub/joinImg1.png" alt="">
+                    <p>
+                      <span class="joinJob">소프트웨어개발</span>
+                      <span class="joinName">박상철</span>
+                    </p>
+                  </a>
+                </div>
+                <div>
+                  <a href="#">
+                    <img src="/common/images/sub/joinImg2.png" alt="">
+                    <p>
+                      <span class="joinJob">해외마케팅</span>
+                      <span class="joinName">윤예원</span>
+                    </p>
+                  </a>
+                </div>
+              </div>
+            </div><!--- joinSlide END -->
+          </div><!-- joinComp -->
+          <div class="tCenter mT60">
+            <a href="#" class="btn type6 round large">홈으로</a>
+            <a href="#" class="btn type5 round large">로그인</a>
+          </div>
+        </div?><!-- loginWrap END -->
+        <!-- subContent END -->
+      </div> 
+      <!-- subConWrap END -->
+    </div>
+
+    <footer id="footer">@@include('./../layouts/include/footer.html')</footer>
+
+  </body>
+  <script src="/common/js/lib/slick.1.6.0.min.js"></script>
+  <script>
+    
+  $( '.joinSlider' ).slick( {
+    autoplay: false,
+    autoplaySpeed: 3000,
+    slidesToShow: 2,
+    slidesToScroll: 1,
+  } );
+  </script>
+</html>
+

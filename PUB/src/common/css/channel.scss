@@ -424,7 +424,7 @@
       }
     }
   }
-
+  /* 탭메뉴 */
   .tabMenu {
     [data-tab-content] {
       display: none;
@@ -462,6 +462,49 @@
           color: $BrandColorRed;
           border-top: 0.2rem solid $BrandColorRed;
           padding-top: 0.6rem;
+        }
+      }
+    }
+  }
+
+  /* 채널 채용정보 리스트 */
+  .listLineUp{
+    display: flex;
+    justify-content: space-between;
+    >p{
+      font-size: 1.6rem;
+      font-weight: 300;
+      color:$LGBlack;
+      letter-spacing: -0.03em;
+      span{
+        font-weight: 400;
+      }
+    }
+    >ul{
+      display: flex;
+      >li{
+        position: relative;
+        >a {
+          font-size: 1.6rem;
+          letter-spacing: -0.05em;
+          color:$Gray6B;
+          .icon{
+            display: inline-block;
+            background-image: url(/common/images/icon/listUpIco.png);
+            background-repeat: no-repeat;
+            width: 1.4rem;
+            height: 0.8rem;
+          }
+          &:focus{
+            .icon{
+              transition: 0.3s;
+              transform: rotate(180deg);
+            }
+          }
+        }
+        >ul{
+          position: absolute;
+          display: none;
         }
       }
     }

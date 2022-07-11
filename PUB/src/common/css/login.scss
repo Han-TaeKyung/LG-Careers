@@ -207,8 +207,18 @@
         padding-top: 1.5rem;
         margin-top: 5rem;
     }
+
 }
 /* 폼 오류 */
+.formD{
+    .formError{
+        .inputBox{
+            input{
+                border: 0.1rem solid $RedD0;
+            }
+        }
+    }
+}
 .formError{
     &.inputBox{
         input{
@@ -226,4 +236,299 @@ p.formError{
     letter-spacing: -0.02em;
     color:$RedD0;
     margin-top: 1.2rem;
+}
+/* step */
+.step{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 6rem;
+    li{
+        text-align: center;
+        position: relative;
+        width: 9.2rem;
+        padding-right: 1.5rem;
+        margin-right: 0.3rem;
+        span{
+            display: block;
+            font-size: 1.5rem;
+            line-height: 1.5rem;
+            letter-spacing: -0.02em;
+            color:$GrayAE;
+            &.stepNum{
+                width: 3.5rem;
+                height: 3.5rem;
+                border-radius: 50%;
+                border:.1rem solid $GrayD9;
+                font-size: 1.6rem;
+                font-weight: 600;
+                line-height: 3.5rem;
+                letter-spacing: -0.02em;
+                text-align: center;
+                color:$GrayAE;
+                margin: 0 auto 1.3rem;
+            }
+        }
+        &.stepEnd{
+            .stepNum{
+                border: .1rem solid $LGBlack;
+                background-color: $LGBlack;
+                background-image: url(/common/images/icon/joinChk.png);
+                background-repeat: no-repeat;
+                background-position: center;
+                text-indent: -9999rem;
+            }
+            span{
+                color:$LGBlack;
+                font-weight: 600;
+            }
+        }
+        &.stepOn{
+            .stepNum{
+                border: .1rem solid $RedD0;
+            }
+            span{
+                color:$RedD0;
+                font-weight: 600;
+            }
+        }
+        &::before{
+            display: block;
+            width: 1.2rem;
+            height:0.3rem;
+            background-image: url(/common/images/icon/dot.png);
+            background-repeat: no-repeat;
+            position: absolute;
+            right:0;
+            top:1.6rem;
+        }
+        &:last-child{
+            margin-right: 0;
+            padding-right: 0;
+            width: 7.7rem;
+            &::before{
+                width: 0;
+            }
+        }
+    }
+}
+.joinnWrap{
+    max-width: 90rem;
+    width: 100%;
+    height: auto;
+    margin: 4.2rem auto 0;
+    h3{
+        text-align: center;
+    }
+    .joinStep{
+        >h5{
+            color:$Black;
+            font-weight: 600;
+            span{
+                color:$RedD0;
+                font-weight: 600;
+            }
+        }
+        .subTitle2{
+            color:$Gray6B;
+            line-height: 2.56rem;
+        }
+    }
+    .conBox{
+        background-color: #f8f8f8;
+        border-radius: 0.5rem;
+        padding: 3rem 3rem 4.2rem;
+        height: 24rem;
+        overflow-y: scroll;
+        margin-bottom: 2rem;
+    }
+    .lgBlack{
+        color: $LGBlack !important;
+    }
+    .joinBu{
+        margin: 2rem 0 5.6rem;
+       li{
+        line-height: 2.24rem;
+        color: $Gray6B;
+        &::before{
+            top:1rem;
+        }
+       }
+    }
+    .infoText{
+        color:$Gray6B;
+    }
+    .joinForm{
+        width: 100%;
+        height:auto;
+        border-top:.1rem solid $LGBlack;
+        border-bottom: .1rem solid $GrayD9;
+        padding: 3rem 0;
+        >ul{
+            display: flex;
+            justify-content: flex-start;
+            margin-bottom: 2rem;
+            .formH{
+                width: calc(100% - 72rem);
+                margin-top: 1.6rem;
+                span{
+                    @include subTitle2;
+                    color: $LGBlack;
+                }
+                .com{
+                    &::after{
+                        display: inline;
+                        content: "*";
+                        color: $RedD0;
+                    }
+                }
+            }
+            .formD{
+                width: 72rem;
+                font-size: 1.4rem;
+                line-height: 1.4rem;
+                color: $LGBlack;
+                >div{
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                }
+            }
+            &:last-child{
+                margin-bottom: 0;
+            }
+        }
+        .formInfo{
+            font-size: 1.3rem;
+            color:$Gray6B;
+            line-height:2.05rem;
+            letter-spacing: -0.02em;
+            display: block;
+            margin-top: 0.6rem;
+        }
+    }
+    .wd228{
+        width: 22.8rem;
+        display: block;
+    }
+    .wd464{
+        width: 46.4rem;
+        display: block;
+    }
+    .wd356{
+        width: 35.6rem;
+        display: block;
+    }
+    .wd235{
+        width: 23.5rem;
+    }
+
+    /* 가입완료 */
+    .joinComp{
+        width: 100%;
+        height: auto;
+        border-top:.1rem solid $LGBlack;
+        padding: 4rem 0 0;
+        >h5{
+            font-size: 2.4rem;
+            line-height: 2.4rem;
+            font-weight: 600;
+            color:$LGBlack;
+            letter-spacing: -0.02em;
+            margin-bottom: 2rem;
+            text-align: center;
+            span{
+                font-weight: 600;
+            }
+        }
+        >p{
+            font-size: 1.8rem;
+            letter-spacing: -0.02rem;
+            color:$LGBlack;
+            line-height: 1.8rem;
+            text-align: center;
+        }
+        .joinSlide{
+            background-color:#f8f8f8;
+            border-radius: 1.5rem;
+            padding: 4rem 3.6rem;
+            margin-top: 6rem;
+            position: relative;
+            .name{
+                text-align: center;
+                margin-bottom: 2rem;
+                font-size: 1.6rem;
+                line-height: 2.1rem;
+                letter-spacing: -0.02em;
+                color:$Gray6B;
+                
+                span{
+                    color:$LGBlack;
+                    background-image: url(/common/images/icon/smile.png);
+                    background-repeat: no-repeat;
+                    background-position: left center;
+                    padding-left: 2.9rem;
+                    line-height: 2.1rem;
+                    display: inline-block;
+                }
+            }
+            .slick-list{
+                width: 76rem;
+                margin-left: 4.4rem;
+            }
+            .slick-prev {
+                text-indent: -9999rem;
+                width: 1.4rem;
+                height: 2.6rem;
+                background-image: url(/common/images/icon/arrowL3.png);
+                background-color: transparent;
+                position: absolute;
+                top:50%;
+                margin-top:-1.3rem
+            }
+            .slick-next {
+                text-indent: -9999rem;
+                width: 1.4rem;
+                height: 2.6rem;
+                background-image: url(/common/images/icon/arrowR3.png);
+                background-color: transparent;
+                position: absolute;
+                top:50%;
+                margin-top:-1.3rem;
+                right:0;
+            }
+        }
+        .joinSlider {
+            >div{
+                a{
+                    position: relative;
+                    display:block;
+                    width: 100%;
+                    height: 100%;
+                    p{
+                        position: absolute;
+                        bottom: 3rem;
+                        z-index: 10;
+                        left: 2.5rem;
+
+                        span{
+                            display: block;
+                        }
+                        .joinJob{
+                           font-size: 1.6rem;
+                           letter-spacing: -0.02em;
+                           font-weight: 600;
+                           color:$White;
+                           margin-bottom: 1.2rem;
+                        }
+                        .joinName{
+                            font-size: 2.2rem;
+                            letter-spacing: -0.02em;
+                            font-weight: 600;
+                            color:$White;
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
