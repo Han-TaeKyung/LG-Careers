@@ -1,0 +1,195 @@
+@import "_variables", "_mixin";
+
+/* email 찾기 - login 공유, */
+.subConWrap.find {
+  display: block;
+
+  .loginWrap {
+    display: block;
+    width: 50rem;
+    text-align: left;
+
+    .titleWrap {
+      text-align: center;
+
+      p {
+        margin-top: 2.5rem;
+        font-size: 1.6rem;
+      }
+    }
+
+    .loginForm {
+      margin-top: 6rem;
+
+      .list {
+        display: flex;
+        align-items: center;
+        margin: 2rem 0;
+
+        .title {
+          display: inline-block;
+          width: 14rem;
+          padding-right: 2.6rem;
+          font-weight: 400;
+          font-size: 1.6rem;
+          line-height: 1;
+          text-align: left;
+
+          .label {
+            font-size: inherit;
+            font-weight: inherit;
+            line-height: inherit;
+          }
+        }
+      }
+
+      .inputBox {
+        width: calc(100% - 14rem);
+      }
+      .input {
+        input[type="radio"] + label {
+          width: auto;
+          height: auto;
+          font-size: 1.4rem;
+          line-height: 1.6;
+          letter-spacing: -0.02em;
+          color: $LGBlack;
+          clip-path: inset(0);
+        }
+      }
+
+      .warning {
+        margin-bottom: 5rem;
+      }
+
+      .bottomWrap {
+        border-top: 1px solid $GrayD9;
+      }
+
+      .bottomBtn {
+        display: flex;
+
+        .btn {
+          &:nth-child(2n) {
+            margin-left: 1rem;
+          }
+        }
+      }
+    }
+  }
+
+  .loginWrap.step2 {
+    .loginForm {
+      .inputBox {
+        .inputWrap {
+          display: flex;
+          width: 100%;
+          .inputInner {
+            flex: 1;
+            position: relative;
+            .count {
+              position: absolute;
+              right: 1rem;
+              top: 50%;
+              color: $LGBlack;
+              font-size: 1.4rem;
+              line-height: 1;
+              letter-spacing: -0.02em;
+              transform: translateY(-50%);
+            }
+          }
+          .btn {
+            margin-left: 1rem;
+            color: $LGBlack;
+          }
+        }
+      }
+    }
+  }
+  .loginWrap.step3 {
+    .result {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 14.2rem;
+      border-radius: 1.5rem;
+      background-color: #f8f8f8;
+      text-align: center;
+      margin-bottom: 2.7rem;
+
+      p {
+        color: $LGBlack;
+        span {
+          display: block;
+          font-size: 1.8rem;
+          line-height: 1;
+        }
+        em {
+          display: block;
+          margin-top: 2rem;
+          font-weight: 600;
+          font-size: 2.4rem;
+          line-height: 1;
+        }
+      }
+    }
+    .bottomWrap {
+      border-top: 0;
+    }
+  }
+}
+
+/* pw 찾기 */
+.subConWrap.find.findPw {
+  .loginWrap.step2 {
+    .titleWrap p {
+      letter-spacing: -0.037em;
+    }
+    .loginForm {
+      .inputInner {
+        display: flex;
+        align-items: center;
+      }
+
+      .list.crt1 {
+        height: 5rem;
+        margin-bottom: 1rem;
+        .inputBox {
+          .inputWrap .btn {
+            width: 15rem;
+          }
+        }
+      }
+      .list.crt2 {
+        margin-top: 0;
+        .inputBox .inputWrap .btn {
+          color: $White;
+        }
+      }
+    }
+  }
+  .loginWrap.step3 {
+    .result {
+      height: 20rem;
+      p {
+        width: 36rem;
+        em {
+          font-size: 1.8rem;
+          line-height: 1.6;
+          margin-top: 0;
+        }
+        span {
+          margin-top: 1.5rem;
+          font-size: 1.6rem;
+          line-height: 1.6;
+          > em {
+            display: inline;
+            font-size: 1.6rem;
+            line-height: 1.6;
+            color: $LGBlack;
+          }
+        }
+      }
+    }
+  }
+}
