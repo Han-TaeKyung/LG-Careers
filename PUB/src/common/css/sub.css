@@ -8,6 +8,7 @@
 
 /* 채널 */
 @import "channel.css";
+@import "channel2.css";
 
 /* 로그인, 회원가입 */
 @import "login.css";

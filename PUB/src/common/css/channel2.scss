@@ -1,0 +1,46 @@
+@import "_variables", "_mixin";
+.channelNotice {
+  .channelCon {
+    background-color: $White;
+    padding-bottom: 70px;
+  }
+  .bottomBtn {
+    margin-top: 50px;
+    text-align: center;
+    .btn {
+      background-color: $White;
+      i {
+        display: inline-block;
+        width: 14px;
+        height: 7px;
+        margin-left: 10px;
+        background: url(../images/icon/accArrow.svg) no-repeat center center;
+        transform: rotate(180deg);
+        vertical-align: middle;
+      }
+    }
+  }
+}
+
+.channelQuery {
+  .q {
+    .qBtn {
+      .accQuery {
+        &:before {
+          display: block;
+          position: absolute;
+          content: "Q";
+        }
+      }
+    }
+  }
+  .a {
+    .accCon {
+      &:before {
+        display: block;
+        position: absolute;
+        content: "A";
+      }
+    }
+  }
+}
