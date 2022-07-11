@@ -24,7 +24,7 @@
       .list {
         display: flex;
         align-items: center;
-        margin: 2rem 0;
+        margin: 1.5rem 0;
 
         .title {
           display: inline-block;
@@ -46,8 +46,9 @@
       .inputBox {
         width: calc(100% - 14rem);
       }
+
       .input {
-        input[type="radio"] + label {
+        input[type="radio"]+label {
           width: auto;
           height: auto;
           font-size: 1.4rem;
@@ -59,7 +60,7 @@
       }
 
       .warning {
-        margin-bottom: 5rem;
+        margin-bottom: 6rem;
       }
 
       .bottomWrap {
@@ -84,9 +85,11 @@
         .inputWrap {
           display: flex;
           width: 100%;
+
           .inputInner {
             flex: 1;
             position: relative;
+
             .count {
               position: absolute;
               right: 1rem;
@@ -98,6 +101,7 @@
               transform: translateY(-50%);
             }
           }
+
           .btn {
             margin-left: 1rem;
             color: $LGBlack;
@@ -106,6 +110,7 @@
       }
     }
   }
+
   .loginWrap.step3 {
     .result {
       display: flex;
@@ -119,11 +124,13 @@
 
       p {
         color: $LGBlack;
+
         span {
           display: block;
           font-size: 1.8rem;
           line-height: 1;
         }
+
         em {
           display: block;
           margin-top: 2rem;
@@ -133,6 +140,7 @@
         }
       }
     }
+
     .bottomWrap {
       border-top: 0;
     }
@@ -145,6 +153,7 @@
     .titleWrap p {
       letter-spacing: -0.037em;
     }
+
     .loginForm {
       .inputInner {
         display: flex;
@@ -154,35 +163,43 @@
       .list.crt1 {
         height: 5rem;
         margin-bottom: 1rem;
+
         .inputBox {
           .inputWrap .btn {
             width: 15rem;
           }
         }
       }
+
       .list.crt2 {
         margin-top: 0;
+
         .inputBox .inputWrap .btn {
           color: $White;
         }
       }
     }
   }
+
   .loginWrap.step3 {
     .result {
       height: 20rem;
+
       p {
         width: 36rem;
+
         em {
           font-size: 1.8rem;
           line-height: 1.6;
           margin-top: 0;
         }
+
         span {
           margin-top: 1.5rem;
           font-size: 1.6rem;
           line-height: 1.6;
-          > em {
+
+          >em {
             display: inline;
             font-size: 1.6rem;
             line-height: 1.6;

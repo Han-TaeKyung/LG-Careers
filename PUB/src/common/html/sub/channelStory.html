@@ -1,895 +1,682 @@
 <!DOCTYPE html>
 <html lang="ko">
-  @@include('./../layouts/include/subHead.html')
-  <body>
-    <div id="headers">@@include('./../layouts/include/header.html')</div>
-    <!--header END-->
-    <div id="container" class="subContainer">
-      <div class="subConWrap">
-        <div id="lnb">
-          <div class="lnbWrap">
-            <h2 class="lnbLogo">
-              <span
-                ><img src="/common/images/common/lnbLogo.png" alt="LG"
-              /></span>
-              <span>
-                <img
-                  src="/common/images/common/lnbTitle1.png"
-                  alt="디스플레이"
-                />
-              </span>
-            </h2>
-            <div class="lnbSearch">
-              <span class="inputBox type2">
-                <input type="text" id="lnbSearch" placeholder="Search" />
-                <label for="lnbSearch">검색</label>
-              </span>
-              <a href="#" class="btn ico"
-                ><img
-                  src="/common/images/icon/searchBtnBk.png"
-                  alt="검색버튼"
-              /></a>
-            </div>
-            <ul class="lnbMenu">
-              <li class="lnbIco01 lnbMenuOn">
-                <a href="#"><span>LG디스플레이 홈</span></a>
+@@include('./../layouts/include/subHead.html')
+
+<body>
+  <div id="headers">@@include('./../layouts/include/header.html')</div>
+  <!--header END-->
+  <div id="container" class="subContainer">
+    <div class="subConWrap">
+      @@include('./../layouts/include/channelSide.html')
+      <!-- lnb END -->
+      <div class="subContent">
+        <div class="subContentTop mB40">
+          <div>
+            <h3>LG디스플레이 스토리</h3>
+          </div>
+          <div class="sta">
+            <ul>
+              <li>
+                <a href="#"><img src="/common/images/icon/staHome.png" alt="Home" /></a>
               </li>
-              <li class="lnbIco02">
-                <a href="#"><span>LG디스플레이 채용정보</span></a>
-              </li>
-              <li class="lnbIco03">
-                <a href="#"><span>LG디스플레이 채용캘린더</span></a>
-              </li>
-              <li class="lnbIco04">
-                <a href="#"><span>LG디스플레이 스토리</span></a>
-              </li>
-              <li class="lnbIco05">
-                <a href="#"><span>LG디스플레이 공지사항</span></a>
-              </li>
-              <li class="lnbIco06">
-                <a href="#"><span>LG디스플레이 문의하기</span></a>
-              </li>
+              <li>Channel</li>
+              <li class="staOn">Story</li>
             </ul>
-            <div class="lnbSns">
-              <h4 class="mB30">Follow Us</h4>
-              <ul>
-                <li class="sns01">
-                  <a href="#" title="페이스북"></a>
-                </li>
-                <li class="sns02">
-                  <a href="#" title="트위터"></a>
-                </li>
-                <li class="sns03">
-                  <a href="#" title="유튜브"></a>
-                </li>
-                <li class="sns04">
-                  <a href="#" title="인스타그램"></a>
-                </li>
-              </ul>
+          </div>
+        </div>
+        <!-- subContentTop END -->
+        <div class="chStoryTab tabMenu">
+          <ul class="tabs">
+            <li data-tab-target="#all" class="tabOn tab">전체</li>
+            <li data-tab-target="#talent" class="tab">인재상</li>
+            <li data-tab-target="#job" class="tab">직무소개</li>
+            <li data-tab-target="#news" class="tab">News</li>
+            <li data-tab-target="#social" class="tab">Social Media</li>
+          </ul>
+
+          <div class="tab-content">
+            <div id="all" data-tab-content class="tabOn">
+              <h4 class="blind">전체</h4>
+              <div class="chStoryList">
+                <ul>
+                  <li class="listTT">
+                    <a href="#">
+                      <div class="thumbImg">
+                        <img src="/common/images/sub/channelImg06.png" alt="썸네일 이미지" />
+                      </div>
+                      <div class="thumbCon">
+                        <span>인재상</span>
+                        <p>우리의 비전</p>
+                      </div>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <div class="thumbImg">
+                        <img src="/common/images/sub/channelImg03.png" alt="썸네일 이미지" />
+                      </div>
+                      <div class="thumbCon">
+                        <span>인재상</span>
+                        <p>우리의 비전</p>
+                      </div>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <div class="thumbImg video">
+                        <img src="/common/images/sub/channelImg04.png" alt="썸네일 이미지" />
+                      </div>
+                      <div class="thumbCon">
+                        <span>News</span>
+                        <p>OIF 2022 at 라스베이거스! 끝없는 OLED 혁신</p>
+                      </div>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <div class="thumbImg">
+                        <img src="/common/images/sub/channelImg05.png" alt="썸네일 이미지" />
+                      </div>
+                      <div class="thumbCon">
+                        <span>직무소개</span>
+                        <p>지원자들이 가장 많이 묻는 질문 Top5는?</p>
+                      </div>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <div class="thumbImg">
+                        <img src="/common/images/sub/channelImg05.png" alt="썸네일 이미지" />
+                      </div>
+                      <div class="thumbCon">
+                        <span>직무소개</span>
+                        <p>지원자들이 가장 많이 묻는 질문 Top5는?</p>
+                      </div>
+                    </a>
+                  </li>
+                  <li class="thumbNoImg">
+                    <a href="#">
+                      <div class="thumbCon">
+                        <span>직무소개</span>
+                        <p>지원자들이 가장 많이 묻는 질문 Top5는?</p>
+                      </div>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <div class="thumbImg">
+                        <img src="/common/images/sub/channelImg05.png" alt="썸네일 이미지" />
+                      </div>
+                      <div class="thumbCon">
+                        <span>직무소개</span>
+                        <p>지원자들이 가장 많이 묻는 질문 Top5는?</p>
+                      </div>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <div class="thumbImg">
+                        <img src="/common/images/sub/channelImg03.png" alt="썸네일 이미지" />
+                      </div>
+                      <div class="thumbCon">
+                        <span>인재상</span>
+                        <p>우리의 비전</p>
+                      </div>
+                    </a>
+                  </li>
+
+                  <li class="thumbNoImg">
+                    <a href="#">
+                      <div class="thumbCon">
+                        <span>인재상</span>
+                        <p>LG디스플레이,
+                          ‘CES 2022’서 OLED.EX,
+                          투명ㆍ플렉시블 OLED
+                          솔루션 등 혁신 기술로
+                          새로운 고객경험 제안
+                          ‘CES 2022’서 OLED.EX,
+                          투명ㆍ플렉시블 OLED
+                          솔루션 등 혁신 기술로
+                          새로운 고객경험 제안
+                          ‘CES 2022’서 OLED.EX,
+                          투명ㆍ플렉시블 OLED
+                          솔루션 등 혁신 기술로
+                          새로운 고객경험 제안
+                        </p>
+                      </div>
+                    </a>
+                  </li>
+                  <li class="listTT">
+                    <a href="#">
+                      <div class="thumbImg">
+                        <img src="/common/images/sub/channelImg06.png" alt="썸네일 이미지" />
+                      </div>
+                      <div class="thumbCon">
+                        <span>인재상</span>
+                        <p>우리의 비전</p>
+                      </div>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <!-- chStoryList END -->
             </div>
-            <div class="postList">
-              <h5>추천공고</h5>
-              <ul>
-                <li>
-                  <a href="#">
-                    <p class="postTitle">파주 임직원비서직 채용 공고(계약직)</p>
-                    <p class="postCon">
-                      <span class="pointC">경력</span
-                      ><span>2022.06.19 23:00</span>
-                    </p>
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                    <p class="postTitle">파주 임직원비서직 채용 공고(계약직)</p>
-                    <p class="postCon">
-                      <span class="pointC">경력</span
-                      ><span>2022.06.19 23:00</span>
-                    </p>
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                    <p class="postTitle">파주 임직원비서직 채용 공고(계약직)</p>
-                    <p class="postCon">
-                      <span class="pointC">경력</span
-                      ><span>2022.06.19 23:00</span>
-                    </p>
-                  </a>
-                </li>
-              </ul>
+            <div id="talent" data-tab-content>
+              <h4 class="blind">인재상</h4>
+              </h1>
+              <div class="chStoryList">
+                <ul>
+                  <li class="listTT">
+                    <a href="#">
+                      <div class="thumbImg">
+                        <img src="/common/images/sub/channelImg06.png" alt="썸네일 이미지" />
+                      </div>
+                      <div class="thumbCon">
+                        <span>인재상</span>
+                        <p>우리의 비전</p>
+                      </div>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <div class="thumbImg">
+                        <img src="/common/images/sub/channelImg03.png" alt="썸네일 이미지" />
+                      </div>
+                      <div class="thumbCon">
+                        <span>인재상</span>
+                        <p>우리의 비전</p>
+                      </div>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <div class="thumbImg video">
+                        <img src="/common/images/sub/channelImg04.png" alt="썸네일 이미지" />
+                      </div>
+                      <div class="thumbCon">
+                        <span>인재상</span>
+                        <p>OIF 2022 at 라스베이거스! 끝없는 OLED 혁신</p>
+                      </div>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <div class="thumbImg">
+                        <img src="/common/images/sub/channelImg05.png" alt="썸네일 이미지" />
+                      </div>
+                      <div class="thumbCon">
+                        <span>인재상</span>
+                        <p>지원자들이 가장 많이 묻는 질문 Top5는?</p>
+                      </div>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <div class="thumbImg">
+                        <img src="/common/images/sub/channelImg05.png" alt="썸네일 이미지" />
+                      </div>
+                      <div class="thumbCon">
+                        <span>인재상</span>
+                        <p>지원자들이 가장 많이 묻는 질문 Top5는?</p>
+                      </div>
+                    </a>
+                  </li>
+                  <li class="thumbNoImg">
+                    <a href="#">
+                      <div class="thumbCon">
+                        <span>인재상</span>
+                        <p>지원자들이 가장 많이 묻는 질문 Top5는?</p>
+                      </div>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <div class="thumbImg">
+                        <img src="/common/images/sub/channelImg05.png" alt="썸네일 이미지" />
+                      </div>
+                      <div class="thumbCon">
+                        <span>인재상</span>
+                        <p>지원자들이 가장 많이 묻는 질문 Top5는?</p>
+                      </div>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <div class="thumbImg">
+                        <img src="/common/images/sub/channelImg03.png" alt="썸네일 이미지" />
+                      </div>
+                      <div class="thumbCon">
+                        <span>인재상</span>
+                        <p>우리의 비전</p>
+                      </div>
+                    </a>
+                  </li>
+
+                  <li class="thumbNoImg">
+                    <a href="#">
+                      <div class="thumbCon">
+                        <span>인재상</span>
+                        <p>LG디스플레이,
+                          ‘CES 2022’서 OLED.EX,
+                          투명ㆍ플렉시블 OLED
+                          솔루션 등 혁신 기술로
+                          새로운 고객경험 제안
+                          ‘CES 2022’서 OLED.EX,
+                          투명ㆍ플렉시블 OLED
+                          솔루션 등 혁신 기술로
+                          새로운 고객경험 제안
+                          ‘CES 2022’서 OLED.EX,
+                          투명ㆍ플렉시블 OLED
+                          솔루션 등 혁신 기술로
+                          새로운 고객경험 제안
+                        </p>
+                      </div>
+                    </a>
+                  </li>
+                  <li class="listTT">
+                    <a href="#">
+                      <div class="thumbImg">
+                        <img src="/common/images/sub/channelImg06.png" alt="썸네일 이미지" />
+                      </div>
+                      <div class="thumbCon">
+                        <span>인재상</span>
+                        <p>우리의 비전</p>
+                      </div>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <!-- chStoryList END -->
+            </div>
+            <div id="job" data-tab-content>
+              <h4 class="blind">직무소개</h4>
+              <div class="chStoryList">
+                <ul>
+                  <li class="listTT">
+                    <a href="#">
+                      <div class="thumbImg">
+                        <img src="/common/images/sub/channelImg06.png" alt="썸네일 이미지" />
+                      </div>
+                      <div class="thumbCon">
+                        <span>직무소개</span>
+                        <p>우리의 비전</p>
+                      </div>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <div class="thumbImg">
+                        <img src="/common/images/sub/channelImg03.png" alt="썸네일 이미지" />
+                      </div>
+                      <div class="thumbCon">
+                        <span>직무소개</span>
+                        <p>우리의 비전</p>
+                      </div>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <div class="thumbImg video">
+                        <img src="/common/images/sub/channelImg04.png" alt="썸네일 이미지" />
+                      </div>
+                      <div class="thumbCon">
+                        <span>직무소개</span>
+                        <p>OIF 2022 at 라스베이거스! 끝없는 OLED 혁신</p>
+                      </div>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <div class="thumbImg">
+                        <img src="/common/images/sub/channelImg05.png" alt="썸네일 이미지" />
+                      </div>
+                      <div class="thumbCon">
+                        <span>직무소개</span>
+                        <p>지원자들이 가장 많이 묻는 질문 Top5는?</p>
+                      </div>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <div class="thumbImg">
+                        <img src="/common/images/sub/channelImg05.png" alt="썸네일 이미지" />
+                      </div>
+                      <div class="thumbCon">
+                        <span>직무소개</span>
+                        <p>지원자들이 가장 많이 묻는 질문 Top5는?</p>
+                      </div>
+                    </a>
+                  </li>
+                  <li class="thumbNoImg">
+                    <a href="#">
+                      <div class="thumbCon">
+                        <span>직무소개</span>
+                        <p>지원자들이 가장 많이 묻는 질문 Top5는?</p>
+                      </div>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <div class="thumbImg">
+                        <img src="/common/images/sub/channelImg05.png" alt="썸네일 이미지" />
+                      </div>
+                      <div class="thumbCon">
+                        <span>직무소개</span>
+                        <p>지원자들이 가장 많이 묻는 질문 Top5는?</p>
+                      </div>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <div class="thumbImg">
+                        <img src="/common/images/sub/channelImg03.png" alt="썸네일 이미지" />
+                      </div>
+                      <div class="thumbCon">
+                        <span>직무소개</span>
+                        <p>우리의 비전</p>
+                      </div>
+                    </a>
+                  </li>
+
+                  <li class="thumbNoImg">
+                    <a href="#">
+                      <div class="thumbCon">
+                        <span>직무소개</span>
+                        <p>LG디스플레이,
+                          ‘CES 2022’서 OLED.EX,
+                          투명ㆍ플렉시블 OLED
+                          솔루션 등 혁신 기술로
+                          새로운 고객경험 제안
+                          ‘CES 2022’서 OLED.EX,
+                          투명ㆍ플렉시블 OLED
+                          솔루션 등 혁신 기술로
+                          새로운 고객경험 제안
+                          ‘CES 2022’서 OLED.EX,
+                          투명ㆍ플렉시블 OLED
+                          솔루션 등 혁신 기술로
+                          새로운 고객경험 제안
+                        </p>
+                      </div>
+                    </a>
+                  </li>
+                  <li class="listTT">
+                    <a href="#">
+                      <div class="thumbImg">
+                        <img src="/common/images/sub/channelImg06.png" alt="썸네일 이미지" />
+                      </div>
+                      <div class="thumbCon">
+                        <span>직무소개</span>
+                        <p>우리의 비전</p>
+                      </div>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <!-- chStoryList END -->
+            </div>
+            <div id="news" data-tab-content>
+              <h4 class="blind">News</h4>
+              <div class="chStoryList">
+                <ul>
+                  <li class="listTT">
+                    <a href="#">
+                      <div class="thumbImg">
+                        <img src="/common/images/sub/channelImg06.png" alt="썸네일 이미지" />
+                      </div>
+                      <div class="thumbCon">
+                        <span>News</span>
+                        <p>우리의 비전</p>
+                      </div>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <div class="thumbImg">
+                        <img src="/common/images/sub/channelImg03.png" alt="썸네일 이미지" />
+                      </div>
+                      <div class="thumbCon">
+                        <span>News</span>
+                        <p>우리의 비전</p>
+                      </div>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <div class="thumbImg video">
+                        <img src="/common/images/sub/channelImg04.png" alt="썸네일 이미지" />
+                      </div>
+                      <div class="thumbCon">
+                        <span>News</span>
+                        <p>OIF 2022 at 라스베이거스! 끝없는 OLED 혁신</p>
+                      </div>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <div class="thumbImg">
+                        <img src="/common/images/sub/channelImg05.png" alt="썸네일 이미지" />
+                      </div>
+                      <div class="thumbCon">
+                        <span>직무소개</span>
+                        <p>지원자들이 가장 많이 묻는 질문 Top5는?</p>
+                      </div>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <div class="thumbImg">
+                        <img src="/common/images/sub/channelImg05.png" alt="썸네일 이미지" />
+                      </div>
+                      <div class="thumbCon">
+                        <span>직무소개</span>
+                        <p>지원자들이 가장 많이 묻는 질문 Top5는?</p>
+                      </div>
+                    </a>
+                  </li>
+                  <li class="thumbNoImg">
+                    <a href="#">
+                      <div class="thumbCon">
+                        <span>직무소개</span>
+                        <p>지원자들이 가장 많이 묻는 질문 Top5는?</p>
+                      </div>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <div class="thumbImg">
+                        <img src="/common/images/sub/channelImg05.png" alt="썸네일 이미지" />
+                      </div>
+                      <div class="thumbCon">
+                        <span>직무소개</span>
+                        <p>지원자들이 가장 많이 묻는 질문 Top5는?</p>
+                      </div>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <div class="thumbImg">
+                        <img src="/common/images/sub/channelImg03.png" alt="썸네일 이미지" />
+                      </div>
+                      <div class="thumbCon">
+                        <span>News</span>
+                        <p>우리의 비전</p>
+                      </div>
+                    </a>
+                  </li>
+
+                  <li class="thumbNoImg">
+                    <a href="#">
+                      <div class="thumbCon">
+                        <span>News</span>
+                        <p>LG디스플레이,
+                          ‘CES 2022’서 OLED.EX,
+                          투명ㆍ플렉시블 OLED
+                          솔루션 등 혁신 기술로
+                          새로운 고객경험 제안
+                          ‘CES 2022’서 OLED.EX,
+                          투명ㆍ플렉시블 OLED
+                          솔루션 등 혁신 기술로
+                          새로운 고객경험 제안
+                          ‘CES 2022’서 OLED.EX,
+                          투명ㆍ플렉시블 OLED
+                          솔루션 등 혁신 기술로
+                          새로운 고객경험 제안
+                        </p>
+                      </div>
+                    </a>
+                  </li>
+                  <li class="listTT">
+                    <a href="#">
+                      <div class="thumbImg">
+                        <img src="/common/images/sub/channelImg06.png" alt="썸네일 이미지" />
+                      </div>
+                      <div class="thumbCon">
+                        <span>News</span>
+                        <p>우리의 비전</p>
+                      </div>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <!-- chStoryList END -->
+            </div>
+            <div id="social" data-tab-content>
+              <h4 class="blind">Social Media</h4>
+              <div class="chStoryList">
+                <ul>
+                  <li class="listTT">
+                    <a href="#">
+                      <div class="thumbImg">
+                        <img src="/common/images/sub/channelImg06.png" alt="썸네일 이미지" />
+                      </div>
+                      <div class="thumbCon">
+                        <span>Social Media</span>
+                        <p>우리의 비전</p>
+                      </div>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <div class="thumbImg">
+                        <img src="/common/images/sub/channelImg03.png" alt="썸네일 이미지" />
+                      </div>
+                      <div class="thumbCon">
+                        <span>Social Media</span>
+                        <p>우리의 비전</p>
+                      </div>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <div class="thumbImg video">
+                        <img src="/common/images/sub/channelImg04.png" alt="썸네일 이미지" />
+                      </div>
+                      <div class="thumbCon">
+                        <span>Social Media</span>
+                        <p>OIF 2022 at 라스베이거스! 끝없는 OLED 혁신</p>
+                      </div>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <div class="thumbImg">
+                        <img src="/common/images/sub/channelImg05.png" alt="썸네일 이미지" />
+                      </div>
+                      <div class="thumbCon">
+                        <span>Social Media</span>
+                        <p>지원자들이 가장 많이 묻는 질문 Top5는?</p>
+                      </div>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <div class="thumbImg">
+                        <img src="/common/images/sub/channelImg05.png" alt="썸네일 이미지" />
+                      </div>
+                      <div class="thumbCon">
+                        <span>Social Media</span>
+                        <p>지원자들이 가장 많이 묻는 질문 Top5는?</p>
+                      </div>
+                    </a>
+                  </li>
+                  <li class="thumbNoImg">
+                    <a href="#">
+                      <div class="thumbCon">
+                        <span>Social Media</span>
+                        <p>지원자들이 가장 많이 묻는 질문 Top5는?</p>
+                      </div>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <div class="thumbImg">
+                        <img src="/common/images/sub/channelImg05.png" alt="썸네일 이미지" />
+                      </div>
+                      <div class="thumbCon">
+                        <span>Social Media</span>
+                        <p>지원자들이 가장 많이 묻는 질문 Top5는?</p>
+                      </div>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <div class="thumbImg">
+                        <img src="/common/images/sub/channelImg03.png" alt="썸네일 이미지" />
+                      </div>
+                      <div class="thumbCon">
+                        <span>Social Media</span>
+                        <p>우리의 비전</p>
+                      </div>
+                    </a>
+                  </li>
+
+                  <li class="thumbNoImg">
+                    <a href="#">
+                      <div class="thumbCon">
+                        <span>Social Media</span>
+                        <p>LG디스플레이,
+                          ‘CES 2022’서 OLED.EX,
+                          투명ㆍ플렉시블 OLED
+                          솔루션 등 혁신 기술로
+                          새로운 고객경험 제안
+                          ‘CES 2022’서 OLED.EX,
+                          투명ㆍ플렉시블 OLED
+                          솔루션 등 혁신 기술로
+                          새로운 고객경험 제안
+                          ‘CES 2022’서 OLED.EX,
+                          투명ㆍ플렉시블 OLED
+                          솔루션 등 혁신 기술로
+                          새로운 고객경험 제안
+                        </p>
+                      </div>
+                    </a>
+                  </li>
+                  <li class="listTT">
+                    <a href="#">
+                      <div class="thumbImg">
+                        <img src="/common/images/sub/channelImg06.png" alt="썸네일 이미지" />
+                      </div>
+                      <div class="thumbCon">
+                        <span>Social Media</span>
+                        <p>우리의 비전</p>
+                      </div>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <!-- chStoryList END -->
             </div>
           </div>
         </div>
-        <!-- lnb END -->
-        <div class="subContent">
-          <div class="subContentTop mB40">
-            <div>
-              <h3>LG디스플레이 스토리</h3>
-            </div>
-            <div class="sta">
-              <ul>
-                <li>
-                  <a href="#"
-                    ><img src="/common/images/icon/staHome.png" alt="Home"
-                  /></a>
-                </li>
-                <li>Channel</li>
-                <li class="staOn">Story</li>
-              </ul>
-            </div>
-          </div>
-          <!-- subContentTop END -->
-          <div class="chStoryTab tabMenu">
-            <ul class="tabs">
-              <li data-tab-target="#all" class="tabOn tab">전체</li>
-              <li data-tab-target="#talent" class="tab">인재상</li>
-              <li data-tab-target="#job" class="tab">직무소개</li>
-              <li data-tab-target="#news" class="tab">News</li>
-              <li data-tab-target="#social" class="tab">Social Media</li>
-            </ul>
-
-            <div class="tab-content">
-              <div id="all" data-tab-content class="tabOn">
-                <h4 class="blind">전체</h4>
-                <div class="chStoryList">
-                  <ul>
-                    <li class="listTT">
-                      <a href="#">
-                        <div class="thumbImg">
-                          <img
-                            src="/common/images/sub/channelImg06.png"
-                            alt="썸네일 이미지"
-                          />
-                        </div>
-                        <div class="thumbCon">
-                          <span>인재상</span>
-                          <p>우리의 비전</p>
-                        </div>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        <div class="thumbImg">
-                          <img
-                            src="/common/images/sub/channelImg03.png"
-                            alt="썸네일 이미지"
-                          />
-                        </div>
-                        <div class="thumbCon">
-                          <span>인재상</span>
-                          <p>우리의 비전</p>
-                        </div>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        <div class="thumbImg video">
-                          <img
-                            src="/common/images/sub/channelImg04.png"
-                            alt="썸네일 이미지"
-                          />
-                        </div>
-                        <div class="thumbCon">
-                          <span>News</span>
-                          <p>OIF 2022 at 라스베이거스! 끝없는 OLED 혁신</p>
-                        </div>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        <div class="thumbImg">
-                          <img
-                            src="/common/images/sub/channelImg05.png"
-                            alt="썸네일 이미지"
-                          />
-                        </div>
-                        <div class="thumbCon">
-                          <span>직무소개</span>
-                          <p>지원자들이 가장 많이 묻는 질문 Top5는?</p>
-                        </div>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        <div class="thumbImg">
-                          <img
-                            src="/common/images/sub/channelImg05.png"
-                            alt="썸네일 이미지"
-                          />
-                        </div>
-                        <div class="thumbCon">
-                          <span>직무소개</span>
-                          <p>지원자들이 가장 많이 묻는 질문 Top5는?</p>
-                        </div>
-                      </a>
-                    </li>
-                    <li class="thumbNoImg">
-                      <a href="#">
-                        <div class="thumbCon">
-                          <span>직무소개</span>
-                          <p>지원자들이 가장 많이 묻는 질문 Top5는?</p>
-                        </div>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        <div class="thumbImg">
-                          <img
-                            src="/common/images/sub/channelImg05.png"
-                            alt="썸네일 이미지"
-                          />
-                        </div>
-                        <div class="thumbCon">
-                          <span>직무소개</span>
-                          <p>지원자들이 가장 많이 묻는 질문 Top5는?</p>
-                        </div>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        <div class="thumbImg">
-                          <img
-                            src="/common/images/sub/channelImg03.png"
-                            alt="썸네일 이미지"
-                          />
-                        </div>
-                        <div class="thumbCon">
-                          <span>인재상</span>
-                          <p>우리의 비전</p>
-                        </div>
-                      </a>
-                    </li>
-
-                    <li class="thumbNoImg">
-                      <a href="#">
-                        <div class="thumbCon">
-                          <span>인재상</span>
-                          <p>LG디스플레이, 
-                            ‘CES 2022’서 OLED.EX, 
-                            투명ㆍ플렉시블 OLED 
-                            솔루션 등 혁신 기술로 
-                            새로운 고객경험 제안
-                             ‘CES 2022’서 OLED.EX, 
-                            투명ㆍ플렉시블 OLED 
-                            솔루션 등 혁신 기술로 
-                            새로운 고객경험 제안
-                             ‘CES 2022’서 OLED.EX, 
-                            투명ㆍ플렉시블 OLED 
-                            솔루션 등 혁신 기술로 
-                            새로운 고객경험 제안
-                          </p>
-                        </div>
-                      </a>
-                    </li>
-                    <li class="listTT">
-                      <a href="#">
-                        <div class="thumbImg">
-                          <img
-                            src="/common/images/sub/channelImg06.png"
-                            alt="썸네일 이미지"
-                          />
-                        </div>
-                        <div class="thumbCon">
-                          <span>인재상</span>
-                          <p>우리의 비전</p>
-                        </div>
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-                <!-- chStoryList END -->
-              </div>
-              <div id="talent" data-tab-content>
-                <h4 class="blind">인재상</h4></h1>
-                <div class="chStoryList">
-                  <ul>
-                    <li class="listTT">
-                      <a href="#">
-                        <div class="thumbImg">
-                          <img
-                            src="/common/images/sub/channelImg06.png"
-                            alt="썸네일 이미지"
-                          />
-                        </div>
-                        <div class="thumbCon">
-                          <span>인재상</span>
-                          <p>우리의 비전</p>
-                        </div>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        <div class="thumbImg">
-                          <img
-                            src="/common/images/sub/channelImg03.png"
-                            alt="썸네일 이미지"
-                          />
-                        </div>
-                        <div class="thumbCon">
-                          <span>인재상</span>
-                          <p>우리의 비전</p>
-                        </div>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        <div class="thumbImg video">
-                          <img
-                            src="/common/images/sub/channelImg04.png"
-                            alt="썸네일 이미지"
-                          />
-                        </div>
-                        <div class="thumbCon">
-                          <span>인재상</span>
-                          <p>OIF 2022 at 라스베이거스! 끝없는 OLED 혁신</p>
-                        </div>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        <div class="thumbImg">
-                          <img
-                            src="/common/images/sub/channelImg05.png"
-                            alt="썸네일 이미지"
-                          />
-                        </div>
-                        <div class="thumbCon">
-                          <span>인재상</span>
-                          <p>지원자들이 가장 많이 묻는 질문 Top5는?</p>
-                        </div>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        <div class="thumbImg">
-                          <img
-                            src="/common/images/sub/channelImg05.png"
-                            alt="썸네일 이미지"
-                          />
-                        </div>
-                        <div class="thumbCon">
-                          <span>인재상</span>
-                          <p>지원자들이 가장 많이 묻는 질문 Top5는?</p>
-                        </div>
-                      </a>
-                    </li>
-                    <li class="thumbNoImg">
-                      <a href="#">
-                        <div class="thumbCon">
-                          <span>인재상</span>
-                          <p>지원자들이 가장 많이 묻는 질문 Top5는?</p>
-                        </div>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        <div class="thumbImg">
-                          <img
-                            src="/common/images/sub/channelImg05.png"
-                            alt="썸네일 이미지"
-                          />
-                        </div>
-                        <div class="thumbCon">
-                          <span>인재상</span>
-                          <p>지원자들이 가장 많이 묻는 질문 Top5는?</p>
-                        </div>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        <div class="thumbImg">
-                          <img
-                            src="/common/images/sub/channelImg03.png"
-                            alt="썸네일 이미지"
-                          />
-                        </div>
-                        <div class="thumbCon">
-                          <span>인재상</span>
-                          <p>우리의 비전</p>
-                        </div>
-                      </a>
-                    </li>
-
-                    <li class="thumbNoImg">
-                      <a href="#">
-                        <div class="thumbCon">
-                          <span>인재상</span>
-                          <p>LG디스플레이, 
-                            ‘CES 2022’서 OLED.EX, 
-                            투명ㆍ플렉시블 OLED 
-                            솔루션 등 혁신 기술로 
-                            새로운 고객경험 제안
-                             ‘CES 2022’서 OLED.EX, 
-                            투명ㆍ플렉시블 OLED 
-                            솔루션 등 혁신 기술로 
-                            새로운 고객경험 제안
-                             ‘CES 2022’서 OLED.EX, 
-                            투명ㆍ플렉시블 OLED 
-                            솔루션 등 혁신 기술로 
-                            새로운 고객경험 제안
-                          </p>
-                        </div>
-                      </a>
-                    </li>
-                    <li class="listTT">
-                      <a href="#">
-                        <div class="thumbImg">
-                          <img
-                            src="/common/images/sub/channelImg06.png"
-                            alt="썸네일 이미지"
-                          />
-                        </div>
-                        <div class="thumbCon">
-                          <span>인재상</span>
-                          <p>우리의 비전</p>
-                        </div>
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-                <!-- chStoryList END -->
-              </div>
-              <div id="job" data-tab-content>
-                <h4 class="blind">직무소개</h4>
-                <div class="chStoryList">
-                  <ul>
-                    <li class="listTT">
-                      <a href="#">
-                        <div class="thumbImg">
-                          <img
-                            src="/common/images/sub/channelImg06.png"
-                            alt="썸네일 이미지"
-                          />
-                        </div>
-                        <div class="thumbCon">
-                          <span>직무소개</span>
-                          <p>우리의 비전</p>
-                        </div>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        <div class="thumbImg">
-                          <img
-                            src="/common/images/sub/channelImg03.png"
-                            alt="썸네일 이미지"
-                          />
-                        </div>
-                        <div class="thumbCon">
-                          <span>직무소개</span>
-                          <p>우리의 비전</p>
-                        </div>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        <div class="thumbImg video">
-                          <img
-                            src="/common/images/sub/channelImg04.png"
-                            alt="썸네일 이미지"
-                          />
-                        </div>
-                        <div class="thumbCon">
-                          <span>직무소개</span>
-                          <p>OIF 2022 at 라스베이거스! 끝없는 OLED 혁신</p>
-                        </div>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        <div class="thumbImg">
-                          <img
-                            src="/common/images/sub/channelImg05.png"
-                            alt="썸네일 이미지"
-                          />
-                        </div>
-                        <div class="thumbCon">
-                          <span>직무소개</span>
-                          <p>지원자들이 가장 많이 묻는 질문 Top5는?</p>
-                        </div>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        <div class="thumbImg">
-                          <img
-                            src="/common/images/sub/channelImg05.png"
-                            alt="썸네일 이미지"
-                          />
-                        </div>
-                        <div class="thumbCon">
-                          <span>직무소개</span>
-                          <p>지원자들이 가장 많이 묻는 질문 Top5는?</p>
-                        </div>
-                      </a>
-                    </li>
-                    <li class="thumbNoImg">
-                      <a href="#">
-                        <div class="thumbCon">
-                          <span>직무소개</span>
-                          <p>지원자들이 가장 많이 묻는 질문 Top5는?</p>
-                        </div>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        <div class="thumbImg">
-                          <img
-                            src="/common/images/sub/channelImg05.png"
-                            alt="썸네일 이미지"
-                          />
-                        </div>
-                        <div class="thumbCon">
-                          <span>직무소개</span>
-                          <p>지원자들이 가장 많이 묻는 질문 Top5는?</p>
-                        </div>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        <div class="thumbImg">
-                          <img
-                            src="/common/images/sub/channelImg03.png"
-                            alt="썸네일 이미지"
-                          />
-                        </div>
-                        <div class="thumbCon">
-                          <span>직무소개</span>
-                          <p>우리의 비전</p>
-                        </div>
-                      </a>
-                    </li>
-
-                    <li class="thumbNoImg">
-                      <a href="#">
-                        <div class="thumbCon">
-                          <span>직무소개</span>
-                          <p>LG디스플레이, 
-                            ‘CES 2022’서 OLED.EX, 
-                            투명ㆍ플렉시블 OLED 
-                            솔루션 등 혁신 기술로 
-                            새로운 고객경험 제안
-                             ‘CES 2022’서 OLED.EX, 
-                            투명ㆍ플렉시블 OLED 
-                            솔루션 등 혁신 기술로 
-                            새로운 고객경험 제안
-                             ‘CES 2022’서 OLED.EX, 
-                            투명ㆍ플렉시블 OLED 
-                            솔루션 등 혁신 기술로 
-                            새로운 고객경험 제안
-                          </p>
-                        </div>
-                      </a>
-                    </li>
-                    <li class="listTT">
-                      <a href="#">
-                        <div class="thumbImg">
-                          <img
-                            src="/common/images/sub/channelImg06.png"
-                            alt="썸네일 이미지"
-                          />
-                        </div>
-                        <div class="thumbCon">
-                          <span>직무소개</span>
-                          <p>우리의 비전</p>
-                        </div>
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-                <!-- chStoryList END -->
-              </div>
-              <div id="news" data-tab-content>
-                <h4 class="blind">News</h4>
-                <div class="chStoryList">
-                  <ul>
-                    <li class="listTT">
-                      <a href="#">
-                        <div class="thumbImg">
-                          <img
-                            src="/common/images/sub/channelImg06.png"
-                            alt="썸네일 이미지"
-                          />
-                        </div>
-                        <div class="thumbCon">
-                          <span>News</span>
-                          <p>우리의 비전</p>
-                        </div>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        <div class="thumbImg">
-                          <img
-                            src="/common/images/sub/channelImg03.png"
-                            alt="썸네일 이미지"
-                          />
-                        </div>
-                        <div class="thumbCon">
-                          <span>News</span>
-                          <p>우리의 비전</p>
-                        </div>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        <div class="thumbImg video">
-                          <img
-                            src="/common/images/sub/channelImg04.png"
-                            alt="썸네일 이미지"
-                          />
-                        </div>
-                        <div class="thumbCon">
-                          <span>News</span>
-                          <p>OIF 2022 at 라스베이거스! 끝없는 OLED 혁신</p>
-                        </div>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        <div class="thumbImg">
-                          <img
-                            src="/common/images/sub/channelImg05.png"
-                            alt="썸네일 이미지"
-                          />
-                        </div>
-                        <div class="thumbCon">
-                          <span>직무소개</span>
-                          <p>지원자들이 가장 많이 묻는 질문 Top5는?</p>
-                        </div>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        <div class="thumbImg">
-                          <img
-                            src="/common/images/sub/channelImg05.png"
-                            alt="썸네일 이미지"
-                          />
-                        </div>
-                        <div class="thumbCon">
-                          <span>직무소개</span>
-                          <p>지원자들이 가장 많이 묻는 질문 Top5는?</p>
-                        </div>
-                      </a>
-                    </li>
-                    <li class="thumbNoImg">
-                      <a href="#">
-                        <div class="thumbCon">
-                          <span>직무소개</span>
-                          <p>지원자들이 가장 많이 묻는 질문 Top5는?</p>
-                        </div>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        <div class="thumbImg">
-                          <img
-                            src="/common/images/sub/channelImg05.png"
-                            alt="썸네일 이미지"
-                          />
-                        </div>
-                        <div class="thumbCon">
-                          <span>직무소개</span>
-                          <p>지원자들이 가장 많이 묻는 질문 Top5는?</p>
-                        </div>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        <div class="thumbImg">
-                          <img
-                            src="/common/images/sub/channelImg03.png"
-                            alt="썸네일 이미지"
-                          />
-                        </div>
-                        <div class="thumbCon">
-                          <span>News</span>
-                          <p>우리의 비전</p>
-                        </div>
-                      </a>
-                    </li>
-
-                    <li class="thumbNoImg">
-                      <a href="#">
-                        <div class="thumbCon">
-                          <span>News</span>
-                          <p>LG디스플레이, 
-                            ‘CES 2022’서 OLED.EX, 
-                            투명ㆍ플렉시블 OLED 
-                            솔루션 등 혁신 기술로 
-                            새로운 고객경험 제안
-                             ‘CES 2022’서 OLED.EX, 
-                            투명ㆍ플렉시블 OLED 
-                            솔루션 등 혁신 기술로 
-                            새로운 고객경험 제안
-                             ‘CES 2022’서 OLED.EX, 
-                            투명ㆍ플렉시블 OLED 
-                            솔루션 등 혁신 기술로 
-                            새로운 고객경험 제안
-                          </p>
-                        </div>
-                      </a>
-                    </li>
-                    <li class="listTT">
-                      <a href="#">
-                        <div class="thumbImg">
-                          <img
-                            src="/common/images/sub/channelImg06.png"
-                            alt="썸네일 이미지"
-                          />
-                        </div>
-                        <div class="thumbCon">
-                          <span>News</span>
-                          <p>우리의 비전</p>
-                        </div>
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-                <!-- chStoryList END -->
-              </div>
-              <div id="social" data-tab-content>
-                <h4 class="blind">Social Media</h4>
-                <div class="chStoryList">
-                  <ul>
-                    <li class="listTT">
-                      <a href="#">
-                        <div class="thumbImg">
-                          <img
-                            src="/common/images/sub/channelImg06.png"
-                            alt="썸네일 이미지"
-                          />
-                        </div>
-                        <div class="thumbCon">
-                          <span>Social Media</span>
-                          <p>우리의 비전</p>
-                        </div>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        <div class="thumbImg">
-                          <img
-                            src="/common/images/sub/channelImg03.png"
-                            alt="썸네일 이미지"
-                          />
-                        </div>
-                        <div class="thumbCon">
-                          <span>Social Media</span>
-                          <p>우리의 비전</p>
-                        </div>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        <div class="thumbImg video">
-                          <img
-                            src="/common/images/sub/channelImg04.png"
-                            alt="썸네일 이미지"
-                          />
-                        </div>
-                        <div class="thumbCon">
-                          <span>Social Media</span>
-                          <p>OIF 2022 at 라스베이거스! 끝없는 OLED 혁신</p>
-                        </div>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        <div class="thumbImg">
-                          <img
-                            src="/common/images/sub/channelImg05.png"
-                            alt="썸네일 이미지"
-                          />
-                        </div>
-                        <div class="thumbCon">
-                          <span>Social Media</span>
-                          <p>지원자들이 가장 많이 묻는 질문 Top5는?</p>
-                        </div>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        <div class="thumbImg">
-                          <img
-                            src="/common/images/sub/channelImg05.png"
-                            alt="썸네일 이미지"
-                          />
-                        </div>
-                        <div class="thumbCon">
-                          <span>Social Media</span>
-                          <p>지원자들이 가장 많이 묻는 질문 Top5는?</p>
-                        </div>
-                      </a>
-                    </li>
-                    <li class="thumbNoImg">
-                      <a href="#">
-                        <div class="thumbCon">
-                          <span>Social Media</span>
-                          <p>지원자들이 가장 많이 묻는 질문 Top5는?</p>
-                        </div>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        <div class="thumbImg">
-                          <img
-                            src="/common/images/sub/channelImg05.png"
-                            alt="썸네일 이미지"
-                          />
-                        </div>
-                        <div class="thumbCon">
-                          <span>Social Media</span>
-                          <p>지원자들이 가장 많이 묻는 질문 Top5는?</p>
-                        </div>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        <div class="thumbImg">
-                          <img
-                            src="/common/images/sub/channelImg03.png"
-                            alt="썸네일 이미지"
-                          />
-                        </div>
-                        <div class="thumbCon">
-                          <span>Social Media</span>
-                          <p>우리의 비전</p>
-                        </div>
-                      </a>
-                    </li>
-
-                    <li class="thumbNoImg">
-                      <a href="#">
-                        <div class="thumbCon">
-                          <span>Social Media</span>
-                          <p>LG디스플레이, 
-                            ‘CES 2022’서 OLED.EX, 
-                            투명ㆍ플렉시블 OLED 
-                            솔루션 등 혁신 기술로 
-                            새로운 고객경험 제안
-                             ‘CES 2022’서 OLED.EX, 
-                            투명ㆍ플렉시블 OLED 
-                            솔루션 등 혁신 기술로 
-                            새로운 고객경험 제안
-                             ‘CES 2022’서 OLED.EX, 
-                            투명ㆍ플렉시블 OLED 
-                            솔루션 등 혁신 기술로 
-                            새로운 고객경험 제안
-                          </p>
-                        </div>
-                      </a>
-                    </li>
-                    <li class="listTT">
-                      <a href="#">
-                        <div class="thumbImg">
-                          <img
-                            src="/common/images/sub/channelImg06.png"
-                            alt="썸네일 이미지"
-                          />
-                        </div>
-                        <div class="thumbCon">
-                          <span>Social Media</span>
-                          <p>우리의 비전</p>
-                        </div>
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-                <!-- chStoryList END -->
-              </div>
-            </div>
-          </div>
-          <!-- chStoryTab END -->
-        </div>
-        <!-- subContent END -->
+        <!-- chStoryTab END -->
       </div>
-      <!-- subConWrap END -->
+      <!-- subContent END -->
     </div>
+    <!-- subConWrap END -->
+  </div>
 
-    <footer id="footer">@@include('./../layouts/include/footer.html')</footer>
+  <footer id="footer">@@include('./../layouts/include/footer.html')</footer>
 
-  </body>
+</body>
+
 </html>
