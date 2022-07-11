@@ -45,9 +45,16 @@
 
       .inputBox {
         width: calc(100% - 14rem);
+
+        input:not([type="radio"]):not([type="checkbox"]) {
+          &.formError {
+            border-color: $RedD0;
+          }
+        }
       }
 
       .input {
+
         input[type="radio"]+label {
           width: auto;
           height: auto;
