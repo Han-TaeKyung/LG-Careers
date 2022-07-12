@@ -44,13 +44,17 @@
           <li class="tab-link" data-tab="tab-10">
             <a href="#">기타</a>
           </li>
+          <li class="tab-link" data-tab="tab-11">
+            <a href="#">텍스트</a>
+          </li>
         </ul>
         <div class="tab-content">
           @@include('./include/tab-1.html') @@include('./include/tab-2.html')
           @@include('./include/tab-3.html') @@include('./include/tab-4.html')
           @@include('./include/tab-5.html') @@include('./include/tab-6.html')
           @@include('./include/tab-7.html') @@include('./include/tab-8.html')
-          @@include('./include/tab-9.html') @@include('./include/tab-10.html')
+          @@include('./include/tab-9.html')
+          @@include('./include/tab-10.html')@@include('./include/tab-11.html')
         </div>
       </div>
     </div>
@@ -74,7 +78,7 @@
           });
         })
         .triggerHandler("click");
-      $("ul.tabs li:nth-child(9)").click();
+      $("ul.tabs li:nth-child(3)").click();
     </script>
     <!-- componentWrap END -->
   </body>

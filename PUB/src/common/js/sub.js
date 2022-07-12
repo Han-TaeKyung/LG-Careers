@@ -16,6 +16,34 @@ $(function () {
       target.classList.add("tabOn");
     });
   });
+
+  //input[file]
+  var $uploadInputWrap = $(".inputBox.upload"),
+    $uploadInput = $uploadInputWrap.find(".input"),
+    $uploadText = $uploadInputWrap.find(".fileName"),
+    $uploadClear = $uploadInputWrap.find(".clear");
+
+  var uploadFile = new FileReader();
+
+  $uploadInput.on("click", function () {
+    $(this).find("option").height("50px");
+  });
+  $uploadInput.on("change", function (e) {
+    fileCheck(e);
+  });
+  function fileCheck(e) {
+    var $this = $(e.target);
+    uploadFile = e.target.files;
+    $uploadText.text(uploadFile.item(0).name);
+    $this.siblings(".clear").addClass("active");
+  }
+  $uploadClear.on("click", function () {
+    var $this = $(this);
+    $this.siblings("input").val("");
+    $uploadText.text("");
+    $this.removeClass("active");
+  });
+
   //accordion
   var $guideAcc = $(".guideAcc"),
     $qBtn = $guideAcc.find(".qBtn");
