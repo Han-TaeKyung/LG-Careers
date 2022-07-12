@@ -189,7 +189,7 @@
   align-items: flex-start;
 
   .subContent {
-    width: 101.8rem;
+    width: 102.2rem;
     height: auto;
     padding: 4rem 0 0;
 
@@ -552,13 +552,6 @@
               margin-right: 0;
             }
           }
-          .likeOn{
-            svg{
-              path{
-                fill:$RedD0; 
-              }
-            }
-          }
         }
       }
       .adListInfo{
@@ -618,6 +611,205 @@
             margin-right: 0;
           }
         }
+      }
+    }
+  }
+  .likeOn{
+    svg{
+      path{
+        fill:$RedD0; 
+      }
+    }
+  }
+  .chViewTop{
+    .subContentTop{
+      align-items: flex-start;
+      >div{
+        width: calc(100% - 14.4rem);
+        h3{
+          line-height: 5.2rem;
+          font-size: 4rem;
+        }
+      }
+      .share{
+        margin-top: 1.5rem;
+        ul{
+          display: none;
+        }
+      }
+    }
+    .chViewInfo{
+      font-size: 1.6rem;
+      line-height: 1.8rem;
+      letter-spacing: -0.02em;
+      color:$LGBlack;
+      margin-top: 2.4rem;
+      a{
+        svg{
+          vertical-align: middle !important;
+          margin-top: -0.5rem;
+        }
+      }
+      span{
+        font-weight: 600;
+        font-size: 1.8rem;
+        letter-spacing: -0.02em;
+        color:$RedD0;
+        margin: 0 0.8rem 0 1.2rem;
+      }
+    }
+  }
+  .chView{
+    margin-top: 6rem;
+    .chViewCated{
+      font-size: 2.8rem;
+      line-height: 2.8rem;
+      letter-spacing: -0.02em;
+      color: $LGBlack;
+      font-weight: 700;
+      margin-bottom: 2rem;
+    }
+    .chViewContent{
+      background-color: $White;
+      padding-bottom: 7rem;
+    }
+    .chViewBox{
+      padding: 8rem 6.6rem 6rem;
+      >h4{
+        font-weight: 600;
+        color: $Black; 
+        margin-left: -3.5rem;
+        margin-bottom: 4rem;
+      }
+      h5.guide{
+        font-size: 1.8rem;
+        color: $Black;
+        letter-spacing: -0.02em;
+        position: relative;
+        margin-bottom: 2rem;
+        &::before{
+          display: block;
+          width: 0.6rem;
+          height: 0.6rem;
+          border-radius: 50%;
+          background-color: $LGBlack; 
+          position: absolute;
+          left: -1.4rem;
+          top:0.8rem
+        }
+      }
+      >p{
+        font-size:1.6rem;
+        line-height: 2.1rem;
+        color: $Gray6B;
+        letter-spacing: -0.02em;
+      }
+      .bu{
+        &.type3{
+          >li{
+            margin-bottom: 2rem;
+            &:last-child{
+              margin-bottom: 0;
+            }
+          }
+          li{
+            font-size: 1.6rem;
+            letter-spacing: -0.02em;
+            line-height: 2.1rem;
+            color:$Gray6B;
+            font-weight: 400;
+            
+            >ul{
+              margin-top: 0;
+
+            }
+          }
+        }
+      }
+    }
+    .stepImg{
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-bottom: 6rem;
+      li{
+        width: 13.5rem;
+        height: 9.2rem;
+        margin-right: 1.5rem;
+        position: relative;
+        padding-right: 3.9rem;
+        margin: 2rem 1.5rem 2rem 0;
+        text-align: center;
+        &::before{
+          display: block;
+          width: 2.4rem;
+          height: 9.2rem;
+          background-image: url('/common/images/icon/stepArrow.png');
+          background-repeat: no-repeat;
+          position: absolute;
+          background-position: center;
+          right:0;
+        }
+        &:nth-child(6){
+          margin: 2rem 1.0 2rem 0;
+        }
+        &:last-child{
+          &::before{
+            width: 0;
+          }
+        }
+        span{
+          display: block;
+          font-size: 1.6rem;
+          line-height: 1.6rem;
+          letter-spacing: -0.02em;
+          margin-top: 1.6rem;
+          color:$Gray6B;
+        }
+      }
+    }
+    .bu{
+      >li{
+        font-size: 1.6rem;
+        letter-spacing: -0.02em;
+        color: $Gray6B;
+        line-height: 2.1rem;
+        margin-bottom: 2rem;
+        padding-left: 1.2rem;
+        &::before{
+          content: "· ";
+          background-color: transparent;
+          top:0rem;
+        }
+        &:last-child{
+          margin-bottom: 0;
+        }
+      }
+      &.type2{
+        >li{
+          &::before{
+            content: "- ";
+          }
+        }
+      }
+    }
+  }
+  ul.bu + h5.guide{
+    margin-top: 6rem;
+  }
+
+  /*상세 아코디언 내부테이블*/
+  .accConTable{
+    ul{
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-start;
+      li.th{
+        width: 13.3rem;
+      }
+      li.td{
+        width: calc(100% - 13.3rem);
       }
     }
   }
