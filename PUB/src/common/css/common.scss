@@ -108,12 +108,14 @@
 
 //공통가이드
 .componentWrap {
-  .tabs {
+  padding: 0;
+  .tabWrap {
     position: fixed;
     left: 0;
     width: 20rem;
     padding: 4rem 3rem 3rem;
-
+  }
+  .tabs {
     li {
       margin-bottom: 2rem;
 
