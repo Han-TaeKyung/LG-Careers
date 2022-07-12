@@ -108,12 +108,14 @@
 
 //공통가이드
 .componentWrap {
-  .tabs {
+  padding: 0;
+  .tabWrap {
     position: fixed;
     left: 0;
     width: 20rem;
     padding: 4rem 3rem 3rem;
-
+  }
+  .tabs {
     li {
       margin-bottom: 2rem;
 
@@ -658,6 +660,11 @@ p {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
+    min-width: 120px;
+    background: url(../images/icon/selectBg.svg) no-repeat right 15px center;
+    color: $LGBlack;
+    font-size: 1.4rem;
+    line-height: 2;
     &::-ms-expand {
       display: none;
     }
@@ -689,6 +696,10 @@ p {
     &::placeholder {
       color: $GrayAE;
     }
+    &:disabled {
+      background-color: $GrayF5;
+      border-color: $GrayF5;
+    }
   }
 
   &.type2 {
@@ -717,11 +728,90 @@ p {
     font-size: 1.6rem;
     padding: 1.4rem;
     min-height: 15rem;
+    border-radius: 0.5rem;
+    border-color: $GrayD9;
+    &::placeholder {
+      letter-spacing: -0.02em;
+      font-size: 1.4rem;
+      line-height: 1;
+      color: $GrayAE;
+    }
+  }
+}
+
+.inputBox.upload {
+  display: flex;
+  align-items: stretch;
+  .uploadWrap {
+    display: inline-flex;
+    align-items: center;
+    position: relative;
+    height: 48px;
+    background-color: $GrayF5;
+    border-radius: 5px;
+    flex: 1;
+    .input {
+      position: relative;
+      z-index: -1;
+      width: 1px;
+      height: 1px;
+    }
+    .fileName {
+      font-size: 1.4rem;
+      color: $LGBlack;
+      line-height: 1;
+      letter-spacing: -0.02em;
+    }
+    .clear {
+      display: none;
+      justify-content: center;
+      align-items: center;
+      width: 18px;
+      height: 18px;
+      margin-left: 6px;
+      border-radius: 50%;
+      background-color: #8e8e8e;
+      font-size: 0;
+      line-height: 0;
+      &:before {
+        display: block;
+        width: 6px;
+        height: 6px;
+        background: url(../images/icon/close.svg) no-repeat center center;
+      }
+      &.active {
+        display: inline-flex;
+      }
+    }
+  }
+  .uploadBtn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding: 5px 30px;
+    margin-left: 8px;
+    border-radius: 5px;
+    border: 1px solid $GrayAE;
+    overflow: visible;
+    width: auto;
+    height: auto;
+    clip: auto;
+    clip-path: none;
+    &:hover {
+      border-color: $LGBlack;
+    }
+
+    span {
+      font-size: 1.6rem;
+      line-height: 1;
+      letter-spacing: -0.02em;
+    }
   }
 }
 
 //table
-.tabel {
+.table {
   table {
     width: 100%;
     border-top: 0.1rem solid #222;
@@ -729,10 +819,9 @@ p {
     thead {
       tr {
         th {
-          background-color: #f8f8f8;
           font-size: 1.6rem;
-          font-weight: bold;
-          color: #222;
+          font-weight: 400;
+          color: $LGBlack;
           border-bottom: 0.1rem solid #eee;
           border-right: 0.1rem solid #eee;
           text-align: center;
@@ -767,10 +856,9 @@ p {
       thead {
         tr {
           th {
-            background-color: #f8f8f8;
             font-size: 1.6rem;
-            font-weight: bold;
-            color: #222;
+            font-weight: 400;
+            color: $LGBlack;
             border-bottom: 0.1rem solid #eee;
             border-right: 0.1rem solid #eee;
             text-align: center;
@@ -786,10 +874,9 @@ p {
       tbody {
         tr {
           th {
-            background-color: #f8f8f8;
             font-size: 1.6rem;
-            font-weight: bold;
-            color: #222;
+            font-weight: 400;
+            color: $LGBlack;
             border-bottom: 0.1rem solid #eee;
             border-right: 0.1rem solid #eee;
             padding: 1.2rem 1.5rem;
@@ -1155,6 +1242,18 @@ p {
       background-image: url(/common/images/icon/alertChk.png);
       padding-left: 2.6rem;
     }
+  }
+}
+
+// essential
+.essential {
+  position: relative;
+  font-size: 0;
+  &:after {
+    display: inline;
+    content: "*";
+    color: $RedD0;
+    font-size: 1.6rem;
   }
 }
 
