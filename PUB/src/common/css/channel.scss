@@ -424,72 +424,30 @@
       }
     }
   }
-  /* 탭메뉴 */
-  .tabMenu {
-    [data-tab-content] {
-      display: none;
-    }
-
-    .chStoryList {
-      margin-bottom: -3.5rem;
-    }
-
-    .tabOn[data-tab-content] {
-      display: block;
-    }
-
-    .tabs {
-      display: flex;
-      font-size: 1.8rem;
-      line-height: 1.8rem;
-      letter-spacing: -0.02em;
-      font-weight: 600;
-      color: #aeaeae;
-      margin-bottom: 3rem;
-
-      .tab {
-        cursor: pointer;
-        margin-right: 2.5rem;
-        padding-top: 0.8rem;
-
-        &.tabOn {
-          color: $BrandColorRed;
-          border-top: 0.2rem solid $BrandColorRed;
-          padding-top: 0.6rem;
-        }
-
-        &:hover {
-          color: $BrandColorRed;
-          border-top: 0.2rem solid $BrandColorRed;
-          padding-top: 0.6rem;
-        }
-      }
-    }
-  }
 
   /* 채널 채용정보 리스트 */
-  .listLineUp{
+  .listLineUp {
     display: flex;
     justify-content: space-between;
-    >p{
+    > p {
       font-size: 1.6rem;
       font-weight: 300;
-      color:$LGBlack;
+      color: $LGBlack;
       letter-spacing: -0.03em;
-      span{
+      span {
         font-weight: 400;
       }
     }
-    >ul{
+    > ul {
       display: flex;
-      >li{
+      > li {
         position: relative;
         margin-left: 3rem;
-        >a {
+        > a {
           font-size: 1.6rem;
           letter-spacing: -0.05em;
-          color:$Gray6B;
-          .icon{
+          color: $Gray6B;
+          .icon {
             display: inline-block;
             background-image: url(/common/images/icon/listUpIco.png);
             background-repeat: no-repeat;
@@ -497,44 +455,44 @@
             width: 1.4rem;
             height: 0.8rem;
           }
-          &:focus{
-            .icon{
+          &:focus {
+            .icon {
               transition: 0.3s;
               transform: rotate(180deg);
             }
           }
         }
-        >ul{
+        > ul {
           position: absolute;
           display: none;
-          >li{
-            a{
+          > li {
+            a {
               font-size: 1.4rem;
               letter-spacing: -0.02em;
-              color:$Gray6B;
+              color: $Gray6B;
             }
           }
         }
       }
     }
   }
-  .chAdList{
+  .chAdList {
     width: 100%;
     height: auto;
-    border-top:.1rem solid $Gray6B;
+    border-top: 0.1rem solid $Gray6B;
     margin-top: 1.7rem;
     background-color: $White;
-    >div{
+    > div {
       padding: 4rem 3rem;
-      border-bottom: .1rem solid $GrayE7;
-      .adListTitle{
+      border-bottom: 0.1rem solid $GrayE7;
+      .adListTitle {
         display: flex;
         justify-content: space-between;
-        li{
+        li {
           display: flex;
           justify-content: flex-start;
           align-items: flex-start;
-          a{
+          a {
             @include ellipsis2row;
             font-size: 2.4rem;
             font-weight: 600;
@@ -545,29 +503,29 @@
             display: initial;
             max-height: 6.3rem;
           }
-          p{
+          p {
             margin-right: 3rem;
             margin-top: 0.4rem;
-            &:last-child{
+            &:last-child {
               margin-right: 0;
             }
           }
         }
       }
-      .adListInfo{
+      .adListInfo {
         display: flex;
         justify-content: flex-start;
         margin-top: 1.7rem;
-        li{
+        li {
           font-size: 1.6rem;
           line-height: 1.6rem;
           letter-spacing: -0.02em;
           font-weight: 300;
           color: $LGBlack;
           position: relative;
-          padding-right: .9rem;
-          margin-right: .8rem;
-          span{
+          padding-right: 0.9rem;
+          margin-right: 0.8rem;
+          span {
             font-size: 1.8rem;
             line-height: 1.8rem;
             letter-spacing: -0.02em;
@@ -575,93 +533,93 @@
             color: $RedD0;
             margin-right: 0.8rem;
           }
-          &::before{
+          &::before {
             display: block;
             position: absolute;
-            width: .1rem;
+            width: 0.1rem;
             height: 1.2rem;
             background-color: $GrayD9;
-            right:0;
-            top:.2rem
+            right: 0;
+            top: 0.2rem;
           }
-          &:last-child{
+          &:last-child {
             margin-right: 0;
             padding-right: 0;
-            &::before{
+            &::before {
               width: 0;
             }
           }
         }
       }
-      .hashTag{
+      .hashTag {
         display: flex;
         justify-content: flex-start;
         margin-top: 4.1rem;
-        li{
+        li {
           display: inline-block;
           background-color: #f8f8f8;
           height: 3rem;
           border-radius: 1.5rem;
           font-size: 1.4rem;
           line-height: 3rem;
-          color:$Gray8E;
-          padding:0 1.4rem;
+          color: $Gray8E;
+          padding: 0 1.4rem;
           margin-right: 0.5rem;
-          &:last-child{
+          &:last-child {
             margin-right: 0;
           }
         }
       }
     }
   }
-  .likeOn{
-    svg{
-      path{
-        fill:$RedD0; 
+  .likeOn {
+    svg {
+      path {
+        fill: $RedD0;
       }
     }
   }
-  .chViewTop{
-    .subContentTop{
+  .chViewTop {
+    .subContentTop {
       align-items: flex-start;
-      >div{
+      > div {
         width: calc(100% - 14.4rem);
-        h3{
+        h3 {
           line-height: 5.2rem;
           font-size: 4rem;
         }
       }
-      .share{
+      .share {
         margin-top: 1.5rem;
-        ul{
+        ul {
           display: none;
         }
       }
     }
-    .chViewInfo{
+    .chViewInfo {
       font-size: 1.6rem;
       line-height: 1.8rem;
       letter-spacing: -0.02em;
-      color:$LGBlack;
+      color: $LGBlack;
       margin-top: 2.4rem;
-      a{
-        svg{
+      a {
+        svg {
           vertical-align: middle !important;
           margin-top: -0.5rem;
         }
       }
-      span{
+      span {
         font-weight: 600;
         font-size: 1.8rem;
         letter-spacing: -0.02em;
-        color:$RedD0;
+        color: $RedD0;
         margin: 0 0.8rem 0 1.2rem;
       }
     }
   }
-  .chView{
+  .chView {
     margin-top: 6rem;
-    .chViewCated{
+    .chViewCated {
       font-size: 2.8rem;
       line-height: 2.8rem;
       letter-spacing: -0.02em;
@@ -669,71 +627,70 @@
       font-weight: 700;
       margin-bottom: 2rem;
     }
-    .chViewContent{
+    .chViewContent {
       background-color: $White;
       padding-bottom: 7rem;
     }
-    .chViewBox{
+    .chViewBox {
       padding: 8rem 6.6rem 6rem;
-      >h4{
+      > h4 {
         font-weight: 600;
-        color: $Black; 
+        color: $Black;
         margin-left: -3.5rem;
         margin-bottom: 4rem;
       }
-      h5.guide{
+      h5.guide {
         font-size: 1.8rem;
         color: $Black;
         letter-spacing: -0.02em;
         position: relative;
         margin-bottom: 2rem;
-        &::before{
+        &::before {
           display: block;
           width: 0.6rem;
           height: 0.6rem;
           border-radius: 50%;
-          background-color: $LGBlack; 
+          background-color: $LGBlack;
           position: absolute;
           left: -1.4rem;
-          top:0.8rem
+          top: 0.8rem;
         }
       }
-      >p{
-        font-size:1.6rem;
+      > p {
+        font-size: 1.6rem;
         line-height: 2.1rem;
         color: $Gray6B;
         letter-spacing: -0.02em;
       }
-      .bu{
-        &.type3{
-          >li{
+      .bu {
+        &.type3 {
+          > li {
             margin-bottom: 2rem;
-            &:last-child{
+            &:last-child {
               margin-bottom: 0;
             }
           }
-          li{
+          li {
             font-size: 1.6rem;
             letter-spacing: -0.02em;
             line-height: 2.1rem;
-            color:$Gray6B;
+            color: $Gray6B;
             font-weight: 400;
-            
-            >ul{
-              margin-top: 0;
 
+            > ul {
+              margin-top: 0;
             }
           }
         }
       }
     }
-    .stepImg{
+    .stepImg {
       display: flex;
       justify-content: flex-start;
       align-items: center;
       flex-wrap: wrap;
       margin-bottom: 6rem;
-      li{
+      li {
         width: 13.5rem;
         height: 9.2rem;
         margin-right: 1.5rem;
@@ -741,74 +698,74 @@
         padding-right: 3.9rem;
         margin: 2rem 1.5rem 2rem 0;
         text-align: center;
-        &::before{
+        &::before {
           display: block;
           width: 2.4rem;
           height: 9.2rem;
-          background-image: url('/common/images/icon/stepArrow.png');
+          background-image: url("/common/images/icon/stepArrow.png");
           background-repeat: no-repeat;
           position: absolute;
           background-position: center;
-          right:0;
+          right: 0;
         }
-        &:nth-child(6){
-          margin: 2rem 1.0 2rem 0;
+        &:nth-child(6) {
+          margin: 2rem 1 2rem 0;
         }
-        &:last-child{
-          &::before{
+        &:last-child {
+          &::before {
             width: 0;
           }
         }
-        span{
+        span {
           display: block;
           font-size: 1.6rem;
           line-height: 1.6rem;
           letter-spacing: -0.02em;
           margin-top: 1.6rem;
-          color:$Gray6B;
+          color: $Gray6B;
         }
       }
     }
-    .bu{
-      >li{
+    .bu {
+      > li {
         font-size: 1.6rem;
         letter-spacing: -0.02em;
         color: $Gray6B;
         line-height: 2.1rem;
         margin-bottom: 2rem;
         padding-left: 1.2rem;
-        &::before{
+        &::before {
           content: "· ";
           background-color: transparent;
-          top:0rem;
+          top: 0rem;
         }
-        &:last-child{
+        &:last-child {
           margin-bottom: 0;
         }
       }
-      &.type2{
-        >li{
-          &::before{
+      &.type2 {
+        > li {
+          &::before {
             content: "- ";
           }
         }
       }
     }
   }
-  ul.bu + h5.guide{
+  ul.bu + h5.guide {
     margin-top: 6rem;
   }
 
   /*상세 아코디언 내부테이블*/
-  .accConTable{
-    ul{
+  .accConTable {
+    ul {
       display: flex;
       justify-content: flex-start;
       align-items: flex-start;
-      li.th{
+      li.th {
         width: 13.3rem;
       }
-      li.td{
+      li.td {
         width: calc(100% - 13.3rem);
       }
     }

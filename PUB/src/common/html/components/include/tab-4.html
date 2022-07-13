@@ -2,17 +2,17 @@
   <h2>04. Input</h2>
   <div>
     <h6 class="mB10">1) input class="inputBox"</h6>
-    <div class="inputBox">
+    <div class="inputBox" data-copy>
       <label for="inputText1">텍스트입력</label>
       <input type="text" id="inputText1" placeholder="텍스트 입력" />
     </div>
     <h6 class="mB10 mT10">2) textbox class="inputBox"</h6>
-    <div class="inputBox">
+    <div class="inputBox" data-copy>
       <label for="textBox1">텍스트박스</label>
       <textarea id="textBox1" placeholder="텍스트박스"></textarea>
     </div>
 
-    <div class="inputBox upload">
+    <div class="inputBox upload" data-copy>
       <div class="uploadWrap">
         <input
           type="file"
@@ -21,7 +21,6 @@
           title="파일경로"
           class="input"
           placeholder="파일찾기"
-          multiple
         />
         <span class="fileName"></span>
         <button type="button" class="clear">파일 제거</button>

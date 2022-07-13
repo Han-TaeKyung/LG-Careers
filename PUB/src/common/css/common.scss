@@ -1,5 +1,4 @@
 @import "_variables", "_mixin";
-//slick
 
 /* slick */
 .slick-slider {
@@ -51,6 +50,14 @@
 
 .slick-vertical .slick-slide {
   display: block;
+}
+[data-copy] {
+  box-shadow: 0 0 0 transparent;
+  transition: all 0.2s;
+  &:hover {
+    cursor: pointer;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
+  }
 }
 
 //파일리스트업
@@ -114,28 +121,28 @@
     left: 0;
     width: 20rem;
     padding: 4rem 3rem 3rem;
-  }
-  .tabs {
-    li {
-      margin-bottom: 2rem;
+    > .tabs {
+      li {
+        margin-bottom: 2rem;
 
-      a {
-        font-size: 1.8rem;
-        font-weight: bold;
-        letter-spacing: -0.04rem;
+        a {
+          font-size: 1.8rem;
+          font-weight: bold;
+          letter-spacing: -0.04rem;
+        }
+      }
+
+      .current {
+        border-right: 0.2rem solid #b70f28;
+
+        a {
+          color: #b70f28;
+        }
       }
     }
-
-    .current {
-      border-right: 0.2rem solid #b70f28;
-
-      a {
-        color: #b70f28;
-      }
-    }
   }
 
-  .tab-content {
+  > .tab-content {
     display: block;
     position: absolute;
     left: 20rem;
@@ -976,7 +983,7 @@ p {
     list-style: auto;
     padding-left: 1.45rem;
 
-    >li {
+    > li {
       list-style: inherit;
       @include subText1;
       margin-bottom: 2.8rem;
@@ -1271,5 +1278,39 @@ p {
   &::-webkit-scrollbar-track {
     /* 스크롤바 뒷 배경 설정*/
     background-color: transparent;
+  }
+}
+
+// tabs
+.tabMenu {
+  .tabs {
+    display: flex;
+    font-size: 1.8rem;
+    line-height: 1.8rem;
+    letter-spacing: -0.02em;
+    font-weight: 600;
+    color: #aeaeae;
+    margin-bottom: 3rem;
+
+    .tab {
+      cursor: pointer;
+      margin-right: 2.7rem;
+      letter-spacing: 0;
+
+      &.tabOn,
+      &:hover {
+        color: $RedD0;
+        font-weight: 600;
+      }
+    }
+  }
+  .tab-content {
+    position: static;
+    [data-tab-content] {
+      display: none;
+      &.tabOn {
+        display: block;
+      }
+    }
   }
 }
