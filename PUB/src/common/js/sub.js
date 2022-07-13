@@ -2,20 +2,20 @@ $(function () {
   //탭
   const tabs = document.querySelectorAll("[data-tab-target]");
   const tabContents = document.querySelectorAll("[data-tab-content]");
-
-  tabs.forEach((tab) => {
-    tab.addEventListener("click", () => {
+  for (var i = 0; i < tabs.length; i++) {
+    var tab = tabs[i];
+    tab.addEventListener("click", function () {
       const target = document.querySelector(tab.dataset.tabTarget);
-      tabContents.forEach((tabContent) => {
+      tabContents.forEach(function (tabContent) {
         tabContent.classList.remove("tabOn");
       });
-      tabs.forEach((tab) => {
+      tabs.forEach(function (tab) {
         tab.classList.remove("tabOn");
       });
       tab.classList.add("tabOn");
       target.classList.add("tabOn");
     });
-  });
+  }
 
   //input[file]
   var $uploadInputWrap = $(".inputBox.upload"),
