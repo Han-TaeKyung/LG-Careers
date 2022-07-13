@@ -1,28 +1,27 @@
 $(function () {
   //탭
-  var $tabBtn = $('.tabMenu .tabBtn');
+  var $tabBtn = $(".tabMenu .tabBtn");
 
-
-  $tabBtn.on('click', function () {
+  $tabBtn.on("click", function () {
     var $this = $(this),
-      $thisLi = $this.closest('li'),
-      thisTarget = $thisLi.attr('data-tab-target'),
-      $thisTabWrap = $this.closest('.tabMenu'),
-      $tabLi = $thisTabWrap.find('[data-tab-target]'),
-      $thisConWrap = $thisTabWrap.find('.tabCon'),
-      $tabCon = $thisConWrap.find('[data-tab-content]'),
-      $thisCon = $thisConWrap.find('#' + thisTarget);
+      $thisLi = $this.closest("li"),
+      thisTarget = $thisLi.attr("data-tab-target"),
+      $thisTabWrap = $this.closest(".tabMenu"),
+      $tabLi = $thisTabWrap.find("[data-tab-target]"),
+      $thisConWrap = $thisTabWrap.find(".tabCon"),
+      $tabCon = $thisConWrap.find("[data-tab-content]"),
+      $thisCon = $thisConWrap.find("#" + thisTarget);
 
     //버튼 처리
-    $tabLi.removeClass('tabOn');
-    $thisLi.addClass('tabOn');
-    $tabBtn.attr('title', '열기');
-    $this.attr('title', '닫기');
+    $tabLi.removeClass("tabOn");
+    $thisLi.addClass("tabOn");
+    $tabBtn.attr("title", "열기");
+    $this.attr("title", "닫기");
 
     // 콘텐츠 처리
-    $tabCon.removeClass('tabOn').removeAttr('title');
-    $thisCon.addClass('tabOn').attr('title', '열림');
-  }).triggerHandler('click')
+    $tabCon.removeClass("tabOn").removeAttr("title");
+    $thisCon.addClass("tabOn").attr("title", "열림");
+  });
 
   // ie 오류
   // for (var i = 0; i < tabs.length; i++) {
