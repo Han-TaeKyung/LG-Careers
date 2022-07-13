@@ -1,3 +1,54 @@
 <div class="tab-8">
   <h2>08. Tab</h2>
+
+  <h3>.tabs - &lt;a&gt; type(탭 선택시 페이지 이동을 해야 할 때)</h3>
+  <div class="tabMenu" data-copy>
+    <ul class="tabs">
+      <li data-tab-target="all" class="tab tabOn">
+        <a herf="#n" class="tabBtn">전체</a>
+      </li>
+      <li data-tab-target="talent" class="tab">
+        <a herf="#n" class="tabBtn">인재상</a>
+      </li>
+      <li data-tab-target="job" class="tab">
+        <a herf="#n" class="tabBtn">직무소개</a>
+      </li>
+      <li data-tab-target="news" class="tab">
+        <a herf="#n" class="tabBtn">News</a>
+      </li>
+      <li data-tab-target="social" class="tab">
+        <a herf="#n" class="tabBtn">Social Media</a>
+      </li>
+    </ul>
+  </div>
+  <br />
+  <h3>
+    .tabs - &lt;button&gt; type(탭 선택시 화면 안에서 content 이동이 필요할 때)
+  </h3>
+  <div class="tabMenu" data-copy>
+    <ul class="tabs">
+      <li data-tab-target="all2" class="tab tabOn">
+        <button type="button" class="tabBtn">전체</button>
+      </li>
+      <li data-tab-target="talent2" class="tab">
+        <button type="button" class="tabBtn">인재상</button>
+      </li>
+      <li data-tab-target="job2" class="tab">
+        <button type="button" class="tabBtn">직무소개</button>
+      </li>
+      <li data-tab-target="news2" class="tab">
+        <button type="button" class="tabBtn">News</button>
+      </li>
+      <li data-tab-target="social2" class="tab">
+        <button type="button" class="tabBtn">Social Media</button>
+      </li>
+    </ul>
+    <div class="tabCon">
+      <div id="all2" data-tab-content class="tabOn">1</div>
+      <div id="talent2" data-tab-content>2</div>
+      <div id="job2" data-tab-content>3</div>
+      <div id="news2" data-tab-content>4</div>
+      <div id="social2" data-tab-content>5</div>
+    </div>
+  </div>
 </div>

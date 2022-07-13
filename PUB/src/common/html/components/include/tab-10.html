@@ -2,9 +2,12 @@
   <h2>10. 기타</h2>
   <h3>슬라이드</h3>
   <br />
-  <p>페이지에 슬라이드 작업 시 아래 script를 꼭 추가해주세요.</p>
+  <p>
+    페이지에 슬라이드 작업 시 아래 script를 꼭 추가해주세요.(복사 기능 적용
+    안됨)
+  </p>
   <div style="background-color: #f4f4f4; padding: 20px; margin: 10px 0">
-    &ltscript src="../../common/js/lib/slick.1.6.0.min.js"&gt;&lt;/script&gt;
+    &lt;script src="../../common/js/lib/slick.1.6.0.min.js"&gt;&lt;/script&gt;
   </div>
 
   <div class="slide-list">
@@ -15,3 +18,41 @@
     <div class="item">hi~5</div>
   </div>
 </div>
+
+<script>
+  //slick
+  var $lists = $(".slide-list");
+  $lists.slick({
+    //기본
+    autoplay: true,
+    dots: false,
+    swipe: true,
+    draggable: true,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    variableWidth: false,
+    infinite: true,
+    //prevArrow: $infoBanner1.find(".prev"),
+    //nextArrow: $infoBanner1.find(".next"),
+    //추가 기능
+    autoArrow: $(".banner1 .auto"),
+    isRunOnLowIE: false,
+    pauseOnArrowClick: true,
+    pauseOnDirectionKeyPush: true,
+    pauseOnSwipe: true,
+    pauseOnDotsClick: true,
+    pauseText: "정지",
+    playText: "재생",
+    responsive: [
+      {
+        breakpoint: 1001,
+        settings: {
+          swipe: true,
+          draggable: true,
+          verticalSwiping: true,
+          swipeToSlide: true,
+        },
+      },
+    ],
+  });
+</script>

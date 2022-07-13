@@ -1,21 +1,42 @@
 $(function () {
   //탭
-  const tabs = document.querySelectorAll("[data-tab-target]");
-  const tabContents = document.querySelectorAll("[data-tab-content]");
+  var $tabBtn = $(".tabMenu .tabBtn");
 
-  tabs.forEach((tab) => {
-    tab.addEventListener("click", () => {
-      const target = document.querySelector(tab.dataset.tabTarget);
-      tabContents.forEach((tabContent) => {
-        tabContent.classList.remove("tabOn");
-      });
-      tabs.forEach((tab) => {
-        tab.classList.remove("tabOn");
-      });
-      tab.classList.add("tabOn");
-      target.classList.add("tabOn");
-    });
+  $tabBtn.on("click", function () {
+    var $this = $(this),
+      $thisLi = $this.closest("li"),
+      thisTarget = $thisLi.attr("data-tab-target"),
+      $thisTabWrap = $this.closest(".tabMenu"),
+      $tabLi = $thisTabWrap.find("[data-tab-target]"),
+      $thisConWrap = $thisTabWrap.find(".tabCon"),
+      $tabCon = $thisConWrap.find("[data-tab-content]"),
+      $thisCon = $thisConWrap.find("#" + thisTarget);
+
+    //버튼 처리
+    $tabLi.removeClass("tabOn");
+    $thisLi.addClass("tabOn");
+    $tabBtn.attr("title", "열기");
+    $this.attr("title", "닫기");
+
+    // 콘텐츠 처리
+    $tabCon.removeClass("tabOn").removeAttr("title");
+    $thisCon.addClass("tabOn").attr("title", "열림");
   });
+
+  // ie 오류
+  // for (var i = 0; i < tabs.length; i++) {
+  //   var tab = $tabs[i];
+  //   tab.addEventListener("click", function (e) {
+  //     var target = document.querySelector(tab.dataset.tabTarget);
+  //     var thisTabMenu = $(e.target).closest(".tabMenu");
+  //     var tabs = thisTabMenu.find("[data-tab-target]");
+  //     var tabContents = thisTabMenu.find("[data-tab-content]");
+  //     tabContents.removeClass("tabOn");
+  //     tabs.removeClass("tabOn");
+  //     tab.classList.add("tabOn");
+  //     target.classList.add("tabOn");
+  //   });
+  // }
 
   //input[file]
   var $uploadInputWrap = $(".inputBox.upload"),
@@ -62,41 +83,5 @@ $(function () {
       $this.attr("title", "열기");
       $thisAnswer.attr("title", "닫힘");
     }
-  });
-
-  //slick
-  var $lists = $(".slide-list");
-  $lists.slick({
-    //기본
-    autoplay: true,
-    dots: false,
-    swipe: true,
-    draggable: true,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    variableWidth: false,
-    infinite: true,
-    //prevArrow: $infoBanner1.find(".prev"),
-    //nextArrow: $infoBanner1.find(".next"),
-    //추가 기능
-    autoArrow: $(".banner1 .auto"),
-    isRunOnLowIE: false,
-    pauseOnArrowClick: true,
-    pauseOnDirectionKeyPush: true,
-    pauseOnSwipe: true,
-    pauseOnDotsClick: true,
-    pauseText: "정지",
-    playText: "재생",
-    responsive: [
-      {
-        breakpoint: 1001,
-        settings: {
-          swipe: true,
-          draggable: true,
-          verticalSwiping: true,
-          swipeToSlide: true,
-        },
-      },
-    ],
   });
 });
