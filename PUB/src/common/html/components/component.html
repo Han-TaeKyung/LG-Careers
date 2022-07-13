@@ -50,6 +50,21 @@
         </ul>
       </div>
       <div class="tab-content">
+        <p
+          style="
+            position: relative;
+            top: -20px;
+            background: #f5f5f5;
+            border: 1px solid #eee;
+            font-size: 20px;
+            color: #ff0000;
+            font-weight: bold;
+            padding: 20px;
+            margin-bottom: 30px;
+          "
+        >
+          ※ element를 클릭하면 복사됩니다.(일부 제외)
+        </p>
         @@include('./include/tab-1.html') @@include('./include/tab-2.html')
         @@include('./include/tab-3.html') @@include('./include/tab-4.html')
         @@include('./include/tab-5.html') @@include('./include/tab-6.html')
@@ -58,10 +73,10 @@
         @@include('./include/tab-10.html')@@include('./include/tab-11.html')
       </div>
     </div>
-    <!-- <script src="./components/component.js"></script> -->
+
     <script>
-      var $tabCon = $(".tab-content");
-      var $tabBtn = $("ul.tabs li");
+      var $tabCon = $(".componentWrap >.tab-content");
+      var $tabBtn = $(".tabWrap > ul.tabs li");
 
       $tabBtn
         .click(function () {
@@ -70,15 +85,43 @@
           $tabBtn.removeClass("current");
           $this.addClass("current");
           $tabCon.find(">div").map(function () {
-            if ($(this).hasClass(thisTab)) {
-              $(this).addClass("active");
-            } else {
-              $(this).removeClass("active");
-            }
+            $(this).hasClass(thisTab)
+              ? $(this).addClass("active")
+              : $(this).removeClass("active");
           });
         })
         .triggerHandler("click");
-      // $("ul.tabs li:nth-child(8)").click();
+      $("ul.tabs li:nth-child(8)").click();
+
+      // copy에 필요한 element append
+      var $copyElem = $('<textarea id="copyItem"></textarea>');
+      $copyElem.css({
+        opacity: 0,
+        position: "absolute",
+        width: "1px",
+        height: "1px",
+        right: 0,
+        padding: 0,
+      });
+      $("body").append($copyElem);
+      var $textInner = $('<div class="textInner"></div>');
+      $("body").append($textInner);
+
+      // copy 액션
+      $("[data-copy]").on("click", function () {
+        //복사가 필요한 elem처리
+        var findHtml = $(this).clone();
+        findHtml.removeAttr("data-copy style");
+        findHtml.find("*").removeAttr("data-copy style");
+
+        $(".textInner").html(findHtml);
+        var newer = $(".textInner").html();
+        $("#copyItem").val(newer).select();
+
+        alert("복사 되었습니다");
+        document.execCommand("copy");
+        $(".textInner").html("");
+      });
     </script>
     <!-- componentWrap END -->
   </body>

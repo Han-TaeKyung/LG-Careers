@@ -1,11 +1,12 @@
 $(function () {
   //탭
-  const tabs = document.querySelectorAll("[data-tab-target]");
-  const tabContents = document.querySelectorAll("[data-tab-content]");
-
-  tabs.forEach((tab) => {
-    tab.addEventListener("click", () => {
-      const target = document.querySelector(tab.dataset.tabTarget);
+  var $tabs = document.querySelectorAll("[data-tab-target]");
+  $tabs.forEach(function (tab) {
+    tab.addEventListener("click", function (e) {
+      var target = document.querySelector(tab.dataset.tabTarget);
+      var thisTabMenu = e.target.closest(".tabMenu");
+      var tabs = thisTabMenu.querySelectorAll("[data-tab-target]");
+      var tabContents = thisTabMenu.querySelectorAll("[data-tab-content]");
       tabContents.forEach((tabContent) => {
         tabContent.classList.remove("tabOn");
       });
@@ -62,41 +63,5 @@ $(function () {
       $this.attr("title", "열기");
       $thisAnswer.attr("title", "닫힘");
     }
-  });
-
-  //slick
-  var $lists = $(".slide-list");
-  $lists.slick({
-    //기본
-    autoplay: true,
-    dots: false,
-    swipe: true,
-    draggable: true,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    variableWidth: false,
-    infinite: true,
-    //prevArrow: $infoBanner1.find(".prev"),
-    //nextArrow: $infoBanner1.find(".next"),
-    //추가 기능
-    autoArrow: $(".banner1 .auto"),
-    isRunOnLowIE: false,
-    pauseOnArrowClick: true,
-    pauseOnDirectionKeyPush: true,
-    pauseOnSwipe: true,
-    pauseOnDotsClick: true,
-    pauseText: "정지",
-    playText: "재생",
-    responsive: [
-      {
-        breakpoint: 1001,
-        settings: {
-          swipe: true,
-          draggable: true,
-          verticalSwiping: true,
-          swipeToSlide: true,
-        },
-      },
-    ],
   });
 });
