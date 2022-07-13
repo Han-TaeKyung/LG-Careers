@@ -1,32 +1,43 @@
 $(function () {
   //탭
-<<<<<<< HEAD
-  const tabs = document.querySelectorAll("[data-tab-target]");
-  const tabContents = document.querySelectorAll("[data-tab-content]");
-  for (var i = 0; i < tabs.length; i++) {
-    var tab = tabs[i];
-    tab.addEventListener("click", function () {
-      const target = document.querySelector(tab.dataset.tabTarget);
-      tabContents.forEach(function (tabContent) {
-=======
-  var $tabs = document.querySelectorAll("[data-tab-target]");
-  $tabs.forEach(function (tab) {
-    tab.addEventListener("click", function (e) {
-      var target = document.querySelector(tab.dataset.tabTarget);
-      var thisTabMenu = e.target.closest(".tabMenu");
-      var tabs = thisTabMenu.querySelectorAll("[data-tab-target]");
-      var tabContents = thisTabMenu.querySelectorAll("[data-tab-content]");
-      tabContents.forEach((tabContent) => {
->>>>>>> origin/main
-        tabContent.classList.remove("tabOn");
-      });
-      tabs.forEach(function (tab) {
-        tab.classList.remove("tabOn");
-      });
-      tab.classList.add("tabOn");
-      target.classList.add("tabOn");
-    });
-  }
+  var $tabBtn = $('.tabMenu .tabBtn');
+
+
+  $tabBtn.on('click', function () {
+    var $this = $(this),
+      $thisLi = $this.closest('li'),
+      thisTarget = $thisLi.attr('data-tab-target'),
+      $thisTabWrap = $this.closest('.tabMenu'),
+      $tabLi = $thisTabWrap.find('[data-tab-target]'),
+      $thisConWrap = $thisTabWrap.find('.tabCon'),
+      $tabCon = $thisConWrap.find('[data-tab-content]'),
+      $thisCon = $thisConWrap.find('#' + thisTarget);
+
+    //버튼 처리
+    $tabLi.removeClass('tabOn');
+    $thisLi.addClass('tabOn');
+    $tabBtn.attr('title', '열기');
+    $this.attr('title', '닫기');
+
+    // 콘텐츠 처리
+    $tabCon.removeClass('tabOn').removeAttr('title');
+    $thisCon.addClass('tabOn').attr('title', '열림');
+  }).triggerHandler('click')
+
+  // ie 오류
+  // for (var i = 0; i < tabs.length; i++) {
+  //   var tab = $tabs[i];
+  //   tab.addEventListener("click", function (e) {
+  //     var target = document.querySelector(tab.dataset.tabTarget);
+  //     var thisTabMenu = $(e.target).closest(".tabMenu");
+  //     var tabs = thisTabMenu.find("[data-tab-target]");
+  //     var tabContents = thisTabMenu.find("[data-tab-content]");
+  //     tabContents.removeClass("tabOn");
+  //     tabs.removeClass("tabOn");
+  //     tab.classList.add("tabOn");
+  //     target.classList.add("tabOn");
+  //   });
+  // }
 
   //input[file]
   var $uploadInputWrap = $(".inputBox.upload"),
