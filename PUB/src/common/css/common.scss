@@ -1366,21 +1366,15 @@ p {
         }
       }
     }
-<<<<<<< HEAD
   }
   .tabCon {
     position: static;
-=======
-    .tabCon {
-      position: static;
 
-      [data-tab-content] {
-        display: none;
->>>>>>> 7299424e08cab01c91a86ca4720fc63410b1a46f
+    [data-tab-content] {
+      display: none;
 
-        &.tabOn {
-          display: block;
-        }
+      &.tabOn {
+        display: block;
       }
     }
   }
