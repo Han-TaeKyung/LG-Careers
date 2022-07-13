@@ -1273,3 +1273,157 @@ p {
     background-color: transparent;
   }
 }
+
+/* title 타입 */
+.subContent {
+  &.type1{
+    .subContentTop {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+  
+    .sta {
+      ul {
+        display: flex;
+  
+        li {
+          position: relative;
+          padding-right: 2.1rem;
+          margin-right: 1rem;
+          font-size: 1.4rem;
+          letter-spacing: -0.02em;
+          color: $Gray6B;
+  
+          &.staOn {
+            text-decoration: underline;
+          }
+  
+          a {
+            img {
+              vertical-align: middle;
+              margin-top: -0.2rem;
+            }
+          }
+  
+          &::before {
+            display: block;
+            width: 0.6rem;
+            height: 1.2rem;
+            background-image: url(./../images/icon/arrowR.png);
+            background-repeat: no-repeat;
+            position: absolute;
+            right: 0;
+            top: 0.3rem;
+          }
+  
+          &:last-child {
+            padding-right: 0;
+            margin-right: 0;
+  
+            &::before {
+              width: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+  &.type2{
+    .subContentTop{
+      >div{
+        margin-bottom: 4rem;
+      }
+    }
+    .listLineUp{
+      display: flex;
+      justify-content: space-between;
+      >p{
+        font-size: 1.6rem;
+        font-weight: 300;
+        color:$LGBlack;
+        letter-spacing: -0.03em;
+        span{
+          font-weight: 400;
+        }
+      }
+      >ul{
+        display: flex;
+        >li{
+          position: relative;
+          margin-left: 3rem;
+          >a {
+            font-size: 1.6rem;
+            letter-spacing: -0.05em;
+            color:$Gray6B;
+            .icon{
+              display: inline-block;
+              background-image: url(/common/images/icon/listUpIco.png);
+              background-repeat: no-repeat;
+              margin-left: 1.3rem;
+              width: 1.4rem;
+              height: 0.8rem;
+            }
+            &:focus{
+              .icon{
+                transition: 0.3s;
+                transform: rotate(180deg);
+              }
+            }
+          }
+          >ul{
+            position: absolute;
+            display: none;
+            >li{
+              a{
+                font-size: 1.4rem;
+                letter-spacing: -0.02em;
+                color:$Gray6B;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  &.type3{
+    .subContentTop{
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      >div{
+        width: calc(100% - 14.4rem);
+        h3{
+          line-height: 5.2rem;
+          font-size: 4rem;
+        }
+      }
+      .share{
+        margin-top: 1.5rem;
+        ul{
+          display: none;
+        }
+      }
+    }
+    .chViewInfo{
+      font-size: 1.6rem;
+      line-height: 1.8rem;
+      letter-spacing: -0.02em;
+      color:$LGBlack;
+      margin-top: 2.4rem;
+      a{
+        svg{
+          vertical-align: middle !important;
+          margin-top: -0.5rem;
+        }
+      }
+      span{
+        font-weight: 600;
+        font-size: 1.8rem;
+        letter-spacing: -0.02em;
+        color:$RedD0;
+        margin: 0 0.8rem 0 1.2rem;
+      }
+    }
+  }
+}
