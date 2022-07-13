@@ -23,9 +23,9 @@ $(function () {
 
   function debounce(func) {
     var timer;
-    return function (event) {
+    return function () {
       if (timer) clearTimeout(timer);
-      timer = setTimeout(func, 100, event);
+      timer = setTimeout(func, 100);
     };
   }
   function setPageInfo() {
@@ -50,7 +50,7 @@ $(function () {
       pageInfo.push(obj);
     });
 
-    console.table(pageInfo);
+    console.table(pageInfo)
 
     //nav
     $mainNav.html("");
@@ -65,9 +65,7 @@ $(function () {
 
   //nav click event
   $document.on("click", ".mainNav .navBtn", function () {
-    var $this = $(this),
-      thisIndex = parseInt($this.attr("data-index"));
-
+    varthisIndex = parseInt($(this).attr("data-index"));
     setNav(thisIndex);
   });
 
@@ -124,10 +122,22 @@ $(function () {
         return false;
       }
     } else {
-      //너비 1200 이하, 높이 800 이상 일 때
+      //너비 1200 이하거나 높이 800 이상 일 때
+      var scrollTop = $window.scrollTop(),
+        windowHeight = $container.height(),
+        scrollBottom = scrollTop + windowHeight,
+        reset = true;
 
-      var scrollTop = $html.scrollTop(),
-        windowHeight = $container.height();
+      pageInfo.forEach(function (x, index) {
+        if (x.offsetBottom >= scrollTop && x.offsetTop <= scrollTop && reset) {
+          console.log('up', index)
+          $html.attr({
+            "data-page": x.id,
+            "data-color": x.color,
+          });
+          reset = false;
+        }
+      })
     }
   }
 
