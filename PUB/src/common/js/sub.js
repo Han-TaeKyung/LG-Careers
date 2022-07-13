@@ -4,10 +4,10 @@ $(function () {
 
   $tabBtn.on("click", function () {
     var $this = $(this),
-      $thisLi = $this.closest("li"),
+      $thisLi = $this.closest(".tab"),
       thisTarget = $thisLi.attr("data-tab-target"),
       $thisTabWrap = $this.closest(".tabMenu"),
-      $tabLi = $thisTabWrap.find("[data-tab-target]"),
+      $tabLi = $thisTabWrap.find(".tab"),
       $thisConWrap = $thisTabWrap.find(".tabCon"),
       $tabCon = $thisConWrap.find("[data-tab-content]"),
       $thisCon = $thisConWrap.find("#" + thisTarget);

@@ -12,17 +12,24 @@ $(function () {
     $mainNav = $(".mainNav");
 
   var speed = 100;
+  var breakPoint = $window.width() >= 1200 && $window.height() > 800;
 
   //pageInfo 설정
   var pageInfo = [];
   var timer = null;
-  setPageInfo();
-  $window.on("resize", function () {
-    clearTimeout(timer);
-    timer = setTimeout(setPageInfo, 200);
-  });
 
+  setPageInfo();
+  $window.on("resize", debounce(setPageInfo));
+
+  function debounce(func) {
+    var timer;
+    return function (event) {
+      if (timer) clearTimeout(timer);
+      timer = setTimeout(func, 100, event);
+    };
+  }
   function setPageInfo() {
+    $conSection.css("height", breakPoint ? $window.height() : "auto");
     pageInfo = [];
     $conSection.each(function () {
       var $this = $(this),
@@ -42,6 +49,8 @@ $(function () {
       }
       pageInfo.push(obj);
     });
+
+    console.table(pageInfo);
 
     //nav
     $mainNav.html("");
@@ -94,7 +103,7 @@ $(function () {
       thisScrollBottom = thisScrollTop + $this.outerHeight(),
       thisHeight = $this.find(".scrollWrap").outerHeight();
 
-    if ($window.width() >= 1200) {
+    if (breakPoint) {
       if ($this.hasClass("innerScroll")) {
         //page 안쪽 콘텐츠가 길어질 때
         if (
@@ -114,8 +123,9 @@ $(function () {
         setCustomIndex(nextIndex, customIndex);
         return false;
       }
-    } else if ($window.width() < 1200) {
-      //1200 이하일 때
+    } else {
+      //너비 1200 이하, 높이 800 이상 일 때
+
       var scrollTop = $html.scrollTop(),
         windowHeight = $container.height();
     }
@@ -343,7 +353,6 @@ $(function () {
     var postContainerWidth = $postCtrl.width(),
       dotsWidth = Math.ceil($postDots.outerWidth()),
       btnsWidth = Math.ceil($postBtns.outerWidth());
-    console.log(dotsWidth, btnsWidth);
     $postBar.css("width", postContainerWidth - dotsWidth - btnsWidth - 41);
   }
   postCtrlWidth();

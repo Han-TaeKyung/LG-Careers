@@ -1333,8 +1333,6 @@ p {
 
 // tabs
 .tabMenu {
-  margin: 10px 0;
-
   .tabs {
     display: flex;
     font-size: 1.8rem;
@@ -1356,14 +1354,11 @@ p {
       }
 
       &.tabOn,
-      &:hover {
+      &.tabOn .tabBtn,
+      &:hover,
+      &:hover .tabBtn {
         color: $RedD0;
         font-weight: 600;
-
-        .tabBtn {
-          color: $RedD0;
-          font-weight: 600;
-        }
       }
     }
   }
