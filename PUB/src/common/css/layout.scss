@@ -334,23 +334,26 @@
 
       a {
         display: inline-block;
-
+        i{
+          svg{
+            vertical-align: middle;
+            margin-top: -0.2rem;
+            
+          }
+        }
         span {
           font-size: 1.7rem;
           line-height: 2.3rem;
           letter-spacing: -0.02em;
-          color: $LGBlack;
+          color: $GrayAE;
+          font-weight: 600;
+          margin-left: 1.3rem;
         }
-
-        padding-left: 3.9rem;
-        background-position: left center;
-        background-repeat: no-repeat;
 
         &:hover,
         &:focus {
           span {
-            color: $BrandColorRed;
-            font-weight: 600;
+            color: $LGBlack;
           }
         }
       }
@@ -358,45 +361,94 @@
       &.lnbMenuOn {
         a {
           span {
-            color: $BrandColorRed;
-            font-weight: 600;
+            color: $LGBlack;
+          }
+        }
+        &.lnbIco01 {
+          a{
+            i{
+              svg{
+                path{
+                  fill:$LGBlack;
+                }
+              }
+            }
+          }
+        }
+        &.lnbIco04 {
+          a{
+            i{
+              svg{
+                path{
+                  fill:$LGBlack;
+                }
+              }
+            }
+          }
+        }
+        &.lnbIco05 {
+          a{
+            i{
+              svg{
+                path{
+                  fill:$LGBlack;
+                }
+              }
+            }
+          }
+        }
+        &.lnbIco02{
+          a{
+            i{
+              svg{
+                path{
+                  stroke:$LGBlack;
+                }
+              }
+            }
+          }
+        }
+        &.lnbIco03{
+          a{
+            i{
+              svg{
+                path{
+                  stroke:$LGBlack;
+                }
+              }
+            }
           }
         }
       }
-
-      &.lnbIco01 {
-        a {
-          background-image: url(./../images/icon/lnbIco01.png);
+      &.lnbIco02,
+      &.lnbIco03{
+        a{
+          &:hover,
+          &:focus{
+            i{
+              svg{
+                path{
+                  stroke:$LGBlack;
+                }
+              }
+            }
+          }
         }
       }
-
-      &.lnbIco02 {
-        a {
-          background-image: url(./../images/icon/lnbIco02.png);
-        }
-      }
-
-      &.lnbIco03 {
-        a {
-          background-image: url(./../images/icon/lnbIco03.png);
-        }
-      }
-
-      &.lnbIco04 {
-        a {
-          background-image: url(./../images/icon/lnbIco04.png);
-        }
-      }
-
-      &.lnbIco05 {
-        a {
-          background-image: url(./../images/icon/lnbIco05.png);
-        }
-      }
-
-      &.lnbIco06 {
-        a {
-          background-image: url(./../images/icon/lnbIco06.png);
+      &.lnbIco01,
+      &.lnbIco04,
+      &.lnbIco05{
+        a{
+          &:hover,
+          &:focus{
+            i{
+              svg{
+                path{
+                  fill:$LGBlack;
+                }
+              }
+            }
+          }
         }
       }
     }

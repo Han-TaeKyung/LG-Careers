@@ -758,15 +758,35 @@
 
   /*상세 아코디언 내부테이블*/
   .accConTable {
-    ul {
+    > ul {
       display: flex;
       justify-content: flex-start;
       align-items: flex-start;
-      li.th {
-        width: 13.3rem;
+      margin-bottom: 2rem;
+      &:last-child {
+        margin-bottom: 0;
       }
-      li.td {
+      > li {
+        > ul {
+          margin-bottom: 2rem;
+          &:last-child {
+            margin-bottom: 0;
+          }
+        }
+      }
+      > li.th {
+        width: 13.3rem;
+        font-size: 1.6rem;
+        line-height: 1.6rem;
+        letter-spacing: -0.02em;
+        color: $LGBlack;
+      }
+      > li.td {
         width: calc(100% - 13.3rem);
+        font-size: 1.6rem;
+        line-height: 1.92rem;
+        letter-spacing: -0.02em;
+        color: $Gray6B;
       }
     }
   }
