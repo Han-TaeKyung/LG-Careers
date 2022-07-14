@@ -487,6 +487,46 @@ p {
       background-position: right center;
       background-repeat: no-repeat;
     }
+
+    &.type2{
+      height: auto;
+      min-height: auto;
+      line-height: 1.6rem;
+      border-radius: 0;
+      border:0;
+      min-width: initial;
+      padding: 0;
+      background-color: transparent;
+      font-weight: 400;
+      span{
+        font-size: 1.6rem;
+        padding-right: 0;
+        color:$Gray6B;
+        border-bottom: 0.1rem solid $Gray6B;
+        background-image: none;
+
+      }
+      i{
+        svg{
+          vertical-align: middle;
+          margin-top: -0.2rem;
+          margin-left: 0.6rem;
+        }
+      }
+      &:hover, &:focus{
+        span{
+          color:$LGBlack;
+          border-bottom: 0.1rem solid $LGBlack;
+        }
+        i{
+          svg{
+            rect{
+              fill:$LGBlack;
+            }
+          }
+        }
+      }
+    }
   }
 
   & + .btn {
@@ -1542,5 +1582,80 @@ p {
         margin: 0 0.8rem 0 1.2rem;
       }
     }
+  }
+}
+
+/* step */
+.step{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 6rem;
+  li{
+      text-align: center;
+      position: relative;
+      width: 9.2rem;
+      padding-right: 1.5rem;
+      margin-right: 0.3rem;
+      span{
+          display: block;
+          font-size: 1.5rem;
+          line-height: 1.5rem;
+          letter-spacing: -0.02em;
+          color:$GrayAE;
+          &.stepNum{
+              width: 3.5rem;
+              height: 3.5rem;
+              border-radius: 50%;
+              border:.1rem solid $GrayD9;
+              font-size: 1.6rem;
+              font-weight: 600;
+              line-height: 3.5rem;
+              letter-spacing: -0.02em;
+              text-align: center;
+              color:$GrayAE;
+              margin: 0 auto 1.3rem;
+          }
+      }
+      &.stepEnd{
+          .stepNum{
+              border: .1rem solid $LGBlack;
+              background-color: $LGBlack;
+              background-image: url(/common/images/icon/joinChk.png);
+              background-repeat: no-repeat;
+              background-position: center;
+              text-indent: -9999rem;
+          }
+          span{
+              color:$LGBlack;
+              font-weight: 600;
+          }
+      }
+      &.stepOn{
+          .stepNum{
+              border: .1rem solid $RedD0;
+          }
+          span{
+              color:$RedD0;
+              font-weight: 600;
+          }
+      }
+      &::before{
+          display: block;
+          width: 1.2rem;
+          height:0.3rem;
+          background-image: url(/common/images/icon/dot.png);
+          background-repeat: no-repeat;
+          position: absolute;
+          right:0;
+          top:1.6rem;
+      }
+      &:last-child{
+          margin-right: 0;
+          padding-right: 0;
+          width: 7.7rem;
+          &::before{
+              width: 0;
+          }
+      }
   }
 }
