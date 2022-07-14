@@ -8,20 +8,20 @@ $(function () {
   //main 변수
   var $container = $("#container"),
     $conSection = $container.find(".page"),
-    sectionLength = $conSection.length,
     $mainNav = $(".mainNav");
 
-  var speed = 100;
-  var breakPoint = $window.width() >= 1200 && $window.height() > 800;
-
-  //pageInfo 설정
-  var pageInfo = [];
+  //pageInfo 설정 변수
+  var pageInfo = []; // {id:number(1부터 시작), offsetTop:number, ofttsetBottm:number, color:white|black}
+  var speed = 100; // scroll 속도
+  var breakPoint = $window.width() >= 1500 && $window.height() > 800; //scroll 모션 적용 범위
   var timer = null;
 
+  //pageInfo 기본설정
   setPageInfo();
   $window.on("resize", debounce(setPageInfo));
 
   function debounce(func) {
+    //resize시 debounce적용 - 리소스 활용 최소화
     var timer;
     return function () {
       if (timer) clearTimeout(timer);
@@ -38,9 +38,9 @@ $(function () {
         obj = {};
       obj.id = thisIndex;
       obj.offsetTop = $this.offset().top;
-      obj.offsetBottom = $this.offset().top + $window.height() - 1;
+      obj.offsetBottom = $this.offset().top + $this.outerHeight() - 1;
       obj.color = thisColor;
-      var windowBottom = $window.scrollTop() + $window.height() - 1;
+      var windowBottom = $window.scrollTop() + $window.height();
       if (windowBottom >= obj.offsetTop && windowBottom <= obj.offsetBottom) {
         $html.attr({
           "data-page": thisIndex,
@@ -48,9 +48,9 @@ $(function () {
         });
       }
       pageInfo.push(obj);
+      breakPoint = $window.width() >= 1500 && $window.height() > 800;
+      $html.attr("data-scroll", breakPoint ? true : false);
     });
-
-    console.table(pageInfo)
 
     //nav
     $mainNav.html("");
@@ -65,7 +65,7 @@ $(function () {
 
   //nav click event
   $document.on("click", ".mainNav .navBtn", function () {
-    varthisIndex = parseInt($(this).attr("data-index"));
+    var thisIndex = parseInt($(this).attr("data-index"));
     setNav(thisIndex);
   });
 
@@ -102,6 +102,7 @@ $(function () {
       thisHeight = $this.find(".scrollWrap").outerHeight();
 
     if (breakPoint) {
+      $html.attr("data-scroll", true);
       if ($this.hasClass("innerScroll")) {
         //page 안쪽 콘텐츠가 길어질 때
         if (
@@ -122,31 +123,35 @@ $(function () {
         return false;
       }
     } else {
-      //너비 1200 이하거나 높이 800 이상 일 때
-      var scrollTop = $window.scrollTop(),
-        windowHeight = $container.height(),
-        scrollBottom = scrollTop + windowHeight,
-        reset = true;
+      setTimeout(function () {
+        //너비 1200 이하거나 높이 800 이하 일 때
+        var scrollTop = $window.scrollTop(),
+          windowHeight = $container.height(),
+          reset = true;
 
-      pageInfo.forEach(function (x, index) {
-        if (x.offsetBottom >= scrollTop && x.offsetTop <= scrollTop && reset) {
-          console.log('up', index)
-          $html.attr({
-            "data-page": x.id,
-            "data-color": x.color,
-          });
-          reset = false;
-        }
-      })
+        pageInfo.forEach(function (x, index) {
+          if (
+            x.offsetBottom >= scrollTop &&
+            x.offsetTop <= scrollTop &&
+            reset
+          ) {
+            $html.attr({
+              "data-page": x.id,
+              "data-color": x.color,
+            });
+            reset = false;
+          }
+        });
+      }, 200);
     }
   }
 
-  //키보드 방향키 막기
+  //키보드 방향키 막기(스크롤 모션시에만 적용)
   $document.keydown(function (e) {
     console.log(e.keyCode);
     var index = $html.attr("data-page");
     var $thisElem = $("#container").find('section[data-page="' + index + '"]');
-    if ($window.width() > 1199) {
+    if (breakPoint) {
       if (
         e.keyCode === 38 ||
         e.keyCode === 40 /*|| e.keyCode == 37 || e.keyCode == 39*/
@@ -251,22 +256,55 @@ $(function () {
     }
   });
 
+  //page2 - our story
+  var $hashBtn = $(".page2 .hash button"),
+    $page2TabCon = $(".page2 .conWrap .storyList");
+  $hashBtn
+    .on("click", function () {
+      var $this = $(this),
+        thisIndex = $this.index();
+      $hashBtn.removeClass("active").attr("title", "열기");
+      $this.addClass("active").attr("title", "닫기");
+      $page2TabCon.removeClass("active").removeAttr("title");
+      $page2TabCon.eq(thisIndex).addClass("active").attr("title", "열림");
+    })
+    .triggerHandler("click");
+
   // page3 - Our Affiliate Channel
   var $page3 = $(".page3"),
     $channelList = $page3.find(".channelList"),
+    $channelItem = $channelList.find(".channelItem"),
     $channelDescWrap = $page3.find(".channelDesc"),
     $channelDesc = $channelDescWrap.find(".disc"),
-    $partBtn = $(".channelItem .partBtn");
+    $partBtn = $channelItem.find(".partBtn"),
+    $channelDepth1 = $channelItem.find(".depth1Item"),
+    $channelDepth2 = $channelItem.find(".depth2Item");
+
+  $channelDepth2.closest(".depth1Item").addClass("has");
   $partBtn.on("click", function () {
     var $this = $(this),
-      thisIndex = parseInt($this.attr("data-part"));
-    $partBtn.removeClass("active");
-    $this.addClass("active");
-    $channelDesc.removeClass("active");
-    $channelDesc.eq(thisIndex).addClass("active");
+      $thisParent = $this.closest(".depth1Item"),
+      thisIndex = parseInt($this.attr("data-part")),
+      thisBg = $this.attr("data-bg");
+    $page3.css("background-image", "url(" + thisBg + ")");
+    $channelDepth1.removeClass("active").attr("title", "열기");
+    $thisParent.addClass("active").attr("title", "닫기");
+    $channelDesc.removeClass("active").removeAttr("title");
+    $channelDesc.eq(thisIndex).addClass("active").attr("title", "열림");
+
+    $channelDepth1.each(function () {
+      var $thisElem = $(this);
+      if ($thisElem.hasClass("has active")) {
+        $thisElem.find(".depth2Item").stop().slideDown(200);
+        $thisElem.closest(".channelItem").addClass("subActive");
+      } else if ($thisElem.hasClass("has") && !$thisElem.hasClass("active")) {
+        $thisElem.find(".depth2Item").stop().slideUp(200);
+        $thisElem.closest(".channelItem").removeClass("subActive");
+      }
+    });
   });
   $channelList
-    .find(".channelItem:first-child .partBtn:first-child")
+    .find(".channelItem:first-child .depth1Item:first-child .partBtn")
     .trigger("click");
 
   // page4 - our people
@@ -281,7 +319,6 @@ $(function () {
   // page5 - our job posting
   var $postWrap = $(".page5 .conWrap"),
     $postSlide = $postWrap.find(".postList"),
-    itemLength = $postSlide.find(".postItem").length,
     $postCtrl = $postWrap.find(".postCtrl"),
     $postDots = $postCtrl.find(".postDots"),
     $postPrev = $postCtrl.find(".prev"),
@@ -338,6 +375,42 @@ $(function () {
     ],
   });
 
+  // 그림자 크기 대응
+  $postItem = $postSlide.find(".slick-slide");
+  function setIndex(index) {
+    return '.slick-slide[data-slick-index="' + index + '"]';
+  }
+  $postItem.each(function () {
+    var $this = $(this);
+
+    if ($this.hasClass("slick-current")) {
+      var thisIndex = parseInt($this.attr("data-slick-index")),
+        prevIndex = thisIndex - (showCount + 1),
+        nextIndex = thisIndex + showCount;
+      $this.attr("data-state", "now");
+      $postSlide.find(setIndex(prevIndex)).attr("data-state", "prev");
+      $postSlide.find(setIndex(nextIndex)).attr("data-state", "next");
+    }
+  });
+
+  $window.on("load", function () {
+    $postItem.attr("data-state", "");
+    $postSlide.find(setIndex(0)).attr("data-state", "now");
+    $postSlide.find(setIndex(showCount)).attr("data-state", "next");
+  });
+
+  $postSlide.on(
+    "beforeChange",
+    function (event, slide, currentSlide, nextSlide) {
+      $postSlide.find(".slick-slide").attr("data-state", "");
+      $postSlide.find(setIndex(nextSlide)).attr("data-state", "now");
+      $postSlide.find(setIndex(nextSlide - 1)).attr("data-state", "prev");
+      $postSlide
+        .find(setIndex(nextSlide + showCount))
+        .attr("data-state", "next");
+    }
+  );
+
   //슬라이드 바
   var progressWidth = 100 / total;
   var nextSlide = 0;
@@ -363,12 +436,8 @@ $(function () {
     var postContainerWidth = $postCtrl.width(),
       dotsWidth = Math.ceil($postDots.outerWidth()),
       btnsWidth = Math.ceil($postBtns.outerWidth());
-    $postBar.css("width", postContainerWidth - dotsWidth - btnsWidth - 41);
+    $postBar.css("width", postContainerWidth - dotsWidth - btnsWidth - 1);
   }
   postCtrlWidth();
-  var timer = null;
-  $window.on("resize", function () {
-    clearTimeout(timer);
-    timer = setTimeout(postCtrlWidth, 200);
-  });
+  $window.on("resize", debounce(postCtrlWidth));
 });

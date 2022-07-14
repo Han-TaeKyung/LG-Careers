@@ -23,21 +23,6 @@ $(function () {
     $thisCon.addClass("tabOn").attr("title", "열림");
   });
 
-  // ie 오류
-  // for (var i = 0; i < tabs.length; i++) {
-  //   var tab = $tabs[i];
-  //   tab.addEventListener("click", function (e) {
-  //     var target = document.querySelector(tab.dataset.tabTarget);
-  //     var thisTabMenu = $(e.target).closest(".tabMenu");
-  //     var tabs = thisTabMenu.find("[data-tab-target]");
-  //     var tabContents = thisTabMenu.find("[data-tab-content]");
-  //     tabContents.removeClass("tabOn");
-  //     tabs.removeClass("tabOn");
-  //     tab.classList.add("tabOn");
-  //     target.classList.add("tabOn");
-  //   });
-  // }
-
   //input[file]
   var $uploadInputWrap = $(".inputBox.upload"),
     $uploadInput = $uploadInputWrap.find(".input"),

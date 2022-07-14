@@ -7,14 +7,14 @@
 }
 /*명화*/
 .visualWrap {
-  margin-top: 130px;
+  padding-top: 13.2rem;
   .wrap {
     width: 144rem;
     margin: 0 auto;
   }
   .visualBg {
     width: 178rem;
-    height: 630px;
+    height: 63rem;
     margin: 0 auto;
     background-size: cover;
     background-repeat: no-repeat;
@@ -37,13 +37,13 @@
         margin-top: 2.5rem;
         margin-bottom: 7.1rem;
         span {
-          font-size: 20px;
+          font-size: 2rem;
           line-height: 1;
           &:not(:last-child):after {
             display: inline-block;
-            margin: 0 10px;
+            margin: 0 1rem;
             width: 1px;
-            height: 12px;
+            height: 1.2rem;
             background-color: #d9dadb;
             vertical-align: middle;
           }
@@ -53,9 +53,9 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        width: 180px;
-        height: 58px;
-        border-radius: 30px;
+        width: 18rem;
+        height: 5.8rem;
+        border-radius: 3rem;
         border: 1px solid #fff;
         font-size: 1.6rem;
         line-height: 1;
@@ -67,9 +67,9 @@
     align-items: center;
     height: 24rem;
     margin-top: -12rem;
-    padding: 20px 40px;
+    padding: 2rem 4rem;
     background-color: #fff;
-    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 0.4rem 0.4rem rgba(0, 0, 0, 0.25);
     border-radius: 1.5rem;
     .title {
       display: inline-block;
@@ -96,7 +96,7 @@
       position: relative;
       overflow: hidden;
       width: 97rem;
-      padding: 0 65px;
+      padding: 0 6rem;
       .slideList {
         width: 84rem;
         .slideItem {
@@ -108,10 +108,13 @@
           border-radius: 1rem;
           .slideAnchor {
             display: block;
+            position: relative;
+            z-index: 10;
             width: 100%;
             height: 100%;
             .con {
               position: absolute;
+              z-index: 10;
               visibility: hidden;
               opacity: 0;
               bottom: 0;
@@ -123,18 +126,42 @@
               transition: all 0.2s;
               .part {
                 color: #d9d9d9;
-                margin-bottom: 10px;
+                margin-bottom: 1rem;
               }
               .name {
                 color: #fff;
               }
             }
+            &:before {
+              display: block;
+              position: absolute;
+              opacity: 0;
+              visibility: hidden;
+              z-index: -1;
+              bottom: 0;
+              left: 0;
+              width: 100%;
+              height: 11.4rem;
+              background: linear-gradient(
+                180.44deg,
+                rgba(92, 92, 92, 0) 3.43%,
+                rgba(65, 65, 65, 0.69) 56.46%,
+                rgba(0, 0, 0, 0.69) 99.62%
+              );
+              transition: all 0.3s;
+            }
           }
           &:hover {
-            .slideAnchor .con {
-              visibility: visible;
-              opacity: 1;
-              bottom: 20px;
+            .slideAnchor {
+              .con {
+                visibility: visible;
+                opacity: 1;
+                bottom: 2rem;
+              }
+              &:before {
+                opacity: 1;
+                visibility: visible;
+              }
             }
           }
         }
@@ -143,15 +170,15 @@
         position: absolute;
         width: 100%;
         left: 0;
-        top: calc(50% - 17px);
+        top: calc(50% - 1.7rem);
         button {
           display: flex;
           position: absolute;
           align-items: center;
           justify-content: center;
           border-radius: 50%;
-          width: 42px;
-          height: 42px;
+          width: 4.2rem;
+          height: 4.2rem;
           background-color: #aeaeae;
           font-size: 0;
           line-height: 0;
@@ -163,9 +190,9 @@
           }
           &:before {
             display: block;
-            width: 10px;
-            height: 10px;
-            border-width: 0 0 2px 2px;
+            width: 1rem;
+            height: 1rem;
+            border-width: 0 0 0.2rem 0.2rem;
             border-style: solid;
             border-color: #fff;
             transform: rotate(45deg);

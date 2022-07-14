@@ -5,7 +5,7 @@ body,
 html {
   position: relative;
   width: 100%;
-  height: auto
+  height: auto;
 }
 
 body {
@@ -24,8 +24,14 @@ body {
 .page {
   width: 100%;
   height: 100vh;
+  min-height: 80rem;
   font-size: 0;
   line-height: 0;
+}
+@media all and (max-height: 800px) {
+  .page {
+    min-height: 100rem;
+  }
 }
 
 .wrap {
@@ -33,7 +39,7 @@ body {
   width: 144rem;
 }
 
-@media all and (max-width:1200px) {
+@media all and (max-width: 1200px) {
   body {
     -ms-overflow-style: scrollbar;
 
@@ -46,7 +52,6 @@ body {
     height: auto;
   }
 }
-
 
 //main container
 .page1 {
@@ -97,7 +102,6 @@ body {
 
     &Wrap {
       display: block;
-
     }
 
     .formList {
@@ -121,7 +125,6 @@ body {
       height: 5.4rem;
       font-size: 2.2rem;
 
-
       .selectBtn {
         display: block;
         width: 100%;
@@ -139,7 +142,8 @@ body {
           top: calc(50% - 0.5rem);
           width: 1.2rem;
           height: 0.8rem;
-          background: url(./../images/main/visual_arrow.svg) no-repeat center center;
+          background: url(./../images/main/visual_arrow.svg) no-repeat center
+            center;
           background-size: contain;
         }
       }
@@ -160,7 +164,7 @@ body {
           width: 100%;
           border: 0;
           background-color: transparent;
-          color: #AEAEAE;
+          color: #aeaeae;
           padding: 0.6rem 0.6rem 0.6rem 0;
           font-size: 1.6rem;
           line-height: 1.2;
@@ -175,7 +179,6 @@ body {
           &.active {
             color: #fff;
           }
-
         }
       }
 
@@ -290,7 +293,7 @@ body {
 
   .titleWrap {
     position: relative;
-    margin-bottom: 7rem;
+    margin-bottom: 8rem;
 
     .more {
       display: inline-block;
@@ -318,16 +321,17 @@ body {
       bottom: -0.4rem;
       width: 45rem;
       text-align: right;
-
-
+      button {
+        margin-left: 2rem;
+      }
       .hashBtn {
         display: inline-flex;
         justify-content: center;
         align-items: center;
         height: 4.4rem;
         min-width: 10rem;
-        margin: 0.5rem 0 0.5rem 0.6rem;
-        padding: 0 1.3rem;
+        margin: 0.5rem 0 0.5rem 2rem;
+        padding: 0 1.8rem;
         border: 0.1rem solid #d9dadb;
         border-radius: 5rem;
         background-color: #fff;
@@ -336,7 +340,8 @@ body {
         color: #aeaeae;
         line-height: 1;
         transition: all 0.2s;
-        font-family: 'pretendard';
+        font-family: "pretendard";
+        vertical-align: middle;
 
         &.active,
         &:hover,
@@ -346,15 +351,31 @@ body {
           border-color: $RedD0;
         }
       }
+      .youtube {
+        vertical-align: middle;
+        svg circle {
+          fill: $Gray8E;
+          transition: all 0.3s;
+        }
+        &:hover {
+          svg circle {
+            fill: #d2272c;
+          }
+        }
+      }
     }
   }
 
-  .conWrap {}
+  .conWrap {
+  }
 
   .storyList {
-    display: block;
+    display: none;
     column-width: 40rem;
     column-gap: 7rem;
+    &.active {
+      display: block;
+    }
 
     .storyItem {
       display: inline-block;
@@ -376,18 +397,16 @@ body {
         height: 100%;
         border-radius: 1.5rem;
         transition: all 0.3s;
-
       }
 
       &:hover .imgWrap {
         box-shadow: 0 2rem 2rem rgba(0, 0, 0, 0.1);
-
       }
 
       .storyImg {
         position: relative;
         width: inherit;
-        border-radius: 2rem;
+        border-radius: 1.5rem;
         overflow: hidden;
         box-shadow: 0 0.4rem 0.4rem rgba(0, 0, 0, 0);
         transition: all 0.3s;
@@ -399,7 +418,6 @@ body {
 
       &:hover .storyImg {
         box-shadow: 0 0.4rem 0.4rem rgba(0, 0, 0, 0.25);
-
       }
 
       .storyCon {
@@ -422,8 +440,7 @@ body {
     }
   }
 
-
-  .wrap>.more {
+  .wrap > .more {
     margin: 0 auto;
     display: flex;
     justify-content: center;
@@ -502,35 +519,71 @@ body {
           }
         }
       }
+      transition: all 0.3s;
+      &.subActive + .channelItem {
+        margin-top: 25px;
+      }
 
       .items {
-        .partBtn {
+        display: block;
+        .depth1Item {
+          display: inline-block;
           position: relative;
-          margin: 1rem 0 1rem 3.5rem;
-          font-size: 2.2rem;
-          line-height: 1.2;
-          font-weight: 400;
-          color: $GrayAE;
-          background-color: transparent;
-          transition: color 0.2s;
-
+          vertical-align: top;
+          margin: 0.9rem 0 0.1rem 3.5rem;
           &:first-child {
             margin-left: 0;
+          }
+          .partBtn {
+            position: relative;
+            font-size: 2.2rem;
+            line-height: 1.4;
+            font-weight: 400;
+            color: $GrayAE;
+            background-color: transparent;
+            transition: color 0.2s;
           }
 
           &:hover,
           &.active {
-            color: $White;
+            .partBtn {
+              color: $White;
 
+              &:before {
+                display: block;
+                position: absolute;
+                width: 100%;
+                top: 100%;
+                left: 0;
+                height: 0.2rem;
+                background-color: $White;
+                font-weight: 600;
+              }
+            }
+          }
+        }
+        .depth2Item {
+          display: none;
+          position: absolute;
+          top: calc(100% + 5px);
+          left: 8px;
+          width: 300px;
+          > li {
+            display: inline-block;
+            position: relative;
+            vertical-align: top;
+            padding-left: 1rem;
+            font-size: 1.8rem;
+            color: $White;
+            line-height: 1.4;
             &:before {
               display: block;
               position: absolute;
-              width: 100%;
-              top: 100%;
               left: 0;
+              top: 1rem;
+              width: 0.2rem;
               height: 0.2rem;
-              background-color: $White;
-              font-weight: 600;
+              background-color: #fff;
             }
           }
         }
@@ -553,7 +606,8 @@ body {
       }
     }
 
-    h4 {}
+    h4 {
+    }
 
     p {
       margin-top: 2.8rem;
@@ -586,10 +640,8 @@ body {
           width: 1.4rem;
           height: 1.4rem;
           background: url(/common/images/main/more2.svg) no-repeat center center;
-
         }
       }
-
     }
 
     .descAnchor {
@@ -613,14 +665,11 @@ body {
           width: 1.6rem;
           height: 1.6rem;
           background: url(./../images/main/more2.svg) no-repeat center center;
-
-
         }
       }
     }
   }
 }
-
 
 @keyframes rollingleft1 {
   0% {
@@ -681,11 +730,8 @@ body {
           width: 100%;
           height: 1px;
           background-color: $Gray6B;
-
         }
-
       }
-
 
       &:after {
         display: inline-block;
@@ -731,10 +777,17 @@ body {
 
             &:before {
               display: block;
+              position: absolute;
+              left: 0;
+              top: 0;
               width: 100%;
               height: 100%;
               opacity: 0;
-              background: radial-gradient(63.55% 115.38% at 6.25% 91.6%, #000000 0%, rgba(0, 0, 0, 0) 100%);
+              background: radial-gradient(
+                63.55% 115.38% at 6.25% 91.6%,
+                #000000 0%,
+                rgba(0, 0, 0, 0) 100%
+              );
               transition: all 0.3s;
             }
 
@@ -768,29 +821,40 @@ body {
                 font-size: 2.2rem;
                 font-weight: 400;
               }
-
             }
 
             &.empty {
-              @include bgInclude(auto);
-            }
+              display: flex;
+              align-items: center;
+              padding-left: 2.3rem;
 
+              .emptyTitle {
+                font-size: 2.8rem;
+                line-height: 1.3;
+                letter-spacing: -0.02em;
+                color: $GrayD9;
+                font-weight: 600;
+                em {
+                  color: $RedD0;
+                  font-weight: 600;
+                }
+              }
+            }
 
             &:not(.empty):hover:before {
               box-shadow: 1.6rem 1.4rem 4.5rem -0.4rem rgba(0, 0, 0, 0.2);
               opacity: 0.3;
-
             }
 
-            &:hover .desc {
-              visibility: visible;
-              opacity: 1;
-              transform: translateY(0);
+            &:hover {
+              box-shadow: 1.6rem 1.4rem 4.5rem -0.4rem rgba(0, 0, 0, 0.2);
+              .desc {
+                visibility: visible;
+                opacity: 1;
+                transform: translateY(0);
+              }
             }
-
           }
-
-
         }
 
         // &:not(.cloneItem) {
@@ -800,14 +864,12 @@ body {
         // &.cloneItem {
         //   animation: 40s linear 0s infinite normal forwards running rollingleft2;
         // }
-
       }
     }
 
     &:hover {
       .leftScroll {
         .scrollItem {
-
           &,
           &.cloneItem {
             animation-play-state: paused;
@@ -825,26 +887,48 @@ body {
   background-color: $GrayF5;
 
   .conWrap {
-    margin-top: 6rem;
+    margin-top: 2rem;
 
-    .postWrap {}
+    .postWrap {
+    }
 
     .postList {
       .slick-list {
         margin: 0 0 0 -1rem;
-        width: calc(100% + 2rem);
+        width: calc(100% + 12rem);
+        left: -5rem;
+        padding: 3rem 5rem 5rem;
       }
 
-      .slick-slide>div {
-        margin: 0 1rem;
+      .slick-slide {
+        transition: all 0.3s;
+        > div {
+          margin: 0 1rem;
+        }
+
+        &[data-state="prev"],
+        &[data-state="next"] {
+          opacity: 0;
+          visibility: hidden;
+        }
       }
 
       .postItem {
+        position: relative;
         margin: 1rem 0;
+        height: 23.8rem;
         background-color: $White;
         border-radius: 1.5rem;
-        padding: 3.5rem 3rem;
-
+        overflow: hidden;
+        &:hover {
+          box-shadow: 1.6rem 1.4rem 4.5rem -0.4rem rgba(0, 0, 0, 0.2);
+        }
+        .postAnchor {
+          display: block;
+          width: 100%;
+          height: 100%;
+          padding: 3.5rem 3rem;
+        }
         .label {
           .part {
             font-size: 1.6rem;
@@ -853,20 +937,17 @@ body {
           }
 
           .experience {
-            font-size: 1.6rem;
+            position: absolute;
+            right: 2.8rem;
+            top: 2.9rem;
+            padding: 0.7rem 1.5rem;
+            font-size: 1.4rem;
             line-height: 1;
             color: $LGBlack;
             font-weight: 400;
             letter-spacing: -0.02em;
-
-            &:before {
-              display: inline-block;
-              width: 1px;
-              height: 1.1rem;
-              margin: 0 1rem;
-              background-color: $GrayD9;
-              vertical-align: middle;
-            }
+            border: 1px solid $GrayAE;
+            border-radius: 5rem;
           }
         }
 
@@ -880,23 +961,23 @@ body {
         }
 
         .duration {
-          margin-top: 3.5rem;
+          position: absolute;
+          bottom: 3rem;
           color: $RedD0;
           font-weight: 700;
-          font-size: 1.8rem;
+          font-size: 2rem;
           line-height: 1;
         }
       }
-
     }
 
     .postCtrl {
-      margin-top: 2rem;
+      margin-top: -3rem;
 
       .postDots {
         display: inline-block;
         vertical-align: middle;
-        margin-right: 2rem;
+        padding-right: 2rem;
 
         li {
           display: none;
@@ -917,7 +998,6 @@ body {
             color: $LGBlack;
             font-weight: 600;
           }
-
         }
       }
 
@@ -927,7 +1007,7 @@ body {
         position: relative;
         width: 100%;
         height: 0.2rem;
-        background-color: #D9D9D9;
+        background-color: #d9d9d9;
 
         .progress {
           position: absolute;
@@ -942,7 +1022,7 @@ body {
         vertical-align: middle;
         display: inline-flex;
         justify-content: flex-end;
-        margin-left: 2rem;
+        padding-left: 2rem;
 
         button {
           display: inline-flex;
@@ -1019,7 +1099,7 @@ body {
   }
 }
 
-// header color custom 
+// header color custom
 [data-color="black"] {
   #header {
     .headerWrap {
@@ -1033,7 +1113,7 @@ body {
         }
       }
 
-      #gnb>ul>li a {
+      #gnb > ul > li a {
         color: $LGBlack;
       }
 
@@ -1066,6 +1146,5 @@ body {
         }
       }
     }
-
   }
 }
