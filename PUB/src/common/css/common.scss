@@ -487,6 +487,46 @@ p {
       background-position: right center;
       background-repeat: no-repeat;
     }
+
+    &.type2{
+      height: auto;
+      min-height: auto;
+      line-height: 1.6rem;
+      border-radius: 0;
+      border:0;
+      min-width: initial;
+      padding: 0;
+      background-color: transparent;
+      font-weight: 400;
+      span{
+        font-size: 1.6rem;
+        padding-right: 0;
+        color:$Gray6B;
+        border-bottom: 0.1rem solid $Gray6B;
+        background-image: none;
+
+      }
+      i{
+        svg{
+          vertical-align: middle;
+          margin-top: -0.2rem;
+          margin-left: 0.6rem;
+        }
+      }
+      &:hover, &:focus{
+        span{
+          color:$LGBlack;
+          border-bottom: 0.1rem solid $LGBlack;
+        }
+        i{
+          svg{
+            rect{
+              fill:$LGBlack;
+            }
+          }
+        }
+      }
+    }
   }
 
   & + .btn {

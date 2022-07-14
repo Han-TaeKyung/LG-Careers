@@ -252,6 +252,16 @@
     .chStoryList {
       margin-bottom: 12rem;
 
+      &.chStoryListMain{
+        ul{
+          margin-bottom: -3.5rem;
+          justify-content: space-between !important;
+          li{
+            margin-right: 0;
+          }
+        }
+      }
+
       ul {
         display: flex;
         justify-content: flex-start;
@@ -328,6 +338,9 @@
           &.listHalf {
             width: 49.2rem;
           }
+          &.listHalf + .listHalf{
+            margin-right: 0;
+          }
 
           &.thumbNoImg {
             .thumbCon {
@@ -350,40 +363,42 @@
   .chPostList {
     ul {
       display: flex;
-      justify-content: space-between;
+      justify-content: flex-start;
       flex-wrap: wrap;
-
+      margin-bottom: -3.5rem;
       li {
-        width: 31.6rem;
-        height: 32rem;
+        width: 31.8rem;
+        height: 20.9rem;
+        margin-right: 3.4rem;
         background: $White;
         border-radius: 1.5rem;
         margin-bottom: 3.5rem;
         position: relative;
+        &:nth-child(3n){
+          margin-right: 0;
+        }
 
         a {
           display: block;
           width: 100%;
           height: 100%;
-          padding: 3rem 2.5rem;
+          padding: 3rem;
           border-radius: 1.5rem;
           &:hover,
             &:focus {
-              box-shadow: 0.8rem 0.9rem 4rem -0.8rem rgba(0, 0, 0, 0.2);
+              box-shadow: 1.6rem 1.4rem 4.5rem -0.4rem rgba(0, 0, 0, 0.2);
             }
 
           .dDay {
             display: block;
-            width: 6.2rem;
-            height: 3rem;
-            border-radius: 1.5rem;
-            background-color: $BrandColorRed;
-            font-size: 1.4rem;
-            font-weight: 700;
-            color: $White;
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: $RedD0;
             letter-spacing: -0.02em;
-            text-align: center;
-            line-height: 3.1rem;
+            line-height: 1.8rem;
+            position: absolute;
+            bottom: 3rem;
+            left: 3rem;
           }
 
           .category {
@@ -396,24 +411,21 @@
           }
 
           p {
-            font-size: 2.2rem;
-            line-height: 3.08rem;
+            font-size: 2rem;
+            line-height: 2.8rem;
             letter-spacing: -0.02em;
-            color: $Black;
+            color: $LGBlack;
             font-weight: 600;
           }
 
           .postCon {
-            position: absolute;
-            bottom: 3rem;
-            left: 2.5rem;
-            font-size: 1.6rem;
-            line-height: 1.6rem;
+            font-size: 1.4rem;
+            line-height: 1.4rem;
             letter-spacing: -0.02em;
-            color: $LGBlack;
-
+            color: $Gray6B;
+            margin-bottom: 2.5rem;
             .pointC {
-              color: $BrandColorRed;
+            
               position: relative;
               padding-right: 1.1rem;
               margin-right: 1rem;
@@ -425,7 +437,7 @@
                 background-color: $GrayD9;
                 position: absolute;
                 right: 0;
-                top: 0.5rem;
+                top: 0.2rem;
               }
             }
           }
