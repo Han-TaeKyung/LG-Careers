@@ -357,7 +357,9 @@ body {
           fill: $Gray8E;
           transition: all 0.3s;
         }
-        &:hover {
+        &:hover,
+        &.active,
+        &:focus {
           svg circle {
             fill: #d2272c;
           }
