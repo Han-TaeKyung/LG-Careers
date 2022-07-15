@@ -69,4 +69,30 @@ $(function () {
       $thisAnswer.attr("title", "닫힘");
     }
   });
+
+  // popup
+
+  var $popBtn = $(".popBtn[data-pop]"),
+    $popPanel = $(".popPanel[data-pop]"),
+    $popBgClose = $popPanel.find(".bgClose"),
+    $popClose = $popPanel.find(".close");
+  $popBtn.on("click", function () {
+    var $this = $(this),
+      thisName = $this.attr("data-pop"),
+      $thisPanel = $('.popPanel[data-pop="' + thisName + '"]');
+    $thisPanel.addClass("active").focus();
+  });
+  $popBgClose.on("click", function () {
+    setPopup($(this));
+  });
+  $popClose.on("click", function () {
+    setPopup($(this));
+  });
+  function setPopup($this) {
+    var $thisParent = $this.closest(".popPanel"),
+      thisName = $thisParent.attr("data-pop"),
+      $thisBtn = $(".popBtn[data-pop='" + thisName + "']");
+    $thisParent.removeClass("active").removeAttr("title");
+    $thisBtn.focus();
+  }
 });
