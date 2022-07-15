@@ -265,9 +265,14 @@
   <footer id="footer">@@include('./../layouts/include/footer.html')</footer>
 </body>
 <script>
+  var $share = $('.share > li > a');
   $('.likeIco a').click(function(){
     $(this).toggleClass('likeOn');
     return false;
-  })
+  });
+  $share.click(function(){
+    $(this).parent().toggleClass('shareOn');
+    return false;
+  });
 </script>
 </html>
