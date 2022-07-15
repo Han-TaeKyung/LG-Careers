@@ -58,7 +58,7 @@
 
   &:hover {
     cursor: pointer;
-    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0.5rem 0.5rem 0.5rem rgba(0, 0, 0, 0.1);
   }
 }
 
@@ -726,8 +726,8 @@ p {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-    min-width: 120px;
-    background: url(../images/icon/selectBg.svg) no-repeat right 15px center;
+    min-width: 12rem;
+    background: url(../images/icon/selectBg.svg) no-repeat right 1.5rem center;
     color: $LGBlack;
     font-size: 1.4rem;
     line-height: 2;
@@ -817,9 +817,9 @@ p {
     display: inline-flex;
     align-items: center;
     position: relative;
-    height: 48px;
+    height: 4.8rem;
     background-color: $GrayF5;
-    border-radius: 5px;
+    border-radius: 0.5rem;
     flex: 1;
 
     .input {
@@ -840,9 +840,9 @@ p {
       display: none;
       justify-content: center;
       align-items: center;
-      width: 18px;
-      height: 18px;
-      margin-left: 6px;
+      width: 1.8rem;
+      height: 1.8rem;
+      margin-left: 0.6rem;
       border-radius: 50%;
       background-color: #8e8e8e;
       font-size: 0;
@@ -850,8 +850,8 @@ p {
 
       &:before {
         display: block;
-        width: 6px;
-        height: 6px;
+        width: 0.6rem;
+        height: 0.6rem;
         background: url(../images/icon/close.svg) no-repeat center center;
       }
 
@@ -866,9 +866,9 @@ p {
     justify-content: center;
     align-items: center;
     position: relative;
-    padding: 5px 30px;
-    margin-left: 8px;
-    border-radius: 5px;
+    padding: 0.5rem 3rem;
+    margin-left: 0.8rem;
+    border-radius: 0.5rem;
     border: 1px solid $GrayAE;
     overflow: visible;
     width: auto;
@@ -1096,15 +1096,15 @@ p {
   }
 
   .paging_num {
-    width: 36px;
-    height: 36px;
+    width: 3.6rem;
+    height: 3.6rem;
     text-align: center;
-    line-height: 36px;
-    border-radius: 3px;
+    line-height: 3.6rem;
+    border-radius: 0.3rem;
     border: 1px solid #cccccc;
 
     a {
-      font-size: 14px;
+      font-size: 1.4rem;
       display: block;
       width: 100%;
       height: 100%;
@@ -1122,7 +1122,7 @@ p {
 
 //아코디언
 .guideAcc {
-  margin: 10px 0;
+  margin: 1rem 0;
   border-top: 1px solid $Gray6B;
 
   > * {
@@ -1139,7 +1139,7 @@ p {
       position: relative;
       width: 100%;
       min-height: 7rem;
-      padding: 10px 32px;
+      padding: 1rem 3.2rem;
       text-align: left;
       font-size: 0;
       line-height: 0;
@@ -1148,17 +1148,17 @@ p {
       &:after {
         display: block;
         position: absolute;
-        right: 13px;
-        top: calc(50% - 4px);
-        width: 14px;
-        height: 7px;
+        right: 1.3rem;
+        top: calc(50% - 0.4rem);
+        width: 1.4rem;
+        height: 0.7rem;
         background: url(../images/icon/accArrow.svg) no-repeat center center;
       }
 
       .accTitle {
         display: inline-block;
-        width: 107px;
-        margin-right: 20px;
+        width: 10.7rem;
+        margin-right: 2rem;
         font-size: 1.8rem;
         line-height: 1.5;
         font-weight: 600;
@@ -1186,7 +1186,7 @@ p {
 
     .accCon {
       position: relative;
-      padding: 10px 32px 40px 32px;
+      padding: 1rem 3.2rem 4rem 3.2rem;
       font-size: 1.6rem;
     }
   }
@@ -1213,23 +1213,23 @@ p {
 
   .q {
     .qBtn {
-      padding-top: 9px;
-      padding-left: 30px;
-      min-height: 90px;
+      padding-top: 0.9rem;
+      padding-left: 3rem;
+      min-height: 9rem;
 
       &:after {
-        right: 25px;
+        right: 2.5rem;
       }
 
       .accTitle {
-        width: 32px;
+        width: 3.2rem;
         color: $LGBlack;
         font-size: 1.6rem;
         line-height: 1.5;
         text-align: center;
-        min-width: 40px;
+        min-width: 4rem;
         margin-right: 0;
-        padding-right: 5px;
+        padding-right: 0.5rem;
         text-align: left;
         vertical-align: top;
       }
@@ -1248,7 +1248,7 @@ p {
 
         .date {
           display: block;
-          margin-top: 6px;
+          margin-top: 0.6rem;
           color: $Gray6B;
           font-size: 1.4rem;
           line-height: 1.5;
@@ -1261,7 +1261,7 @@ p {
 
   .a {
     .accCon {
-      padding: 30px 20px 40px 70px;
+      padding: 3rem 2rem 4rem 7rem;
       background-color: #fff9fb;
       font-size: 1.6rem;
       line-height: 1.6;
@@ -1278,21 +1278,21 @@ p {
 // text.warning
 .warning {
   position: relative;
-  padding-left: 11px;
+  padding-left: 1.1rem;
   color: $Gray6B;
   font-size: 1.4rem;
   line-height: 1.6;
   letter-spacing: -0.02em;
-  margin: 10px 0;
+  margin: 1rem 0;
   word-break: keep-all;
 
   &:before {
     display: block;
     position: absolute;
     left: 0;
-    top: 8px;
-    width: 3px;
-    height: 3px;
+    top: 0.8rem;
+    width: 0.3rem;
+    height: 0.3rem;
     border-radius: 50%;
     background-color: $Gray6B;
   }
@@ -1301,6 +1301,22 @@ p {
     color: $RedD0;
     text-decoration: underline !important;
   }
+}
+.warning.type2 {
+  &:before {
+    display: block;
+    position: absolute;
+    top: 0.2rem;
+    left: 0;
+    width: 1.8rem;
+    height: 1.8rem;
+    background: url(../images/icon/warning.svg) no-repeat center center;
+  }
+  padding-left: 2.6rem;
+  font-size: 1.4rem;
+  line-height: 1.5;
+  letter-spacing: -0.05em;
+  color: $Gray6B;
 }
 
 /* alert */
@@ -1373,8 +1389,6 @@ p {
 
 // tabs
 .tabMenu {
-  margin: 10px 0;
-
   .tabs {
     display: flex;
     font-size: 1.8rem;
@@ -1396,14 +1410,11 @@ p {
       }
 
       &.tabOn,
-      &:hover {
+      &.tabOn .tabBtn,
+      &:hover,
+      &:hover .tabBtn {
         color: $RedD0;
         font-weight: 600;
-
-        .tabBtn {
-          color: $RedD0;
-          font-weight: 600;
-        }
       }
     }
   }

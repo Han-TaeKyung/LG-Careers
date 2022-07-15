@@ -4,10 +4,10 @@ $(function () {
 
   $tabBtn.on("click", function () {
     var $this = $(this),
-      $thisLi = $this.closest("li"),
+      $thisLi = $this.closest(".tab"),
       thisTarget = $thisLi.attr("data-tab-target"),
       $thisTabWrap = $this.closest(".tabMenu"),
-      $tabLi = $thisTabWrap.find("[data-tab-target]"),
+      $tabLi = $thisTabWrap.find(".tab"),
       $thisConWrap = $thisTabWrap.find(".tabCon"),
       $tabCon = $thisConWrap.find("[data-tab-content]"),
       $thisCon = $thisConWrap.find("#" + thisTarget);
@@ -22,21 +22,6 @@ $(function () {
     $tabCon.removeClass("tabOn").removeAttr("title");
     $thisCon.addClass("tabOn").attr("title", "열림");
   });
-
-  // ie 오류
-  // for (var i = 0; i < tabs.length; i++) {
-  //   var tab = $tabs[i];
-  //   tab.addEventListener("click", function (e) {
-  //     var target = document.querySelector(tab.dataset.tabTarget);
-  //     var thisTabMenu = $(e.target).closest(".tabMenu");
-  //     var tabs = thisTabMenu.find("[data-tab-target]");
-  //     var tabContents = thisTabMenu.find("[data-tab-content]");
-  //     tabContents.removeClass("tabOn");
-  //     tabs.removeClass("tabOn");
-  //     tab.classList.add("tabOn");
-  //     target.classList.add("tabOn");
-  //   });
-  // }
 
   //input[file]
   var $uploadInputWrap = $(".inputBox.upload"),
