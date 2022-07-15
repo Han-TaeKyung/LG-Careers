@@ -69,7 +69,7 @@ $(function () {
   $document.on("click", ".mainNav .navBtn", function () {
     var thisIndex = parseInt($(this).attr("data-index")),
       thisData = pageInfo.filter(function (x) {
-        return x.id === thisIndex;
+        return x.id == thisIndex;
       })[0];
     setNav(thisIndex);
     $("body,html").stop().animate({ scrollTop: thisData.offsetTop }, speed);
@@ -78,9 +78,8 @@ $(function () {
   //nav change function
   function setNav(index) {
     var thisData = pageInfo.filter(function (x) {
-      return x.id === index;
+      return x.id == index;
     })[0];
-    console.log(index, pageInfo);
     var $thisElem = $mainNav.find(".navBtn[data-index=" + index + "]");
     $html.attr({
       "data-page": thisData.id,
