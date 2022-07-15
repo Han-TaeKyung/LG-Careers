@@ -922,6 +922,8 @@ body {
         background-color: $White;
         border-radius: 1.5rem;
         overflow: hidden;
+        box-shadow: 1.6rem 1.4rem 4.5rem -0.4rem rgba(0, 0, 0, 0);
+        transition: all 0.3s;
         &:hover {
           box-shadow: 1.6rem 1.4rem 4.5rem -0.4rem rgba(0, 0, 0, 0.2);
         }
@@ -1061,6 +1063,7 @@ body {
 
 .mainNav {
   position: fixed;
+  z-index: 9999;
   left: 2vw;
   top: 50%;
   width: 2rem;
@@ -1148,5 +1151,10 @@ body {
         }
       }
     }
+  }
+}
+[data-scroll="false"] {
+  .mainNav {
+    display: none;
   }
 }

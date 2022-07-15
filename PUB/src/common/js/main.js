@@ -12,12 +12,14 @@ $(function () {
 
   //pageInfo 설정 변수
   var pageInfo = []; // {id:number(1부터 시작), offsetTop:number, ofttsetBottm:number, color:white|black}
-  var speed = 100; // scroll 속도
+  var speed = 500; // scroll 속도
   var breakPoint = $window.width() >= 1500 && $window.height() > 800; //scroll 모션 적용 범위
   var timer = null;
 
   //pageInfo 기본설정
-  setPageInfo();
+  $window.on("load", function () {
+    setPageInfo();
+  });
   $window.on("resize", debounce(setPageInfo));
 
   function debounce(func) {
@@ -38,7 +40,7 @@ $(function () {
         obj = {};
       obj.id = thisIndex;
       obj.offsetTop = $this.offset().top;
-      obj.offsetBottom = $this.offset().top + $this.outerHeight() - 1;
+      obj.offsetBottom = $this.offset().top + $this.outerHeight() - 0.0001;
       obj.color = thisColor;
       var windowBottom = $window.scrollTop() + $window.height();
       if (windowBottom >= obj.offsetTop && windowBottom <= obj.offsetBottom) {
@@ -65,8 +67,12 @@ $(function () {
 
   //nav click event
   $document.on("click", ".mainNav .navBtn", function () {
-    var thisIndex = parseInt($(this).attr("data-index"));
+    var thisIndex = parseInt($(this).attr("data-index")),
+      thisData = pageInfo.filter(function (x) {
+        return x.id === thisIndex;
+      })[0];
     setNav(thisIndex);
+    $("body,html").stop().animate({ scrollTop: thisData.offsetTop }, speed);
   });
 
   //nav change function
@@ -74,13 +80,13 @@ $(function () {
     var thisData = pageInfo.filter(function (x) {
       return x.id === index;
     })[0];
-    var $thisElem = $(".mainNav .navBtn[data-index=" + index + "]");
-    $("body,html").stop().animate({ scrollTop: thisData.offsetTop }, speed);
+    console.log(index, pageInfo);
+    var $thisElem = $mainNav.find(".navBtn[data-index=" + index + "]");
     $html.attr({
       "data-page": thisData.id,
       "data-color": thisData.color,
     });
-    $(".mainNav .navBtn").removeClass("active").removeAttr("title");
+    $mainNav.find(".navBtn").removeClass("active").removeAttr("title");
     $thisElem.addClass("active").attr("title", index + "번째 선택됨");
   }
 
@@ -100,7 +106,6 @@ $(function () {
       thisScrollTop = $this.scrollTop(),
       thisScrollBottom = thisScrollTop + $this.outerHeight(),
       thisHeight = $this.find(".scrollWrap").outerHeight();
-
     if (breakPoint) {
       $html.attr("data-scroll", true);
       if ($this.hasClass("innerScroll")) {
@@ -113,6 +118,7 @@ $(function () {
             .stop()
             .animate({ scrollTop: (nextIndex - 1) * h }, speed);
           setCustomIndex(nextIndex, customIndex);
+          setNav(parseInt($html.attr("data-page")));
           return false;
         }
       } else {
@@ -120,6 +126,7 @@ $(function () {
           .stop()
           .animate({ scrollTop: (nextIndex - 1) * h }, speed);
         setCustomIndex(nextIndex, customIndex);
+        setNav(parseInt($html.attr("data-page")));
         return false;
       }
     } else {
@@ -143,6 +150,7 @@ $(function () {
           }
         });
       }, 200);
+      setNav(parseInt($html.attr("data-page")));
     }
   }
 
@@ -186,7 +194,6 @@ $(function () {
       "data-page": customIndex,
       "data-color": color,
     });
-    setNav(customIndex);
   }
 
   //page1-visual
@@ -380,6 +387,9 @@ $(function () {
   function setIndex(index) {
     return '.slick-slide[data-slick-index="' + index + '"]';
   }
+  function setState(state) {
+    return { "data-state": state };
+  }
   $postItem.each(function () {
     var $this = $(this);
 
@@ -388,26 +398,24 @@ $(function () {
         prevIndex = thisIndex - (showCount + 1),
         nextIndex = thisIndex + showCount;
       $this.attr("data-state", "now");
-      $postSlide.find(setIndex(prevIndex)).attr("data-state", "prev");
-      $postSlide.find(setIndex(nextIndex)).attr("data-state", "next");
+      $postSlide.find(setIndex(prevIndex)).attr(setState("prev"));
+      $postSlide.find(setIndex(nextIndex)).attr(setState("next"));
     }
   });
 
   $window.on("load", function () {
     $postItem.attr("data-state", "");
-    $postSlide.find(setIndex(0)).attr("data-state", "now");
-    $postSlide.find(setIndex(showCount)).attr("data-state", "next");
+    $postSlide.find(setIndex(0)).attr(setState("now"));
+    $postSlide.find(setIndex(showCount)).attr(setState("next"));
   });
 
   $postSlide.on(
     "beforeChange",
     function (event, slide, currentSlide, nextSlide) {
-      $postSlide.find(".slick-slide").attr("data-state", "");
-      $postSlide.find(setIndex(nextSlide)).attr("data-state", "now");
-      $postSlide.find(setIndex(nextSlide - 1)).attr("data-state", "prev");
-      $postSlide
-        .find(setIndex(nextSlide + showCount))
-        .attr("data-state", "next");
+      $postSlide.find(".slick-slide").attr(setState(""));
+      $postSlide.find(setIndex(nextSlide)).attr(setState("now"));
+      $postSlide.find(setIndex(nextSlide - 1)).attr(setState("prev"));
+      $postSlide.find(setIndex(nextSlide + showCount)).attr(setState("next"));
     }
   );
 
