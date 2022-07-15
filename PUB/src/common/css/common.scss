@@ -1546,8 +1546,15 @@ p {
       }
       .share {
         margin-top: 1.5rem;
+        position: relative;
         ul {
           display: none;
+          position: absolute;
+        }
+        .shareOn{
+          >ul{
+            display: block;
+          }
         }
       }
     }

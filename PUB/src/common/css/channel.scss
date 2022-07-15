@@ -515,12 +515,6 @@
             width: 1.4rem;
             height: 0.8rem;
           }
-          &:focus {
-            .icon {
-              transition: 0.3s;
-              transform: rotate(180deg);
-            }
-          }
         }
         > ul {
           position: absolute;
@@ -531,6 +525,17 @@
               letter-spacing: -0.02em;
               color: $Gray6B;
             }
+          }
+        }
+        &.listLineOn{
+          >a{
+            .icon {
+              transition: 0.3s;
+              transform: rotate(180deg);
+            }
+          }
+          >ul{
+            display: block;
           }
         }
       }
@@ -649,12 +654,12 @@
           font-size: 4rem;
         }
       }
-      .share {
-        margin-top: 1.5rem;
-        ul {
-          display: none;
-        }
-      }
+      // .share {
+      //   margin-top: 1.5rem;
+      //   ul {
+      //     display: none;
+      //   }
+      // }
     }
     .chViewInfo {
       font-size: 1.6rem;

@@ -416,9 +416,17 @@
   <footer id="footer">@@include('./../layouts/include/footer.html')</footer>
 </body>
 <script>
+  var $listUp = $('.listLineUp > ul > li > a');
   $('.likeIco a').click(function(){
     $(this).toggleClass('likeOn');
     return false;
-  })
+  });
+  $listUp.on("click", function () {
+    $(this).parent().toggleClass('listLineOn').siblings().removeClass('listLineOn');
+  });
+  $listUp.on("focusout", function () {
+    $(this).parent().removeClass('listLineOn');
+  });
+  
 </script>
 </html>
