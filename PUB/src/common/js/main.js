@@ -12,9 +12,8 @@ $(function () {
 
   //pageInfo 설정 변수
   var pageInfo = []; // {id:number(1부터 시작), offsetTop:number, ofttsetBottm:number, color:white|black}
-  var speed = 500; // scroll 속도
+  var speed = 1000; // scroll 속도
   var breakPoint = $window.width() >= 1500 && $window.height() > 800; //scroll 모션 적용 범위
-  var timer = null;
 
   //pageInfo 기본설정
   $window.on("load", function () {
@@ -41,6 +40,10 @@ $(function () {
       obj.id = thisIndex;
       obj.offsetTop = $this.offset().top;
       obj.offsetBottom = $this.offset().top + $this.outerHeight() - 0.0001;
+      $this.attr({
+        "data-offsetTop": $this.offset().top,
+        "data-offsetBottom": $this.offset().top + $this.outerHeight() - 0.0001,
+      });
       obj.color = thisColor;
       var windowBottom = $window.scrollTop() + $window.height();
       if (windowBottom >= obj.offsetTop && windowBottom <= obj.offsetBottom) {
@@ -52,6 +55,17 @@ $(function () {
       pageInfo.push(obj);
       breakPoint = $window.width() >= 1500 && $window.height() > 800;
       $html.attr("data-scroll", breakPoint ? true : false);
+    });
+
+    // html data 처음 설정
+    var firstData = pageInfo.filter(function (x) {
+      return x.id === 1;
+    })[0];
+    $html.attr({
+      "data-page": firstData.id,
+      "data-color": firstData.color,
+      "data-offsetTop": firstData.offsetTop,
+      "data-offsetBottom": firstData.offsetBottom,
     });
 
     //nav
@@ -96,39 +110,70 @@ $(function () {
   });
 
   // 스크롤 이벤트 실행 함수
+  var nowScroll = false; // 스크롤 시, 다른 스크롤 이벤트 방지 목적 변수
   function moveContainer(e, delta, $this) {
-    var h = $window.height(),
-      currentIndex = parseInt($this.attr("data-page")),
+    var currentIndex = parseInt($this.attr("data-page")),
       nextIndex = currentIndex - delta;
     if (nextIndex > pageInfo.length) return; // 마지막 페이지 이후에 스크롤을 넘길 경우, 아래 내용을 실행하지 않음
     var customIndex = 0,
       thisScrollTop = $this.scrollTop(),
       thisScrollBottom = thisScrollTop + $this.outerHeight(),
-      thisHeight = $this.find(".scrollWrap").outerHeight();
+      thisHeight = $this.find(".scrollWrap").outerHeight(),
+      nextData = pageInfo.filter(function (x) {
+        return nextIndex > 0 ? x.id == parseInt(nextIndex) : x.id == 1;
+      })[0];
     if (breakPoint) {
-      $html.attr("data-scroll", true);
       if ($this.hasClass("innerScroll")) {
         //page 안쪽 콘텐츠가 길어질 때
+        e.stopPropagation();
+        var prevBottom = Math.ceil(
+          $('.page[data-page="' + (currentIndex - 1) + '"]').attr(
+            "data-offsetBottom"
+          )
+        );
         if (
           (thisScrollTop <= 0 && delta > 0) ||
           (thisScrollBottom >= thisHeight && delta < 0)
         ) {
-          $("body,html")
-            .stop()
-            .animate({ scrollTop: (nextIndex - 1) * h }, speed);
-          setCustomIndex(nextIndex, customIndex);
-          setNav(parseInt($html.attr("data-page")));
+          e.preventDefault();
+          if (!nowScroll) {
+            nowScroll = true;
+            $("body,html")
+              .stop()
+              .animate({ scrollTop: nextData.offsetTop }, speed);
+            setNav(parseInt($html.attr("data-page")));
+            $html.attr({
+              "data-page": nextData.id,
+              "data-color": nextData.color,
+            });
+            setTimeout(function () {
+              nowScroll = false;
+            }, speed);
+          } else {
+          }
           return false;
         }
+        setTimeout(function () {
+          $("body,html").scrollTop(prevBottom);
+        }, 100);
       } else {
-        $("body,html")
-          .stop()
-          .animate({ scrollTop: (nextIndex - 1) * h }, speed);
-        setCustomIndex(nextIndex, customIndex);
-        setNav(parseInt($html.attr("data-page")));
+        e.preventDefault();
+        if (!nowScroll) {
+          nowScroll = true;
+          setCustomIndex(nextIndex, customIndex);
+          $("body,html")
+            .stop()
+            .animate({ scrollTop: nextData.offsetTop }, speed);
+
+          setNav(parseInt($html.attr("data-page")));
+          setTimeout(function () {
+            nowScroll = false;
+          }, speed);
+        }
         return false;
       }
     } else {
+      e.preventDefault();
       setTimeout(function () {
         //너비 1200 이하거나 높이 800 이하 일 때
         var scrollTop = $window.scrollTop(),
