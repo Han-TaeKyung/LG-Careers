@@ -1,6 +1,6 @@
 <div class="tab-10">
   <h2>10. 기타</h2>
-  <h3>슬라이드</h3>
+  <h3 class="mT20 mB10">슬라이드</h3>
   <br />
   <p>
     페이지에 슬라이드 작업 시 아래 script를 꼭 추가해주세요.(복사 기능 적용
@@ -17,42 +17,63 @@
     <div class="item">hi~4</div>
     <div class="item">hi~5</div>
   </div>
-</div>
 
-<script>
-  //slick
-  var $lists = $(".slide-list");
-  $lists.slick({
-    //기본
-    autoplay: true,
-    dots: false,
-    swipe: true,
-    draggable: true,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    variableWidth: false,
-    infinite: true,
-    //prevArrow: $infoBanner1.find(".prev"),
-    //nextArrow: $infoBanner1.find(".next"),
-    //추가 기능
-    autoArrow: $(".banner1 .auto"),
-    isRunOnLowIE: false,
-    pauseOnArrowClick: true,
-    pauseOnDirectionKeyPush: true,
-    pauseOnSwipe: true,
-    pauseOnDotsClick: true,
-    pauseText: "정지",
-    playText: "재생",
-    responsive: [
-      {
-        breakpoint: 1001,
-        settings: {
-          swipe: true,
-          draggable: true,
-          verticalSwiping: true,
-          swipeToSlide: true,
+  <script>
+    //slick
+    var $lists = $(".slide-list");
+    $lists.slick({
+      //기본
+      autoplay: true,
+      dots: false,
+      swipe: true,
+      draggable: true,
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      variableWidth: false,
+      infinite: true,
+      //prevArrow: $infoBanner1.find(".prev"),
+      //nextArrow: $infoBanner1.find(".next"),
+      //추가 기능
+      autoArrow: $(".banner1 .auto"),
+      isRunOnLowIE: false,
+      pauseOnArrowClick: true,
+      pauseOnDirectionKeyPush: true,
+      pauseOnSwipe: true,
+      pauseOnDotsClick: true,
+      pauseText: "정지",
+      playText: "재생",
+      responsive: [
+        {
+          breakpoint: 1001,
+          settings: {
+            swipe: true,
+            draggable: true,
+            verticalSwiping: true,
+            swipeToSlide: true,
+          },
         },
-      },
-    ],
-  });
-</script>
+      ],
+    });
+  </script>
+  <h3 class="mT50 mB20">팝업</h3>
+  <div>
+    <button type="button" class="btn popBtn" data-pop="pop1">팝업열기</button>
+    <div class="popPanel" data-pop="pop1">
+      <button class="bgClose">닫기</button>
+      <div class="popConWrap">
+        <div class="popTitle">
+          <h3>팝업 타이틀입니다.</h3>
+        </div>
+        <div class="popCon">
+          <h4>팝업 내용입니다.</h4>
+          <p></p>
+        </div>
+        <div class="popFooter">
+          <a href="" class="btn small">취소</a>
+          <a href="" class="btn small type5">확인</a>
+        </div>
+        <button type="button" class="close">닫기</button>
+      </div>
+    </div>
+  </div>
+</div>
