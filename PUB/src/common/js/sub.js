@@ -95,4 +95,43 @@ $(function () {
     $thisParent.removeClass("active").removeAttr("title");
     $thisBtn.focus();
   }
+
+  //리스트목록 정렬
+  var $formList = $(".listLineUp"),
+    $formSelect = $formList.find(".luSelect"),
+    $formBtn = $formSelect.find(".luSelectBtn"),
+    $selectBtn = $formSelect.find(".luSelectList a");
+  $formBtn.on("click", function () {
+    var $this = $(this),
+      $thisParent = $this.closest(".luSelect"),
+      $thisPanel = $this.siblings(".luSelectList");
+    $thisParent.toggleClass("active");
+    if ($thisParent.hasClass("active")) {
+      $this.attr("title", "닫기");
+      $thisPanel.stop().slideDown(200);
+      $thisPanel.attr("title", "열림");
+    } else {
+      $this.attr("title", "열기");
+      $thisPanel.stop().slideUp(200);
+      $thisPanel.attr("title", "닫힘");
+    }
+  });
+
+  $selectBtn.on("click", function () {
+    var $this = $(this),
+      thisValue = $this.attr("data-value"),
+      $thisPanel = $this.closest(".luSelectList"),
+      $thisParent = $this.closest(".luSelect");
+    $thisParentBtn = $thisParent.find(".luSelectBtn");
+
+    $this
+      .addClass("active")
+      .attr("title", "선택됨")
+      .siblings()
+      .removeClass("active")
+      .removeAttr("title");
+    $thisPanel.stop().slideUp(200).attr("title", "닫기");
+    $thisParent.removeClass("active").attr("title", "열림");
+    $thisParentBtn.attr("data-value", thisValue).text($this.text());
+  });
 });
