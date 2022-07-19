@@ -173,7 +173,7 @@ $(function () {
         return false;
       }
     } else {
-      e.preventDefault();
+      // e.preventDefault();
       setTimeout(function () {
         //너비 1200 이하거나 높이 800 이하 일 때
         var scrollTop = $window.scrollTop(),
@@ -360,8 +360,23 @@ $(function () {
 
   // page4 - our people
   var $rollingScroll = $(".page4 .leftScroll");
-  var $scrollItem = $rollingScroll.find(".scrollItem");
+  var $scrollItem = $rollingScroll.find(".scrollItem"),
+    $peopleItem = $scrollItem.find(".peopleItem").detach();
   var $scrollItemInner = $scrollItem.html();
+  var peopleCount = 0;
+  var $peopleRow = $('<div class="peopleRow"></div>');
+  $scrollItem.html("");
+  $peopleItem.each(function () {
+    var $this = $(this);
+    $peopleRow.append($this);
+    peopleCount += 1;
+    if (peopleCount > 1) {
+      $scrollItem.append($peopleRow);
+      $peopleRow = $('<div class="peopleRow"></div>');
+      peopleCount = 0;
+    }
+  });
+
   $scrollItem.append($scrollItemInner);
   $scrollItem.clone().addClass("cloneItem").appendTo($rollingScroll);
   $scrollItem.css("left", 0);

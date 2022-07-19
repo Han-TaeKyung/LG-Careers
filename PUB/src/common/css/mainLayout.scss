@@ -859,13 +859,13 @@ body {
           }
         }
 
-        // &:not(.cloneItem) {
-        //   animation: 40s linear 0s infinite normal forwards running rollingleft1;
-        // }
+        &:not(.cloneItem) {
+          animation: 40s linear 0s infinite normal forwards running rollingleft1;
+        }
 
-        // &.cloneItem {
-        //   animation: 40s linear 0s infinite normal forwards running rollingleft2;
-        // }
+        &.cloneItem {
+          animation: 40s linear 0s infinite normal forwards running rollingleft2;
+        }
       }
     }
 
