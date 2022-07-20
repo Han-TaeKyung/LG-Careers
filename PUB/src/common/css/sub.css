@@ -13,3 +13,6 @@
 /* 로그인, 회원가입 */
 @import "login.css";
 @import "login2.css";
+
+/* 지원하기 */
+@import "apply.css";
