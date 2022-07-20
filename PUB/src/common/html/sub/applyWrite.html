@@ -7,9 +7,9 @@
   <!-- <div id="headers">@@include('./../layouts/include/header.html')</div> -->
   <!--header END-->
   <div id="container" class="subContainer">
+      <div class="subConWrap apply">
     <div class="LblockContentMain">
-        
-        <div class="LblockTab indicate">
+      <div class="LblockTab indicate">
             <ul>
                 <li class="Lfirst Lcurrent"><a href="#LblockTabContent01" onclick="$.submitFlag();">1. 기본사항</a></li>
                 <li><a href="#LblockTabContent02" onclick="$.submitFlag();">2. 상세인적사항</a></li>
@@ -17,18 +17,16 @@
                 <li><a href="#LblockTabContent04" onclick="$.submitFlag();">4. 자기소개서</a></li>
                 <li class="Llast"><a href="#LblockTabContent05" onclick="$.fViewAppCompleteDoc();">5. 제출</a></li>
             </ul>
-        </div>
-        <div class="Lexplanation">
-            <p><strong>30분동안 이용이 없을 경우 개인신상보호를 위해 자동 로그아웃되니 지원서를 주기적으로 저장해주시기 바랍니다.</strong></p>
-        </div>
+      </div>
 
+      <div class="Lexplanation">
+            <p><strong>30분동안 이용이 없을 경우 개인신상보호를 위해 자동 로그아웃되니 지원서를 주기적으로 저장해주시기 바랍니다.</strong></p>
+      </div>
     
-    
-        <form id="submitForm" name="submitForm" method="post">
-            
-<input type="hidden" name="devon.token.field.applySumbit" value="applySumbit" />
-<input type="hidden" name="applySumbit" value="2CBG6Z3ARGN1A9ZXJCEWD1WNDEXPWTCA" />
-        </form>
+      <form id="submitForm" name="submitForm" method="post">            
+        <input type="hidden" name="devon.token.field.applySumbit" value="applySumbit" />
+        <input type="hidden" name="applySumbit" value="2CBG6Z3ARGN1A9ZXJCEWD1WNDEXPWTCA" />
+      </form>
     
     <div id="LblockTabContent01" class="LblockTabContent">
     <form id="baseInfoForm" name="baseInfoForm" method="post" enctype="multipart/form-data">
@@ -40,17 +38,12 @@
             
 <input type="hidden" name="devon.token.field.sessionscope.sessionscopebase" value="sessionscopebase" />
 <input type="hidden" name="sessionscopebase" value="7TSAZG6H1Y05GV9TS09HLY9QA80FH1WD" />
-        
-        
-        
-            
-
-            <div class="foldedInphone">
-                <div class="dtFoldedInPhone">
-                    <div class="LblockPageSubtitle">
-                        <h3>지원사항</h3>
-                    </div>
-                </div>
+   <div class="foldedInphone">
+    <div class="dtFoldedInPhone">
+        <div class="LblockPageSubtitle">
+            <h3>지원사항</h3>
+        </div>
+    </div>
                 <div class="ddFoldedInPhone">
                     <div class="LblockDetailTable">
                         <input type="hidden" id="orderOfDesireCount" name="orderOfDesireCount" value="2" />
@@ -751,92 +744,15 @@
                     <p class="Lselectbox">
                         <select title="최종학력" id="degreeType" name="degreeType">
                             <option value="">선택하세요</option>
-                            
-                                
-                                
-                                    
-                                    
-                                        
-                                            <option value="A" >박사</option>
-                                        
-                                    
-                                
-
-                            
-                                
-                                
-                                    
-                                    
-                                        
-                                            <option value="B" >석사</option>
-                                        
-                                    
-                                
-
-                            
-                                
-                                
-                                    
-                                    
-                                        
-                                            <option value="C" >학사</option>
-                                        
-                                    
-                                
-
-                            
-                                
-                                
-                                    
-                                    
-                                        
-                                            <option value="G" >전문학사</option>
-                                        
-                                    
-                                
-
-                            
-                                
-                                
-                                    
-                                    
-                                        
-                                            <option value="H" >고졸</option>
-                                        
-                                    
-                                
-
-                            
-                                
-                                
-                                    
-                                    
-                                        
-                                    
-                                
-
-                            
-                                
-                                
-                                    
-                                    
-                                        
-                                    
-                                
-
-                            
+                            <option value="A" >박사</option>
+                            <option value="B" >석사</option>
+                            <option value="C" >학사</option>
+                            <option value="G" >전문학사</option>
+                            <option value="H" >고졸</option>                            
                         </select>
                     </p>
                 </div>
 
-                    <!-- 초등학교 -->
-                    
-
-                <!-- 중학교  -->
-                
-
-                <!-- 고등학교 -->
-            
 
 
                     <div id ="highschoolDiv" style="display:none">
@@ -928,17 +844,9 @@
                             </div>
                         </div>
 
-                    </div><!-- 고등학교 end -->
+                    </div>
                 
 
-                <!-- 고교생활현황 -->
-                
-
-
-             <!-- 고교성적상세 과목수에 따라 모두 그림 -->
-             
-
-                <!-- 전문대학 -->
                 <div id ="collegeDiv" style="display:none">
                     <div class="foldedInphone">
                         <div class="dtFoldedInPhone btnmore">
@@ -1096,7 +1004,6 @@
                     </div>
                 </div>
 
-                <!-- 대학교 -->
                 <div id ="uniDiv" style="display:none">
                     <div class="foldedInphone">
                         <div class="dtFoldedInPhone btnmore">
@@ -1124,15 +1031,6 @@
                                             <col style="width:32%;"/>
                                         </colgroup>
                                         <tbody>
-                                            
-                                            
-                                            
-
-                                            
-                                            
-
-                                            
-
                                             <tr>
                                                 <th scope="row"><label class="required" for="unischoolName_1"><span class="Lhide">(필수)</span>학교명</label></th>
                                                 <td>
@@ -1152,19 +1050,6 @@
                                                     </div>
                                                 </td>
                                             </tr>
-                                            
-                                            
-                                            
-                                            
-
-                                            
-                                            
-                                            
-
-                                            
-                                            
-
-                                            
 
                                             <tr>
                                                 <th scope="row"><label class="required" for="unistartDate_1"><span class="Lhide">(필수)</span>기간</label></th>
@@ -1193,20 +1078,6 @@
                                                     </select>
                                                 </td>
                                             </tr>
-                                            
-                                            
-                                            
-                                            
-
-                                            
-                                            
-                                            
-
-                                            
-                                            
-
-                                            
-
                                             <tr>
                                                 <th scope="row"><label class="required" for="unimajorName_1"><span class="Lhide">(필수)</span>전공명</label></th>
                                                 <td>
@@ -1237,18 +1108,7 @@
                                                 </td>
                                             </tr>
                                             
-                                            
-                                            
-                                            
-
-                                            
-                                            
-                                            
-
-                                            
                                             <tr>
-                                                
-                                                    
                                                         <th scope="row"><label for="unigpaPoint_1">전체평점</label></th>
                                                     
                                                     
@@ -1273,15 +1133,7 @@
                                                 </td>
                                             </tr>
                                             
-
-                                            
-                                            
-                                            
-
-                                            
                                             <tr>
-                                                
-                                                    
                                                          <th scope="row"><label for="unimajorGpa_1">전공평점</label></th>
                                                     
                                                     
@@ -1305,20 +1157,9 @@
                                                     </span>
                                                 </td>
                                             </tr>
-                                            
-
-                                            
-                                            
-                                            
-
-                                            
-                                            
-
-                                            
 
                                             <tr>
                                                 
-                                                    
                                                          <th scope="row"><label for="unitotalPoint_1">전체 이수학점</label></th>
                                                     
                                                     
@@ -1326,31 +1167,12 @@
                                                 <td>
                                                     <input type="text" id="unitotalPoint_1" name="unitotalPoint_1" size="3" value="" maxlength="5" onKeyPress="return $.onKeyPressFilter('[0-9.]', event);" style="ime-mode:disabled;" onkeyup="this.value=this.value.replace(/[^0-9.]/g,'')" />
                                                 </td>
-                                                
-                                                    
                                                          <th scope="row"><label for="unimajorPoint_1">전공 이수학점</label></th>
-                                                    
-                                                    
-                                                
                                                 <td>
                                                     <input type="text" id="unimajorPoint_1" name="unimajorPoint_1" size="3" value="" maxlength="5" onKeyPress="return $.onKeyPressFilter('[0-9.]', event);" style="ime-mode:disabled;" onkeyup="this.value=this.value.replace(/[^0-9.]/g,'')"  />
                                                 </td>
                                             </tr>
 
-                                            
-                                            
-                                            
-                                            
-
-
-                                            
-                                            
-                                            
-
-                                            
-                                            
-
-                                            
 
                                             <tr class="double" >
                                                 <th scope="row"><label for="unidoublePoint_1">복수전공 이수학점</label></th>
@@ -1378,17 +1200,6 @@
                                                 </td>
 
                                             </tr>
-                                            
-                                            
-                                            
-                                            
-
-
-                                            
-                                            
-                                            
-
-                                            
                                             
 
                                             
@@ -2418,7 +2229,7 @@
 <input type="hidden" name="devon.token.field.sessionscope.sessionscopeintro" value="sessionscopeintro" />
 <input type="hidden" name="sessionscopeintro" value="FI8KSDSVNATV7GZRWM9UZ0KMV89C47L8" />
             <h2 class="Lhide">4. 자기소개서</h2>
-            <div class="LviewExplanation">
+             <div class="LviewExplanation">
                 <p><strong>지원서 작성 안내</strong><a href="#" onclick="applcationGuidePopup();">보기</a></p>
             </div>
             
@@ -2481,8 +2292,7 @@
                         </tr>
                     </tbody>
                 </table>
-                </div>
-            
+               </div>
         </form>
         <div class="LblockTabButton">
             <button type="button" class="btn_back" onclick="nextTab(this,2);"><span>이전</span></button>
@@ -2497,7 +2307,71 @@
         <!-- End : 제출 탭 -->
         
     </div>
+    </div>
 </div>
+
+<script>
+  var $formRoot = $('#LblockTabContent01')
+
+  //background 설정
+  $('.subConWrap.apply').closest('.subContainer').css('background-color','#fff')
+
+  // warning class 추가
+  var $explain = $('.Lexplanation > p > strong'); $explain.attr('title','중요사항').addClass('warning type2')
+  
+  // table td wrapping
+  var $tableWrap = $formRoot.find('.LblockDetailTable'),
+    $tableTd = $tableWrap.find('td');
+  $tableTd.each(function(){
+    var $this = $(this),
+      thisElem = $this.html(),
+      $wrap = $('<span class="tdInner textOnly"></span>').html(thisElem);
+      $wrap.has('input').removeClass('textOnly');
+      $wrap.has('select').removeClass('textOnly');
+    $this.html($wrap);
+  });
+
+  // radio wrapping
+  var $radio = $formRoot.find('input[type=radio]');
+  $radio.each(function(){
+    var $this = $(this),
+    $thisParent = $this.closest('span'),
+    thisid = $this.attr('id'),
+    $thisLabel = $this.siblings('[for='+thisid+']'),
+    $radioWrap = $('<span class="input"></span>');
+    console.log($thisLabel);
+    $radioWrap.append($this);
+    $radioWrap.append($thisLabel);
+    $thisParent.append($radioWrap);
+  })
+
+  //select wrapping
+  var $select = $formRoot.find('select');
+  $select.wrap('<span class="input selectInput"></span>')
+
+  // input text wrapping
+  var $inputText = $formRoot.find('input[type=text]');
+  $inputText.wrap('<span class="inputBox"></span>')
+
+  //input_search addClass
+  $formRoot.find('.input_search').addClass('inputBox')
+  
+  // 개별 적용
+  $formRoot.find('#postPopup').addClass('btn type5');
+  $formRoot.find('#addressLine1Info').closest('.inputBox').css('flex','1');
+  $formRoot.find('#addressLine2Info').closest('.inputBox').css('width','100%');
+  $formRoot.find('.LiconCalendar').closest('.tdInner').addClass('calendarWrap');
+  $formRoot.find('#additionalContact').closest('.inputBox').css('margin-left',0)
+
+  var $blocks = $formRoot.find('.foldedInphone');
+  $blocks.each(function(i,elem){
+    var $this = $(this);
+    $this.addClass('blocks' + (i + 1));
+  })
+
+
+
+  </script>
 
 <footer id="footer">@@include('./../layouts/include/footer.html')</footer>
 </body>

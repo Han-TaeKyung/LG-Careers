@@ -1,9 +1,290 @@
 @import "_variables", "_mixin";
 
+.subConWrap.apply {
+}
 .LblockContentMain {
+  width: 100%;
+  background-color: $White;
+  .Lhide {
+    visibility: hidden;
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    font-size: 1.2rem;
+    color: transparent;
+  }
   .indicate {
+    position: relative;
     height: 60px;
     border: 5px solid $GrayD9;
     border-radius: 100px;
+    ul {
+      display: flex;
+      align-items: stretch;
+      height: 100%;
+
+      > li {
+        position: relative;
+        width: 20%;
+        &:not(:last-child):after {
+          display: block;
+          position: absolute;
+          right: 0;
+          top: calc(50% - 0.8rem);
+          width: 1px;
+          height: 1.6rem;
+          background-color: $GrayD9;
+        }
+
+        > a {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          position: relative;
+          z-index: 10;
+          height: 100%;
+          font-size: 1.6rem;
+          line-height: 1;
+          letter-spacing: -0.02em;
+          color: $Gray6B;
+        }
+        &.Lcurrent {
+          > a {
+            color: $White;
+            &:before {
+              display: block;
+              position: absolute;
+              z-index: -1;
+              width: 100%;
+              height: 100%;
+              border-radius: 50px;
+              background-color: $RedD0;
+              left: 0;
+              top: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+  .Lexplanation {
+    p {
+      > strong {
+        display: block;
+        position: relative;
+        font-weight: 400;
+        color: $Gray6B;
+        &:before {
+          display: block;
+        }
+      }
+    }
+  }
+  .LviewExplanation {
+    p {
+      > strong {
+        position: relative;
+        font-size: 1.6rem;
+        line-height: 1;
+        letter-spacing: -0.02em;
+        color: $LGBlack;
+        font-weight: 400;
+        padding-left: 30px;
+        &:before {
+          display: block;
+          position: absolute;
+          width: 2.1rem;
+          height: 1.8rem;
+          background: url(../images/icon/check2.svg) no-repeat center center;
+        }
+      }
+      a {
+        font-size: 1.6rem;
+        line-height: 1;
+        letter-spacing: -0.02em;
+        color: $RedD0;
+        text-decoration: underline;
+      }
+    }
+  }
+  .LblockTabContent {
+    position: relative;
+  }
+  .foldedInphone {
+    position: relative;
+    .LblockPageSubtitle {
+      padding: 15px 0;
+      h3 {
+        font-weight: 600;
+        font-size: 2.4rem;
+        line-height: 1;
+        letter-spacing: -0.02em;
+      }
+    }
+    .LblockDetailTable {
+      padding: 8px 0 7px;
+      border-top: 1px solid $LGBlack;
+      border-bottom: 1px solid $GrayE7;
+    }
+    &:nth-child(n + 2) {
+      margin-top: 60px;
+    }
+  }
+  .applicationform {
+    width: 100%;
+    th,
+    td {
+      padding: 7px 10px 8px 10px;
+      vertical-align: middle;
+    }
+    th {
+      font-size: 1.6rem;
+      line-height: 1;
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      color: $LGBlack;
+    }
+    label.required {
+      position: relative;
+      &:after {
+        display: inline-block;
+        vertical-align: middle;
+        content: "*";
+        color: $RedD0;
+      }
+    }
+    .tdInner {
+      font-size: 0;
+      line-height: 0;
+      > * {
+        vertical-align: middle;
+      }
+      &.textOnly {
+        display: inline-flex;
+        align-items: center;
+        height: 4.8rem;
+        width: 500px;
+        border-radius: 0.5rem;
+        background-color: $GrayF5;
+        padding-left: 15px;
+        font-size: 1.4rem;
+        line-height: 1;
+        letter-spacing: -0.02em;
+      }
+    }
+    .input {
+      vertical-align: middle;
+      &:not(:nth-of-type(1)) {
+        margin-left: 8px;
+      }
+      label {
+        font-size: 1.4rem;
+        line-height: 1.5;
+        letter-spacing: -0.02em;
+      }
+    }
+    .inputBox {
+      input {
+        width: 100% !important;
+      }
+      &:nth-child(n + 2) {
+        margin-left: 8px;
+      }
+    }
+    .selectInput {
+      width: 100%;
+      select {
+        width: 100%;
+      }
+    }
+    .input_search {
+      position: relative;
+      button {
+        display: block;
+        position: absolute;
+        right: 20px;
+        top: calc(50% - 10px);
+        width: 20px;
+        height: 20px;
+        background: url(../images/icon/searchBtn.svg) no-repeat center center;
+      }
+    }
+
+    #countryDiv,
+    #applyPlatform,
+    #applyPlatformSelect {
+      display: none;
+    }
+    #postPopup {
+      margin-left: 20px;
+    }
+    #postalCode {
+      width: 246px;
+    }
+    #addressLine2Info {
+      width: 100% !important;
+    }
+    .currentLocation {
+      display: flex;
+      align-items: center;
+      font-size: 0;
+      line-height: 0;
+      &:nth-child(n + 1) {
+        margin-top: 10px;
+      }
+      .lineInPhone {
+        button {
+          vertical-align: middle;
+        }
+        .inputBox {
+          display: inline-block;
+          width: 24.6rem;
+          vertical-align: middle;
+        }
+      }
+    }
+  }
+
+  .foldedInphone.blocks1 {
+    .selectInput {
+      width: 24.6rem;
+      select {
+      }
+    }
+  }
+  .foldedInphone.blocks2 {
+  }
+
+  .foldedInphone.blocks3 {
+    .selectInput {
+      width: 100%;
+    }
+    .inputBox input {
+      width: 100% !important;
+    }
+  }
+  .foldedInphone.blocks4 {
+    .calendarWrap {
+      display: flex;
+      align-items: center;
+      > *:nth-child(n + 2) {
+        margin-left: 8px;
+      }
+      .inputBox {
+        flex: 1;
+      }
+    }
+  }
+
+  .LiconCalendar {
+    width: 20px;
+    height: 20px;
+    background: url(../images/icon/calendar.svg) no-repeat center center;
+    + label {
+      font-size: 1.6rem;
+      line-height: 1;
+      letter-spacing: -0.02em;
+      color: $LGBlack;
+    }
   }
 }
