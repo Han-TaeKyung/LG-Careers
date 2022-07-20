@@ -13,3 +13,9 @@
 /* 로그인, 회원가입 */
 @import "login.css";
 @import "login2.css";
+
+/* 채용공고 */
+@import "recruit.css";
+
+/* 팝업 */
+@import "popup.css";
