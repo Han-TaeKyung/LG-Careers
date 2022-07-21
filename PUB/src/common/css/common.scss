@@ -934,19 +934,19 @@ p {
 .table {
   table {
     width: 100%;
-    border-top: 0.1rem solid #222;
+    border-top: 0.1rem solid $LGBlack;
 
     thead {
       tr {
         th {
           font-size: 1.6rem;
+          line-height: 1.6rem;
           font-weight: 400;
           color: $LGBlack;
-          border-bottom: 0.1rem solid #eee;
-          border-right: 0.1rem solid #eee;
+          background-color: #f8f8f8;
           text-align: center;
-          padding: 1.2rem 1.5rem;
-
+          padding: 1.5rem;
+          letter-spacing: -0.02em;
           &:last-child {
             border-right: 0;
           }
@@ -958,10 +958,11 @@ p {
       tr {
         td {
           font-size: 1.4rem;
-          color: #555;
-          border-bottom: 0.1rem solid #eee;
-          border-right: 0.1rem solid #eee;
-          padding: 1.2rem 1.5rem;
+          letter-spacing: -0.02em;
+          color: $LGBlack;
+          border-bottom: 0.1rem solid $GrayE7;
+          vertical-align: middle;
+          padding: 2.2rem 1rem 2.2rem 0;
 
           &:last-child {
             border-right: 0;
@@ -1119,6 +1120,15 @@ p {
       }
 
       &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+  &.type4{
+    >li{
+      color:$LGBlack;
+      margin-bottom: 0.8rem;
+      &:last-child{
         margin-bottom: 0;
       }
     }
