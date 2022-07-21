@@ -644,7 +644,7 @@
                                                                 <th scope="row" style="width:20%;"><label
                                                                         class="required" for="address"><span
                                                                             class="Lhide">(필수)</span>
-                                                                        <LTag:message code="app.lbl.currentAddress" />
+                                                                        <LTag:message code="app.lbl.currentAddress" /><!--현주소-->
                                                                     </label></th>
                                                                 <td colspan="3">
                                                                     <p class="currentLocation">
