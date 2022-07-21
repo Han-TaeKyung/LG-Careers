@@ -1,0 +1,29 @@
+@import "_variables", "_mixin";
+.subRecruit{
+    .subTitleC{
+        text-align: center;
+        margin-top: 15.2rem;
+        margin-bottom: -9rem;
+    }
+    .subContent{
+        padding-top:0;
+        .listLineUp{
+            padding: 1rem 0;
+        }
+    }
+}
+.subContent{
+    .noData{
+        border-top:0.1rem solid $Gray6B;
+        margin-top: 1.6rem;
+        text-align: center;
+        padding: 12rem 0;
+        p{
+            font-size: 2rem;
+            line-height: 2.6rem;
+            letter-spacing: -0.02em;
+            color: $LGBlack;
+            margin: 2rem auto 6rem;
+        }
+    }
+}

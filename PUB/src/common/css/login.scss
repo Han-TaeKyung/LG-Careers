@@ -539,3 +539,72 @@ p.formError {
     }
   }
 }
+.popConWrap{
+  .popForm {
+    width: 100%;
+    height: auto;
+    > ul {
+      display: flex;
+      justify-content: flex-start;
+      margin-bottom: 1.5rem;
+      .formH {
+        width: calc(100% - 47.8rem);
+        margin-top: 1.6rem;
+        span {
+          @include subTitle2;
+          color: $LGBlack;
+        }
+        .com {
+          &::after {
+            display: inline;
+            content: "*";
+            color: $RedD0;
+          }
+        }
+      }
+      .formD {
+        width: 47.8rem;
+        font-size: 1.4rem;
+        line-height: 1.4rem;
+        color: $LGBlack;
+        > div {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+        &.crtWrap {
+          .inputBox {
+            position: relative;
+          }
+          .crtNum {
+            position: absolute;
+            right: 1rem;
+            top: calc(50% - 1rem);
+            font-size: 1.4rem;
+            letter-spacing: -0.02em;
+            line-height: 1.5;
+          }
+        }
+        .inputBox{
+          width: 100% !important;
+          margin-top: 0;
+          & +.inputBox{
+            margin-left: 0.8rem;
+          }
+        }
+      }
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+    .formInfo {
+      font-size: 1.3rem;
+      color: $Gray6B;
+      line-height: 2.05rem;
+      letter-spacing: -0.02em;
+      display: block;
+      margin-top: 0.6rem;
+    }
+  }
+  
+}

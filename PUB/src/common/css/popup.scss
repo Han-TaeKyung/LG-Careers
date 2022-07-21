@@ -1,0 +1,161 @@
+@import "_variables", "_mixin";
+
+/* 레이어팝업 */
+.popPanel {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    left: 0;
+    top: 0;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1001;
+    .bgClose {
+      display: block;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      font-size: 0;
+      line-height: 0;
+    }
+    .popConWrap {
+      position: relative;
+      min-width: 46rem;
+      min-height: 30rem;
+      background-color: #fff;
+      border-radius: 1.5rem;
+      overflow: hidden;
+      &.wid500{
+        width: 50rem;
+      }
+      &.wid678{
+        width: 67.8rem;
+      }
+      .popTitle {
+        padding: 3rem 3rem 4rem;
+        h3{
+          text-align: left;
+          font-size: 2.4rem;
+          line-height: 2.4rem;
+          letter-spacing: -0.02em;
+          font-weight: 600;
+          color: $LGBlack;
+        }
+      }
+      .popCon {
+        min-height: 225px;
+        padding: 0 3rem 5rem;
+        .joinPop{
+          font-size: 1.6rem;
+          line-height: 2.56rem;
+          letter-spacing: -0.02em;
+          color: $LGBlack;
+        }
+      }
+      .popFooter {
+        .type2{
+          display: flex;
+          justify-content: space-between;
+        }
+      }
+      .close {
+        position: absolute;
+        right: 3rem;
+        top: 3rem;
+        width: 1.8rem;
+        height: 1.8rem;
+        background-image: url(/common/images/icon/popClose.png);
+        text-indent: -9999rem;
+        font-size: 0;
+      }
+    }
+    &.active {
+      display: flex;
+    }
+  }
+  
+  /* 윈도우팝업 */
+.popWindow{
+    width: 100%;
+    height:auto;
+    .popConWrap{
+        position: relative;
+        .popTitle {
+            padding: 3rem 3rem 4rem;
+            h3{
+              text-align: left;
+              font-size: 2.4rem;
+              line-height: 2.4rem;
+              letter-spacing: -0.02em;
+              font-weight: 600;
+              color: $LGBlack;
+            }
+          }
+          .popCon{
+            padding: 0 3rem 5rem;
+          }
+    }
+    .close {
+        position: absolute;
+        right:3rem;
+        top:3rem;
+        width: 1.8rem;
+        height: 1.8rem;
+        background-image: url(/common/images/icon/popClose.png);
+        text-indent: -9999rem;
+        font-size: 0;
+    }
+}
+.popCon{
+  .guideBox{
+    h5{
+        font-size: 2rem;
+        line-height: 2rem;
+        letter-spacing: -0.02em;
+        color:$LGBlack;
+        margin-bottom: 1.5rem;
+        font-weight: 600
+    }
+    & +.guideBox{
+        margin-top: 4rem;
+    }
+    ul{
+        width: 100%;
+        height: auto;
+        border-top:.1rem solid $LGBlack;
+        border-bottom: .1rem solid $GrayE7;
+        padding: 3rem 6.5rem 3rem 0;
+        margin-bottom: 4rem;
+      
+        li{
+            font-size: 1.8rem;
+            line-height: 1.8rem;
+            letter-spacing: -0.02em;
+            color: $LGBlack;
+            font-weight: 600;
+            display: flex;
+            justify-content: flex-start;
+            margin-bottom: 2rem;
+            &:last-child{
+                margin-bottom: 0;
+            }
+            span{
+                font-size: 1.6rem;
+                font-weight: 600;
+                letter-spacing: -0.02em;
+                line-height: 2.56rem;
+                color:$RedD0;
+                min-width: 6rem;
+            }
+            p{
+                font-size: 1.6rem;
+                line-height: 2.56rem;
+                letter-spacing: -0.02em;
+                color:$LGBlack;
+            }
+        }
+    }
+  }  
+}

@@ -295,6 +295,9 @@
 h3.subTitle {
   @include title0;
 }
+h3.subTitleC{
+  @include title;
+}
 
 h3 {
   @include title1;
@@ -532,6 +535,44 @@ p {
 
   & + .btn {
     margin-left: 1.2rem;
+  }
+  &.reset{
+    padding: 0;
+    border: 0;
+    min-width: inherit;
+    min-height: auto;
+    line-height: 1.6rem;
+    font-size: 1.6rem;
+    letter-spacing: -0.02em;
+    color: $Gray6B;
+    i{
+      vertical-align: middle;
+      margin-left: 0.8rem;
+    }
+  }
+  //팝업푸터 버튼
+  &+ .popup{
+    margin-left: 0;
+  }
+  &.popup{
+    border:0;
+    padding: 0;
+    width: 100%;
+    min-width: inherit;
+    min-height: 5.8rem;
+    line-height: 5.8rem;
+    text-align: center;
+    background-color: $LGBlack;
+    font-size: 1.6rem;
+    letter-spacing: -0.02em;
+    color:$White;
+    border-radius: 0;
+    font-weight: 400;
+    &.ptype2{
+      background-color: $White;
+      border-top:.1rem solid $GrayD9;
+      color:$LGBlack;
+    }
   }
 }
 
@@ -800,6 +841,7 @@ select {
 
   textarea {
     border: 0.1rem solid #ccc;
+    width: 100%;
     font-size: 1.6rem;
     padding: 1.4rem;
     min-height: 15rem;
@@ -898,19 +940,19 @@ select {
 .table {
   table {
     width: 100%;
-    border-top: 0.1rem solid #222;
+    border-top: 0.1rem solid $LGBlack;
 
     thead {
       tr {
         th {
           font-size: 1.6rem;
+          line-height: 1.6rem;
           font-weight: 400;
           color: $LGBlack;
-          border-bottom: 0.1rem solid #eee;
-          border-right: 0.1rem solid #eee;
+          background-color: #f8f8f8;
           text-align: center;
-          padding: 1.2rem 1.5rem;
-
+          padding: 1.5rem;
+          letter-spacing: -0.02em;
           &:last-child {
             border-right: 0;
           }
@@ -922,10 +964,11 @@ select {
       tr {
         td {
           font-size: 1.4rem;
-          color: #555;
-          border-bottom: 0.1rem solid #eee;
-          border-right: 0.1rem solid #eee;
-          padding: 1.2rem 1.5rem;
+          letter-spacing: -0.02em;
+          color: $LGBlack;
+          border-bottom: 0.1rem solid $GrayE7;
+          vertical-align: middle;
+          padding: 2.2rem 1rem 2.2rem 0;
 
           &:last-child {
             border-right: 0;
@@ -1083,6 +1126,15 @@ select {
       }
 
       &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+  &.type4{
+    >li{
+      color:$LGBlack;
+      margin-bottom: 0.8rem;
+      &:last-child{
         margin-bottom: 0;
       }
     }
@@ -1519,19 +1571,29 @@ select {
             font-size: 1.6rem;
             letter-spacing: -0.05em;
             color: $Gray6B;
-            .icon {
-              display: inline-block;
-              background-image: url(/common/images/icon/listUpIco.png);
-              background-repeat: no-repeat;
-              margin-left: 1.3rem;
+            padding-right: 2.4rem;
+            position: relative;
+            display: block;
+            &:after{
+              display: block;
+              position: absolute;
+              right:0;
+              top:0.4rem;
               width: 1.4rem;
               height: 0.8rem;
+              background-image: url(/common/images/icon/listUpIco.png);
             }
-            &:focus {
-              .icon {
+          }
+          &.active{
+            >a{
+              &:after{
                 transition: 0.3s;
                 transform: rotate(180deg);
               }
+              
+            }
+            >ul{
+              display: block;
             }
           }
           > ul {
@@ -1684,6 +1746,7 @@ select {
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1001;
   .bgClose {
     display: block;
     position: absolute;
@@ -1694,48 +1757,136 @@ select {
   }
   .popConWrap {
     position: relative;
-    min-width: 500px;
-    min-height: 300px;
-    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1);
+    min-width: 46rem;
+    min-height: 30rem;
     background-color: #fff;
+    border-radius: 1.5rem;
+    overflow: hidden;
+    &.wid500{
+      width: 50rem;
+    }
+    &.wid678{
+      width: 67.8rem;
+    }
     .popTitle {
-      padding: 20px;
-      border-bottom: 1px solid #999;
+      padding: 3rem 3rem 4rem;
+      h3{
+        text-align: left;
+        font-size: 2.4rem;
+        line-height: 2.4rem;
+        letter-spacing: -0.02em;
+        font-weight: 600;
+        color: $LGBlack;
+      }
     }
     .popCon {
       min-height: 225px;
-      padding: 20px;
+      padding: 0 3rem 5rem;
+      .joinPop{
+        font-size: 1.6rem;
+        line-height: 2.56rem;
+        letter-spacing: -0.02em;
+        color: $LGBlack;
+      }
     }
     .popFooter {
-      padding: 20px;
-      text-align: right;
+      .type2{
+        display: flex;
+        justify-content: space-between;
+      }
     }
     .close {
       position: absolute;
-      right: 10px;
-      top: 10px;
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      background-color: #000;
+      right: 3rem;
+      top: 3rem;
+      width: 1.8rem;
+      height: 1.8rem;
+      background-image: url(/common/images/icon/popClose.png);
+      text-indent: -9999rem;
       font-size: 0;
-      line-height: 0;
-      &:before,
-      &:after {
-        display: block;
-        position: absolute;
-        left: 10px;
-        width: 20px;
-        height: 1px;
-        background-color: #fff;
-        transform: rotate(45deg);
-      }
-      &:after {
-        transform: rotate(-45deg);
-      }
     }
   }
   &.active {
     display: flex;
   }
+}
+/*첨부파일 폼*/
+.fileUpload{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  p{
+    font-size: 1.3rem;
+    line-height: 1.82rem;
+    letter-spacing: -0.02em;
+    color:$Gray6B;
+    margin-left: 2rem;
+  }
+}
+.fileAdd{
+  height:4.8rem;
+  line-height: 4.8rem;
+  font-weight: 400 !important;
+}
+.fileUploadC{
+  margin-top: 1.5rem;
+}
+.fileUploadForm{
+  width: 100%;
+  height: 4.8rem;
+  background-color: $GrayF5;
+  padding:.5rem 2rem .5rem .5rem;
+  border-radius: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  & +.fileUploadForm{
+    margin-top: 1rem;
+  }
+  .fileDelete{
+    width: 1.8rem;
+    height: 1.8rem;
+    background-image: url(/common/images/icon/fileClose.png);
+    text-indent: -9999;
+    font-size: 0;
+  }
+  #attach{
+    position: absolute;
+    left:1.9rem;
+    font-size: 1.4rem;
+    color:$LGBlack;
+  }
+  // input {
+  //   position: relative;
+  //   z-index: -1;
+  //   width: 1px;
+  //   height: 1px;
+  // }
+
+  // .fileName {
+  //   font-size: 1.4rem;
+  //   color: $LGBlack;
+  //   line-height: 1;
+  //   letter-spacing: -0.02em;
+  // }
+  
+  label.uploadBtn {
+    position: relative;
+    display: inline-block;
+    width: 8.9rem;
+    height: 3.8rem;
+    border-radius: 0.5rem;
+    color: $LGBlack;
+    font-size: 1.4rem;
+    line-height: 3.8rem;
+    vertical-align: middle;
+    background-color: $White;
+    cursor: pointer;
+    border: 1px solid $GrayAE;
+    z-index: 1;
+    text-align: center;
+  }
+  
+  
 }

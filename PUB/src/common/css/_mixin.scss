@@ -39,6 +39,13 @@
 }
 
 //폰트
+@mixin title {
+  font-size: 4.8rem;
+  letter-spacing: -0.02em;
+  line-height: 6.24rem;
+  font-weight: 600;
+}
+
 @mixin title0 {
   font-size: 4rem;
   letter-spacing: -0.02em;
