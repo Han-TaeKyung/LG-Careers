@@ -337,16 +337,17 @@ p {
   vertical-align: middle;
   min-width: 9rem;
   min-height: 4.8rem;
-  line-height: 4.8rem;
+  line-height: 4.6rem;
   height: auto;
   transition: all 0.3s;
+  box-sizing: border-box;
 
   &:hover {
     border: 0.1rem solid $LGBlack;
     color: $LGBlack;
   }
 
-  &.smail {
+  &.small {
     font-size: 1.4rem;
     padding: 0 1.9rem;
   }
@@ -754,32 +755,37 @@ p {
       }
     }
   }
+}
 
-  select {
-    width: 100%;
-    height: 4.8rem;
-    padding: 0.8rem 3.5rem 0.8rem 1rem;
-    border: 0.1rem solid $GrayD9;
-    border-radius: 0.5rem;
-    font-size: 1.6rem;
-    font-weight: 400;
+select {
+  width: 100%;
+  height: 4.8rem;
+  padding: 0.8rem 3.5rem 0.8rem 1rem;
+  border: 0.1rem solid $GrayD9;
+  border-radius: 0.5rem;
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: $GrayAE;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  min-width: 12rem;
+  background: url(../images/icon/selectBg.svg) no-repeat right 1.5rem center;
+  color: $LGBlack;
+  font-size: 1.4rem;
+  line-height: 2;
+
+  &::-ms-expand {
+    display: none;
+  }
+
+  &:focus + .icoArrow img {
+    transform: rotate(180deg);
+  }
+  &[disabled] {
+    background-color: $GrayF5;
+    border-color: $GrayF5;
     color: $GrayAE;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    min-width: 12rem;
-    background: url(../images/icon/selectBg.svg) no-repeat right 1.5rem center;
-    color: $LGBlack;
-    font-size: 1.4rem;
-    line-height: 2;
-
-    &::-ms-expand {
-      display: none;
-    }
-
-    &:focus + .icoArrow img {
-      transform: rotate(180deg);
-    }
   }
 }
 
@@ -1803,4 +1809,84 @@ p {
   &.active {
     display: flex;
   }
+}
+/*첨부파일 폼*/
+.fileUpload{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  p{
+    font-size: 1.3rem;
+    line-height: 1.82rem;
+    letter-spacing: -0.02em;
+    color:$Gray6B;
+    margin-left: 2rem;
+  }
+}
+.fileAdd{
+  height:4.8rem;
+  line-height: 4.8rem;
+  font-weight: 400 !important;
+}
+.fileUploadC{
+  margin-top: 1.5rem;
+}
+.fileUploadForm{
+  width: 100%;
+  height: 4.8rem;
+  background-color: $GrayF5;
+  padding:.5rem 2rem .5rem .5rem;
+  border-radius: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  & +.fileUploadForm{
+    margin-top: 1rem;
+  }
+  .fileDelete{
+    width: 1.8rem;
+    height: 1.8rem;
+    background-image: url(/common/images/icon/fileClose.png);
+    text-indent: -9999;
+    font-size: 0;
+  }
+  #attach{
+    position: absolute;
+    left:1.9rem;
+    font-size: 1.4rem;
+    color:$LGBlack;
+  }
+  // input {
+  //   position: relative;
+  //   z-index: -1;
+  //   width: 1px;
+  //   height: 1px;
+  // }
+
+  // .fileName {
+  //   font-size: 1.4rem;
+  //   color: $LGBlack;
+  //   line-height: 1;
+  //   letter-spacing: -0.02em;
+  // }
+  
+  label.uploadBtn {
+    position: relative;
+    display: inline-block;
+    width: 8.9rem;
+    height: 3.8rem;
+    border-radius: 0.5rem;
+    color: $LGBlack;
+    font-size: 1.4rem;
+    line-height: 3.8rem;
+    vertical-align: middle;
+    background-color: $White;
+    cursor: pointer;
+    border: 1px solid $GrayAE;
+    z-index: 1;
+    text-align: center;
+  }
+  
+  
 }
