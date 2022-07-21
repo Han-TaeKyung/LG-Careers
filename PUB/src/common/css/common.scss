@@ -1838,7 +1838,7 @@ select {
   padding:.5rem 2rem .5rem .5rem;
   border-radius: 0.5rem;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   position: relative;
   & +.fileUploadForm{
@@ -1850,26 +1850,24 @@ select {
     background-image: url(/common/images/icon/fileClose.png);
     text-indent: -9999;
     font-size: 0;
-  }
-  #attach{
     position: absolute;
-    left:1.9rem;
-    font-size: 1.4rem;
-    color:$LGBlack;
+    right:2rem;
   }
-  // input {
-  //   position: relative;
-  //   z-index: -1;
-  //   width: 1px;
-  //   height: 1px;
-  // }
+ 
+  input {
+    position: relative;
+    z-index: -1;
+    width: 1px;
+    height: 1px;
+  }
 
-  // .fileName {
-  //   font-size: 1.4rem;
-  //   color: $LGBlack;
-  //   line-height: 1;
-  //   letter-spacing: -0.02em;
-  // }
+  .fileName {
+    font-size: 1.4rem;
+    color: $LGBlack;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    margin-left: 1rem;
+  }
   
   label.uploadBtn {
     position: relative;
@@ -1884,7 +1882,6 @@ select {
     background-color: $White;
     cursor: pointer;
     border: 1px solid $GrayAE;
-    z-index: 1;
     text-align: center;
   }
   

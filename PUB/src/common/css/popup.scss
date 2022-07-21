@@ -162,7 +162,9 @@
   /* 지원서 작서 안내 */
   .tabMenu{
     &.type2{
-      
+      .tabs{
+        border:.5rem solid $GrayD9;
+      }
     }
   }
 }
