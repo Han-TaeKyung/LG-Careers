@@ -337,16 +337,17 @@ p {
   vertical-align: middle;
   min-width: 9rem;
   min-height: 4.8rem;
-  line-height: 4.8rem;
+  line-height: 4.6rem;
   height: auto;
   transition: all 0.3s;
+  box-sizing: border-box;
 
   &:hover {
     border: 0.1rem solid $LGBlack;
     color: $LGBlack;
   }
 
-  &.smail {
+  &.small {
     font-size: 1.4rem;
     padding: 0 1.9rem;
   }
@@ -754,32 +755,37 @@ p {
       }
     }
   }
+}
 
-  select {
-    width: 100%;
-    height: 4.8rem;
-    padding: 0.8rem 3.5rem 0.8rem 1rem;
-    border: 0.1rem solid $GrayD9;
-    border-radius: 0.5rem;
-    font-size: 1.6rem;
-    font-weight: 400;
+select {
+  width: 100%;
+  height: 4.8rem;
+  padding: 0.8rem 3.5rem 0.8rem 1rem;
+  border: 0.1rem solid $GrayD9;
+  border-radius: 0.5rem;
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: $GrayAE;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  min-width: 12rem;
+  background: url(../images/icon/selectBg.svg) no-repeat right 1.5rem center;
+  color: $LGBlack;
+  font-size: 1.4rem;
+  line-height: 2;
+
+  &::-ms-expand {
+    display: none;
+  }
+
+  &:focus + .icoArrow img {
+    transform: rotate(180deg);
+  }
+  &[disabled] {
+    background-color: $GrayF5;
+    border-color: $GrayF5;
     color: $GrayAE;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    min-width: 12rem;
-    background: url(../images/icon/selectBg.svg) no-repeat right 1.5rem center;
-    color: $LGBlack;
-    font-size: 1.4rem;
-    line-height: 2;
-
-    &::-ms-expand {
-      display: none;
-    }
-
-    &:focus + .icoArrow img {
-      transform: rotate(180deg);
-    }
   }
 }
 

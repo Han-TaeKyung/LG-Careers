@@ -54,8 +54,7 @@
       }
 
       .input {
-
-        input[type="radio"]+label {
+        input[type="radio"] + label {
           width: auto;
           height: auto;
           font-size: 1.4rem;
@@ -86,6 +85,32 @@
     }
   }
 
+  .popPanel {
+    .popCon {
+      width: 600px;
+      .inputWrap {
+        display: flex;
+        .inputBox:not(:first-child) {
+          margin-left: 10px;
+        }
+      }
+      textarea {
+        width: 100%;
+      }
+      table {
+        border-top: 0;
+      }
+      table th,
+      table td {
+        vertical-align: middle;
+        border-bottom: 0;
+      }
+      table th {
+        font-size: 1.5rem;
+        padding: 1.4rem 0.5rem;
+      }
+    }
+  }
   .loginWrap.step2 {
     .loginForm {
       .inputBox {
@@ -206,7 +231,7 @@
           font-size: 1.6rem;
           line-height: 1.6;
 
-          >em {
+          > em {
             display: inline;
             font-size: 1.6rem;
             line-height: 1.6;

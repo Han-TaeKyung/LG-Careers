@@ -152,10 +152,18 @@
                           </th>
                           <td>
                             <div class="fileUpload">
-                              <button id='fileAdd' class="btn minW fileAdd type5" type="button">첨부파일 추가</button>
+                              <button
+                                id="fileAdd"
+                                class="btn minW fileAdd type5"
+                                type="button"
+                              >
+                                첨부파일 추가
+                              </button>
                               <p>
-                                첨부파일은 1개당 10MB Byte까지 업로드 가능합니다.<br> 
-  (pdf, xls, xlsx, doc, docx, ppt, pptx, hwp, jpg, jpeg, gif, png, bmp 첨부 가능)
+                                첨부파일은 1개당 10MB Byte까지 업로드
+                                가능합니다.<br />
+                                (pdf, xls, xlsx, doc, docx, ppt, pptx, hwp, jpg,
+                                jpeg, gif, png, bmp 첨부 가능)
                               </p>
                             </div>
                             <div class="fileUploadC"></div>
@@ -190,12 +198,26 @@
     <footer id="footer">@@include('./../layouts/include/footer.html')</footer>
   </body>
   <script>
-    $('#fileAdd').click(function() {
-      $('.fileUploadC').append("<div class='fileUploadForm'><label for='attach' class='uploadBtn'><span>파일선택</span></label><input type='file' id='attach' name='file_attach' title='파일경로' class='input' placeholder='파일찾기'><span class='fileName'></span><button type='button' class='fileDelete'>삭제</button></div>");
+    var attatchId = 1;
+    $("#fileAdd").click(function () {
+      var $attatchElem = $(
+        "<div class='fileUploadForm'><label for='attach' class='uploadBtn'><span>파일선택</span></label><input type='file' name='file_attach' title='파일경로' class='input' placeholder='파일찾기'><span class='fileName'>선택된 파일이 없습니다</span><button type='button' class='fileDelete'>삭제</button></div>"
+      );
+      $attatchElem.find("label").attr("for", "attatch" + attatchId);
+      $attatchElem.find("input[type=file]").attr("id", "attatch" + attatchId);
+      $(".fileUploadC").append($attatchElem);
+      attatchId += 1;
     });
-    $(document).on('click', '.fileDelete', function() {
+    $(document).on("change", ".fileUploadForm .input[type=file]", function (e) {
+      var $this = $(e.target),
+        $uploadText = $this.siblings(".fileName");
+      uploadFile = e.target.files;
+      $uploadText.text(uploadFile.item(0).name);
+      // $this.siblings(".clear").addClass("active");
+    });
+    $(document).on("click", ".fileDelete", function () {
       $(this).parent().remove();
+      attatchId -= 1;
     });
-
   </script>
 </html>

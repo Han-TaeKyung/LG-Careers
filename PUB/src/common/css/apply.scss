@@ -1,0 +1,213 @@
+@import "_variables", "_mixin";
+
+.subConWrap.apply {
+  &.write {
+    .subContent {
+      width: 100%;
+    }
+    .titleWrap {
+      h2 {
+      }
+      /*.sta {
+        ul {
+          display: flex;
+          justify-content: flex-end;
+          li {
+            display: inline-block;
+            a {
+            }
+          }
+        }
+      }*/
+    }
+    .subContentTop {
+      display: block;
+    }
+    .stepWrap {
+      display: flex;
+      width: 100%;
+      height: 60px;
+      border: 5px solid $GrayF5;
+      border-radius: 50px;
+      .stepItem {
+        width: 20%;
+        flex: 1;
+        display: block;
+        position: relative;
+        height: 50px;
+        .stepAnchor {
+          display: flex;
+          position: relative;
+          z-index: 10;
+          width: 100%;
+          height: 100%;
+          justify-content: center;
+          align-items: center;
+          &:before {
+            display: block;
+            position: absolute;
+            z-index: -1;
+            width: 100%;
+            height: 100%;
+            left: 0;
+            top: 0;
+            background: transparent;
+            transition: all 0.3s;
+            border-radius: 50px;
+          }
+        }
+        &:not(:last-child):after {
+          display: block;
+          position: absolute;
+          width: 1px;
+          height: 16px;
+          top: calc(50% - 8px);
+          left: calc(100% - 1px);
+          background: $GrayD9;
+        }
+        &.Lcurrent {
+          .stepAnchor {
+            color: $White;
+            &:before {
+              background-color: $RedD0;
+            }
+          }
+        }
+      }
+    }
+    .more {
+      position: relative;
+      padding-left: 27px;
+      font-size: 15px;
+      line-height: 1.5;
+      letter-spacing: -0.02em;
+      &:before {
+        display: inline-block;
+        position: absolute;
+        left: 0;
+        top: 2px;
+        width: 21px;
+        height: 18px;
+        background: url(../images/icon/check2.svg) no-repeat center center;
+      }
+      a {
+        display: inline-block;
+        position: relative;
+        color: $RedD0;
+        &:after {
+          display: block;
+          position: absolute;
+          left: 0;
+          top: calc(100% - 4px);
+          width: 100%;
+          height: 1px;
+          background-color: $RedD0;
+        }
+      }
+    }
+    article {
+      margin: 50px 0;
+      h3 {
+        margin: 20px 0;
+      }
+      .table {
+        margin: 20px 0;
+        border-bottom: 1px solid $GrayE7;
+        table {
+          color: $LGBlack;
+          th,
+          td {
+            border: 0;
+          }
+          th {
+            font-size: 1.6rem;
+            line-height: 1.5;
+            letter-spacing: -0.02em;
+          }
+        }
+        .tdCon {
+          display: inline-flex;
+          width: 100%;
+          align-items: center;
+          min-height: 48px;
+          padding: 10px 10px 10px 20px;
+          border-radius: 5px;
+          background-color: $GrayF5;
+          color: $LGBlack;
+          vertical-align: middle;
+        }
+        .row {
+          display: flex;
+          align-items: center;
+          width: 100%;
+        }
+      }
+      .inputSearch {
+        position: relative;
+        .searchBtn {
+          display: block;
+          position: absolute;
+          right: 15px;
+          top: calc(50% - 10px);
+          width: 20px;
+          height: 20px;
+          background: url(../images/icon/searchBtn.svg) no-repeat center center;
+          font-size: 0;
+        }
+      }
+    }
+    .duration {
+      display: flex;
+      align-items: center;
+      > * {
+      }
+      .inputBox {
+        flex: 1;
+      }
+      .bar {
+        margin: 0 10px;
+      }
+    }
+    .LiconCalendar {
+      margin-left: 10px;
+      width: 20px;
+      height: 20px;
+      background: url(../images/icon/calendar.svg) no-repeat center center;
+      font-size: 0;
+      line-height: 0;
+    }
+
+    /* article1 */
+    article.sec1 {
+      .row {
+        > * {
+          flex: 1;
+        }
+        select:not(:first-child) {
+          margin-left: 10px;
+        }
+      }
+    }
+
+    /* article2 */
+    article.sec2 {
+      .row + .row {
+        margin-top: 10px;
+      }
+      .address {
+        flex: 1;
+        align-items: center;
+        .inputBox {
+          display: inline-block;
+          width: auto;
+          &:nth-of-type(1) {
+            width: 300px;
+          }
+          &:nth-of-type(2) {
+            width: calc(100% - 428px);
+          }
+        }
+      }
+    }
+  }
+}
