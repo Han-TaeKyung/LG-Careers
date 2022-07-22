@@ -571,7 +571,7 @@
     box-shadow: none;
     padding: 0;
     width: 33.8rem;
-    .rcLnbT{
+    .rcLnbT{ 
       display: flex;
       justify-content: space-between;
       padding: .9rem 2rem;
@@ -589,6 +589,52 @@
       line-height: 2.34rem;
       letter-spacing: -0.02em;
       color: $LGBlack;
+    }
+    .guideAcc{
+      padding: 0 2rem;
+      border-top: 0;
+      .accItem{
+        border-bottom: .1rem solid $GrayD9;
+        .q{
+          .qBtn{
+            min-height: 5.8rem;
+            padding: 0;
+            div{
+              line-height: 5.8rem;
+            }
+            &:after{
+              background-image: url(/common/images/icon/recuitArrow.svg);
+              width: 1.6rem;
+              height: 1.6rem;
+              top: calc(50% - 0.8rem);
+            }
+          }
+        }
+        &.active{
+          .q{
+            .qBtn{
+              &:after{
+                background-image: url(/common/images/icon/recuitArrowC.svg);
+              }
+            }
+          }
+        }
+      }
+      .a{
+        .accCon{
+          padding: 0;
+          .menu2Dep{
+            >ul{
+              display: none;
+            }
+            &.active{
+              >ul{
+                display: block;
+              }
+            }
+          }
+        }
+      }
     }
   }
 }

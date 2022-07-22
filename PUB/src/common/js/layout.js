@@ -10,4 +10,10 @@ $(function () {
       $('#header').removeClass("mainHeaderHover");
     });
   }
+
+  //채용공고 왼쪽네비
+  var lnbMenu = $(".recruitLnb .guideAcc .menu2Dep a")
+  lnbMenu.click(function(){
+    $(this).parent().toggleClass("active");
+  });
 });

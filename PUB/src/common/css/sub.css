@@ -3,9 +3,6 @@
 @import "common.css";
 @import "layout.css";
 
-/* sub */
-@import "subLayout.css";
-
 /* 채널 */
 @import "channel.css";
 @import "channel2.css";
