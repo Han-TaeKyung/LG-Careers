@@ -1,4 +1,7 @@
 @import "_variables", "_mixin";
+.w300px {
+  width: 300px;
+}
 
 .subConWrap.apply {
   &.write {
@@ -110,6 +113,32 @@
         }
       }
     }
+    .addWrap {
+      display: flex;
+      justify-content: flex-end;
+      position: relative;
+      height: 0;
+      margin-top: -30px;
+      button {
+        display: inline-flex;
+        align-items: center;
+        position: relative;
+        bottom: 0;
+        font-size: 1.5rem;
+        letter-spacing: -0.02em;
+        font-weight: 400;
+        color: $LGBlack;
+        &.add {
+          &:before {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            background: url(../images/icon/plus.svg) no-repeat center center;
+          }
+        }
+      }
+    }
+
     article {
       margin: 50px 0;
       h3 {
@@ -152,6 +181,24 @@
           display: flex;
           align-items: center;
           width: 100%;
+        }
+
+        .delete {
+          display: inline-flex;
+          justify-content: center;
+          align-items: center;
+          width: 22px;
+          height: 22px;
+          border-radius: 3px;
+          border: 1px solid $GrayAE;
+          font-size: 0;
+          line-height: 0;
+          &:before {
+            display: block;
+            width: 12px;
+            height: 12px;
+            background: url(../images/icon/delete.svg) no-repeat center center;
+          }
         }
       }
       .inputSearch {
