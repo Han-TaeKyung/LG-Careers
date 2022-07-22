@@ -27,15 +27,15 @@
     background-color: #fff;
     border-radius: 1.5rem;
     overflow: hidden;
-    &.wid500{
+    &.wid500 {
       width: 50rem;
     }
-    &.wid678{
+    &.wid678 {
       width: 67.8rem;
     }
     .popTitle {
       padding: 3rem 3rem 4rem;
-      h3{
+      h3 {
         text-align: left;
         font-size: 2.4rem;
         line-height: 2.4rem;
@@ -47,7 +47,7 @@
     .popCon {
       min-height: 225px;
       padding: 0 3rem 5rem;
-      .joinPop{
+      .joinPop {
         font-size: 1.6rem;
         line-height: 2.56rem;
         letter-spacing: -0.02em;
@@ -55,7 +55,7 @@
       }
     }
     .popFooter {
-      .type2{
+      .type2 {
         display: flex;
         justify-content: space-between;
       }
@@ -77,130 +77,130 @@
 }
 
 /* 윈도우팝업 */
-.popWindow{
-    width: 100%;
-    height:auto;
-    .popConWrap{
-        position: relative;
-        .popTitle {
-          padding: 3rem 3rem 4rem;
-          h3{
-            text-align: left;
-            font-size: 2.4rem;
-            line-height: 2.4rem;
-            letter-spacing: -0.02em;
-            font-weight: 600;
-            color: $LGBlack;
-          }
-        }
-      .popCon{
-        padding: 0 3rem 5rem;
+.popWindow {
+  width: 100%;
+  height: auto;
+  .popConWrap {
+    position: relative;
+    .popTitle {
+      padding: 3rem 3rem 4rem;
+      h3 {
+        text-align: left;
+        font-size: 2.4rem;
+        line-height: 2.4rem;
+        letter-spacing: -0.02em;
+        font-weight: 600;
+        color: $LGBlack;
       }
     }
-    .close {
-        position: absolute;
-        right:3rem;
-        top:3rem;
-        width: 1.8rem;
-        height: 1.8rem;
-        background-image: url(/common/images/icon/popClose.png);
-        text-indent: -9999rem;
-        font-size: 0;
-    }
-}
-.popCon{
-  .guideBox{
-    h5{
-        font-size: 2rem;
-        line-height: 2rem;
-        letter-spacing: -0.02em;
-        color:$LGBlack;
-        margin-bottom: 1.5rem;
-        font-weight: 600
-    }
-    & +.guideBox{
-        margin-top: 4rem;
-    }
-    ul{
-        width: 100%;
-        height: auto;
-        border-top:.1rem solid $LGBlack;
-        border-bottom: .1rem solid $GrayE7;
-        padding: 3rem 6.5rem 3rem 0;
-        margin-bottom: 4rem;
-      
-        li{
-            font-size: 1.8rem;
-            line-height: 1.8rem;
-            letter-spacing: -0.02em;
-            color: $LGBlack;
-            font-weight: 600;
-            display: flex;
-            justify-content: flex-start;
-            margin-bottom: 2rem;
-            &:last-child{
-                margin-bottom: 0;
-            }
-            span{
-                font-size: 1.6rem;
-                font-weight: 600;
-                letter-spacing: -0.02em;
-                line-height: 2.56rem;
-                color:$RedD0;
-                min-width: 6rem;
-            }
-            p{
-                font-size: 1.6rem;
-                line-height: 2.56rem;
-                letter-spacing: -0.02em;
-                color:$LGBlack;
-            }
-        }
+    .popCon {
+      padding: 0 3rem 5rem;
     }
   }
-  
+  .close {
+    position: absolute;
+    right: 3rem;
+    top: 3rem;
+    width: 1.8rem;
+    height: 1.8rem;
+    background-image: url(/common/images/icon/popClose.png);
+    text-indent: -9999rem;
+    font-size: 0;
+  }
+}
+.popCon {
+  .guideBox {
+    h5 {
+      font-size: 2rem;
+      line-height: 2rem;
+      letter-spacing: -0.02em;
+      color: $LGBlack;
+      margin-bottom: 1.5rem;
+      font-weight: 600;
+    }
+    & + .guideBox {
+      margin-top: 4rem;
+    }
+    ul {
+      width: 100%;
+      height: auto;
+      border-top: 0.1rem solid $LGBlack;
+      border-bottom: 0.1rem solid $GrayE7;
+      padding: 3rem 6.5rem 3rem 0;
+      margin-bottom: 4rem;
+
+      li {
+        font-size: 1.8rem;
+        line-height: 1.8rem;
+        letter-spacing: -0.02em;
+        color: $LGBlack;
+        font-weight: 600;
+        display: flex;
+        justify-content: flex-start;
+        margin-bottom: 2rem;
+        &:last-child {
+          margin-bottom: 0;
+        }
+        span {
+          font-size: 1.6rem;
+          font-weight: 600;
+          letter-spacing: -0.02em;
+          line-height: 2.56rem;
+          color: $RedD0;
+          min-width: 6rem;
+        }
+        p {
+          font-size: 1.6rem;
+          line-height: 2.56rem;
+          letter-spacing: -0.02em;
+          color: $LGBlack;
+        }
+      }
+    }
+  }
+
   /* 지원서 작서 안내 */
-  .tabMenu{
-    &.type2{
-      .tabs{
-        border:.5rem solid $GrayD9;
+  .tabMenu {
+    &.type2 {
+      .tabs {
+        border: 0.5rem solid $GrayD9;
         line-height: 5rem;
         border-radius: 3rem;
         justify-content: space-between;
-        li{
+        li {
           width: 20%;
           text-align: center;
           margin-right: 0;
           border-radius: 2.5rem;
           position: relative;
-          &::before{
+          &::before {
             display: block;
             position: absolute;
-            width: .1rem;
+            width: 0.1rem;
             height: 1.6rem;
             background-color: $GrayD9;
-            right:-.1rem;
-            top:1.7rem;
+            right: -0.1rem;
+            top: 1.7rem;
           }
-          &:last-child{
-            &::before{
+          &:last-child {
+            &::before {
               width: 0;
             }
           }
-          button{
+          button {
             font-size: 1.6rem;
             line-height: 1.6rem;
-            color:$Gray6B;
+            color: $Gray6B;
             width: 100%;
             height: 100%;
           }
-          &.tabOn{
+          &.tabOn {
             background-color: $RedD0;
-            button{
-              color:$White;
+            button {
+              color: $White;
               font-weight: 600;
             }
-            &::before{
+            &::before {
               width: 0;
             }
           }
@@ -208,60 +208,60 @@
       }
     }
   }
-  .icoGuide{
+  .icoGuide {
     font-size: 1.4rem;
     line-height: 1.8rem;
-    color:$Gray6B;
+    color: $Gray6B;
     letter-spacing: -0.02em;
     position: relative;
     padding-left: 2.7rem;
-    &::before{
+    &::before {
       display: block;
       position: absolute;
       width: 1.9rem;
       height: 1.8rem;
       background-image: url(/common/images/icon/infoAlert.png);
-      left:0;
-      top:0;
+      left: 0;
+      top: 0;
     }
   }
-  .tabConTw{
+  .tabConTw {
     display: flex;
     justify-content: space-between;
     margin-top: 5rem;
-    .appLft{
+    .appLft {
       width: 27rem;
       margin-right: 1rem;
-      h4{
+      h4 {
         font-size: 1.8rem;
         line-height: 1.8rem;
         letter-spacing: -0.02em;
-        color:$LGBlack;
+        color: $LGBlack;
         font-weight: 600;
         position: relative;
         padding-left: 1.5rem;
-        &::before{
+        &::before {
           display: block;
           position: absolute;
-          width: .5rem;
-          height: .5rem;
-          border-radius: .25rem;
+          width: 0.5rem;
+          height: 0.5rem;
+          border-radius: 0.25rem;
           background-color: $RedD0;
           left: 0;
-          top:0.5rem;
+          top: 0.5rem;
         }
       }
-      ul{
+      ul {
         margin-top: 2rem;
         padding: 0 1.5rem;
-        li{
+        li {
           display: flex;
           justify-content: flex-start;
           margin-bottom: 1.5rem;
-          &:last-child{
+          &:last-child {
             margin-bottom: 0;
           }
-          span{
+          span {
             display: block;
             width: 2.2rem;
             height: 2.4rem;
@@ -274,24 +274,23 @@
             text-align: center;
             color: $White;
           }
-          p{
+          p {
             font-size: 1.4rem;
             line-height: 1.96rem;
             letter-spacing: -0.02em;
-            color:$Gray6B;
+            color: $Gray6B;
             margin-left: 1rem;
             width: calc(100% - 3.2rem);
           }
         }
       }
     }
-    .appRgt{
+    .appRgt {
       width: calc(100% - 28rem);
       padding-left: 2rem;
       min-height: 49.2rem;
       height: auto;
-      border-left: .1rem solid $GrayD9;
+      border-left: 0.1rem solid $GrayD9;
     }
-
   }
 }

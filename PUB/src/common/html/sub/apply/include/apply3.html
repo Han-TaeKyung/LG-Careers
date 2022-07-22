@@ -1,353 +1,179 @@
-<div id="LblockTabContent03" class="LblockTabContent">
-  <form id="prevExpInfoForm" name="prevExpInfoForm" method="post">
-    <input
-      type="hidden"
-      name="devon.token.field.sessionscope.sessionscopeexp"
-      value="sessionscopeexp"
-    />
-    <input
-      type="hidden"
-      name="sessionscopeexp"
-      value="5ZU3089BN1R51HTZPQUBUKZSS662547U"
-    />
-    <h2 class="Lhide">3. 경력사항</h2>
-    <div class="LviewExplanation">
-      <p>
-        <strong>지원서 작성 안내</strong
-        ><a href="#" onclick="applcationGuidePopup();">보기</a>
-      </p>
-    </div>
-
-    <div class="foldedInphone">
-      <div class="dtFoldedInPhone btnmore">
-        <div class="LblockPageSubtitle">
-          <h3>경력사항</h3>
-          <div class="subtitleBtn">
-            <a href="#" id="exprAddBtn" class="btn_more"
-              ><span class="Lhide">경력사항 </span>추가</a
-            >
-          </div>
-        </div>
-      </div>
-      <div class="ddFoldedInPhone">
-        <div id="LblockCareers">
-          <div class="LblockDetailTable">
-            <table class="applicationform rsp rsp-hori rsp-tablet">
-              <caption>
-                3. 경력사항
-              </caption>
-              <colgroup>
-                <col style="width: 15%" />
-                <col style="width: 35%" />
-                <col style="width: 15%" />
-                <col style="width: 35%" />
-              </colgroup>
-              <tbody>
-                <tr>
-                  <th scope="row">
-                    <input
-                      type="hidden"
-                      id="wperiod_1"
-                      name="wperiod_1"
-                      value=""
-                    />
-                    <label class="required" for="companyName_1"
-                      ><span class="Lhide">(필수)</span>회사명</label
-                    >
-                  </th>
-                  <td>
-                    <input
-                      type="text"
-                      id="companyName_1"
-                      name="companyName_1"
-                      value=""
-                      maxlength="100"
-                    />
-                  </td>
-                  <th scope="row">
-                    <label class="required" for="startDate_1"
-                      ><span class="Lhide">(필수)</span>기간</label
-                    >
-                  </th>
-                  <td>
-                    <input
-                      type="text"
-                      class="Ltext"
-                      id="startDate_1"
-                      name="startDate_1"
-                      size="11"
-                      maxlength="7"
-                      placeholder="YYYY.MM"
-                      title="기간 시작일(YYYY.MM)"
-                      value=""
-                      onKeyPress="return $.onKeyPressFilter('[0-9.]', event);"
-                      style="ime-mode: disabled"
-                      onkeyup="this.value=this.value.replace(/[^0-9.]/g,'')"
-                    />
-                    <label>~</label>
-                    <input
-                      type="text"
-                      class="Ltext"
-                      id="endDate_1"
-                      size="11"
-                      name="endDate_1"
-                      maxlength="7"
-                      placeholder="YYYY.MM"
-                      title="기간 종료일(YYYY.MM)"
-                      value=""
-                      onKeyPress="return $.onKeyPressFilter('[0-9.]', event);"
-                      style="ime-mode: disabled"
-                      onkeyup="this.value=this.value.replace(/[^0-9.]/g,'')"
-                    />
-                    <span id="calculDate_1" class="displayblockInPhone"></span>
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row">
-                    <label class="required" for="careerLocationName_1"
-                      ><span class="Lhide">(필수)</span>소재지</label
-                    >
-                  </th>
-                  <td>
-                    <div class="input_search">
-                      <input
-                        type="text"
-                        id="careerLocationName_1"
-                        name="locationName_1"
-                        size="10"
-                        value=""
-                        readonly="readonly"
-                        maxlength="300"
-                      />
-                      <input
-                        type="hidden"
-                        id="careerAddressSido_1"
-                        name="addressSido_1"
-                        value=""
-                      />
-                      <input
-                        type="hidden"
-                        id="careerAddressSigu_1"
-                        name="addressSigu_1"
-                        value=""
-                      />
-                      <button
-                        type="button"
-                        onclick="searchSchoolLocPopup(this);"
-                      >
-                        검색
-                      </button>
-                    </div>
-                  </td>
-                  <th scope="row">
-                    <label class="required" for="orgName_1"
-                      ><span class="Lhide">(필수)</span>부서명</label
-                    >
-                  </th>
-                  <td>
-                    <input
-                      type="text"
-                      id="orgName_1"
-                      name="orgName_1"
-                      value=""
-                      maxlength="300"
-                    />
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row"><label for="gradeName_1">직급</label></th>
-                  <td>
-                    <input
-                      type="text"
-                      id="gradeName_1"
-                      name="gradeName_1"
-                      value=""
-                      maxlength="100"
-                    />
-                  </td>
-                  <th scope="row">
-                    <label class="required" for="careerJobCode_1"
-                      ><span class="Lhide">(필수)</span>직무</label
-                    >
-                  </th>
-                  <td>
-                    <input
-                      type="text"
-                      id="careerJobCode_1"
-                      name="jobCode_1"
-                      value=""
-                      maxlength="30"
-                    />
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row">
-                    <label class="required" for="exitReasonCode_1"
-                      ><span class="Lhide">(필수)</span>이직사유</label
-                    >
-                  </th>
-                  <td>
-                    <span class="set_selectInput">
-                      <select
-                        id="exitReasonCode_1"
-                        name="exitReasonCode_1"
-                        onChange="changeExitReason(this)"
-                        class="minwidth100"
-                      >
-                        <option value="">선택하세요</option>
-
-                        <option value="RETIRE000">재직중</option>
-
-                        <option value="RETIRE002">계약 만료</option>
-
-                        <option value="RETIRE009">자매사전출</option>
-
-                        <option value="RETIRE019">권고 사직</option>
-
-                        <option value="RETIRE020">개인 사정</option>
-
-                        <option value="RETIRE099">기타 사유</option>
-                      </select>
-                      <input
-                        title="퇴직사유 직접입력"
-                        type="text"
-                        id="exitReasonDetail_1"
-                        class="blockInPhone"
-                        name="exitReasonDetail_1"
-                        size="10"
-                        style="width: 60%"
-                        disabled="disabled"
-                        value=""
-                        maxlength="100"
-                      />
-                    </span>
-                    <input
-                      type="hidden"
-                      id="index_1"
-                      name="index_1"
-                      value="1"
-                    />
-                  </td>
-                  <th scope="row"><label for="salary_1">연봉(만원)</label></th>
-                  <td>
-                    <input
-                      type="text"
-                      id="salary_1"
-                      name="salary_1"
-                      value=""
-                      maxlength="15"
-                      onKeyPress="return $.onKeyPressFilter('[0-9]', event);"
-                      style="ime-mode: disabled"
-                      onkeyup="this.value=this.value.replace(/[^0-9]/g,'')"
-                    />
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-            <table class="detailexplain">
-              <caption>
-                3. 경력사항 - 직무경험
-              </caption>
-              <thead>
-                <tr>
-                  <th scope="col" class="LtextLeft">
-                    <label class="required" for="expContent_1"
-                      ><span class="Lhide">(필수)</span>직무경험 상세
-                      기술</label
-                    >
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>
-                    <textarea
-                      id="expContent_1"
-                      name="expContent_1"
-                      class="LtextArea"
-                    ></textarea>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-        <div class="additionalTips">
-          <p>
-            최근 경력부터 입력하시되, 경력사항은 증빙서류를 통하여 확인 가능한
-            부분에 한합니다.
-          </p>
-          <p>경력사항에는 인턴, 아르바이트 등의 사항은 해당되지 않습니다.</p>
-          <p>경력 인정 여부는 각 사별/직무별로 다를 수 있습니다.</p>
-        </div>
-      </div>
-    </div>
-
-    <h3>추가사항</h3>
-    <div class="LblockDetailTable">
-      <table class="applicationdetails rsp rsp-hori rsp-tablet">
-        <caption>
-          추가사항
-        </caption>
+<section class="tabCon" id="tabCon3">
+  <article class="sec1">
+    <h3>경력사항</h3>
+    <p>졸업예정자의 경우 최종학력은 졸업예정 학력으로 선택하여 작성바랍니다.</p>
+    <div class="table">
+      <table>
+        <caption>경력사항 - 회사명, 기간, 소재지, 부서명, 직급, 직무, 이직사유, 연봉(만원(, 직무경험 상세기술에 대한 정보 제공</caption>
         <colgroup>
-          <col style="width: 23%" />
-          <col style="width: 30%" />
-          <col style="width: 17%" />
-          <col style="width: 30%" />
+          <col style="width:15%" >
+          <col style="width:35%">
+          <col style="width:15%">
+          <col style="width:35%">
         </colgroup>
         <tbody>
-          <tr>
-            <th scope="row">
-              <label class="required" for="targetSalary"
-                ><span class="Lhide">(필수)</span>희망연봉(만원)</label
-              >
-            </th>
-            <td>
-              <input
-                id="targetSalary"
-                name="targetSalary"
-                type="text"
-                value=""
-                size="15"
-                maxlength="15"
-                onKeyPress="return $.onKeyPressFilter('[0-9]', event);"
-                style="ime-mode: disabled"
-                onkeyup="this.value=this.value.replace(/[^0-9]/g,'')"
-              />
-            </td>
-            <th scope="row">
-              <label class="required" for="entryDate"
-                ><span class="Lhide">(필수)</span>입사가능일</label
-              >
-            </th>
-            <td>
-              <input
-                id="entryDate"
-                name="entryDate"
-                type="text"
-                class="Ltext"
-                value=""
-                size="11"
-              />
-              <button
-                type="button"
-                class="LiconCalendar"
-                data-position="up"
-                data-calendar="entryDate"
-              >
-                달력
-              </button>
-            </td>
-          </tr>
+        <tr>
+          <th scope="row">회사명<span class="essential">필수 입력</span></th>
+          <td>
+            <div class="inputBox">
+              <label for="inputText1">텍스트입력</label>
+              <input type="text" id="inputText1" placeholder="텍스트 입력">
+            </div>
+          </td>
+          <th scope="row">기간<span class="essential">필수 입력</span></th>
+          <td>
+            <div class="duration">
+              <div class="inputBox">
+                <input type="text" placeholder="YYYYMM">
+              </div>
+              <span class="bar">~</span>
+              <div class="inputBox">
+                <input type="text" placeholder="YYYYMM">
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">소재지<span class="essential">필수 입력</span></th>
+          <td>
+            <div class="inputSearch inputBox">
+              <input type="text" />
+              <button type="button" class="searchBtn">검색</button>
+            </div>
+          </td>
+          <th scope="row">부서명<span class="essential">필수 입력</span></th>
+          <td>
+            <div class="inputBox">
+              <label for="inputText1">텍스트입력</label>
+              <input type="text" id="inputText1" placeholder="텍스트 입력">
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">직급</th>
+          <td>
+            <div class="inputBox">
+              <label for="inputText1">텍스트입력</label>
+              <input type="text" id="inputText1" placeholder="텍스트 입력">
+            </div>
+          </td>
+          <th scope="row">직무</th>
+          <td>
+            <div class="inputBox">
+              <label for="inputText1">텍스트입력</label>
+              <input type="text" id="inputText1" placeholder="텍스트 입력">
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">이직사유</th>
+          <td>
+            <div class="flexWrap">
+                <select title="셀렉트 이름">
+                  <option value="">--선택--</option>
+                  <option value="">선택1</option>
+                  <option value="">선택2</option>
+                  <option value="">선택3</option>
+                  <option value="">선택4</option>
+                  <option value="">선택5</option>
+                  <option value="">선택6</option>
+                </select>
+              <div class="inputBox">
+                <label for="inputText1">텍스트입력</label>
+                <input type="text" id="inputText1" placeholder="텍스트 입력">
+              </div>
+            </div>
+          </td>
+          <th scope="row">연봉(만원)</th>
+          <td>
+            <div class="inputBox">
+              <label for="inputText1">텍스트입력</label>
+              <input type="text" id="inputText1" placeholder="텍스트 입력">
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row" colspan="4">직무경험 상세 기술</th>
+        </tr>
+        <tr>
+          <td colspan="4">
+            <div class="inputBox">
+              <label for="textBox1">텍스트박스</label>
+              <textarea id="textBox1" placeholder="텍스트박스"></textarea>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row"><span class="essential">필수 입력</span></th>
+          <td></td>
+          <th scope="row"><span class="essential">필수 입력</span></th>
+          <td></td>
+        </tr>
         </tbody>
       </table>
     </div>
-  </form>
-  <div class="LblockTabButton">
-    <button type="button" class="btn_back" onclick="nextTab(this,1);">
-      <span>이전</span>
-    </button>
-    <button type="button" id="btnSavePreExp"><span>저장</span></button>
-    <button type="button" onclick="nextTab(this,3);"><span>다음</span></button>
+    <ul class="bu">
+      <li>최근 경력부터 입력하시되, 경력사항은 증빙서류를 통하여 확인 가능한 부분에 한합니다.</li>
+      <li>경력사항에는 인턴, 아르바이트 등의 사항은 해당되지 않습니다.</li>
+      <li>경력 인정 여부는 각 사별/직무별로 다를 수 있습니다.</li>
+    </ul>
+  </article>
+
+  <article>
+    <h3>추가사항</h3>
+    <div class="table">
+      <table>
+        <caption>추가사항 - 희망연봉(만원), 입사가능일에 대한 정보 제공</caption>
+        <tbody>
+        <tr>
+          <th scope="row">희망연봉(만원)<span class="essential">필수 입력</span>
+          </th>
+          <td>
+            <div class="inputBox">
+              <label for="inputText1">텍스트입력</label>
+              <input type="text" id="inputText1" placeholder="텍스트 입력">
+            </div>
+          </td>
+          <th scope="row">입사가능일<span class="essential">필수 입력</span></th>
+          <td>
+              <span class="duration">
+                <span class="inputBox">
+                  <input
+                          type="text"
+                          id="inputText1"
+                          placeholder="텍스트 입력"
+                  />
+                </span>
+                <button
+                        type="button"
+                        id="milStartDate_cal"
+                        class="LiconCalendar"
+                        data-calendar="milStartDate"
+                >
+                  달력
+                </button>
+              </span>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </article>
+
+
+  <div class="bottomWrap">
+    <div class="left">
+      <button type="submit" class="btn round type6 prev">
+        <span>이전</span>
+      </button>
+    </div>
+    <div class="right">
+      <button type="submit" class="btn round type6">
+        <span>임시저장</span>
+      </button>
+      <button type="submit" class="btn round type5 next">
+        <span>다음</span>
+      </button>
+    </div>
   </div>
-</div>
+</section>

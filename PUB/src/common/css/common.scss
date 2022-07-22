@@ -295,7 +295,7 @@
 h3.subTitle {
   @include title0;
 }
-h3.subTitleC{
+h3.subTitleC {
   @include title;
 }
 
@@ -536,7 +536,7 @@ p {
   & + .btn {
     margin-left: 1.2rem;
   }
-  &.reset{
+  &.reset {
     padding: 0;
     border: 0;
     min-width: inherit;
@@ -545,17 +545,17 @@ p {
     font-size: 1.6rem;
     letter-spacing: -0.02em;
     color: $Gray6B;
-    i{
+    i {
       vertical-align: middle;
       margin-left: 0.8rem;
     }
   }
   //팝업푸터 버튼
-  &+ .popup{
+  & + .popup {
     margin-left: 0;
   }
-  &.popup{
-    border:0;
+  &.popup {
+    border: 0;
     padding: 0;
     width: 100%;
     min-width: inherit;
@@ -565,13 +565,13 @@ p {
     background-color: $LGBlack;
     font-size: 1.6rem;
     letter-spacing: -0.02em;
-    color:$White;
+    color: $White;
     border-radius: 0;
     font-weight: 400;
-    &.ptype2{
+    &.ptype2 {
       background-color: $White;
-      border-top:.1rem solid $GrayD9;
-      color:$LGBlack;
+      border-top: 0.1rem solid $GrayD9;
+      color: $LGBlack;
     }
   }
 }
@@ -626,7 +626,7 @@ p {
         width: 1.1rem;
         height: 0.8rem;
         background: url(/common/images/icon/checkGray.svg) no-repeat center
-          center;
+        center;
         transition: all 0.2s;
       }
     }
@@ -1130,11 +1130,11 @@ select {
       }
     }
   }
-  &.type4{
-    >li{
-      color:$LGBlack;
+  &.type4 {
+    > li {
+      color: $LGBlack;
       margin-bottom: 0.8rem;
-      &:last-child{
+      &:last-child {
         margin-bottom: 0;
       }
     }
@@ -1574,25 +1574,24 @@ select {
             padding-right: 2.4rem;
             position: relative;
             display: block;
-            &:after{
+            &:after {
               display: block;
               position: absolute;
-              right:0;
-              top:0.4rem;
+              right: 0;
+              top: 0.4rem;
               width: 1.4rem;
               height: 0.8rem;
               background-image: url(/common/images/icon/listUpIco.png);
             }
           }
-          &.active{
-            >a{
-              &:after{
+          &.active {
+            > a {
+              &:after {
                 transition: 0.3s;
                 transform: rotate(180deg);
               }
-              
             }
-            >ul{
+            > ul {
               display: block;
             }
           }
@@ -1762,15 +1761,15 @@ select {
     background-color: #fff;
     border-radius: 1.5rem;
     overflow: hidden;
-    &.wid500{
+    &.wid500 {
       width: 50rem;
     }
-    &.wid678{
+    &.wid678 {
       width: 67.8rem;
     }
     .popTitle {
       padding: 3rem 3rem 4rem;
-      h3{
+      h3 {
         text-align: left;
         font-size: 2.4rem;
         line-height: 2.4rem;
@@ -1782,7 +1781,7 @@ select {
     .popCon {
       min-height: 225px;
       padding: 0 3rem 5rem;
-      .joinPop{
+      .joinPop {
         font-size: 1.6rem;
         line-height: 2.56rem;
         letter-spacing: -0.02em;
@@ -1790,11 +1789,10 @@ select {
       }
     }
     .popFooter {
-      .type2{
+      .type2 {
         display: flex;
         justify-content: space-between;
       }
-    
     }
     .close {
       position: absolute;
@@ -1812,49 +1810,49 @@ select {
   }
 }
 /*첨부파일 폼*/
-.fileUpload{
+.fileUpload {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  p{
+  p {
     font-size: 1.3rem;
     line-height: 1.82rem;
     letter-spacing: -0.02em;
-    color:$Gray6B;
+    color: $Gray6B;
     margin-left: 2rem;
   }
 }
-.fileAdd{
-  height:4.8rem;
+.fileAdd {
+  height: 4.8rem;
   line-height: 4.8rem;
   font-weight: 400 !important;
 }
-.fileUploadC{
+.fileUploadC {
   margin-top: 1.5rem;
 }
-.fileUploadForm{
+.fileUploadForm {
   width: 100%;
   height: 4.8rem;
   background-color: $GrayF5;
-  padding:.5rem 2rem .5rem .5rem;
+  padding: 0.5rem 2rem 0.5rem 0.5rem;
   border-radius: 0.5rem;
   display: flex;
   justify-content: flex-start;
   align-items: center;
   position: relative;
-  & +.fileUploadForm{
+  & + .fileUploadForm {
     margin-top: 1rem;
   }
-  .fileDelete{
+  .fileDelete {
     width: 1.8rem;
     height: 1.8rem;
     background-image: url(/common/images/icon/fileClose.png);
     text-indent: -9999;
     font-size: 0;
     position: absolute;
-    right:2rem;
+    right: 2rem;
   }
- 
+
   input {
     position: relative;
     z-index: -1;
@@ -1869,7 +1867,7 @@ select {
     letter-spacing: -0.02em;
     margin-left: 1rem;
   }
-  
+
   label.uploadBtn {
     position: relative;
     display: inline-block;
@@ -1885,6 +1883,4 @@ select {
     border: 1px solid $GrayAE;
     text-align: center;
   }
-  
-  
 }

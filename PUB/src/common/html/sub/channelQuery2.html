@@ -196,8 +196,16 @@
       var $attatchElem = $(
         "<div class='fileUploadForm'><label for='attach' class='uploadBtn'><span>파일선택</span></label><input type='file' name='file_attach' title='파일경로' class='input' placeholder='파일찾기'><span class='fileName'>선택된 파일이 없습니다</span><button type='button' class='fileDelete'>삭제</button></div>"
       );
-      $attatchElem.find("label").attr("for", "attatch" + attatchId);
-      $attatchElem.find("input[type=file]").attr("id", "attatch" + attatchId);
+      $attatchElem
+        .find("label")
+        .attr("for", "attatch" + attatchId)
+        .find("span");
+      $attatchElem.find("input[type=file]").attr({
+        id: "attatch" + attatchId,
+        title: attatchId + "번째 파일 입력",
+      });
+      $attatchElem.find("fileDelete").text(attatchId + "번째 파일 입력 삭제");
+
       $(".fileUploadC").append($attatchElem);
       attatchId += 1;
     });

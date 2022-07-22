@@ -1,2452 +1,1039 @@
-<div id="LblockTabContent02" class="LblockTabContent">
-  <form
-    id="appDetailForm"
-    name="appDetailForm"
-    method="post"
-    enctype="multipart/form-data"
-  >
-    <input
-      type="hidden"
-      name="devon.token.field.sessionscope.sessionscopedetail"
-      value="sessionscopedetail"
-    />
-    <input
-      type="hidden"
-      name="sessionscopedetail"
-      value="DYM2U64KUJ8GSZ95QLOEFIEDXYAYSD9P"
-    />
-    <h2 class="Lhide">2. 상세인적사항</h2>
-    <div class="LviewExplanation">
-      <p>
-        <strong>지원서 작성 안내</strong
-        ><a href="#" onclick="applcationGuidePopup();">보기</a>
-      </p>
-    </div>
-
-    <div class="LtableDescription applicationform">
-      <h3 style="margin: 0 0 5px">
-        최종 학력을 선택하세요. (선택 후 학력 입력란이 활성화됩니다.)
-      </h3>
-      <div class="Linformation">
-        <p style="color: #d80546">
-          졸업예정자의 경우 최종학력은 졸업예정 학력으로 선택하여 작성바랍니다.
-        </p>
-      </div>
-      <p class="Lselectbox">
-        <select title="최종학력" id="degreeType" name="degreeType">
+<section class="tabCon" id="tabCon2">
+  <article class="sec1">
+    <h3>최종 학력</h3>
+    <p>졸업예정자의 경우 최종학력은 졸업예정 학력으로 선택하여 작성바랍니다.</p>
+    <div class="table">
+      <span class="input w300px">
+        <select title="최종 학력 선택">
           <option value="">선택하세요</option>
-          <option value="A">박사</option>
-          <option value="B">석사</option>
-          <option value="C">학사</option>
-          <option value="G">전문학사</option>
-          <option value="H">고졸</option>
+          <option value="">선택1</option>
+          <option value="">선택2</option>
+          <option value="">선택3</option>
+          <option value="">선택4</option>
+          <option value="">선택5</option>
+          <option value="">선택6</option>
         </select>
-      </p>
+      </span>
     </div>
+  </article>
 
-    <div id="highschoolDiv">
-      <div class="foldedInphone">
-        <div class="dtFoldedInPhone btnmore">
-          <div class="LblockPageSubtitle">
-            <h3>고등학교</h3>
-            <div class="subtitleBtn">
-              <a
-                href="#"
-                class="btn_erase"
-                onclick="fnEraseData('highschoolDiv');"
-                ><span class="Lhide">고등학교 입력 </span>지우기</a
-              >
+  <article class="sec1-1">
+    <h3>고등학교</h3>
+    <div class="table">
+      <table>
+        <caption>고등학교 - 학교명, 소재지, 기간, 졸업구분, 전공계열에 대한 정보 제공</caption>
+        <colgroup>
+          <col style="width:15%" >
+          <col style="width:35%">
+          <col style="width:15%">
+          <col style="width:35%">
+        </colgroup>
+        <tbody>
+        <tr>
+          <th scope="row">학교명<span class="essential">필수 입력</span></th>
+          <td>
+            <div class="inputSearch inputBox">
+              <input type="text" />
+              <button type="button" class="searchBtn">검색</button>
             </div>
-          </div>
-        </div>
-        <div class="ddFoldedInPhone">
-          <div class="LblockDetailTable">
-            <table class="applicationform rsp rsp-hori rsp-tablet">
-              <caption>
-                고등학교
-              </caption>
-              <tbody>
-                <tr>
-                  <th scope="row" style="width: 15%">
-                    <label class="required" for="highSchoolName"
-                      ><span class="Lhide">(필수)</span>학교명</label
-                    >
-                  </th>
-                  <td style="width: 35%">
-                    <div class="input_search">
-                      <input
-                        type="text"
-                        id="highSchoolName"
-                        name="highSchoolName"
-                        size="10"
-                        readonly="readonly"
-                        value=""
-                      />
-                      <input
-                        type="hidden"
-                        id="highSchoolCode"
-                        name="highSchoolCode"
-                        value=""
-                      />
-                      <button
-                        type="button"
-                        onclick="searchSchoolPopup(this,'H');"
-                      >
-                        검색
-                      </button>
-                    </div>
-                  </td>
-                  <th scope="row" style="width: 15%">
-                    <label class="required" for="highLocationName"
-                      ><span class="Lhide">(필수)</span>소재지</label
-                    >
-                  </th>
-                  <td style="width: 35%">
-                    <div class="input_search">
-                      <input
-                        type="text"
-                        id="highLocationName"
-                        name="highLocationName"
-                        size="10"
-                        value=""
-                        readonly="readonly"
-                        maxlength="300"
-                      />
-                      <input
-                        type="hidden"
-                        id="highAddressSido"
-                        name="highAddressSido"
-                        value=""
-                      />
-                      <input
-                        type="hidden"
-                        id="highAddressSigu"
-                        name="highAddressSigu"
-                        value=""
-                      />
-                      <button
-                        type="button"
-                        onclick="searchSchoolLocPopup(this);"
-                      >
-                        검색
-                      </button>
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row" style="width: 15%">
-                    <label class="required"
-                      ><span class="Lhide">(필수)</span>기간</label
-                    >
-                  </th>
-                  <td style="width: 35%">
-                    <input
-                      type="text"
-                      class="Ltext"
-                      id="highstartDate"
-                      name="highstartDate"
-                      value=""
-                      size="11"
-                      maxlength="11"
-                      readonly="readonly"
-                      title="기간 시작일"
-                    />
-                    <button
-                      type="button"
-                      class="LiconCalendar"
-                      data-calendar="highstartDate"
-                    >
-                      달력
-                    </button>
-                    <label>~</label>
-                    <input
-                      type="text"
-                      class="Ltext"
-                      id="highendDate"
-                      name="highendDate"
-                      size="11"
-                      value=""
-                      maxlength="11"
-                      readonly="readonly"
-                      title="기간 종료일"
-                    />
-                    <button
-                      type="button"
-                      class="LiconCalendar"
-                      data-calendar="highendDate"
-                    >
-                      달력
-                    </button>
-                  </td>
-                  <th scope="row" style="width: 15%">
-                    <label class="required" for="highGraduationStatusCode"
-                      ><span class="Lhide">(필수)</span>졸업구분</label
-                    >
-                  </th>
-                  <td style="width: 35%">
-                    <select
-                      id="highGraduationStatusCode"
-                      name="highGraduationStatusCode"
-                    >
-                      <option value="">선택하세요</option>
+          </td>
+          <th scope="row">소재지<span class="essential">필수 입력</span></th>
+          <td>
 
-                      <option value="GR001">졸업</option>
-
-                      <option value="GR002">수료</option>
-
-                      <option value="GR006">졸업예정</option>
-
-                      <option value="GR005">타교편입</option>
-
-                      <option value="GR003">중퇴</option>
-                    </select>
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row" style="width: 15%">
-                    <label class="required" for="highStudyTypeCode"
-                      ><span class="Lhide">(필수)</span>전공계열</label
-                    >
-                  </th>
-                  <td colspan="3" style="width: 85%" class="selectInputText">
-                    <select
-                      id="highStudyTypeCode"
-                      name="highStudyTypeCode"
-                      class="minwidth100"
-                    >
-                      <option value="">선택하세요</option>
-
-                      <option value="A">인문계</option>
-
-                      <option value="B">상업계</option>
-
-                      <option value="C">공업계</option>
-
-                      <option value="Z">기타</option>
-                    </select>
-                    <input
-                      title="전공계열 직접입력"
-                      type="text"
-                      id="detailMajorName"
-                      name="detailMajorName"
-                      size="20"
-                      disabled="disabled"
-                      value=""
-                      maxlength="100"
-                    />
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <div class="additionalTips"></div>
-        </div>
-      </div>
-    </div>
-
-    <div id="collegeDiv">
-      <div class="foldedInphone">
-        <div class="dtFoldedInPhone btnmore">
-          <div class="LblockPageSubtitle more">
-            <h3>전문대학 <span id="collegeCount">(1)</span></h3>
-            <div class="additionalTips" style="margin: 0px">
-              <p>해당 사항이 없을 경우, 작성하지 않으셔도 됩니다.</p>
-              <p>
-                타 학교로 편입한 경우, 해당 학교의 졸업구분은 ‘타교편입’으로
-                선택해 주시기 바랍니다.
-              </p>
+            <div class="inputSearch inputBox">
+              <input type="text" />
+              <button type="button" class="searchBtn">검색</button>
             </div>
-            <h4>
-              두 개 이상의 전문대학을 졸업한 경우 또는 편입 한 경우, ‘+추가’ 를
-              선택하여 작성해 주십시오.
-            </h4>
-            <div class="subtitleBtn">
-              <a href="#" class="btn_erase" onclick="fnEraseData('collegeDiv');"
-                ><span class="Lhide">전문대학 입력 </span>지우기</a
-              >
-              <a href="#" class="btn_more" id="collegeAddBtn"
-                ><span class="Lhide">전문대학 </span>추가</a
-              >
-            </div>
-          </div>
-        </div>
-        <div class="ddFoldedInPhone">
-          <div class="LblockDetailTable">
-            <input
-              type="hidden"
-              id="collegeschoolSeqno_1"
-              name="collegeschoolSeqno_1"
-              value="1"
-            />
-            <table class="applicationform rsp rsp-hori rsp-tablet">
-              <caption>
-                전문대학
-              </caption>
-              <colgroup>
-                <col style="width: 15%" />
-                <col style="width: 35%" />
-                <col style="width: 15%" />
-                <col style="width: 35%" />
-              </colgroup>
-              <tbody>
-                <tr>
-                  <th scope="row">
-                    <label class="required" for="collegeschoolName_1"
-                      ><span class="Lhide">(필수)</span>학교명</label
-                    >
-                  </th>
-                  <td>
-                    <div class="input_search">
-                      <input
-                        type="text"
-                        id="collegeschoolName_1"
-                        name="collegeschoolName_1"
-                        size="10"
-                        readonly="readonly"
-                        value=""
-                      />
-                      <input
-                        type="hidden"
-                        id="collegeschoolCode_1"
-                        name="collegeschoolCode_1"
-                        value=""
-                      />
-                      <button
-                        type="button"
-                        onclick="searchSchoolPopup(this,'C');"
-                      >
-                        검색
-                      </button>
-                    </div>
-                  </td>
-                  <th scope="row">
-                    <label class="required" for="collegelocationName_1"
-                      ><span class="Lhide">(필수)</span>소재지</label
-                    >
-                  </th>
-                  <td>
-                    <div class="input_search">
-                      <input
-                        type="text"
-                        id="collegelocationName_1"
-                        name="collegelocationName_1"
-                        value=""
-                        readonly="readonly"
-                        maxlength="300"
-                      />
-                      <input
-                        type="hidden"
-                        id="collegeaddressSido_1"
-                        name="collegeaddressSido_1"
-                        value=""
-                      />
-                      <input
-                        type="hidden"
-                        id="collegeaddressSigu_1"
-                        name="collegeaddressSigu_1"
-                        value=""
-                      />
-                      <button
-                        type="button"
-                        onclick="searchSchoolLocPopup(this);"
-                      >
-                        검색
-                      </button>
-                    </div>
-                  </td>
-                </tr>
-
-                <tr>
-                  <th scope="row">
-                    <label class="required" for="collegestartDate_1"
-                      ><span class="Lhide">(필수)</span>기간</label
-                    >
-                  </th>
-                  <td>
-                    <input
-                      type="text"
-                      class="Ltext"
-                      id="collegestartDate_1"
-                      name="collegestartDate_1"
-                      value=""
-                      size="11"
-                      maxlength="11"
-                      readonly="readonly"
-                      title="기간 시작일"
-                    />
-                    <button
-                      type="button"
-                      class="LiconCalendar"
-                      id="collegestartCal_1"
-                      data-calendar="collegestartDate_1"
-                    >
-                      달력
-                    </button>
-                    <label>~</label>
-                    <input
-                      type="text"
-                      class="Ltext"
-                      id="collegeendDate_1"
-                      name="collegeendDate_1"
-                      value=""
-                      size="11"
-                      maxlength="11"
-                      readonly="readonly"
-                      title="기간 종료일"
-                    />
-                    <button
-                      type="button"
-                      class="LiconCalendar"
-                      id="collegeendCal_1"
-                      data-calendar="collegeendDate_1"
-                    >
-                      달력
-                    </button>
-                  </td>
-                  <th scope="row">
-                    <label class="required" for="collegegraduationStatusCode_1"
-                      ><span class="Lhide">(필수)</span>졸업구분</label
-                    >
-                  </th>
-                  <td>
-                    <select
-                      id="collegegraduationStatusCode_1"
-                      name="collegegraduationStatusCode_1"
-                    >
-                      <option value="">선택하세요</option>
-
-                      <option value="GR001">졸업</option>
-
-                      <option value="GR002">수료</option>
-
-                      <option value="GR006">졸업예정</option>
-
-                      <option value="GR005">타교편입</option>
-
-                      <option value="GR003">중퇴</option>
-                    </select>
-                  </td>
-                </tr>
-
-                <tr>
-                  <th scope="row">
-                    <label class="required" for="collegemajorName_1"
-                      ><span class="Lhide">(필수)</span>전공명</label
-                    >
-                  </th>
-                  <td>
-                    <div class="input_search">
-                      <input
-                        type="text"
-                        id="collegemajorName_1"
-                        name="collegemajorName_1"
-                        size="25"
-                        readonly="readonly"
-                        value=""
-                      />
-                      <input
-                        type="hidden"
-                        id="collegemajorCode_1"
-                        name="collegemajorCode_1"
-                        value=""
-                      />
-                      <button type="button" onClick="searchMajorPopup(this)">
-                        검색
-                      </button>
-                    </div>
-                  </td>
-                  <th scope="row">
-                    <label class="required" for="collegegpaPoint_1"
-                      ><span class="Lhide">(필수)</span>전체평점</label
-                    >
-                  </th>
-                  <td>
-                    <span class="set_selectInput">
-                      <input
-                        type="text"
-                        id="collegegpaPoint_1"
-                        name="collegegpaPoint_1"
-                        value=""
-                        maxlength="5"
-                        size="3"
-                        onKeyPress="return $.onKeyPressFilter('[0-9.]', event);"
-                        style="ime-mode: disabled"
-                        onkeyup="this.value=this.value.replace(/[^0-9.]/g,'')"
-                      />
-                      /
-                      <select
-                        title="학점 총점"
-                        id="collegegpaPointCode_1"
-                        name="collegegpaPointCode_1"
-                        onChange="getText(this)"
-                      >
-                        <option value="">선택하세요</option>
-
-                        <option value="GPA40">4.0</option>
-
-                        <option value="GPA43">4.3</option>
-
-                        <option value="GPA45">4.5</option>
-
-                        <option value="GPA00">100</option>
-                      </select>
-                      <input
-                        type="hidden"
-                        id="collegegpaPointCodeVal_1"
-                        name="collegegpaPointCodeVal_1"
-                        value=""
-                      />
-                    </span>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
-          <div id="addCollegeDiv"></div>
-          <div class="additionalTips"></div>
-        </div>
-      </div>
-    </div>
-
-    <div id="uniDiv">
-      <div class="foldedInphone">
-        <div class="dtFoldedInPhone btnmore">
-          <div class="LblockPageSubtitle more">
-            <h3>대학교 <span id="uniCount">(1)</span></h3>
-            <h4>
-              두 개 이상의 4년제 대학을 졸업한 경우 또는 편입 한 경우, ‘+추가’
-              를 선택하여 작성해 주십시오.
-            </h4>
-            <div class="subtitleBtn">
-              <a href="#" class="btn_erase" onclick="fnEraseData('uniDiv');"
-                ><span class="Lhide">대학교 입력 </span>지우기</a
-              >
-              <a href="#" id="uniAddBtn" class="btn_more"
-                ><span class="Lhide">대학교 </span>추가</a
-              >
-            </div>
-          </div>
-        </div>
-        <div class="ddFoldedInPhone">
-          <div class="LblockDetailTable">
-            <input
-              type="hidden"
-              id="unischoolSeqno_1"
-              name="unischoolSeqno_1"
-              value="1"
-            />
-            <table class="applicationform rsp rsp-hori rsp-tablet">
-              <caption>
-                대학교
-              </caption>
-              <colgroup>
-                <col style="width: 18%" />
-                <col style="width: 32%" />
-                <col style="width: 18%" />
-                <col style="width: 32%" />
-              </colgroup>
-              <tbody>
-                <tr>
-                  <th scope="row">
-                    <label class="required" for="unischoolName_1"
-                      ><span class="Lhide">(필수)</span>학교명</label
-                    >
-                  </th>
-                  <td>
-                    <div class="input_search">
-                      <input
-                        type="text"
-                        id="unischoolName_1"
-                        name="unischoolName_1"
-                        size="10"
-                        readonly="readonly"
-                        value=""
-                      />
-                      <input
-                        type="hidden"
-                        id="unischoolCode_1"
-                        name="unischoolCode_1"
-                        value=""
-                      />
-                      <button
-                        type="button"
-                        onclick="searchSchoolPopup(this,'U');"
-                      >
-                        검색
-                      </button>
-                    </div>
-                  </td>
-                  <th scope="row">
-                    <label class="required" for="unilocationName_1"
-                      ><span class="Lhide">(필수)</span>소재지</label
-                    >
-                  </th>
-                  <td>
-                    <div class="input_search">
-                      <input
-                        type="text"
-                        id="unilocationName_1"
-                        name="unilocationName_1"
-                        value=""
-                        readonly="readonly"
-                        maxlength="300"
-                      />
-                      <input
-                        type="hidden"
-                        id="uniaddressSido_1"
-                        name="uniaddressSido_1"
-                        value=""
-                      />
-                      <input
-                        type="hidden"
-                        id="uniaddressSigu_1"
-                        name="uniaddressSigu_1"
-                        value=""
-                      />
-                      <button
-                        type="button"
-                        onclick="searchSchoolLocPopup(this);"
-                      >
-                        검색
-                      </button>
-                    </div>
-                  </td>
-                </tr>
-
-                <tr>
-                  <th scope="row">
-                    <label class="required" for="unistartDate_1"
-                      ><span class="Lhide">(필수)</span>기간</label
-                    >
-                  </th>
-                  <td>
-                    <input
-                      type="text"
-                      class="Ltext"
-                      id="unistartDate_1"
-                      name="unistartDate_1"
-                      size="11"
-                      maxlength="11"
-                      readonly="readonly"
-                      value=""
-                      title="기간 시작일"
-                    />
-                    <button
-                      type="button"
-                      class="LiconCalendar"
-                      id="unistartCal_1"
-                      data-calendar="unistartDate_1"
-                    >
-                      달력
-                    </button>
-                    <label>~</label>
-                    <input
-                      type="text"
-                      class="Ltext"
-                      id="uniendDate_1"
-                      name="uniendDate_1"
-                      size="11"
-                      maxlength="11"
-                      readonly="readonly"
-                      value=""
-                      title="기간 종료일"
-                    />
-                    <button
-                      type="button"
-                      class="LiconCalendar"
-                      id="uniendCal_1"
-                      data-calendar="uniendDate_1"
-                    >
-                      달력
-                    </button>
-                  </td>
-                  <th scope="row">
-                    <label class="required" for="unigraduationStatusCode_1"
-                      ><span class="Lhide">(필수)</span>졸업구분</label
-                    >
-                  </th>
-                  <td>
-                    <select
-                      id="unigraduationStatusCode_1"
-                      name="unigraduationStatusCode_1"
-                    >
-                      <option value="">선택하세요</option>
-
-                      <option value="GR001">졸업</option>
-
-                      <option value="GR002">수료</option>
-
-                      <option value="GR006">졸업예정</option>
-
-                      <option value="GR005">타교편입</option>
-
-                      <option value="GR003">중퇴</option>
-                    </select>
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row">
-                    <label class="required" for="unimajorName_1"
-                      ><span class="Lhide">(필수)</span>전공명</label
-                    >
-                  </th>
-                  <td>
-                    <div class="input_search">
-                      <input
-                        type="text"
-                        id="unimajorName_1"
-                        name="unimajorName_1"
-                        size="10"
-                        readonly="readonly"
-                        value=""
-                      />
-                      <input
-                        type="hidden"
-                        id="unimajorCode_1"
-                        name="unimajorCode_1"
-                        value=""
-                      />
-                      <button type="button" onClick="searchMajorPopup(this)">
-                        검색
-                      </button>
-                    </div>
-                  </td>
-                  <th scope="row">
-                    <label for="uniminorType_1">부/복수전공</label>
-                  </th>
-                  <td>
-                    <span class="set_selectInput">
-                      <select
-                        id="uniminorType_1"
-                        name="uniminorType_1"
-                        title="부/복수전공 선택"
-                        class="minwidth100"
-                        onchange="onMinorChange(this);"
-                      >
-                        <option value="">선택하세요</option>
-
-                        <option value="A">부전공</option>
-
-                        <option value="B">복수전공</option>
-                      </select>
-                      <span class="input_search">
-                        <input
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">기간<span class="essential">필수 입력</span></th>
+          <td>
+              <span class="duration">
+                <span class="inputBox">
+                  <input
                           type="text"
-                          id="uniminorName_1"
-                          name="uniminorName_1"
-                          value=""
-                          size="10"
-                          readonly="readonly"
-                          title="전공명"
-                        />
-                        <input
-                          type="hidden"
-                          id="uniminorCode_1"
-                          name="uniminorCode_1"
-                          value=""
-                        />
-                        <button type="button" onClick="searchMajorPopup(this)">
-                          검색
-                        </button>
-                      </span>
-                    </span>
-                  </td>
-                </tr>
-
-                <tr>
-                  <th scope="row">
-                    <label for="unigpaPoint_1">전체평점</label>
-                  </th>
-
-                  <td colspan="3">
-                    <span class="set_selectInput">
-                      <input
-                        type="text"
-                        id="unigpaPoint_1"
-                        name="unigpaPoint_1"
-                        size="3"
-                        value=""
-                        maxlength="5"
-                        onKeyPress="return $.onKeyPressFilter('[0-9.]', event);"
-                        style="ime-mode: disabled"
-                        onkeyup="this.value=this.value.replace(/[^0-9.]/g,'')"
-                      />
-                      /
-                      <select
-                        title="전체평점"
-                        id="unigpaPointCode_1"
-                        name="unigpaPointCode_1"
-                        onChange="getText(this)"
-                      >
-                        <option value="">선택하세요</option>
-
-                        <option value="GPA40">4.0</option>
-
-                        <option value="GPA43">4.3</option>
-
-                        <option value="GPA45">4.5</option>
-
-                        <option value="GPA00">100</option>
-                      </select>
-                      <input
-                        type="hidden"
-                        id="unigpaPointCodeVal_1"
-                        name="unigpaPointCodeVal_1"
-                        value=""
-                      />
-                    </span>
-                  </td>
-                </tr>
-
-                <tr>
-                  <th scope="row">
-                    <label for="unimajorGpa_1">전공평점</label>
-                  </th>
-
-                  <td colspan="3">
-                    <span class="set_selectInput">
-                      <input
-                        type="text"
-                        id="unimajorGpa_1"
-                        name="unimajorGpa_1"
-                        size="3"
-                        value=""
-                        maxlength="5"
-                        onKeyPress="return $.onKeyPressFilter('[0-9.]', event);"
-                        style="ime-mode: disabled"
-                        onkeyup="this.value=this.value.replace(/[^0-9.]/g,'')"
-                      />
-                      /
-                      <select
-                        title="전공평점"
-                        id="unimajorGpaCode_1"
-                        name="unimajorGpaCode_1"
-                        onChange="getText(this)"
-                      >
-                        <option value="">선택하세요</option>
-
-                        <option value="GPA40">4.0</option>
-
-                        <option value="GPA43">4.3</option>
-
-                        <option value="GPA45">4.5</option>
-
-                        <option value="GPA00">100</option>
-                      </select>
-                      <input
-                        type="hidden"
-                        id="unimajorGpaCodeVal_1"
-                        name="unimajorGpaCodeVal_1"
-                        value=""
-                      />
-                    </span>
-                  </td>
-                </tr>
-
-                <tr>
-                  <th scope="row">
-                    <label for="unitotalPoint_1">전체 이수학점</label>
-                  </th>
-
-                  <td>
-                    <input
-                      type="text"
-                      id="unitotalPoint_1"
-                      name="unitotalPoint_1"
-                      size="3"
-                      value=""
-                      maxlength="5"
-                      onKeyPress="return $.onKeyPressFilter('[0-9.]', event);"
-                      style="ime-mode: disabled"
-                      onkeyup="this.value=this.value.replace(/[^0-9.]/g,'')"
-                    />
-                  </td>
-                  <th scope="row">
-                    <label for="unimajorPoint_1">전공 이수학점</label>
-                  </th>
-                  <td>
-                    <input
-                      type="text"
-                      id="unimajorPoint_1"
-                      name="unimajorPoint_1"
-                      size="3"
-                      value=""
-                      maxlength="5"
-                      onKeyPress="return $.onKeyPressFilter('[0-9.]', event);"
-                      style="ime-mode: disabled"
-                      onkeyup="this.value=this.value.replace(/[^0-9.]/g,'')"
-                    />
-                  </td>
-                </tr>
-
-                <tr class="double">
-                  <th scope="row">
-                    <label for="unidoublePoint_1">복수전공 이수학점</label>
-                  </th>
-                  <td>
-                    <input
-                      type="text"
-                      id="unidoublePoint_1"
-                      name="unidoublePoint_1"
-                      size="3"
-                      value=""
-                      maxlength="5"
-                      onKeyPress="return $.onKeyPressFilter('[0-9.]', event);"
-                      style="ime-mode: disabled"
-                      onkeyup="this.value=this.value.replace(/[^0-9.]/g,'')"
-                    />
-                  </td>
-                  <th scope="row">
-                    <label for="unidoubleMajorGpa_1">복수전공 평점</label>
-                  </th>
-                  <td>
-                    <span class="set_selectInput">
-                      <input
-                        type="text"
-                        id="unidoubleMajorGpa_1"
-                        name="unidoubleMajorGpa_1"
-                        size="3"
-                        value=""
-                        maxlength="5"
-                        onKeyPress="return $.onKeyPressFilter('[0-9.]', event);"
-                        style="ime-mode: disabled"
-                        onkeyup="this.value=this.value.replace(/[^0-9.]/g,'')"
-                      />
-                      /
-                      <select
-                        title="학점 총점"
-                        id="unidoubleMajorGpaCode_1"
-                        name="unidoubleMajorGpaCode_1"
-                        onChange="getText(this)"
-                      >
-                        <option value="">선택하세요</option>
-
-                        <option value="GPA40">4.0</option>
-
-                        <option value="GPA43">4.3</option>
-
-                        <option value="GPA45">4.5</option>
-
-                        <option value="GPA00">100</option>
-                      </select>
-                      <input
-                        type="hidden"
-                        id="unidoubleMajorGpaCodeVal_1"
-                        name="unidoubleMajorGpaCodeVal_1"
-                        value=""
-                      />
-                    </span>
-                  </td>
-                </tr>
-
-                <tr class="minor">
-                  <th scope="row">
-                    <label for="uniminorPoint_1">부전공 이수학점</label>
-                  </th>
-                  <td>
-                    <input
-                      type="text"
-                      id="uniminorPoint_1"
-                      name="uniminorPoint_1"
-                      size="3"
-                      value=""
-                      maxlength="5"
-                      onKeyPress="return $.onKeyPressFilter('[0-9.]', event);"
-                      style="ime-mode: disabled"
-                      onkeyup="this.value=this.value.replace(/[^0-9.]/g,'')"
-                    />
-                  </td>
-                  <th scope="row">
-                    <label for="uniminorGpa_1">부전공 평점</label>
-                  </th>
-                  <td>
-                    <span class="set_selectInput">
-                      <input
-                        type="text"
-                        id="uniminorGpa_1"
-                        name="uniminorGpa_1"
-                        size="3"
-                        value=""
-                        maxlength="5"
-                        onKeyPress="return $.onKeyPressFilter('[0-9.]', event);"
-                        style="ime-mode: disabled"
-                        onkeyup="this.value=this.value.replace(/[^0-9.]/g,'')"
-                      />
-                      /
-                      <select
-                        title="학점 총점"
-                        id="uniminorGpaCode_1"
-                        name="uniminorGpaCode_1"
-                        onChange="getText(this)"
-                      >
-                        <option value="">선택하세요</option>
-
-                        <option value="GPA40">4.0</option>
-
-                        <option value="GPA43">4.3</option>
-
-                        <option value="GPA45">4.5</option>
-
-                        <option value="GPA00">100</option>
-                      </select>
-                      <input
-                        type="hidden"
-                        id="uniminorGpaPointVal_1"
-                        name="uniminorGpaPointVal_1"
-                        value=""
-                      />
-                    </span>
-                  </td>
-                </tr>
-
-                <tr>
-                  <th scope="row">
-                    <label class="required"
-                      ><span class="Lhide">(필수)</span>공학인증</label
-                    >
-                  </th>
-                  <td colspan="3">
-                    <input
-                      type="radio"
-                      id="uniengineeringAccrFlag_yes_1"
-                      name="uniengineeringAccrFlag_1"
-                      value="Y"
-                    /><label for="engineeringAccrFlag_yes">Yes</label>
-                    <input
-                      type="radio"
-                      id="uniengineeringAccrFlag_no_1"
-                      name="uniengineeringAccrFlag_1"
-                      value="N"
-                    /><label for="engineeringAccrFlag_no">No</label>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
-          <div id="addUniDiv"></div>
-          <div class="additionalTips">
-            <p>
-              타 학교로 편입한 경우, 해당 학교의 졸업구분은 ‘타교편입’으로
-              선택해 주시기 바랍니다.
-            </p>
-            <p>
-              교환학생 내용은 입력하지 마십시오.(복수 학교 졸업이 아닙니다.)<br />단,
-              국내/해외 대학을 연계하여 두 개의 학위를 인정받은 경우에는 각각
-              입력해주시기 바랍니다.
-            </p>
-            <p>기간은 졸업일 또는 졸업예정일 기준으로 입력해주시기 바랍니다.</p>
-            <p>
-              복수/부전공이 모두 있는 경우 한 가지만 선택하여 입력해주시기
-              바랍니다.
-            </p>
-
-            <p>
-              전공이수학점은 전공필수, 전공선택 등 성적증명서상 전공으로
-              확인가능한 과목만 기입해 주시기 바랍니다. <br />(예> 공학계열
-              전공자는 수학/물리/화학등 전공기초과목 제외)
-            </p>
-          </div>
-        </div>
-      </div>
+                          id="inputText1"
+                          placeholder="텍스트 입력"
+                  />
+                </span>
+                <button
+                        type="button"
+                        id="milStartDate_cal"
+                        class="LiconCalendar"
+                        data-calendar="milStartDate"
+                >
+                  달력
+                </button>
+                <span class="bar">~</span>
+                <div class="inputBox">
+                  <input
+                          type="text"
+                          id="inputText1"
+                          id="inputText1"
+                          placeholder="텍스트 입력"
+                  />
+                </div>
+                <button
+                        type="button"
+                        id="milStartDate_cal"
+                        class="LiconCalendar"
+                        data-calendar="milStartDate"
+                >
+                  달력
+                </button>
+              </span>
+          </td>
+          <th scope="row">졸업구분<span class="essential">필수 입력</span></th>
+          <td>
+            <select name="" title="졸업구분 선택">
+              <option value="">1</option>
+              <option value="">2</option>
+              <option value="">3</option>
+              <option value="">4</option>
+              <option value="">5</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">전공계열</th>
+          <td>
+            <select name="" title="전공계열 선택">
+              <option value="">선택하세요</option>
+              <option value="">2</option>
+              <option value="">3</option>
+              <option value="">4</option>
+              <option value="">5</option>
+            </select>
+          </td>
+          <th scope="row"></th>
+          <td></td>
+        </tr>
+        </tbody>
+      </table>
     </div>
 
-    <!-- 대학교-석사 -->
-    <div id="masterDiv">
-      <div class="foldedInphone">
-        <div class="dtFoldedInPhone btnmore">
-          <div class="LblockPageSubtitle more">
-            <h3><span>대학원-석사</span> <span id="masterCount">(1)</span></h3>
-            <h4>
-              두 개 이상의 석사 학위를 소지한 경우, ‘+추가’ 를 선택하여 작성해
-              주십시오.
-            </h4>
-            <div class="subtitleBtn">
-              <a href="#" class="btn_erase" onclick="fnEraseData('masterDiv');"
-                ><span class="Lhide">대학원-석사 입력 </span>지우기</a
-              >
-              <a href="#" id="masterAddBtn" class="btn_more"
-                ><span class="Lhide">대학원-석사 </span>추가</a
-              >
+  </article>
+  <article class="sec1-2">
+    <h3>전문대학(1)</h3>
+    <div class="table">
+      <table>
+        <caption>전문대학(1) - 학교명, 소재지, 기간, 졸업구분, 전공계열에 대한 정보 제공</caption>
+        <colgroup>
+          <col style="width:15%" >
+          <col style="width:35%">
+          <col style="width:15%">
+          <col style="width:35%">
+        </colgroup>
+        <tbody>
+        <tr>
+          <th scope="row">학교명<span class="essential">필수 입력</span></th>
+          <td>
+            <div class="inputSearch inputBox">
+              <input type="text" />
+              <button type="button" class="searchBtn">검색</button>
             </div>
-          </div>
-        </div>
-        <div class="ddFoldedInPhone">
-          <div class="LblockDetailTable">
-            <input
-              type="hidden"
-              id="masterschoolSeqno_1"
-              name="masterschoolSeqno_1"
-              value="1"
-            />
-            <table class="applicationform rsp rsp-hori rsp-tablet">
-              <caption>
-                대학원-석사
-              </caption>
-              <colgroup>
-                <col style="width: 18%" />
-                <col style="width: 32%" />
-                <col style="width: 18%" />
-                <col style="width: 32%" />
-              </colgroup>
-              <tbody>
-                <tr>
-                  <th scope="row">
-                    <label class="required" for="masterschoolName_1"
-                      ><span class="Lhide">(필수)</span>학교명</label
-                    >
-                  </th>
-                  <td>
-                    <div class="input_search">
-                      <input
-                        type="text"
-                        id="masterschoolName_1"
-                        name="masterschoolName_1"
-                        value=""
-                        size="25"
-                        readonly="readonly"
-                      />
-                      <input
-                        type="hidden"
-                        id="masterschoolCode_1"
-                        name="masterschoolCode_1"
-                        value=""
-                      />
-                      <button
-                        type="button"
-                        onclick="searchSchoolPopup(this,'U');"
-                      >
-                        검색
-                      </button>
-                    </div>
-                  </td>
-                  <th scope="row">
-                    <label class="required" for="masterlocationName_1"
-                      ><span class="Lhide">(필수)</span>소재지</label
-                    >
-                  </th>
-                  <td>
-                    <div class="input_search">
-                      <input
-                        type="text"
-                        id="masterlocationName_1"
-                        name="masterlocationName_1"
-                        value=""
-                        readonly="readonly"
-                        maxlength="300"
-                      />
-                      <input
-                        type="hidden"
-                        id="masteraddressSido_1"
-                        name="masteraddressSido_1"
-                        value=""
-                      />
-                      <input
-                        type="hidden"
-                        id="masteraddressSigu_1"
-                        name="masteraddressSigu_1"
-                        value=""
-                      />
-                      <button
-                        type="button"
-                        onclick="searchSchoolLocPopup(this);"
-                      >
-                        검색
-                      </button>
-                    </div>
-                  </td>
-                </tr>
+          </td>
+          <th scope="row">소재지<span class="essential">필수 입력</span></th>
+          <td>
 
-                <tr>
-                  <th scope="row">
-                    <label class="required" for="masterstartDate_1"
-                      ><span class="Lhide">(필수)</span>기간</label
-                    >
-                  </th>
-                  <td>
-                    <input
-                      type="text"
-                      class="Ltext"
-                      id="masterstartDate_1"
-                      name="masterstartDate_1"
-                      size="11"
-                      value=""
-                      maxlength="11"
-                      readonly="readonly"
-                      title="기간 시작일"
-                    />
-                    <button
-                      type="button"
-                      class="LiconCalendar"
-                      id="masterstartCal_1"
-                      data-calendar="masterstartDate_1"
-                    >
-                      달력
-                    </button>
-                    <label>~</label>
-                    <input
-                      type="text"
-                      class="Ltext"
-                      id="masterendDate_1"
-                      name="masterendDate_1"
-                      size="11"
-                      maxlength="11"
-                      value=""
-                      readonly="readonly"
-                      title="기간 종료일"
-                    />
-                    <button
-                      type="button"
-                      class="LiconCalendar"
-                      id="masterendCal_1"
-                      data-calendar="masterendDate_1"
-                    >
-                      달력
-                    </button>
-                  </td>
-                  <th scope="row">
-                    <label class="required" for="mastergraduationStatusCode_1"
-                      ><span class="Lhide">(필수)</span>졸업구분</label
-                    >
-                  </th>
-                  <td>
-                    <select
-                      id="mastergraduationStatusCode_1"
-                      name="mastergraduationStatusCode_1"
-                    >
-                      <option value="">선택하세요</option>
-
-                      <option value="GR001">졸업</option>
-
-                      <option value="GR002">수료</option>
-
-                      <option value="GR006">졸업예정</option>
-
-                      <option value="GR005">타교편입</option>
-
-                      <option value="GR003">중퇴</option>
-                    </select>
-                  </td>
-                </tr>
-
-                <tr>
-                  <th scope="row">
-                    <label class="required" for="mastermajorName_1"
-                      ><span class="Lhide">(필수)</span>전공명</label
-                    >
-                  </th>
-                  <td>
-                    <div class="input_search">
-                      <input
-                        type="text"
-                        id="mastermajorName_1"
-                        name="mastermajorName_1"
-                        value=""
-                        size="25"
-                        readonly="readonly"
-                      />
-                      <input
-                        type="hidden"
-                        id="mastermajorCode_1"
-                        name="mastermajorCode_1"
-                        value=""
-                      />
-                      <button type="button" onClick="searchMajorPopup(this)">
-                        검색
-                      </button>
-                    </div>
-                  </td>
-                  <th scope="row">
-                    <label class="required" for="mastergpaPoint_1"
-                      ><span class="Lhide">(필수)</span>전체평점</label
-                    >
-                  </th>
-                  <td>
-                    <span class="set_selectInput">
-                      <input
-                        type="text"
-                        id="mastergpaPoint_1"
-                        name="mastergpaPoint_1"
-                        size="3"
-                        value=""
-                        maxlength="5"
-                        onKeyPress="return $.onKeyPressFilter('[0-9.]', event);"
-                        style="ime-mode: disabled"
-                        onkeyup="this.value=this.value.replace(/[^0-9.]/g,'')"
-                      />
-                      /
-                      <select
-                        title="학점 총점"
-                        id="mastergpaPointCode_1"
-                        name="mastergpaPointCode_1"
-                        onChange="getText(this)"
-                      >
-                        <option value="">선택하세요</option>
-
-                        <option value="GPA40">4.0</option>
-
-                        <option value="GPA43">4.3</option>
-
-                        <option value="GPA45">4.5</option>
-
-                        <option value="GPA00">100</option>
-                      </select>
-                      <input
-                        type="hidden"
-                        id="mastergpaPointCodeVal_1"
-                        name="mastergpaPointCodeVal_1"
-                        value=""
-                      />
-                    </span>
-                  </td>
-                </tr>
-
-                <tr>
-                  <th scope="row">
-                    <label class="required" for="masteracademicAdvisorName_1"
-                      ><span class="Lhide">(필수)</span>지도교수</label
-                    >
-                  </th>
-                  <td>
-                    <input
-                      type="text"
-                      id="masteracademicAdvisorName_1"
-                      name="masteracademicAdvisorName_1"
-                      value=""
-                      maxlength="300"
-                    />
-                  </td>
-                  <th scope="row">
-                    <label class="required" for="masterlabName_1"
-                      ><span class="Lhide">(필수)</span>연구실명</label
-                    >
-                  </th>
-                  <td>
-                    <input
-                      type="text"
-                      class="displayblock"
-                      style="min-width: 97%"
-                      id="masterlabName_1"
-                      name="masterlabName_1"
-                      value=""
-                      maxlength="100"
-                    />
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row" rowspan="2">
-                    <label class="required" for="mastertitleOfStudy_1"
-                      ><span class="Lhide">(필수)</span>연구분야</label
-                    >
-                  </th>
-                  <td colspan="3">
-                    <span class="LsubInstruction"
-                      >연구분야 제목을 입력해주십시오.</span
-                    >
-                    <input
-                      type="text"
-                      class="displayblock"
-                      id="mastertitleOfStudy_1"
-                      name="mastertitleOfStudy_1"
-                      size="30"
-                      title="연구분야 제목"
-                      value=""
-                      maxlength="300"
-                    />
-                  </td>
-                </tr>
-                <tr>
-                  <td colspan="3">
-                    <div class="td_sub">
-                      글자수<span id="masterChar_1"> 0</span>/ 1500자
-                    </div>
-                    <textarea
-                      title="자신의 주 연구 분야를 자유롭게 기술하세요. (어필할 수 있는 논문/특허/프로젝트 등 포함)"
-                      id="mastercontent_1"
-                      name="mastercontent_1"
-                      class="LtextArea"
-                      placeholder="자신의 주 연구 분야를 자유롭게 기술하세요. (어필할 수 있는 논문/특허/프로젝트 등 포함)"
-                    ></textarea>
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row">
-                    <label class="required"
-                      ><span class="Lhide">(필수)</span>논문/주요연구과제</label
-                    >
-                  </th>
-                  <td colspan="3" class="td_file">
-                    <div class="set_selectInput hiddenInPhone hiddenInTablet">
-                      <input
-                        type="hidden"
-                        id="deleteFileSeqNo"
-                        name="deleteFileSeqNo"
-                      />
-
-                      <input
-                        type="hidden"
-                        id="masterattachFileId_1"
-                        name="masterattachFileId_1"
-                        value=""
-                      />
-                      <button
-                        type="button"
-                        class="btn_file"
-                        onclick="addItem('#mastersThesis_1','master_1');"
-                      >
-                        <span>첨부파일 추가</span>
-                      </button>
-                      <ul
-                        id="mastersThesis_1"
-                        class="LblockItemList Lfile"
-                      ></ul>
-                    </div>
-                    <div class="Lexplanation displayInPhone">
-                      <p>첨부파일 기능은 PC에서 사용 가능합니다.</p>
-                      <ul class="LblockItemList Lfile"></ul>
-                    </div>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
-          <div id="addMasterDiv"></div>
-          <div class="additionalTips">
-            <p>첨부 파일은 1개만 가능하며 파일 형식은 PDF만 가능합니다.</p>
-            <p>
-              파일 용량이 개당 3MB로 제한되므로 관련 연구에 대한 요약본으로 등록
-              바랍니다.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- 대학교-박사 -->
-    <div id="doctorDiv">
-      <div class="foldedInphone">
-        <div class="dtFoldedInPhone btnmore">
-          <div class="LblockPageSubtitle more">
-            <h3><span>대학원-박사</span> <span id="doctorCount">(1)</span></h3>
-            <h4>
-              두 개 이상의 박사 학위를 소지한 경우, ‘+추가’ 를 선택하여 작성해
-              주십시오.
-            </h4>
-            <div class="subtitleBtn">
-              <a href="#" class="btn_erase" onclick="fnEraseData('doctorDiv');"
-                ><span class="Lhide">대학원-박사 입력 </span>지우기</a
-              >
-              <a href="#" id="doctorAddBtn" class="btn_more"
-                ><span class="Lhide">대학원-박사 </span>추가</a
-              >
+            <div class="inputSearch inputBox">
+              <input type="text" />
+              <button type="button" class="searchBtn">검색</button>
             </div>
-          </div>
-        </div>
-        <div class="ddFoldedInPhone">
-          <div class="LblockDetailTable">
-            <input
-              type="hidden"
-              id="doctorschoolSeqno_1"
-              name="doctorschoolSeqno_1"
-              value="1"
-            />
-            <table class="applicationform rsp rsp-hori rsp-tablet">
-              <caption>
-                대학원-박사
-              </caption>
-              <colgroup>
-                <col style="width: 18%" />
-                <col style="width: 32%" />
-                <col style="width: 18%" />
-                <col style="width: 32%" />
-              </colgroup>
-              <tbody>
-                <tr>
-                  <th scope="row">
-                    <label class="required" for="doctorschoolName_1"
-                      ><span class="Lhide">(필수)</span>학교명</label
-                    >
-                  </th>
-                  <td>
-                    <div class="input_search">
-                      <input
-                        type="text"
-                        id="doctorschoolName_1"
-                        name="doctorschoolName_1"
-                        value=""
-                        size="25"
-                        readonly="readonly"
-                      />
-                      <input
-                        type="hidden"
-                        id="doctorschoolCode_1"
-                        name="doctorschoolCode_1"
-                        value=""
-                      />
-                      <button
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">기간<span class="essential">필수 입력</span></th>
+          <td>
+              <span class="duration">
+                <span class="inputBox">
+                  <input
+                          type="text"
+                          id="inputText1"
+                          placeholder="텍스트 입력"
+                  />
+                </span>
+                <button
                         type="button"
-                        onclick="searchSchoolPopup(this,'U');"
-                      >
-                        검색
-                      </button>
-                    </div>
-                  </td>
-                  <th scope="row">
-                    <label class="required" for="doctorlocationName_1"
-                      ><span class="Lhide">(필수)</span>소재지</label
-                    >
-                  </th>
-                  <td>
-                    <div class="input_search">
-                      <input
-                        type="text"
-                        id="doctorlocationName_1"
-                        name="doctorlocationName_1"
-                        value=""
-                        readonly="readonly"
-                        maxlength="300"
-                      />
-                      <input
-                        type="hidden"
-                        id="doctoraddressSido_1"
-                        name="doctoraddressSido_1"
-                        value=""
-                      />
-                      <input
-                        type="hidden"
-                        id="doctoraddressSigu_1"
-                        name="doctoraddressSigu_1"
-                        value=""
-                      />
-                      <button
+                        id="milStartDate_cal"
+                        class="LiconCalendar"
+                        data-calendar="milStartDate"
+                >
+                  달력
+                </button>
+                <span class="bar">~</span>
+                <span class="inputBox">
+                  <input
+                          type="text"
+                          id="inputText1"
+                          placeholder="텍스트 입력"
+                  />
+                </span>
+                <button
                         type="button"
-                        onclick="searchSchoolLocPopup(this);"
-                      >
-                        검색
-                      </button>
-                    </div>
-                  </td>
-                </tr>
+                        id="milStartDate_cal"
+                        class="LiconCalendar"
+                        data-calendar="milStartDate"
+                >
+                  달력
+                </button>
+              </span>
+          </td>
+          <th scope="row">졸업구분<span class="essential">필수 입력</span></th>
+          <td>
+            <select name="" title="졸업구분 선택">
+              <option value="">1</option>
+              <option value="">2</option>
+              <option value="">3</option>
+              <option value="">4</option>
+              <option value="">5</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">전공명<span class="essential">필수 입력</span></th>
+          <td>
+            <div class="inputSearch inputBox">
+              <input type="text" />
+              <button type="button" class="searchBtn">검색</button>
+            </div>
+          </td>
+          <th scope="row">전체평점<span class="essential">필수 입력</span></th>
+          <td>
+            <div class="">
+              <div class="inputBox">
+                <input type="text">
+              </div>
+              <span class="bar">/</span>
+              <div class="inputBox">
+                <select name="" title="평점 선택">
+                  <option value="">1</option>
+                  <option value="">2</option>
+                  <option value="">3</option>
+                  <option value="">4</option>
+                  <option value="">5</option>
+                </select>
+              </div>
+            </div>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
 
-                <tr>
-                  <th scope="row">
-                    <label class="required" for="doctorstartDate_1"
-                      ><span class="Lhide">(필수)</span>기간</label
-                    >
-                  </th>
-                  <td>
-                    <input
-                      type="text"
-                      class="Ltext"
-                      id="doctorstartDate_1"
-                      name="doctorstartDate_1"
-                      size="11"
-                      value=""
-                      maxlength="11"
-                      readonly="readonly"
-                      title="기간 시작일"
-                    />
-                    <button
-                      type="button"
-                      class="LiconCalendar"
-                      id="doctorstartCal_1"
-                      data-calendar="doctorstartDate_1"
-                    >
-                      달력
-                    </button>
-                    <label>~</label>
-                    <input
-                      type="text"
-                      class="Ltext"
-                      id="doctorendDate_1"
-                      name="doctorendDate_1"
-                      size="11"
-                      maxlength="11"
-                      value=""
-                      readonly="readonly"
-                      title="기간 종료일"
-                    />
-                    <button
-                      type="button"
-                      class="LiconCalendar"
-                      id="doctorendCal_1"
-                      data-calendar="doctorendDate_1"
-                    >
-                      달력
-                    </button>
-                  </td>
-                  <th scope="row">
-                    <label class="required" for="doctorgraduationStatusCode_1"
-                      ><span class="Lhide">(필수)</span>졸업구분</label
-                    >
-                  </th>
-                  <td>
-                    <select
-                      id="doctorgraduationStatusCode_1"
-                      name="doctorgraduationStatusCode_1"
-                    >
-                      <option value="">선택하세요</option>
+  </article>
 
-                      <option value="GR001">졸업</option>
+  <article class="sec1-3">
+    <h3>대학교(1)</h3>
+    <div class="table">
+      <table>
+        <caption>대학교(1) - 학교명, 소재지, 기간, 졸업구분, 전공명, 검색 부/복수전공, 전체평점, 전공평점, 전체이수학점, 전체 이수학점, 복수전공 이수학점, 복수전공 평점, 부전공 이수학점, 부전공 평점, 공학인증에 대한 정보 제공</caption>
+        <colgroup>
+          <col style="width:15%" >
+          <col style="width:35%">
+          <col style="width:15%">
+          <col style="width:35%">
+        </colgroup>
+        <tbody>
+        <tr>
+          <th scope="row">학교명<span class="essential">필수 입력</span></th>
+          <td>
+            <div class="inputSearch inputBox">
+              <input type="text" />
+              <button type="button" class="searchBtn">검색</button>
+            </div>
+          </td>
+          <th scope="row">소재지<span class="essential">필수 입력</span></th>
+          <td>
 
-                      <option value="GR002">수료</option>
-
-                      <option value="GR006">졸업예정</option>
-
-                      <option value="GR005">타교편입</option>
-
-                      <option value="GR003">중퇴</option>
-                    </select>
-                  </td>
-                </tr>
-
-                <tr>
-                  <th scope="row">
-                    <label class="required" for="doctormajorName_1"
-                      ><span class="Lhide">(필수)</span>전공명</label
-                    >
-                  </th>
-                  <td>
-                    <div class="input_search">
-                      <input
-                        type="text"
-                        id="doctormajorName_1"
-                        name="doctormajorName_1"
-                        value=""
-                        size="25"
-                        readonly="readonly"
-                      />
-                      <input
-                        type="hidden"
-                        id="doctormajorCode_1"
-                        name="doctormajorCode_1"
-                        value=""
-                      />
-                      <button type="button" onClick="searchMajorPopup(this)">
-                        검색
-                      </button>
-                    </div>
-                  </td>
-                  <th scope="row">
-                    <label class="required" for="doctorgpaPoint_1"
-                      ><span class="Lhide">(필수)</span>전체평점</label
-                    >
-                  </th>
-                  <td>
-                    <span class="set_selectInput">
-                      <input
-                        type="text"
-                        id="doctorgpaPoint_1"
-                        name="doctorgpaPoint_1"
-                        size="3"
-                        value=""
-                        maxlength="5"
-                        onKeyPress="return $.onKeyPressFilter('[0-9.]', event);"
-                        style="ime-mode: disabled"
-                        onkeyup="this.value=this.value.replace(/[^0-9.]/g,'')"
-                      />
-                      /
-                      <select
-                        title="학점 총점"
-                        id="doctorgpaPointCode_1"
-                        name="doctorgpaPointCode_1"
-                        onChange="getText(this)"
-                      >
-                        <option value="">선택하세요</option>
-
-                        <option value="GPA40">4.0</option>
-
-                        <option value="GPA43">4.3</option>
-
-                        <option value="GPA45">4.5</option>
-
-                        <option value="GPA00">100</option>
-                      </select>
-                      <input
-                        type="hidden"
-                        id="doctorgpaPointCodeVal_1"
-                        name="doctorgpaPointCodeVal_1"
-                        value=""
-                      />
-                    </span>
-                  </td>
-                </tr>
-
-                <tr>
-                  <th scope="row">
-                    <label class="required" for="doctormdDegreeCombined_1"
-                      ><span class="Lhide">(필수)</span>석박 통합 과정</label
-                    >
-                  </th>
-                  <td colspan="3">
-                    <input
-                      type="radio"
-                      id="doctormdDegreeCombined_yes_1"
-                      name="doctormdDegreeCombined_1"
-                      value="Y"
-                    /><label for="doctormdDegreeCombined_yes_1">Yes</label>
-                    <input
-                      type="radio"
-                      id="doctormdDegreeCombined_no_1"
-                      name="doctormdDegreeCombined_1"
-                      value="N"
-                    /><label for="doctormdDegreeCombined_no_1">No</label>
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row">
-                    <label class="required" for="doctoracademicAdvisorName_1"
-                      ><span class="Lhide">(필수)</span>지도교수</label
-                    >
-                  </th>
-                  <td>
-                    <input
-                      type="text"
-                      id="doctoracademicAdvisorName_1"
-                      name="doctoracademicAdvisorName_1"
-                      value=""
-                      maxlength="300"
-                    />
-                  </td>
-                  <th scope="row">
-                    <label class="required" for="doctorlabName_1"
-                      ><span class="Lhide">(필수)</span>연구실명</label
-                    >
-                  </th>
-                  <td>
-                    <input
-                      type="text"
-                      class="displayblock"
-                      style="min-width: 97%"
-                      id="doctorlabName_1"
-                      name="doctorlabName_1"
-                      value=""
-                      maxlength="100"
-                    />
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row" rowspan="2">
-                    <label class="required" for="doctortitleOfStudy_1"
-                      ><span class="Lhide">(필수)</span>연구분야</label
-                    >
-                  </th>
-                  <td colspan="3">
-                    <span class="LsubInstruction"
-                      >연구분야 제목을 입력해주십시오.</span
-                    >
-                    <input
-                      type="text"
-                      class="displayblock"
-                      id="doctortitleOfStudy_1"
-                      name="doctortitleOfStudy_1"
-                      title="연구분야 제목"
-                      value=""
-                      maxlength="300"
-                    />
-                  </td>
-                </tr>
-                <tr>
-                  <td colspan="3">
-                    <div class="td_sub">
-                      글자수<span id="doctorChar_1"> 0</span>/ 1500자
-                    </div>
-                    <textarea
-                      title="자신의 주 연구 분야를 자유롭게 기술하세요. (어필할 수 있는 논문/특허/프로젝트 등 포함)"
-                      id="doctorcontent_1"
-                      name="doctorcontent_1"
-                      class="LtextArea"
-                      placeholder="자신의 주 연구 분야를 자유롭게 기술하세요. (어필할 수 있는 논문/특허/프로젝트 등 포함)"
-                    ></textarea>
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row">
-                    <label class="required"
-                      ><span class="Lhide">(필수)</span>논문/주요연구과제</label
-                    >
-                  </th>
-                  <td colspan="3" class="td_file">
-                    <div class="set_selectInput hiddenInPhone hiddenInTablet">
-                      <input
-                        type="hidden"
-                        id="doctorattachFileId_1"
-                        name="doctorattachFileId_1"
-                        value=""
-                      />
-                      <button
+            <div class="inputSearch inputBox">
+              <input type="text" />
+              <button type="button" class="searchBtn">검색</button>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">기간<span class="essential">필수 입력</span></th>
+          <td>
+              <span class="duration">
+                <span class="inputBox">
+                  <input
+                          type="text"
+                          id="inputText1"
+                          placeholder="텍스트 입력"
+                  />
+                </span>
+                <button
                         type="button"
-                        class="btn_file"
-                        onclick="addItem('#doctorThesis_1','doctor_1');"
-                      >
-                        <span>첨부파일 추가</span>
-                      </button>
-                      <ul id="doctorThesis_1" class="LblockItemList Lfile"></ul>
-                    </div>
-                    <div class="Lexplanation displayInPhone">
-                      <p>첨부파일 기능은 PC에서 사용 가능합니다.</p>
-                      <ul class="LblockItemList Lfile"></ul>
-                    </div>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
-          <div id="addDoctorDiv"></div>
-          <div class="additionalTips">
-            <p>첨부 파일은 2개까지 가능하며 파일 형식은 PDF만 가능합니다.</p>
-            <p>
-              파일 용량이 개당 3MB로 제한되므로 관련 연구에 대한 요약본으로 등록
-              바랍니다.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- 동의서 start -->
-
-    <div class="foldedInphone">
-      <div class="dtFoldedInPhone">
-        <div class="LblockPageSubtitle">
-          <h3>동의서</h3>
-        </div>
-        <div class="LviewExplanation">
-          <p>
-            <strong>평판 조회 동의서 작성 안내</strong
-            ><a href="#" onclick="agreeGuidePopup1();">보기</a>
-          </p>
-
-          <p>
-            <strong>영업비밀 침해금지 동의서 작성 안내</strong
-            ><a href="#" onclick="agreeGuidePopup2();">보기</a>
-          </p>
-        </div>
-      </div>
-      <div class="ddFoldedInPhone">
-        <div class="LblockDetailTable">
-          <table class="applicationform rsp rsp-hori rsp-tablet">
-            <caption>
-              동의서
-            </caption>
-            <colgroup>
-              <col style="width: 25%" />
-              <col style="width: 75%" />
-            </colgroup>
-            <tbody>
-              <tr>
-                <th scope="row">
-                  <label class="required" for="reputeAgreeYn"
-                    ><span class="Lhide">(필수)</span>평판 조회 동의</label
-                  >
-                </th>
-                <td>
-                  <div style="float: left">
-                    <input
-                      type="radio"
-                      id="reputeAgreeYn_yes"
-                      name="reputeAgreeYn"
-                      value="Y"
-                      disabled="disabled"
-                    /><label for="reputeAgreeYn_yes">동의함</label>
-                    <input
-                      type="radio"
-                      id="reputeAgreeYn_no"
-                      name="reputeAgreeYn"
-                      value="N"
-                      disabled="disabled"
-                    /><label for="reputeAgreeYn_no">동의하지 않음</label>
-                    <input
-                      type="hidden"
-                      id="reputeAgreeYn"
-                      name="reputeAgreeYn"
-                      value=""
-                    />
-                    <input
-                      type="hidden"
-                      id="reputeSignatureName"
-                      name="reputeSignatureName"
-                      value=""
-                    />
-                    <input
-                      type="hidden"
-                      id="reputeSignatureBirthDt"
-                      name="reputeSignatureBirthDt"
-                      value=""
-                    />
-                  </div>
-                  <div style="float: left; margin-left: 20px">
-                    <input
-                      type="checkbox"
-                      id="reputeAgreeSignature"
-                      value="Y"
-                      disabled="disabled"
-                    />
-                    서명
-                  </div>
-                  <div
-                    class="LviewExplanation"
-                    style="float: left; width: 160px; margin-left: 20px"
-                  >
-                    <p>
-                      <strong>평판 조회 동의서</strong
-                      ><a href="#" onclick="agreePopup('REPUTE','A','19423');"
-                        >보기</a
-                      >
-                    </p>
-                  </div>
-                </td>
-              </tr>
-
-              <tr>
-                <th scope="row">
-                  <label class="required" for="saleSecViolAgreeYn"
-                    ><span class="Lhide">(필수)</span>영업비밀 침해금지
-                    동의</label
-                  >
-                </th>
-                <td>
-                  <div style="float: left">
-                    <input
-                      type="radio"
-                      id="saleSecViolAgreeYn_yes"
-                      name="saleSecViolAgreeYn"
-                      value="Y"
-                      disabled="disabled"
-                    /><label for="saleSecViolAgreeYn_yes">동의함</label>
-                    <input
-                      type="radio"
-                      id="saleSecViolAgreeYn_no"
-                      name="saleSecViolAgreeYn"
-                      value="N"
-                      disabled="disabled"
-                    /><label for="saleSecViolAgreeYn_no">동의하지 않음</label>
-                    <input
-                      type="hidden"
-                      id="saleSecViolAgreeYn"
-                      name="saleSecViolAgreeYn"
-                      value=""
-                    />
-                    <input
-                      type="hidden"
-                      id="saleSignatureName"
-                      name="saleSignatureName"
-                      value=""
-                    />
-                    <input
-                      type="hidden"
-                      id="saleSignatureBirthDt"
-                      name="saleSignatureBirthDt"
-                      value=""
-                    />
-                  </div>
-                  <div style="float: left; margin-left: 20px">
-                    <input
-                      type="checkbox"
-                      id="saleAgreeSignature"
-                      value="Y"
-                      disabled="disabled"
-                    />
-                    서명
-                  </div>
-                  <div
-                    class="LviewExplanation"
-                    style="float: left; width: 200px; margin-left: 20px"
-                  >
-                    <p>
-                      <strong>영업비밀 침해금지 동의서</strong
-                      ><a href="#" onclick="agreePopup('SALE','X','19423');"
-                        >보기</a
-                      >
-                    </p>
-                  </div>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-
-    <!-- 동의서 end -->
-    <!-- 공인어학성적 -->
-
-    <div class="foldedInphone">
-      <div class="dtFoldedInPhone btnmore">
-        <div class="LblockPageSubtitle">
-          <h3>공인어학성적 <span id="languageCount">(1)</span></h3>
-          <div class="subtitleBtn">
-            <a href="#" id="languageAddBtn" class="btn_more"
-              ><span class="Lhide">공인어학성적 </span>추가</a
-            >
-          </div>
-        </div>
-      </div>
-      <div class="ddFoldedInPhone">
-        <div class="LblockListTable headerTop">
-          <table id="languageTable" class="applyformHeaderTop rsp rsp-basic">
-            <caption>
-              공인어학성적
-            </caption>
-            <colgroup>
-              <col style="width: 20%" />
-              <col style="width: 20%" />
-              <col style="width: 25%" />
-              <col style="width: 30%" />
-              <col style="width: 5%" />
-            </colgroup>
-            <thead>
-              <tr>
-                <th scope="col">
-                  <label class="required" for="offilanguageCode_1"
-                    ><span class="Lhide"></span>언어</label
-                  >
-                </th>
-                <th scope="col">
-                  <label class="required" for="offilangTestCode_1"
-                    ><span class="Lhide"></span>시험명</label
-                  >
-                </th>
-                <th scope="col">
-                  <label class="required" for="offipointGradeValue_1"
-                    ><span class="Lhide"></span>점수(급)</label
-                  >
-                </th>
-                <th scope="col">
-                  <label class="required" for="offitestDate_1"
-                    ><span class="Lhide"></span>취득일자</label
-                  >
-                </th>
-                <th scope="col"></th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>
-                  <select
-                    id="offilanguageCode_1"
-                    name="offilanguageCode_1"
-                    onChange="getlangTestList(this,'')"
-                    title="언어"
-                  >
-                    <option value="">선택하세요</option>
-
-                    <option value="LANG001">영어</option>
-
-                    <option value="LANG002">중국어</option>
-
-                    <option value="LANG003">일본어</option>
-
-                    <option value="LANG004">러시아어</option>
-
-                    <option value="LANG005">스페인어</option>
-
-                    <option value="LANG006">프랑스어</option>
-
-                    <option value="LANG007">독일어</option>
-
-                    <option value="LANG008">한국어</option>
-
-                    <option value="LANG009">포루투칼어</option>
-
-                    <option value="LANG010">베트남어</option>
-
-                    <option value="LANG011">인도네시아어</option>
-
-                    <option value="LANG012">폴란드어</option>
-                  </select>
-                </td>
-                <td>
-                  <select
-                    id="offilangTestCode_1"
-                    name="offilangTestCode_1"
-                    onChange="getGradeValueList(this,'')"
-                    title="시험명"
-                  >
-                    <option value="">선택하세요</option>
-                  </select>
-                </td>
-                <td>
-                  <div id="divoffipointGradeValue_1">
-                    <select
-                      id="offipointGradeValue_1"
-                      name="offipointGradeValue_1"
-                      title="점수(급)"
-                    >
-                      <option value="">선택하세요</option>
-                    </select>
-                  </div>
-                </td>
-                <td>
+                        id="milStartDate_cal"
+                        class="LiconCalendar"
+                        data-calendar="milStartDate"
+                >
+                  달력
+                </button>
+                <span class="bar">~</span>
+                <span class="inputBox">
                   <input
-                    type="text"
-                    class="Ltext dateText"
-                    id="offitestDate_1"
-                    name="offitestDate_1"
-                    size="11"
-                    maxlength="11"
-                    readonly="readonly"
-                    title="취득일자"
+                          type="text"
+                          id="inputText1"
+                          placeholder="텍스트 입력"
                   />
-                  <button
-                    type="button"
-                    class="LiconCalendar"
-                    id="offiCal"
-                    data-calendar="offitestDate_1"
-                  >
-                    달력
-                  </button>
-                </td>
-                <td>
-                  <a
-                    href="javascript:;"
-                    id="languageDelBtn_1"
-                    onClick="deleteRow(this);"
-                    ><span
-                      class="image"
-                      data-src="ico_deleteAboveRow.png"
-                      data-alt="행 삭제"
-                    ></span
-                  ></a>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="additionalTips">
-          <p>해당 직무와 연관성이 높은 항목부터 입력해주시기 바랍니다.</p>
-          <p>
-            공인어학성적은 지원서 접수 마감일 기준 최근 2년 이내의 성적을
-            입력해주시기 바랍니다.
-          </p>
-        </div>
-      </div>
+                </span>
+                <button
+                        type="button"
+                        id="milStartDate_cal"
+                        class="LiconCalendar"
+                        data-calendar="milStartDate"
+                >
+                  달력
+                </button>
+              </span>
+          </td>
+          <th scope="row">졸업구분<span class="essential">필수 입력</span></th>
+          <td>
+            <select name="" title="졸업구분 선택">
+              <option value="">1</option>
+              <option value="">2</option>
+              <option value="">3</option>
+              <option value="">4</option>
+              <option value="">5</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">전공명<span class="essential">필수 입력</span></th>
+          <td>
+            <div class="inputSearch inputBox">
+              <input type="text" />
+              <button type="button" class="searchBtn">검색</button>
+            </div>
+          </td>
+          <th scope="row">부/복수전공<span class="essential">필수 입력</span></th>
+          <td>
+            <div class="">
+              <select name="" title="평점 선택">
+                <option value="">1</option>
+                <option value="">2</option>
+                <option value="">3</option>
+                <option value="">4</option>
+                <option value="">5</option>
+              </select>
+              <div class="inputSearch inputBox">
+                <input type="text" />
+                <button type="button" class="searchBtn">검색</button>
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">전체평점<span class="essential">필수 입력</span></th>
+          <td>
+            <div class="countWrap">
+              <div class="inputBox">
+                <input type="text">
+              </div>
+              <span class="bar">/</span>
+              <div class="inputBox">
+                <select name="" title="평점 선택">
+                  <option value="">1</option>
+                  <option value="">2</option>
+                  <option value="">3</option>
+                  <option value="">4</option>
+                  <option value="">5</option>
+                </select>
+              </div>
+            </div>
+          </td>
+          <th scope="row"></th>
+          <td></td>
+        </tr>
+        <tr>
+          <th scope="row">전공평점<span class="essential">필수 입력</span></th>
+          <td>
+            <div class="countWrap">
+              <div class="inputBox">
+                <input type="text">
+              </div>
+              <span class="bar">/</span>
+              <div class="inputBox">
+                <select name="" title="평점 선택">
+                  <option value="">1</option>
+                  <option value="">2</option>
+                  <option value="">3</option>
+                  <option value="">4</option>
+                  <option value="">5</option>
+                </select>
+              </div>
+            </div>
+          </td>
+          <th scope="row"></th>
+          <td></td>
+        </tr>
+        <tr>
+          <th scope="row">전체 이수학점</th>
+          <td>
+            <div class="inputBox">
+              <label for="inputText1">텍스트입력</label>
+              <input type="text" id="inputText1" placeholder="텍스트 입력">
+            </div>
+          </td>
+          <th scope="row">전공 이수학점</th>
+          <td>
+            <div class="inputBox">
+              <label for="inputText1">텍스트입력</label>
+              <input type="text" id="inputText1" placeholder="텍스트 입력">
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">복수전공 이수학점</th>
+          <td>
+            <div class="inputBox">
+              <label for="inputText1">텍스트입력</label>
+              <input type="text" id="inputText1" placeholder="텍스트 입력">
+            </div>
+          </td>
+          <th scope="row">복수전공 평점</th>
+          <td>
+            <div class="countWrap">
+              <div class="inputBox">
+                <input type="text">
+              </div>
+              <span class="bar">/</span>
+              <div class="inputBox">
+                <select name="" title="평점 선택">
+                  <option value="">1</option>
+                  <option value="">2</option>
+                  <option value="">3</option>
+                  <option value="">4</option>
+                  <option value="">5</option>
+                </select>
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">부전공 이수학점</th>
+          <td>
+            <div class="inputBox">
+              <label for="inputText1">텍스트입력</label>
+              <input type="text" id="inputText1" placeholder="텍스트 입력">
+            </div>
+          </td>
+          <th scope="row">부전공 평점</th>
+          <td>
+            <div class="countWrap">
+              <div class="inputBox">
+                <input type="text">
+              </div>
+              <span class="bar">/</span>
+              <div class="inputBox">
+                <select name="" title="평점 선택">
+                  <option value="">1</option>
+                  <option value="">2</option>
+                  <option value="">3</option>
+                  <option value="">4</option>
+                  <option value="">5</option>
+                </select>
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <th scope="col">공학인증</th>
+          <td>
+            <span class="input">
+              <input type="radio" id="rd1" name="radio" value="" checked="">
+              <label for="rd1">Yes</label>
+            </span>
+            <span class="input">
+              <input type="radio" id="rd1" name="radio" value="" checked="">
+              <label for="rd1">No</label>
+            </span>
+          </td>
+          <th scope="col">
+          </th>
+          <td></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    <ul class="bu">
+      <li>타 학교로 편입한 경우, 해당 학교의 졸업구분은 ‘타교편입’으로 선택해 주시기 바랍니다.</li>
+      <li>교환학생 내용은 입력하지 마십시오.(복수 학교 졸업이 아닙니다.)<br/>
+        단, 국내/해외 대학을 연계하여 두 개의 학위를 인정받은 경우에는 각각 입력해주시기 바랍니다.</li>
+      <li>기간은 졸업일 또는 졸업예정일 기준으로 입력해주시기 바랍니다.</li>
+      <li>복수/부전공이 모두 있는 경우 한 가지만 선택하여 입력해주시기 바랍니다.</li>
+      <li>전공이수학점은 전공필수, 전공선택 등 성적증명서상 전공으로 확인가능한 과목만 기입해 주시기 바랍니다.<br />
+        (예> 공학계열 전공자는 수학/물리/화학등 전공기초과목 제외)</li>
+    </ul>
+
+  </article>
+
+  <article class="sec1-4">
+    <h3>대학교-석사(1)</h3>
+    <p>두 개 이상의 석사 학위를 소지한 경우, ‘+추가’ 를 선택하여 작성해 주십시오.</p>
+    <div class="table">
+      <table>
+        <caption>대학교(1) - 학교명, 소재지, 기간, 졸업구분, 전공명, 검색 부/복수전공, 전체평점, 전공평점, 전체이수학점, 전체 이수학점, 복수전공 이수학점, 복수전공 평점, 부전공 이수학점, 부전공 평점, 공학인증에 대한 정보 제공</caption>
+        <colgroup>
+          <col style="width:15%" >
+          <col style="width:35%">
+          <col style="width:15%">
+          <col style="width:35%">
+        </colgroup>
+        <tbody>
+        <tr>
+          <th scope="row">학교명<span class="essential">필수 입력</span></th>
+          <td>
+            <div class="inputSearch inputBox">
+              <input type="text" />
+              <button type="button" class="searchBtn">검색</button>
+            </div>
+          </td>
+          <th scope="row">소재지<span class="essential">필수 입력</span></th>
+          <td>
+
+            <div class="inputSearch inputBox">
+              <input type="text" />
+              <button type="button" class="searchBtn">검색</button>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">기간<span class="essential">필수 입력</span></th>
+          <td>
+              <span class="duration">
+                <span class="inputBox">
+                  <input
+                          type="text"
+                          id="inputText1"
+                          placeholder="텍스트 입력"
+                  />
+                </span>
+                <button
+                        type="button"
+                        id="milStartDate_cal"
+                        class="LiconCalendar"
+                        data-calendar="milStartDate"
+                >
+                  달력
+                </button>
+                <span class="bar">~</span>
+                <span class="inputBox">
+                  <input
+                          type="text"
+                          id="inputText1"
+                          placeholder="텍스트 입력"
+                  />
+                </span>
+                <button
+                        type="button"
+                        id="milStartDate_cal"
+                        class="LiconCalendar"
+                        data-calendar="milStartDate"
+                >
+                  달력
+                </button>
+              </span>
+          </td>
+          <th scope="row">졸업구분<span class="essential">필수 입력</span></th>
+          <td>
+            <select name="" title="졸업구분 선택">
+              <option value="">1</option>
+              <option value="">2</option>
+              <option value="">3</option>
+              <option value="">4</option>
+              <option value="">5</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">전공명<span class="essential">필수 입력</span></th>
+          <td>
+            <div class="inputSearch inputBox">
+              <input type="text" />
+              <button type="button" class="searchBtn">검색</button>
+            </div>
+          </td>
+          <th scope="row">전체평점<span class="essential">필수 입력</span></th>
+          <td>
+            <div class="">
+              <select name="" title="평점 선택">
+                <option value="">1</option>
+                <option value="">2</option>
+                <option value="">3</option>
+                <option value="">4</option>
+                <option value="">5</option>
+              </select>
+              <div class="inputSearch inputBox">
+                <input type="text" />
+                <button type="button" class="searchBtn">검색</button>
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">지도교수<span class="essential">필수 입력</span></th>
+          <td>
+            <div class="countWrap">
+              <div class="inputBox">
+                <input type="text">
+              </div>
+              <span class="bar">/</span>
+              <div class="inputBox">
+                <select name="" title="평점 선택">
+                  <option value="">1</option>
+                  <option value="">2</option>
+                  <option value="">3</option>
+                  <option value="">4</option>
+                  <option value="">5</option>
+                </select>
+              </div>
+            </div>
+          </td>
+          <th scope="row">연구실명<span class="essential">필수 입력</span></th>
+          <td>
+            <div class="inputBox">
+              <label for="inputText1">텍스트입력</label>
+              <input type="text" id="inputText1" placeholder="텍스트 입력">
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row" rowspan="2">전공분야<span class="essential">필수 입력</span></th>
+          <td colspan="3">
+            <p>연구분야 제목을 입력해주십시오.</p>
+            <div class="inputBox">
+              <label for="inputText1">텍스트입력</label>
+              <input type="text" id="inputText1" placeholder="텍스트 입력">
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="3">
+            <div class="inputBox">
+              <textarea id="textBox1" placeholder="자신의 주 연구 분야를 자유롭게 기술하세요. (어필할 수 있는 논문/특허/프로젝트 등 포함)" title=""></textarea>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">논문/주요연구과제<span class="essential">필수 입력</span></th>
+          <td colspan="3">
+            <div class="inputBox upload">
+              <div class="uploadWrap">
+                <input type="file" name="file_attach" id="attach" title="파일경로" class="input" placeholder="파일찾기">
+                <span class="fileName"></span>
+                <button type="button" class="clear">파일 제거</button>
+              </div>
+              <label for="attach" class="uploadBtn"><span>첨부파일 추가</span></label>
+            </div>
+          </td>
+        </tr>
+        </tbody>
+      </table>
     </div>
 
-    <div class="foldedInphone">
-      <div class="dtFoldedInPhone btnmore">
-        <div class="LblockPageSubtitle">
-          <h3>외국어역량 <span id="globalCount">(1)</span></h3>
-          <div class="subtitleBtn">
-            <a href="#" id="globalAddBtn" class="btn_more"
-              ><span class="Lhide">외국어역량 </span>추가</a
-            >
-          </div>
-        </div>
-      </div>
-      <div class="ddFoldedInPhone">
-        <div class="LblockListTable headerTop">
-          <table id="globalTable" class="applyformHeaderTop rsp rsp-basic">
-            <caption>
-              외국어역량
-            </caption>
-            <colgroup>
-              <col style="width: 30%" />
-              <col style="width: 35%" />
-              <col style="width: 30%" />
-              <col style="width: 5%" />
-            </colgroup>
-            <thead>
-              <tr>
-                <th scope="col">
-                  <label class="required" for="glolanguageType_1"
-                    ><span class="Lhide"></span>언어</label
-                  >
-                </th>
-                <th scope="col">
-                  <label class="required" for="glouseCountryCode_1"
-                    ><span class="Lhide"></span>사용국가</label
-                  >
-                </th>
-                <th scope="col">
-                  <label class="required" for="glouseStartDate_1"
-                    ><span class="Lhide"></span>사용 가능 정도<a
-                      href="javascript:;"
-                      onclick="languageGuidePopup();"
-                      target="_blank"
-                      title="새 창"
-                    >
-                      <span
-                        class="image"
-                        data-src="btn_icon_question.png"
-                        data-alt="외국어 역량 가이드 팝업"
-                      ></span></a
-                  ></label>
-                </th>
-                <th scope="col"></th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>
-                  <select
-                    class="glolanguageType"
-                    id="glolanguageType_1"
-                    name="glolanguageType_1"
-                    title="언어"
-                  >
-                    <option value="">선택하세요</option>
+    <ul class="bu">
+      <li>첨부 파일은 2개까지 가능하며 파일 형식은 PDF만 가능합니다.</li>
+      <li>파일 용량이 개당 3MB로 제한되므로 관련 연구에 대한 요약본으로 등록 바랍니다.</li>
+    </ul>
 
-                    <option value="LANG001">영어</option>
+  </article>
 
-                    <option value="LANG002">중국어</option>
-
-                    <option value="LANG003">일본어</option>
-
-                    <option value="LANG004">러시아어</option>
-
-                    <option value="LANG005">스페인어</option>
-
-                    <option value="LANG006">프랑스어</option>
-
-                    <option value="LANG007">독일어</option>
-
-                    <option value="LANG008">인도네시아어</option>
-
-                    <option value="LANG009">아랍어</option>
-
-                    <option value="LANG010">이태리어</option>
-
-                    <option value="LANG011">포르투칼어</option>
-
-                    <option value="LANG999">기타 제 3 외국어</option>
-                  </select>
-                </td>
-                <td>
-                  <div class="input_search">
-                    <input
-                      type="text"
-                      class="glouseCountryName"
-                      id="glouseCountryName_1"
-                      name="glouseCountryName_1"
-                      size="40"
-                      value=""
-                      readonly="readonly"
-                      title="사용국가"
-                      disabled="disabled"
-                    />
-                    <input
-                      type="hidden"
-                      class="glouseCountryCode"
-                      id="glouseCountryCode_1"
-                      name="glouseCountryCode_1"
-                      value=""
-                    />
-                    <button type="button" onclick="searchCodePopup(this,'NA');">
-                      검색
-                    </button>
-                  </div>
-                </td>
-                <td>
-                  <select
-                    class="glolanguageLevel"
-                    id="glolanguageLevel_1"
-                    name="glolanguageLevel_1"
-                    title="사용 가능 정도"
-                  >
-                    <option value="">선택하세요</option>
-
-                    <option value="00010">Native</option>
-
-                    <option value="00020">Fluent</option>
-
-                    <option value="00030">중급 Business 회화</option>
-
-                    <option value="00040">초급 Business 회화</option>
-
-                    <option value="00050">의사소통 가능</option>
-
-                    <option value="00060">기초 수준</option>
-                  </select>
-                </td>
-                <td>
-                  <a
-                    href="javascript:;"
-                    id="globalDelBtn_1"
-                    onClick="deleteRow(this);"
-                    ><span
-                      class="image"
-                      data-src="ico_deleteAboveRow.png"
-                      data-alt="행 삭제"
-                    ></span
-                  ></a>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-      <div class="additionalTips">
-        <p>
-          사용국가는 '기타 제 3외국어'를 선택하신 경우에 한해 정확히 입력해
-          주시기 바랍니다.
-        </p>
-      </div>
+  <article class="sec2">
+    <h3>동의서</h3>
+    <p class="more">
+      평판 조회 동의서 작성 안내
+      <a href="">보기</a>
+    </p>
+    <p class="more">영업비밀 침해금지 동의서 작성 안내 <a href="">보기</a></p>
+    <div class="table">
+      <table>
+        <caption>
+          평판 조회 동의 - 평판 조회 동의, 영업비밀 침해금지 동의에 대한 정보
+          제공
+        </caption>
+        <colgroup>
+          <col style="width: 15%" />
+          <col style="width: 85%" />
+        </colgroup>
+        <tbody>
+        <tr>
+          <th scope="row">
+            평판 조회 동의<span class="essential">필수 입력</span>
+          </th>
+          <td>
+              <span class="input">
+                <input type="radio" id="rd1" name="radio" value="" />
+                <label for="rd1">동의함</label>
+              </span>
+            <span class="input">
+                <input type="radio" id="rd1" name="radio" value="" />
+                <label for="rd1">동의하지않음</label>
+              </span>
+            <span class="input">
+                <input type="checkbox" id="chk1" value="" />
+                <label for="chk1">서명</label>
+              </span>
+            <span class="more"> 평판 조회 <a href="">보기</a> </span>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">
+            영업비밀 침해금지 동의<span class="essential">필수 입력</span>
+          </th>
+          <td>
+              <span class="input">
+                <input type="radio" id="rd1" name="radio" value="" />
+                <label for="rd1">동의함</label>
+              </span>
+            <span class="input">
+                <input type="radio" id="rd1" name="radio" value="" />
+                <label for="rd1">동의하지않음</label>
+              </span>
+            <span class="input">
+                <input type="checkbox" id="chk1" value="" />
+                <label for="chk1">서명</label>
+              </span>
+            <span class="more">
+                영업비밀 침해금지 동의서 <a href="">보기</a>
+              </span>
+          </td>
+        </tr>
+        </tbody>
+      </table>
     </div>
+  </article>
 
-    <!-- 자격증 -->
-
-    <div class="foldedInphone">
-      <div class="dtFoldedInPhone btnmore">
-        <div class="LblockPageSubtitle">
-          <h3>자격증 <span id="qualifCount">(1)</span></h3>
-          <div class="subtitleBtn">
-            <a href="#" id="qualifAddBtn" class="btn_more"
-              ><span class="Lhide">자격증 </span>추가</a
-            >
-          </div>
-        </div>
-      </div>
-      <div class="ddFoldedInPhone">
-        <div class="LblockListTable headerTop">
-          <table id="qualifTable" class="applyformHeaderTop rsp rsp-basic">
-            <caption>
-              자격증
-            </caption>
-            <colgroup>
-              <col style="width: 20%" />
-              <col style="width: 20%" />
-              <col style="width: 25%" />
-              <col style="width: 20%" />
-              <col style="width: 5%" />
-            </colgroup>
-            <thead>
-              <tr>
-                <th scope="col">
-                  <label class="required" for="certiqualificationName_1"
-                    ><span class="Lhide"></span>자격증명</label
-                  >
-                </th>
-                <th scope="col">
-                  <label class="required" for="certiqualGradeName_1"
-                    ><span class="Lhide"></span>자격등급</label
-                  >
-                </th>
-                <th scope="col">
-                  <label class="required" for="certiacquisitionDate_1"
-                    ><span class="Lhide"></span>취득일자</label
-                  >
-                </th>
-                <th scope="col">
-                  <label class="required" for="certicertInstitutionName_1"
-                    ><span class="Lhide"></span>인증기관</label
-                  >
-                </th>
-                <th scope="col"></th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>
-                  <div class="input_search">
-                    <input
-                      type="text"
-                      id="certiqualificationName_1"
-                      name="certiqualificationName_1"
-                      value=""
-                      size="10"
-                      readonly="readonly"
-                      title="자격증명"
-                    />
-                    <input
-                      type="hidden"
-                      id="certiqualificationCode_1"
-                      name="certiqualificationCode_1"
-                      value=""
-                    />
-                    <button type="button" onclick="searchCodePopup(this,'CR');">
-                      검색
-                    </button>
-                  </div>
-                </td>
-                <td>
-                  <input
-                    type="text"
-                    class="Ltext"
-                    id="certiqualGradeName_1"
-                    name="certiqualGradeName_1"
-                    value=""
-                    size="10"
-                    maxlength="100"
-                    title="자격등급"
-                  />
-                </td>
-                <td>
-                  <input
-                    type="text"
-                    class="Ltext calendarDate"
-                    id="certiacquisitionDate_1"
-                    name="certiacquisitionDate_1"
-                    value=""
-                    size="11"
-                    maxlength="11"
-                    readonly="readonly"
-                    title="취득일자"
-                  />
-                  <button
-                    type="button"
-                    class="LiconCalendar"
-                    id="cal"
-                    data-position="up"
-                    data-calendar="certiacquisitionDate_1"
-                  >
-                    달력
-                  </button>
-                </td>
-                <td>
-                  <input
-                    type="text"
-                    class="Ltext"
-                    id="certicertInstitutionName_1"
-                    name="certicertInstitutionName_1"
-                    value=""
-                    size="10"
-                    maxlength="100"
-                    title="인증기관"
-                  />
-                </td>
-                <td>
-                  <a
-                    href="javascript:;"
-                    id="qualDelBtn_1"
-                    onClick="deleteRow(this);"
-                    ><span
-                      class="image"
-                      data-src="ico_deleteAboveRow.png"
-                      data-alt="행 삭제"
-                    ></span
-                  ></a>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="additionalTips">
-          <p>해당 직무와 관련된 면허가 있는 경우에도 입력 가능합니다.</p>
-          <p>직무와 연관성이 높은 항목부터 입력해주시기 바랍니다.</p>
-          <p>
-            모든 자격 사항은 지원서 작성 마감일 이전에 인증받은 사항만
-            인정됩니다.
-          </p>
-        </div>
-      </div>
+  <article class="sec3">
+    <h3>공인어학성적(2)</h3>
+    <div class="addWrap">
+      <button class="add" type="button">추가</button>
     </div>
+    <div class="table tCenter">
+      <table>
+        <caption>
+          공인어학성적(2) - 언어, 시험명, 점수(급), 취득일자에 대한 정보 제공
+        </caption>
+        <colgroup>
+          <col style="width: 25%" />
+          <col style="width: 25%" />
+          <col style="width: 25%" />
+          <col style="width: 25%" />
+        </colgroup>
+        <thead>
+        <tr>
+          <th scope="col">언어<span class="essential">필수 입력</span></th>
+          <th scope="col">시험명<span class="essential">필수 입력</span></th>
+          <th scope="col">
+            점수(급)<span class="essential">필수 입력</span>
+          </th>
+          <th scope="col">
+            취득일자<span class="essential">필수 입력</span>
+          </th>
+          <th scope="col"><span class="skip">삭제</span></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>
+            <select title="셀렉트 이름">
+              <option value="">--선택--</option>
+              <option value="">선택1</option>
+              <option value="">선택2</option>
+              <option value="">선택3</option>
+              <option value="">선택4</option>
+              <option value="">선택5</option>
+              <option value="">선택6</option>
+            </select>
+          </td>
+          <td>
+            <select title="셀렉트 이름">
+              <option value="">--선택--</option>
+              <option value="">선택1</option>
+              <option value="">선택2</option>
+              <option value="">선택3</option>
+              <option value="">선택4</option>
+              <option value="">선택5</option>
+              <option value="">선택6</option>
+            </select>
+          </td>
+          <td>
+            <div class="inputBox">
+              <label for="inputText1">텍스트입력</label>
+              <input type="text" id="inputText1" placeholder="텍스트 입력" />
+            </div>
+          </td>
+          <td>
+              <span class="duration">
+                <span class="inputBox">
+                  <input
+                          type="text"
+                          id="inputText1"
+                          placeholder="텍스트 입력"
+                  />
+                </span>
+                <button
+                        type="button"
+                        id="milStartDate_cal"
+                        class="LiconCalendar"
+                        data-calendar="milStartDate"
+                >
+                  달력
+                </button>
+              </span>
+          </td>
+          <td>
+            <button type="button" class="delete">
+              <span>1번 째 공인어학성적 삭제</span>
+            </button>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <select title="셀렉트 이름">
+              <option value="">--선택--</option>
+              <option value="">선택1</option>
+              <option value="">선택2</option>
+              <option value="">선택3</option>
+              <option value="">선택4</option>
+              <option value="">선택5</option>
+              <option value="">선택6</option>
+            </select>
+          </td>
+          <td>
+            <select title="셀렉트 이름">
+              <option value="">--선택--</option>
+              <option value="">선택1</option>
+              <option value="">선택2</option>
+              <option value="">선택3</option>
+              <option value="">선택4</option>
+              <option value="">선택5</option>
+              <option value="">선택6</option>
+            </select>
+          </td>
+          <td>
+            <div class="inputBox">
+              <label for="inputText1">텍스트입력</label>
+              <input type="text" id="inputText1" placeholder="텍스트 입력" />
+            </div>
+          </td>
+          <td>
+              <span class="duration">
+                <span class="inputBox">
+                  <input
+                          type="text"
+                          id="inputText1"
+                          placeholder="텍스트 입력"
+                  />
+                </span>
+                <button
+                        type="button"
+                        id="milStartDate_cal"
+                        class="LiconCalendar"
+                        data-calendar="milStartDate"
+                >
+                  달력
+                </button>
+              </span>
+          </td>
+          <td>
+            <button type="button" class="delete">
+              <span>1번 째 공인어학성적 삭제</span>
+            </button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    <ul class="bu">
+      <li>해당 직무와 연관성이 높은 항목부터 입력해주시기 바랍니다.</li>
+      <li>
+        공인어학성적은 지원서 접수 마감일 기준 최근 2년 이내의 성적을
+        입력해주시기 바랍니다.
+      </li>
+    </ul>
+  </article>
 
-    <!-- 추가입력사항 -->
-  </form>
-  <!-- appDetailForm end -->
+  <article class="sec4">
+    <h3>외국어역량(1)</h3>
+    <div class="addWrap">
+      <button class="add" type="button">추가</button>
+    </div>
+    <div class="table tCenter">
+      <table>
+        <caption>
+          외국어역량(1) - 언어, 사용국가, 사용 가능 정도에 대한 정보 제공
+        </caption>
+        <colgroup>
+          <col style="width: 25%" />
+          <col style="width: 25%" />
+          <col style="width: 25%" />
+          <col style="width: 25%" />
+        </colgroup>
+        <thead>
+        <tr>
+          <th scope="col">언어<span class="essential">필수 입력</span></th>
+          <th scope="col">
+            사용국가<span class="essential">필수 입력</span>
+          </th>
+          <th scope="col">
+            사용 가능 정도<span class="essential">필수 입력</span>
+            <button type="button" class="moreInfo">사용 가능 정도 기준 알아보기</button>
+          </th>
+          <th scope="col"><span class="skip">삭제</span></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>
+            <select title="셀렉트 이름">
+              <option value="">--선택--</option>
+              <option value="">선택1</option>
+              <option value="">선택2</option>
+              <option value="">선택3</option>
+              <option value="">선택4</option>
+              <option value="">선택5</option>
+              <option value="">선택6</option>
+            </select>
+          </td>
+          <td>
+            <div class="inputSearch inputBox">
+              <input type="text" />
+              <button type="button" class="searchBtn">검색</button>
+            </div>
+          </td>
+          <td>
+            <select title="셀렉트 이름">
+              <option value="">--선택--</option>
+              <option value="">선택1</option>
+              <option value="">선택2</option>
+              <option value="">선택3</option>
+              <option value="">선택4</option>
+              <option value="">선택5</option>
+              <option value="">선택6</option>
+            </select>
+          </td>
+          <td>
+            <button type="button" class="delete">
+              <span>1번 째 외국어역량 삭제</span>
+            </button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="warning">
+      사용국가는 '기타 제 3외국어'를 선택하신 경우에 한해 정확히 입력해 주시기
+      바랍니다.
+    </p>
+  </article>
 
-  <div class="LblockTabButton">
-    <button type="button" class="btn_back" onclick="nextTab(this,0);">
-      <span>이전</span>
-    </button>
+  <article class="sec5">
+    <h3>자격증(1)</h3>
+    <div class="addWrap">
+      <button class="add" type="button">추가</button>
+    </div>
+    <div class="table tCenter">
+      <table>
+        <caption>
+          자격증(1) - 자격증명, 자격등급, 취득일자, 인증기관에 대한 정보 제공
+        </caption>
+        <colgroup>
+          <col style="width: 25%" />
+          <col style="width: 25%" />
+          <col style="width: 25%" />
+          <col style="width: 25%" />
+        </colgroup>
+        <thead>
+        <tr>
+          <th scope="col">
+            자격증명<span class="essential">필수 입력</span>
+          </th>
+          <th scope="col">
+            자격등급<span class="essential">필수 입력</span>
+          </th>
+          <th scope="col">
+            취득일자<span class="essential">필수 입력</span>
+          </th>
+          <th scope="col">
+            인증기관<span class="essential">필수 입력</span>
+          </th>
+          <th scope="col"><span class="skip">삭제</span></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>
+            <div class="inputSearch inputBox">
+              <input type="text" />
+              <button type="button" class="searchBtn">검색</button>
+            </div>
+          </td>
+          <td>
+            <div class="inputBox">
+              <label for="inputText1">텍스트입력</label>
+              <input type="text" id="inputText1" placeholder="텍스트 입력" />
+            </div>
+          </td>
+          <td>
+              <span class="duration">
+                <span class="inputBox">
+                  <input
+                          type="text"
+                          id="inputText1"
+                          placeholder="텍스트 입력"
+                  />
+                </span>
+                <button
+                        type="button"
+                        id="milStartDate_cal"
+                        class="LiconCalendar"
+                        data-calendar="milStartDate"
+                >
+                  달력
+                </button>
+              </span>
+          </td>
+          <td>
+            <div class="inputBox">
+              <label for="inputText1">텍스트입력</label>
+              <input type="text" id="inputText1" placeholder="텍스트 입력" />
+            </div>
+          </td>
+          <td>
+            <button type="button" class="delete">
+              <span>1번 째 자격증 삭제</span>
+            </button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    <ul class="bu">
+      <li>해당 직무와 관련된 면허가 있는 경우에도 입력 가능합니다.</li>
+      <li>직무와 연관성이 높은 항목부터 입력해주시기 바랍니다.</li>
+      <li>
+        모든 자격 사항은 지원서 작성 마감일 이전에 인증받은 사항만 인정됩니다.
+      </li>
+    </ul>
+  </article>
 
-    <button type="button" id="btnSaveAppDetail"><span>저장</span></button>
-
-    <button type="button" onclick="nextTab(this,2);"><span>다음</span></button>
+  <div class="bottomWrap">
+    <div class="left">
+      <button type="submit" class="btn round type6 prev">
+        <span>이전</span>
+      </button>
+    </div>
+    <div class="right">
+      <button type="submit" class="btn round type6">
+        <span>임시저장</span>
+      </button>
+      <button type="submit" class="btn round type5 next">
+        <span>다음</span>
+      </button>
+    </div>
   </div>
-</div>
-<!-- appDetailForm end div -->
+</section>

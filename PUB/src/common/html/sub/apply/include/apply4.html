@@ -1,177 +1,67 @@
-<div id="LblockTabContent04" class="LblockTabContent">
-  <form id="introInfoForm" name="introInfoForm" method="post">
-    <input
-      type="hidden"
-      name="devon.token.field.sessionscope.sessionscopeintro"
-      value="sessionscopeintro"
-    />
-    <input
-      type="hidden"
-      name="sessionscopeintro"
-      value="FI8KSDSVNATV7GZRWM9UZ0KMV89C47L8"
-    />
-    <h2 class="Lhide">4. 자기소개서</h2>
-    <div class="LviewExplanation">
-      <p>
-        <strong>지원서 작성 안내</strong
-        ><a href="#" onclick="applcationGuidePopup();">보기</a>
-      </p>
-    </div>
-
-    <input
-      type="hidden"
-      id="introTypes_1"
-      name="introTypes_1"
-      value="SEL_010"
-    />
-    <input type="hidden" id="careerType_1" name="careerType_1" value="INT_07" />
-    <h3>지원동기 및 입사포부</h3>
-    <div class="LblockDetailTable headerTop borderBottom">
+<section class="tabCon" id="tabCon4">
+  <article class="sec1">
+    <h3>My Career</h3>
+    <div class="table">
       <table>
-        <caption>
-          지원동기 및 입사포부
-        </caption>
-        <thead>
-          <tr>
-            <th scope="col" class="LtextLeft">
-              <label for="content_1"
-                >LG이노텍 및 지원 직무를 선택하신 이유와, 입사 후 이루고 싶은
-                성과나 꿈은 무엇인지 기술해 주십시오.
-                <a
-                  href="javascript:;"
-                  onClick="writeGuidePopup();"
-                  target="_blank"
-                  title="새 창"
-                  ><span
-                    class="image"
-                    data-src="btn_icon_question.png"
-                    data-alt="자기소개서 작성 가이드"
-                  ></span
-                ></a>
-                <span class="wordNumbers"
-                  >글자수<span id="chardata_1"> 0</span> / 300자 ~ 500자</span
-                >
-              </label>
-            </th>
-          </tr>
-        </thead>
+        <caption></caption>
         <tbody>
-          <tr>
-            <td>
-              <textarea
-                id="content_1"
-                name="content_1"
-                class="LtextArea"
-                placeholder="-"
-              ></textarea>
-              <input
-                type="hidden"
-                class="minLength"
-                id="minLength_1"
-                name="minLength_1"
-                value="300"
-              />
-              <input
-                type="hidden"
-                class="maxLength"
-                id="maxLength_1"
-                name="maxLength_1"
-                value="500"
-              />
-              <input
-                type="hidden"
-                id="questionText_1"
-                value="LG이노텍 및 지원 직무를 선택하신 이유와, 입사 후 이루고 싶은 성과나 꿈은 무엇인지 기술해 주십시오."
-              />
-              <input type="hidden" id="guideText_1" value="-" />
-            </td>
-          </tr>
+        <tr>
+          <th scope="row">
+            지원한 분야에 대한 본인의 핵심역량과 열정에 대하여 <button type="button" class="moreInfo">지원한 분야의 핵심역량과 열정에 대한 예시</button>
+            <span class="right">글자수 0 / 100자 ~ 1000자</span>
+          </th>
+        </tr>
+        <tr>
+          <td>
+            <div class="inputBox">
+              <label for="textBox1">텍스트박스</label>
+              <textarea id="textBox1" placeholder="본인이 지원한 직무와 관련된 지식, 프로젝트경험 및 기타역량을 기술해 주십시오.(구체적으로 작성해주시고, 근거 및 사례를 포함해 주십시오.)"></textarea>
+            </div>
+          </td>
+        </tr>
         </tbody>
       </table>
     </div>
+  </article>
 
-    <input
-      type="hidden"
-      id="introTypes_2"
-      name="introTypes_2"
-      value="COM_010"
-    />
-    <input type="hidden" id="careerType_2" name="careerType_2" value="INT_08" />
-    <h3>경력사항(연구분야)</h3>
-    <div class="LblockDetailTable headerTop borderBottom">
+  <article class="sec2">
+    <h3>My Future</h3>
+    <div class="table">
       <table>
-        <caption>
-          경력사항(연구분야)
-        </caption>
-        <thead>
-          <tr>
-            <th scope="col" class="LtextLeft">
-              <label for="content_2"
-                >수행 업무 및 프로젝트를 중심으로 경력 사항을 상세히 기술해
-                주십시오.(직장 경력이 없는 석/박사 신입의 경우, 상세
-                전공/연구분야 기술)
-                <a
-                  href="javascript:;"
-                  onClick="writeGuidePopup();"
-                  target="_blank"
-                  title="새 창"
-                  ><span
-                    class="image"
-                    data-src="btn_icon_question.png"
-                    data-alt="자기소개서 작성 가이드"
-                  ></span
-                ></a>
-                <span class="wordNumbers"
-                  >글자수<span id="chardata_2"> 0</span> / 600자 ~ 1000자</span
-                >
-              </label>
-            </th>
-          </tr>
-        </thead>
+        <caption></caption>
         <tbody>
-          <tr>
-            <td>
-              <textarea
-                id="content_2"
-                name="content_2"
-                class="LtextArea"
-                placeholder="회사명, 직급, 직무, 기간, 내용 및 성과 등 포함"
-              ></textarea>
-              <input
-                type="hidden"
-                class="minLength"
-                id="minLength_2"
-                name="minLength_2"
-                value="600"
-              />
-              <input
-                type="hidden"
-                class="maxLength"
-                id="maxLength_2"
-                name="maxLength_2"
-                value="1000"
-              />
-              <input
-                type="hidden"
-                id="questionText_2"
-                value="수행 업무 및 프로젝트를 중심으로 경력 사항을 상세히 기술해 주십시오.(직장 경력이 없는 석/박사 신입의 경우, 상세 전공/연구분야 기술)"
-              />
-              <input
-                type="hidden"
-                id="guideText_2"
-                value="회사명, 직급, 직무, 기간, 내용 및 성과 등 포함"
-              />
-            </td>
-          </tr>
+        <tr>
+          <th scope="row">
+            입사 후 기여할 수 있는 부분에 대하여 <button type="button" class="moreInfo">입사 후 기여 작성 예시</button>
+            <span class="right">글자수 0 / 100자 ~ 1000자</span>
+          </th>
+        </tr>
+        <tr>
+          <td>
+            <div class="inputBox">
+              <label for="textBox1">텍스트박스</label>
+              <textarea id="textBox1" placeholder="입사후 지원한 모집분야에서 기여할 수 있는 부분을 관련지식, 프로젝트경험 및 기타역량을 기반으로 기술해주십시오.(입사후 업무가 모호할 경우 업무를 추측해서 작성 요망) "></textarea>
+            </div>
+          </td>
+        </tr>
         </tbody>
       </table>
     </div>
-  </form>
-  <div class="LblockTabButton">
-    <button type="button" class="btn_back" onclick="nextTab(this,2);">
-      <span>이전</span>
-    </button>
-    <button type="button" id="btnSaveIntroInfo"><span>저장</span></button>
-    <button type="button" onclick="nextTab(this,4);"><span>다음</span></button>
+  </article>
+
+  <div class="bottomWrap">
+    <div class="left">
+      <button type="submit" class="btn round type6 prev">
+        <span>이전</span>
+      </button>
+    </div>
+    <div class="right">
+      <button type="submit" class="btn round type6">
+        <span>임시저장</span>
+      </button>
+      <button type="submit" class="btn round type5 next">
+        <span>다음</span>
+      </button>
+    </div>
   </div>
-</div>
+</section>
