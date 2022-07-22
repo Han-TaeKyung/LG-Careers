@@ -1,4 +1,4 @@
-<section class="tabCon" id="tabCon1">
+<section class="tabCon" id="tabCon2">
   <article class="sec1">
     <h3>최종 학력</h3>
     <p>졸업예정자의 경우 최종학력은 졸업예정 학력으로 선택하여 작성바랍니다.</p>
@@ -69,6 +69,7 @@
                 <div class="inputBox">
                   <input
                           type="text"
+                          id="inputText1"
                           id="inputText1"
                           placeholder="텍스트 입력"
                   />
@@ -162,13 +163,13 @@
                   달력
                 </button>
                 <span class="bar">~</span>
-                <div class="inputBox">
+                <span class="inputBox">
                   <input
                           type="text"
                           id="inputText1"
                           placeholder="텍스트 입력"
                   />
-                </div>
+                </span>
                 <button
                         type="button"
                         id="milStartDate_cal"
@@ -272,13 +273,13 @@
                   달력
                 </button>
                 <span class="bar">~</span>
-                <div class="inputBox">
+                <span class="inputBox">
                   <input
                           type="text"
                           id="inputText1"
                           placeholder="텍스트 입력"
                   />
-                </div>
+                </span>
                 <button
                         type="button"
                         id="milStartDate_cal"
@@ -311,63 +312,24 @@
           <th scope="row">부/복수전공<span class="essential">필수 입력</span></th>
           <td>
             <div class="">
-                <select name="" title="평점 선택">
-                  <option value="">1</option>
-                  <option value="">2</option>
-                  <option value="">3</option>
-                  <option value="">4</option>
-                  <option value="">5</option>
-                </select>
-                <div class="inputSearch inputBox">
-                  <input type="text" />
-                  <button type="button" class="searchBtn">검색</button>
-                </div>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <th scope="row">부/복수전공<span class="essential">필수 입력</span></th>
-          <td>
-            <div class="">
-              <div class="inputBox">
-                <input type="text">
-              </div>
-              <span class="bar">/</span>
-              <div class="inputBox">
-                <select name="" title="평점 선택">
-                  <option value="">1</option>
-                  <option value="">2</option>
-                  <option value="">3</option>
-                  <option value="">4</option>
-                  <option value="">5</option>
-                </select>
-              </div>
-            </div>
-          </td>
-          <th scope="row">부/복수전공<span class="essential">필수 입력</span></th>
-          <td>
-            <div class="">
-              <div class="inputBox">
-                <input type="text">
-              </div>
-              <span class="bar">/</span>
-              <div class="inputBox">
-                <select name="" title="평점 선택">
-                  <option value="">1</option>
-                  <option value="">2</option>
-                  <option value="">3</option>
-                  <option value="">4</option>
-                  <option value="">5</option>
-                </select>
+              <select name="" title="평점 선택">
+                <option value="">1</option>
+                <option value="">2</option>
+                <option value="">3</option>
+                <option value="">4</option>
+                <option value="">5</option>
+              </select>
+              <div class="inputSearch inputBox">
+                <input type="text" />
+                <button type="button" class="searchBtn">검색</button>
               </div>
             </div>
           </td>
         </tr>
         <tr>
-
-          <th scope="row">부/복수전공<span class="essential">필수 입력</span></th>
+          <th scope="row">전체평점<span class="essential">필수 입력</span></th>
           <td>
-            <div class="">
+            <div class="countWrap">
               <div class="inputBox">
                 <input type="text">
               </div>
@@ -383,9 +345,13 @@
               </div>
             </div>
           </td>
-          <th scope="row">부/복수전공<span class="essential">필수 입력</span></th>
+          <th scope="row"></th>
+          <td></td>
+        </tr>
+        <tr>
+          <th scope="row">전공평점<span class="essential">필수 입력</span></th>
           <td>
-            <div class="">
+            <div class="countWrap">
               <div class="inputBox">
                 <input type="text">
               </div>
@@ -401,35 +367,89 @@
               </div>
             </div>
           </td>
+          <th scope="row"></th>
+          <td></td>
         </tr>
         <tr>
           <th scope="row">전체 이수학점</th>
-          <td></td>
+          <td>
+            <div class="inputBox">
+              <label for="inputText1">텍스트입력</label>
+              <input type="text" id="inputText1" placeholder="텍스트 입력">
+            </div>
+          </td>
           <th scope="row">전공 이수학점</th>
-          <td></td>
+          <td>
+            <div class="inputBox">
+              <label for="inputText1">텍스트입력</label>
+              <input type="text" id="inputText1" placeholder="텍스트 입력">
+            </div>
+          </td>
         </tr>
         <tr>
           <th scope="row">복수전공 이수학점</th>
-          <td></td>
+          <td>
+            <div class="inputBox">
+              <label for="inputText1">텍스트입력</label>
+              <input type="text" id="inputText1" placeholder="텍스트 입력">
+            </div>
+          </td>
           <th scope="row">복수전공 평점</th>
-          <td></td>
+          <td>
+            <div class="countWrap">
+              <div class="inputBox">
+                <input type="text">
+              </div>
+              <span class="bar">/</span>
+              <div class="inputBox">
+                <select name="" title="평점 선택">
+                  <option value="">1</option>
+                  <option value="">2</option>
+                  <option value="">3</option>
+                  <option value="">4</option>
+                  <option value="">5</option>
+                </select>
+              </div>
+            </div>
+          </td>
         </tr>
         <tr>
           <th scope="row">부전공 이수학점</th>
-          <td></td>
+          <td>
+            <div class="inputBox">
+              <label for="inputText1">텍스트입력</label>
+              <input type="text" id="inputText1" placeholder="텍스트 입력">
+            </div>
+          </td>
           <th scope="row">부전공 평점</th>
-          <td></td>
+          <td>
+            <div class="countWrap">
+              <div class="inputBox">
+                <input type="text">
+              </div>
+              <span class="bar">/</span>
+              <div class="inputBox">
+                <select name="" title="평점 선택">
+                  <option value="">1</option>
+                  <option value="">2</option>
+                  <option value="">3</option>
+                  <option value="">4</option>
+                  <option value="">5</option>
+                </select>
+              </div>
+            </div>
+          </td>
         </tr>
         <tr>
           <th scope="col">공학인증</th>
           <td>
             <span class="input">
               <input type="radio" id="rd1" name="radio" value="" checked="">
-              <label for="rd1">라디오버튼</label>
+              <label for="rd1">Yes</label>
             </span>
             <span class="input">
               <input type="radio" id="rd1" name="radio" value="" checked="">
-              <label for="rd1">라디오버튼</label>
+              <label for="rd1">No</label>
             </span>
           </td>
           <th scope="col">
@@ -439,6 +459,186 @@
         </tbody>
       </table>
     </div>
+    <ul class="bu">
+      <li>타 학교로 편입한 경우, 해당 학교의 졸업구분은 ‘타교편입’으로 선택해 주시기 바랍니다.</li>
+      <li>교환학생 내용은 입력하지 마십시오.(복수 학교 졸업이 아닙니다.)<br/>
+        단, 국내/해외 대학을 연계하여 두 개의 학위를 인정받은 경우에는 각각 입력해주시기 바랍니다.</li>
+      <li>기간은 졸업일 또는 졸업예정일 기준으로 입력해주시기 바랍니다.</li>
+      <li>복수/부전공이 모두 있는 경우 한 가지만 선택하여 입력해주시기 바랍니다.</li>
+      <li>전공이수학점은 전공필수, 전공선택 등 성적증명서상 전공으로 확인가능한 과목만 기입해 주시기 바랍니다.<br />
+        (예> 공학계열 전공자는 수학/물리/화학등 전공기초과목 제외)</li>
+    </ul>
+
+  </article>
+
+  <article class="sec1-4">
+    <h3>대학교-석사(1)</h3>
+    <p>두 개 이상의 석사 학위를 소지한 경우, ‘+추가’ 를 선택하여 작성해 주십시오.</p>
+    <div class="table">
+      <table>
+        <caption>대학교(1) - 학교명, 소재지, 기간, 졸업구분, 전공명, 검색 부/복수전공, 전체평점, 전공평점, 전체이수학점, 전체 이수학점, 복수전공 이수학점, 복수전공 평점, 부전공 이수학점, 부전공 평점, 공학인증에 대한 정보 제공</caption>
+        <colgroup>
+          <col style="width:15%" >
+          <col style="width:35%">
+          <col style="width:15%">
+          <col style="width:35%">
+        </colgroup>
+        <tbody>
+        <tr>
+          <th scope="row">학교명<span class="essential">필수 입력</span></th>
+          <td>
+            <div class="inputSearch inputBox">
+              <input type="text" />
+              <button type="button" class="searchBtn">검색</button>
+            </div>
+          </td>
+          <th scope="row">소재지<span class="essential">필수 입력</span></th>
+          <td>
+
+            <div class="inputSearch inputBox">
+              <input type="text" />
+              <button type="button" class="searchBtn">검색</button>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">기간<span class="essential">필수 입력</span></th>
+          <td>
+              <span class="duration">
+                <span class="inputBox">
+                  <input
+                          type="text"
+                          id="inputText1"
+                          placeholder="텍스트 입력"
+                  />
+                </span>
+                <button
+                        type="button"
+                        id="milStartDate_cal"
+                        class="LiconCalendar"
+                        data-calendar="milStartDate"
+                >
+                  달력
+                </button>
+                <span class="bar">~</span>
+                <span class="inputBox">
+                  <input
+                          type="text"
+                          id="inputText1"
+                          placeholder="텍스트 입력"
+                  />
+                </span>
+                <button
+                        type="button"
+                        id="milStartDate_cal"
+                        class="LiconCalendar"
+                        data-calendar="milStartDate"
+                >
+                  달력
+                </button>
+              </span>
+          </td>
+          <th scope="row">졸업구분<span class="essential">필수 입력</span></th>
+          <td>
+            <select name="" title="졸업구분 선택">
+              <option value="">1</option>
+              <option value="">2</option>
+              <option value="">3</option>
+              <option value="">4</option>
+              <option value="">5</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">전공명<span class="essential">필수 입력</span></th>
+          <td>
+            <div class="inputSearch inputBox">
+              <input type="text" />
+              <button type="button" class="searchBtn">검색</button>
+            </div>
+          </td>
+          <th scope="row">전체평점<span class="essential">필수 입력</span></th>
+          <td>
+            <div class="">
+              <select name="" title="평점 선택">
+                <option value="">1</option>
+                <option value="">2</option>
+                <option value="">3</option>
+                <option value="">4</option>
+                <option value="">5</option>
+              </select>
+              <div class="inputSearch inputBox">
+                <input type="text" />
+                <button type="button" class="searchBtn">검색</button>
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">지도교수<span class="essential">필수 입력</span></th>
+          <td>
+            <div class="countWrap">
+              <div class="inputBox">
+                <input type="text">
+              </div>
+              <span class="bar">/</span>
+              <div class="inputBox">
+                <select name="" title="평점 선택">
+                  <option value="">1</option>
+                  <option value="">2</option>
+                  <option value="">3</option>
+                  <option value="">4</option>
+                  <option value="">5</option>
+                </select>
+              </div>
+            </div>
+          </td>
+          <th scope="row">연구실명<span class="essential">필수 입력</span></th>
+          <td>
+            <div class="inputBox">
+              <label for="inputText1">텍스트입력</label>
+              <input type="text" id="inputText1" placeholder="텍스트 입력">
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row" rowspan="2">전공분야<span class="essential">필수 입력</span></th>
+          <td colspan="3">
+            <p>연구분야 제목을 입력해주십시오.</p>
+            <div class="inputBox">
+              <label for="inputText1">텍스트입력</label>
+              <input type="text" id="inputText1" placeholder="텍스트 입력">
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="3">
+            <div class="inputBox">
+              <textarea id="textBox1" placeholder="자신의 주 연구 분야를 자유롭게 기술하세요. (어필할 수 있는 논문/특허/프로젝트 등 포함)" title=""></textarea>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">논문/주요연구과제<span class="essential">필수 입력</span></th>
+          <td colspan="3">
+            <div class="inputBox upload">
+              <div class="uploadWrap">
+                <input type="file" name="file_attach" id="attach" title="파일경로" class="input" placeholder="파일찾기">
+                <span class="fileName"></span>
+                <button type="button" class="clear">파일 제거</button>
+              </div>
+              <label for="attach" class="uploadBtn"><span>첨부파일 추가</span></label>
+            </div>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <ul class="bu">
+      <li>첨부 파일은 2개까지 가능하며 파일 형식은 PDF만 가능합니다.</li>
+      <li>파일 용량이 개당 3MB로 제한되므로 관련 연구에 대한 요약본으로 등록 바랍니다.</li>
+    </ul>
 
   </article>
 
@@ -681,7 +881,7 @@
           </th>
           <th scope="col">
             사용 가능 정도<span class="essential">필수 입력</span>
-            <button type="button">사용 가능 정도 기준 알아보기</button>
+            <button type="button" class="moreInfo">사용 가능 정도 기준 알아보기</button>
           </th>
           <th scope="col"><span class="skip">삭제</span></th>
         </tr>
