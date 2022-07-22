@@ -189,6 +189,22 @@
             }
           }
         }
+        &.prev {
+          span {
+            position: relative;
+            &:before {
+              display: inline-block;
+              vertical-align: middle;
+              margin-right: 5px;
+              width: 9px;
+              height: 9px;
+              border-width: 0 0 1px 1px;
+              border-style: solid;
+              border-color: $LGBlack;
+              transform: rotate(45deg);
+            }
+          }
+        }
       }
     }
     .duration {

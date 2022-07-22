@@ -161,7 +161,7 @@
               </span>
             </td>
             <td>
-              <button type="button">
+              <button type="button" class="delete">
                 <span>1번 째 공인어학성적 삭제</span>
               </button>
             </td>
@@ -215,7 +215,7 @@
               </span>
             </td>
             <td>
-              <button type="button">
+              <button type="button" class="delete">
                 <span>1번 째 공인어학성적 삭제</span>
               </button>
             </td>
@@ -292,7 +292,7 @@
               </select>
             </td>
             <td>
-              <button type="button">
+              <button type="button" class="delete">
                 <span>1번 째 외국어역량 삭제</span>
               </button>
             </td>
@@ -324,13 +324,17 @@
         </colgroup>
         <thead>
           <tr>
-            <th scope="col">언어<span class="essential">필수 입력</span></th>
             <th scope="col">
-              사용국가<span class="essential">필수 입력</span>
+              자격증명<span class="essential">필수 입력</span>
             </th>
             <th scope="col">
-              사용 가능 정도<span class="essential">필수 입력</span>
-              <button type="button">사용 가능 정도 기준 알아보기</button>
+              자격등급<span class="essential">필수 입력</span>
+            </th>
+            <th scope="col">
+              취득일자<span class="essential">필수 입력</span>
+            </th>
+            <th scope="col">
+              인증기관<span class="essential">필수 입력</span>
             </th>
             <th scope="col"><span class="skip">삭제</span></th>
           </tr>
@@ -338,20 +342,14 @@
         <tbody>
           <tr>
             <td>
-              <select title="셀렉트 이름">
-                <option value="">--선택--</option>
-                <option value="">선택1</option>
-                <option value="">선택2</option>
-                <option value="">선택3</option>
-                <option value="">선택4</option>
-                <option value="">선택5</option>
-                <option value="">선택6</option>
-              </select>
-            </td>
-            <td>
               <div class="inputSearch inputBox">
                 <input type="text" />
                 <button type="button" class="searchBtn">검색</button>
+              </div>
+            </td>
+            <td>
+              <div class="inputBox">
+                <input type="text" />
               </div>
             </td>
             <td>
@@ -366,7 +364,7 @@
               </select>
             </td>
             <td>
-              <button type="button">
+              <button type="button" class="delete">
                 <span>1번 째 자격증 삭제</span>
               </button>
             </td>
@@ -384,7 +382,11 @@
   </article>
 
   <div class="bottomWrap">
-    <div class="left"></div>
+    <div class="left">
+      <button type="submit" class="btn round type6 prev">
+        <span>이전</span>
+      </button>
+    </div>
     <div class="right">
       <button type="submit" class="btn round type6">
         <span>임시저장</span>
