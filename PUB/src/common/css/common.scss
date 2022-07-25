@@ -212,6 +212,10 @@
   margin-top: 1rem;
 }
 
+.mT12 {
+  margin-top: 1.2rem;
+}
+
 .mT60 {
   margin-top: 6rem;
 }
@@ -469,6 +473,20 @@ p {
     &.xlarge {
       border-radius: 2.9rem;
     }
+    &.icon{
+      height: 5.8rem;
+      line-height: 5.8rem;
+      width: 100%;
+      border-radius: 2.9rem;
+      i{
+        svg{
+          vertical-align: middle;
+          margin-top: -0.2rem;
+          margin-right: 1rem;
+        }
+      }
+    }
+
   }
 
   &.ico {
@@ -1684,6 +1702,28 @@ select {
         .shareOn {
           > ul {
             display: block;
+          }
+        }
+      }
+      .shareIco{
+        display: flex;
+        justify-content: flex-start;
+        li{
+          background-image: url(/common/images/icon/shareIco.svg);
+          width: 2.4rem;
+          height: 2.4rem;
+          display: block;
+          margin-left: 2rem;
+
+          &:first-child{
+            margin-left: 0;
+          }
+
+          &.shareIco2{
+            background-position: -4.4rem;
+          }
+          &.shareIco3{
+            background-position: -8.8rem;
           }
         }
       }

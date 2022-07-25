@@ -551,7 +551,11 @@
               position: relative;
               padding-right: 1.1rem;
               margin-right: 1rem;
-
+            }
+            span{
+              position: relative;
+              padding-right: 1.1rem;
+              margin-right: 1rem;
               &::before {
                 display: block;
                 width: 0.1rem;
@@ -560,6 +564,11 @@
                 position: absolute;
                 right: 0;
                 top: 0.2rem;
+              }
+              &:last-child{
+                &::before{
+                  display: none;
+                }
               }
             }
           }
@@ -661,6 +670,23 @@
                 }
               }
             }
+          }
+        }
+      }
+    }
+    .postList{
+      margin-top: 6rem;
+      h5{
+        padding: 0;
+        margin-bottom: 1.6rem;
+      }
+      ul{
+        li{
+          background-color:#f8f8f8;
+          margin-bottom: 1rem;
+          padding: 2.4rem 3rem;
+          .postTitle{
+            line-height: 2.4rem;
           }
         }
       }
