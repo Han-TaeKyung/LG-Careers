@@ -611,6 +611,7 @@
           }
         }
         &.active{
+          border-bottom: 0;
           .q{
             .qBtn{
               &:after{
@@ -622,17 +623,71 @@
       }
       .a{
         .accCon{
-          padding: 0;
+          padding: 1rem 0 3rem;
+          border-top:.1rem solid $GrayD9;
           .menu2Dep{
+            margin-top: 1rem;
+            >a{
+              display: inline-block;
+              padding: .9rem 1.4rem .9rem 3rem;
+              background-image: url(/common/images/icon/menu2dep.svg);
+              background-repeat: no-repeat;
+              background-position: 1.4rem center;
+              border:.1rem solid $GrayD9;
+              border-radius: .5rem;
+              font-size: 1.4rem;
+              line-height: 1.4rem;
+              letter-spacing: -0.02em;
+              color:$LGBlack;
+            }
             >ul{
               display: none;
             }
             &.active{
+              >a{
+                border:.1rem solid $RedD0;
+                color:$RedD0;
+                background-image: url(/common/images/icon/menu2depOn.svg);
+              }
               >ul{
-                display: block;
+                margin-top: 1rem;
+                padding: 1rem 1.6rem 0.8rem;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: flex-start;
+                li{
+                  margin-bottom: 1.2rem;
+                  margin-right: 1.6rem;
+                }
               }
             }
           }
+        }
+      }
+    }
+  }
+  .lnbHashtag{
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    margin-top: -2rem;
+    padding: 0 2rem;
+    li{
+      margin-right: .5rem;
+      margin-bottom: .8rem;
+      a{
+        display: inline-block;
+        background-color: #f8f8f8;
+        border-radius: 1.5rem;
+        line-height: 1.5rem;
+        padding: .8rem 1.4rem;
+        font-size: 1.4rem;
+        letter-spacing: -0.02em;
+        color:$Gray8E;
+
+        &.active{
+          background-color: #FFE3EA;
+          color:$RedD0;
         }
       }
     }

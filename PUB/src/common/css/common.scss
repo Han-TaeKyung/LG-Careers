@@ -737,6 +737,58 @@ p {
       }
     }
   }
+  &.boxType{
+    display: inline-flex;
+    margin-right:.1rem;
+    margin-top: 1rem;
+    input[type=checkbox]{
+      & + label{
+        padding: .9rem 1.4rem;
+        border:.1rem solid $GrayD9;
+        border-radius: .5rem;
+        font-size: 1.4rem;
+        line-height: 1.4rem;
+        letter-spacing: -0.02em;
+        color:$LGBlack;
+        &::before{
+          display: none;
+        }
+        &:after{
+          display: none;
+        }
+      }
+      &:checked{
+        & + label{
+          border: .1rem solid $RedD0;
+          color:$RedD0;
+        }
+        
+      }
+    }
+  }
+  &.textType{
+    input[type=checkbox]{
+      & + label{
+        font-size: 1.4rem;
+        line-height: 1.4rem;
+        letter-spacing: -0.02em;
+        color:$LGBlack;
+        padding: 0;
+        &::before{
+          display: none;
+        }
+        &:after{
+          display: none;
+        }
+      }
+      &:checked{
+        & + label{
+          color:$RedD0;
+        }
+        
+      }
+    }
+  }
 }
 
 //select

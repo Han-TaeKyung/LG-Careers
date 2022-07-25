@@ -14,7 +14,7 @@
                 </defs>
                 </svg>
                 </i>
-            </button>
+            </button> 
         </div><!-- rcLnbT -->
         <div class="lnbSearch">
             <span class="inputBox type2">
@@ -30,29 +30,16 @@
                   <div class="accTitle">구분</div>
                 </button>
               </div>
-              <div class="a" title="열림" style="display: block">
+              <div class="a" title="열림">
                 <div class="accCon">
                   <ul>
                     <li>
-                      <span><input type="checkbox" id="all"><label for="all">전체</label></span>
-                    </li>
-                    <li class="menu2Dep">
-                      <a href="#">2뎁스</a>
-                      <ul>
-                        <li>
-                          <span><input type="checkbox" id="1"><label for="1">3뎁스</label></span>
-                        </li>
-                        <li>
-                          <span><input type="checkbox" id="2"><label for="2">3뎁스</label></span>
-                        </li>
-                        <li>
-                          <span><input type="checkbox" id="3"><label for="3">3뎁스</label></span>
-                        </li>
-                        <li>
-                          <span><input type="checkbox" id="4"><label for="4">3뎁스</label></span>
-                        </li>
-                      </ul>
-                    </li>
+                      <span class="input boxType"><input type="checkbox" id="all" name="divide" onclick="selectAll(this)"><label for="all">전체</label></span>
+                      <span class="input boxType"><input type="checkbox" id="new" name="divide"><label for="new">신입</label></span>
+                      <span class="input boxType"><input type="checkbox" id="exp" name="divide"><label for="exp">경력</label></span>
+                      <span class="input boxType"><input type="checkbox" id="int" name="divide"><label for="int">인턴</label></span>
+                      <span class="input boxType"><input type="checkbox" id="etc" name="divide"><label for="etc">기타</label></span>
+                      <span class="input boxType"><input type="checkbox" id="sim" name="divide"><label for="sim">간편지원</label></span>                    </li>
                   </ul>
                 </div>
               </div>
@@ -65,7 +52,15 @@
                 </div>
                 <div class="a" title="열림">
                   <div class="accCon">
-                    121212
+                    <ul>
+                      <li>
+                        <span class="input boxType"><input type="checkbox" id="all2" name="filed" onclick="selectAll(this)"><label for="all2">전체</label></span>
+                        <span class="input boxType"><input type="checkbox" id="rd" name="filed"><label for="rd">R&D</label></span>
+                        <span class="input boxType"><input type="checkbox" id="bus" name="filed"><label for="bus">영업</label></span>
+                        <span class="input boxType"><input type="checkbox" id="prod" name="filed"><label for="prod">생산품질</label></span>
+                        <span class="input boxType"><input type="checkbox" id="staff" name="filed"><label for="staff">Staff</label></span>
+                        <span class="input boxType"><input type="checkbox" id="mk" name="filed"><label for="mk">마케팅</label></span>                    </li>
+                    </ul>
                   </div>
                 </div>
               </li>
@@ -77,7 +72,60 @@
                 </div>
                 <div class="a" title="열림">
                   <div class="accCon">
-                    121212
+                    <ul>
+                      <li>
+                        <span class="input boxType"><input type="checkbox" id="all3" name="comp" onclick="selectAll(this)"><label for="all3">전체</label></span>
+                      </li>
+                      <li class="menu2Dep">
+                        <a href="#">전자계열</a>
+                        <ul>
+                          <li>
+                            <span class="input textType"><input type="checkbox" id="lg1" name="comp"><label for="lg1">LG전자</label></span>
+                          </li>
+                          <li>
+                            <span class="input textType"><input type="checkbox" id="lg2" name="comp"><label for="lg2">LG디스플레이</label></span>
+                          </li>
+                          <li>
+                            <span class="input textType"><input type="checkbox" id="lg3" name="comp"><label for="lg3">LG이노텍</label></span>
+                          </li>
+                          <li>
+                            <span class="input textType"><input type="checkbox" id="lg4" name="comp"><label for="lg4">LG화학</label></span>
+                          </li>
+                          <li>
+                            <span class="input textType"><input type="checkbox" id="lg5" name="comp"><label for="lg5">LG에너지솔루션</label></span>
+                          </li>
+                          <li>
+                            <span class="input textType"><input type="checkbox" id="lg6" name="comp"><label for="lg6">LG생활건강</label></span>
+                          </li>
+                          <li>
+                            <span class="input textType"><input type="checkbox" id="lg7" name="comp"><label for="lg7">LG유플러스</label></span>
+                          </li>
+                          <li>
+                            <span class="input textType"><input type="checkbox" id="lg8" name="comp"><label for="lg8">LG헬로비전</label></span>
+                          </li>
+                          <li>
+                            <span class="input textType"><input type="checkbox" id="lg9" name="comp"><label for="lg9">LG CNS</label></span>
+                          </li>
+                          <li>
+                            <span class="input textType"><input type="checkbox" id="lg10" name="comp"><label for="lg10">D&D</label></span>
+                          </li>
+                          <li>
+                            <span class="input textType"><input type="checkbox" id="lg11" name="comp"><label for="lg11">지투알</label></span>
+                          </li>
+                        </ul>
+                      </li>
+                      <li class="menu2Dep">
+                        <a href="#">자회사</a>
+                        <ul>
+                          <li>
+                            <span class="input textType"><input type="checkbox" id="lg12" name="comp"><label for="lg12">자회사1</label></span>
+                          </li>
+                          <li>
+                            <span class="input textType"><input type="checkbox" id="lg13" name="comp"><label for="lg13">자회사2</label></span>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
                   </div>
                 </div>
               </li>
@@ -89,7 +137,110 @@
                 </div>
                 <div class="a" title="열림">
                   <div class="accCon">
-                    121212
+                    <ul>
+                      <li>
+                        <span class="input boxType"><input type="checkbox" id="all4" name="area" onclick="selectAll(this)"><label for="all4">전체</label></span>
+                      </li>
+                      <li class="menu2Dep">
+                        <a href="#">서울시</a>
+                        <ul>
+                          <li>
+                            <span class="input textType"><input type="checkbox" id="area1-1" name="area"><label for="area1-1">강남구</label></span>
+                          </li>
+                          <li>
+                            <span class="input textType"><input type="checkbox" id="area1-2" name="area"><label for="area1-2">강동구</label></span>
+                          </li>
+                          <li>
+                            <span class="input textType"><input type="checkbox" id="area1-3" name="area"><label for="area1-3">강북구</label></span>
+                          </li>
+                          <li>
+                            <span class="input textType"><input type="checkbox" id="area1-4" name="area"><label for="area1-4">강서구</label></span>
+                          </li>
+                          <li>
+                            <span class="input textType"><input type="checkbox" id="area1-5" name="area"><label for="area1-5">관악구</label></span>
+                          </li>
+                          <li>
+                            <span class="input textType"><input type="checkbox" id="area1-6" name="area"><label for="area1-6">광진구</label></span>
+                          </li>
+                          <li>
+                            <span class="input textType"><input type="checkbox" id="area1-7" name="area"><label for="area1-7">구로구</label></span>
+                          </li>
+                          <li>
+                            <span class="input textType"><input type="checkbox" id="area1-8" name="area"><label for="area1-8">금천구</label></span>
+                          </li>
+                          <li>
+                            <span class="input textType"><input type="checkbox" id="area1-9" name="area"><label for="area1-9">노원구</label></span>
+                          </li>
+                          <li>
+                            <span class="input textType"><input type="checkbox" id="area1-10" name="area"><label for="area1-10">도봉구</label></span>
+                          </li>
+                          <li>
+                            <span class="input textType"><input type="checkbox" id="area1-11" name="area"><label for="area1-11">동대문구</label></span>
+                          </li>
+                          <li>
+                            <span class="input textType"><input type="checkbox" id="area1-12" name="area"><label for="area1-12">동작구</label></span>
+                          </li>
+                          <li>
+                            <span class="input textType"><input type="checkbox" id="area1-13" name="area"><label for="area1-13">마포구</label></span>
+                          </li>
+                          <li>
+                            <span class="input textType"><input type="checkbox" id="area1-14" name="area"><label for="area1-14">서대문구</label></span>
+                          </li>
+                          <li>
+                            <span class="input textType"><input type="checkbox" id="area1-15" name="area"><label for="area1-15">서초구</label></span>
+                          </li>
+                          <li>
+                            <span class="input textType"><input type="checkbox" id="area1-16" name="area"><label for="area1-16">성동구</label></span>
+                          </li>
+                          <li>
+                            <span class="input textType"><input type="checkbox" id="area1-17" name="area"><label for="area1-17">성북구</label></span>
+                          </li>
+                          <li>
+                            <span class="input textType"><input type="checkbox" id="area1-18" name="area"><label for="area1-18">송파구</label></span>
+                          </li>
+                          <li>
+                            <span class="input textType"><input type="checkbox" id="area1-19" name="area"><label for="area1-19">양천구</label></span>
+                          </li>
+                          <li>
+                            <span class="input textType"><input type="checkbox" id="area1-20" name="area"><label for="area1-20">영등포구</label></span>
+                          </li>
+                          <li>
+                            <span class="input textType"><input type="checkbox" id="area1-21" name="area"><label for="area1-21">용산구</label></span>
+                          </li>
+                          <li>
+                            <span class="input textType"><input type="checkbox" id="area1-22" name="area"><label for="area1-22">은평구</label></span>
+                          </li>
+                          <li>
+                            <span class="input textType"><input type="checkbox" id="area1-23" name="area"><label for="area1-23">종로구</label></span>
+                          </li>
+                          <li>
+                            <span class="input textType"><input type="checkbox" id="area1-24" name="area"><label for="area1-24">중구</label></span>
+                          </li>
+                          <li>
+                            <span class="input textType"><input type="checkbox" id="area1-25" name="area"><label for="area1-25">중랑구</label></span>
+                          </li>
+                        </ul>
+                      </li>
+                      <li>
+                        <span class="input boxType"><input type="checkbox" id="area2" name="area"><label for="area2">광주시</label></span>
+                        <span class="input boxType"><input type="checkbox" id="area3" name="area"><label for="area3">대구시</label></span>
+                        <span class="input boxType"><input type="checkbox" id="area4" name="area"><label for="area4">대전시</label></span>
+                        <span class="input boxType"><input type="checkbox" id="area5" name="area"><label for="area5">부산시</label></span>
+                        <span class="input boxType"><input type="checkbox" id="area6" name="area"><label for="area6">강원도</label></span>
+                        <span class="input boxType"><input type="checkbox" id="area7" name="area"><label for="area7">경기도</label></span>
+                        <span class="input boxType"><input type="checkbox" id="area8" name="area"><label for="area8">경상남도</label></span>
+                        <span class="input boxType"><input type="checkbox" id="area9" name="area"><label for="area9">경상북도</label></span>
+                        <span class="input boxType"><input type="checkbox" id="area10" name="area"><label for="area10">세종시</label></span>
+                        <span class="input boxType"><input type="checkbox" id="area11" name="area"><label for="area11">울산시</label></span>
+                        <span class="input boxType"><input type="checkbox" id="area12" name="area"><label for="area12">인천시</label></span>
+                        <span class="input boxType"><input type="checkbox" id="area13" name="area"><label for="area13">전라남도</label></span>
+                        <span class="input boxType"><input type="checkbox" id="area14" name="area"><label for="area14">전라북도</label></span>
+                        <span class="input boxType"><input type="checkbox" id="area15" name="area"><label for="area15">제주도</label></span>
+                        <span class="input boxType"><input type="checkbox" id="area16" name="area"><label for="area16">충청남도</label></span>
+                        <span class="input boxType"><input type="checkbox" id="area17" name="area"><label for="area17">충청북도</label></span>
+                        <span class="input boxType"><input type="checkbox" id="area18" name="area"><label for="area18">해외</label></span>
+                      </li>
+                    </ul>
                   </div>
                 </div>
               </li>
@@ -99,4 +250,11 @@
       관심있는 해쉬태그를 눌러보세요!<br>
       관련 된 공고를 모아볼 수 있어요.
     </p>
+    <ul class="lnbHashtag">
+      <li><a href="#"># R&D</a></li>
+      <li><a href="#"># B2B영업</a></li>
+      <li><a href="#"># B2B Sales</a></li>
+      <li><a href="#"># 서비스</a></li>
+      <li><a href="#"># 마케팅</a></li>
+    </ul>
 </div> 
