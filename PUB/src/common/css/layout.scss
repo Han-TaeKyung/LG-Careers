@@ -31,6 +31,7 @@
       }
     }
 
+
     #gnb {
       >ul {
         display: flex;
@@ -200,14 +201,28 @@
     .footerMenu {
       .footerLogo{
         margin-right: 5rem;
-        font-size: 2.8rem;
-        font-weight: 600;
-        color:$Gray8E;
+        display: flex;
+        justify-content: flex-start;
         span{
-          font-size: 3rem;
-          font-weight: 700;
-          color:$Gray8E;
-          padding-right: 1rem;
+          display: block;
+          line-height: 2.6rem;
+          position: relative;
+          img{
+            vertical-align: middle;
+          }
+          &:first-child{
+            padding-right: 1.6rem;
+            margin-right: 1.5rem;
+            &::before{
+              position: absolute;
+              width: .1rem;
+              height: 1.6rem;
+              background-color: $Gray6B;
+              display: block;
+              right:0;
+              top:.5rem;
+            }
+          }
         }
       }
 
@@ -719,3 +734,263 @@
     }
   }
 }
+.mobile{
+  display: none;
+}
+//반응형
+@include tablet{
+  *{
+    transition: none;
+  }
+  .mobile{
+    display: block;
+  }
+  /*브라우저 사이즈768px이상, 1199px 이하일때*/
+
+  #header{
+    position: relative;
+    height: auto;
+    .headerWrap{
+      position: relative;
+      height: 6rem;
+      padding: 0 2rem;
+      &.mGnbBtnOn{
+        #gnb{
+          >div{
+            &.mGnbBtn{
+              a{
+                background-image: url(/common/images/icon/mGnbClose.png);
+                width: 2rem;
+              }
+            }
+          }
+          >ul{
+            display: block;
+          }  
+        }
+        .logMenu{
+          display: block;
+        }
+      }
+      #gnb{
+        >div{
+          position: relative;
+          z-index: 10;
+          &.mGnbBtn{
+            a{
+              display: block;
+              width: 2.4rem;
+              height: 2rem;
+              background-image: url(/common/images/icon/mGnb.png);
+            }
+          }
+          
+        }
+        >ul{
+          position: absolute;
+          display: none;
+          width: 100%;
+          height:auto;
+          left: 0;
+          top:0;
+          padding-top:18.5rem;
+          background-color: #f8f8f8;
+          >li{
+            background-color: $White;
+            padding: 0 2rem 4rem;
+            &:first-child{
+              padding-top: 4rem;
+            }
+            &.gnbOn{
+              >a{
+                color:$RedD0;
+                &:after{
+                  transform: rotate(0.5turn);
+                  transition: 0.3s;
+                }
+              }
+              >ul{
+                display: block;
+              }
+            }
+            &.depNo{
+              a{
+                &:after{
+                  background-image: none;
+                }
+              }
+            }
+            >a{
+              width: 100%;
+              display:block;
+              padding: 0;
+              font-size: 2.2rem;
+              background-repeat: no-repeat;
+              position: relative;
+              &::before{
+                display: none !important;
+              }
+              &:after{
+                position: absolute;
+                background-image: url(/common/images/icon/mGnbA.png);
+                display: block;
+                width: 1.7rem;
+                height: 1rem;
+                right:0;
+                top:.6rem;
+              }
+            }
+            &.aPoint{
+              background-image: none;
+              a{
+                display: inline-block;
+                width: auto;
+                padding-right: 0.8rem;
+                background-image: url(/common/images/icon/apoint.png);
+                background-position: right top;
+                &:after{
+                  display: none !important;
+                }
+              }
+            }
+            >ul{
+              height: auto;
+              position: inherit;
+              margin-top: 0;
+              padding: 2.5rem 1.5rem 0;
+              display: none;
+              >li{
+                margin-bottom: 2rem;
+                &:last-child{
+                  margin-bottom: 0;
+                }
+                >a{
+                  padding: 0;
+                  display: block;
+                  width: 100%;
+                  font-size: 1.6rem;
+                }
+              }
+            }
+          }
+        }
+      }
+      .logMenu{
+        position: absolute;
+        display: none;
+        top:5rem;
+        width: 100%;
+        left: 0;
+        padding: 0 2rem;
+        p{
+          font-size: 2rem;
+          line-height: 2rem;
+          letter-spacing: -0.02em;
+          color:$LGBlack;
+          i{
+            display: inline-block;
+            width: 1.9rem;
+            height: 1.9rem;
+            vertical-align: middle;
+            margin-right: .8rem;
+            background-image: url(/common/images/icon/mGnbMy.png);
+            background-position: center;
+          }
+
+          span{
+            display: inline;
+            background-color: transparent;
+            transition: none;
+            margin: 0;
+            font-weight: 600;
+          }
+        }
+        div{
+          margin-top: 3.5rem;
+          display: flex;
+          justify-content: space-between;
+          width: 100%;
+          svg{
+            display: none;
+          }
+          span{
+            display: none;
+          }
+          a{
+            display: block;
+            width: 48.35%;
+            height: 5rem;
+            border-radius: 2.5rem;
+            text-align: center;
+            font-size: 1.5rem;
+            line-height: 5rem;
+            letter-spacing: -0.02em;
+            &.mLog{
+              background-color: $LGBlack;
+              color:$White;
+            }
+            &.mJoin{
+              background-color: $White;
+              border:.1rem solid $GrayAE;
+              color:$LGBlack;
+            }
+          }
+        }
+      }
+    }
+  }
+  #footer{
+    padding: 3rem 2rem 4rem;
+    .footerCon{
+      display: block;
+      .footerLogo{
+        margin-bottom: 2rem;
+      }
+      .footerMenu{
+        li{
+          ul{
+            li{
+              padding-top: 2rem;
+              a{
+                font-size: 1.4rem;
+                line-height: 1.4rem;
+              }
+            }
+            p{
+              font-size: 1.2rem;
+            }
+          }
+        }
+      }
+      ul{
+        display: block;
+      }
+      .subscribe {
+        margin-top: 5rem;
+        li{
+          margin-left: 0;
+          font-size: 1.8rem;
+        }
+        .scribeBox{
+          width: 100%;
+          margin-top: 1.5rem;
+          >span{
+            width: calc(100% - 10rem);
+            input{
+              padding-left: 2rem;
+            }
+          }
+          a{
+            font-size: 1.4rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+@include mobile{ 
+  /*브라우저 사이즈767px이하일때*/
+
+}
+

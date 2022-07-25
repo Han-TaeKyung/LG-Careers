@@ -9,6 +9,13 @@ $(function () {
       $(this).removeClass("gnbOn");
       $('#header').removeClass("mainHeaderHover");
     });
+  }else{
+    $("#gnb > ul > li").on("click", function () {
+      $(this).toggleClass("gnbOn").siblings().removeClass("gnbOn");
+    });
+    $(".mGnbBtn").on("click", function(){
+      $(this).parent().parent().toggleClass("mGnbBtnOn");
+    });
   }
 
   //채용공고 왼쪽네비
