@@ -220,7 +220,7 @@
   margin-top: 8rem;
 }
 
-@for $i from 1 through 10 {
+@for $i from 0 through 10 {
   .mT#{$i*5} {
     margin-top: 0.5 * $i + rem;
   }
@@ -1030,7 +1030,7 @@ select {
 .bu {
   > li {
     @include subText1;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
     position: relative;
     padding-left: 1.1rem;
     color: $Gray6B;
