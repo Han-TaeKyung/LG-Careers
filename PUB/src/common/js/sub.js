@@ -73,7 +73,6 @@ $(function () {
   });
 
   // popup
-
   var $popBtn = $(".popBtn[data-pop]"),
     $popPanel = $(".popPanel[data-pop]"),
     $popBgClose = $popPanel.find(".bgClose"),
@@ -135,5 +134,42 @@ $(function () {
     $thisPanel.stop().slideUp(200).attr("title", "닫기");
     $thisParent.removeClass("active").attr("title", "열림");
     $thisParentBtn.attr("data-value", thisValue).text($this.text());
+  });
+
+  // attatch2
+  var $upload2 = $(".upload2");
+  $upload2.each(function () {
+    var $this = $(this),
+      $thisAddBtn = $this.find(".fileAdd"),
+      $thisCon = $this.find(".fileUploadC");
+    attatchId = 1;
+    $thisAddBtn.click(function () {
+      var $attatchElem = $(
+        "<div class='fileUploadForm'><label for='attach' class='uploadBtn'><span>파일선택</span></label><input type='file' name='file_attach' title='파일경로' class='input' placeholder='파일찾기'><span class='fileName'>선택된 파일이 없습니다</span><button type='button' class='fileDelete'>삭제</button></div>"
+      );
+      $attatchElem
+        .find("label")
+        .attr("for", "attatch" + attatchId)
+        .find("span");
+      $attatchElem.find("input[type=file]").attr({
+        id: "attatch" + attatchId,
+        title: attatchId + "번째 파일 입력",
+      });
+      $attatchElem.find("fileDelete").text(attatchId + "번째 파일 입력 삭제");
+
+      $thisCon.append($attatchElem);
+      attatchId += 1;
+    });
+    $this.on("change", ".fileUploadForm .input[type=file]", function (e) {
+      var $this = $(e.target),
+        $uploadText = $this.siblings(".fileName");
+      uploadFile = e.target.files;
+      $uploadText.text(uploadFile.item(0).name);
+      // $this.siblings(".clear").addClass("active");
+    });
+    $this.on("click", ".fileDelete", function () {
+      $(this).parent().remove();
+      attatchId -= 1;
+    });
   });
 });

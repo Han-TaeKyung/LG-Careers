@@ -473,20 +473,19 @@ p {
     &.xlarge {
       border-radius: 2.9rem;
     }
-    &.icon{
+    &.icon {
       height: 5.8rem;
       line-height: 5.8rem;
       width: 100%;
       border-radius: 2.9rem;
-      i{
-        svg{
+      i {
+        svg {
           vertical-align: middle;
           margin-top: -0.2rem;
           margin-right: 1rem;
         }
       }
     }
-
   }
 
   &.ico {
@@ -644,7 +643,7 @@ p {
         width: 1.1rem;
         height: 0.8rem;
         background: url(/common/images/icon/checkGray.svg) no-repeat center
-        center;
+          center;
         transition: all 0.2s;
       }
     }
@@ -755,55 +754,53 @@ p {
       }
     }
   }
-  &.boxType{
+  &.boxType {
     display: inline-flex;
-    margin-right:.1rem;
+    margin-right: 0.1rem;
     margin-top: 1rem;
-    input[type=checkbox]{
-      & + label{
-        padding: .9rem 1.4rem;
-        border:.1rem solid $GrayD9;
-        border-radius: .5rem;
+    input[type="checkbox"] {
+      & + label {
+        padding: 0.9rem 1.4rem;
+        border: 0.1rem solid $GrayD9;
+        border-radius: 0.5rem;
         font-size: 1.4rem;
         line-height: 1.4rem;
         letter-spacing: -0.02em;
-        color:$LGBlack;
-        &::before{
+        color: $LGBlack;
+        &::before {
           display: none;
         }
-        &:after{
+        &:after {
           display: none;
         }
       }
-      &:checked{
-        & + label{
-          border: .1rem solid $RedD0;
-          color:$RedD0;
+      &:checked {
+        & + label {
+          border: 0.1rem solid $RedD0;
+          color: $RedD0;
         }
-        
       }
     }
   }
-  &.textType{
-    input[type=checkbox]{
-      & + label{
+  &.textType {
+    input[type="checkbox"] {
+      & + label {
         font-size: 1.4rem;
         line-height: 1.4rem;
         letter-spacing: -0.02em;
-        color:$LGBlack;
+        color: $LGBlack;
         padding: 0;
-        &::before{
+        &::before {
           display: none;
         }
-        &:after{
+        &:after {
           display: none;
         }
       }
-      &:checked{
-        & + label{
-          color:$RedD0;
+      &:checked {
+        & + label {
+          color: $RedD0;
         }
-        
       }
     }
   }
@@ -1705,24 +1702,24 @@ select {
           }
         }
       }
-      .shareIco{
+      .shareIco {
         display: flex;
         justify-content: flex-start;
-        li{
+        li {
           background-image: url(/common/images/icon/shareIco.svg);
           width: 2.4rem;
           height: 2.4rem;
           display: block;
           margin-left: 2rem;
 
-          &:first-child{
+          &:first-child {
             margin-left: 0;
           }
 
-          &.shareIco2{
+          &.shareIco2 {
             background-position: -4.4rem;
           }
-          &.shareIco3{
+          &.shareIco3 {
             background-position: -8.8rem;
           }
         }
@@ -1920,7 +1917,6 @@ select {
   font-weight: 400 !important;
 }
 .fileUploadC {
-  margin-top: 1.5rem;
 }
 .fileUploadForm {
   width: 100%;
@@ -1934,6 +1930,9 @@ select {
   position: relative;
   & + .fileUploadForm {
     margin-top: 1rem;
+  }
+  &:first-child {
+    margin-top: 1.5rem;
   }
   .fileDelete {
     width: 1.8rem;
