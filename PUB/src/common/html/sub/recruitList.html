@@ -39,7 +39,7 @@
             </li>
           </ul>
         </div>
-        <div class="chAdList" style="display:none;">
+        <div class="chAdList"><!--채용 리스트 -->
           <div>
             <ul class="adListTitle">
               <li>
@@ -394,7 +394,7 @@
         </div><!-- chAdList END -->
 
         <!-- 데이터 없을때-->
-        <div class="noData">
+        <div class="noData"  style="display: none;">
           <div>
             <img src="/common/images/icon/nodata.png" alt="아이콘">
           </div>
@@ -415,5 +415,54 @@
     $(this).toggleClass('likeOn');
     return false;
   });
+  $('.lnbHashtag a').click(function(){
+    $(this).toggleClass('active');
+    return false;
+  });
+  $("#all").click( function() {//구분
+    $("input[name=divide]").each(function() {
+      if($("#all").prop('checked'))	{
+        if(!$(this).prop('disabled')){
+          $(this).prop('checked', true);
+        }
+      }else {
+        $(this).prop('checked', false);
+      }
+    });
+  });
+  $("#all2").click( function() {//분야
+    $("input[name=filed]").each(function() {
+      if($("#all2").prop('checked'))	{
+        if(!$(this).prop('filed')){
+          $(this).prop('checked', true);
+        }
+      }else {
+        $(this).prop('checked', false);
+      }
+    });
+  });
+  $("#all3").click( function() {//회사
+    $("input[name=comp]").each(function() {
+      if($("#all3").prop('checked'))	{
+        if(!$(this).prop('comp')){
+          $(this).prop('checked', true);
+        }
+      }else {
+        $(this).prop('checked', false);
+      }
+    });
+  });
+  $("#all4").click( function() {//지역
+    $("input[name=area]").each(function() {
+      if($("#all4").prop('checked'))	{
+        if(!$(this).prop('area')){
+          $(this).prop('checked', true);
+        }
+      }else {
+        $(this).prop('checked', false);
+      }
+    });
+  });
+
 </script>
 </html>
