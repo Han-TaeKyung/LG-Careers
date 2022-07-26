@@ -474,6 +474,10 @@
       .row {
         > * {
           flex: 1;
+          &.empty {
+            flex: auto;
+            width: 318px;
+          }
         }
         select:not(:first-child) {
           margin-left: 10px;

@@ -1,4 +1,857 @@
 <section class="tabCon" id="tabCon1">
+<form id="baseInfoForm" name="baseInfoForm" method="post"
+    enctype="multipart/form-data">
+    <c:if
+        test="${jobNoticeInfo.recruitTypeCode != 'D' && jobNoticeInfo.recruitTypeCode != 'H'}">
+  <h2 class="skip"><LTag:message code="app.tab.baseInfo" /></h2>
+<!-- 지원서 작성 안내 -->
+<p class="more">
+  <LTag:message code="app.btn.applyWriteGuide" />
+  <a href="" onclick="applcationGuidePopup();"><LTag:message code="app.cont.view" /></a>
+</p>
+ <rec:savedToken name="sessionscopebase" scope="session" />
+  </c:if>
+  <c:if
+      test="${jobNoticeInfo.recruitTypeCode == 'D' || jobNoticeInfo.recruitTypeCode == 'H'}">
+      <rec:savedToken name="baseInfo" />
+  </c:if>
+  <c:if
+      test="${jobNoticeInfo.recruitTypeCode != 'D' && jobNoticeInfo.recruitTypeCode != 'H'}">
+      <c:if test="${!empty beforeJobNoticeId}">
+        <div class="moreWrap right">
+          <p class="more" id="beforeBaseInfo">
+            <LTag:message code="app.cont.topCont_1" /> <a href="javascript:;" onClick="retrieveBeforeApply();"><LTag:message code="app.cont.topCont_2" /></a>
+          </p>
+        </div>
+      </c:if>
+      <!-- //지원서 작성 안내 끝 -->
+
+  <article class="sec1">
+    <h3><LTag:message code="app.titl.appInfo" /></h3>
+    <div class="table">
+      <input type="hidden" id="orderOfDesireCount"
+              name="orderOfDesireCount"
+              value="<c:out value='${orderOfDesireCount}' />" />
+      <table id="desireTable">
+        <caption>
+          지원사항 - 지원회사, 1지망, 2지망에 대한 정보 제공
+        </caption>
+        <colgroup>
+          <col style="width: 12%" />
+          <col style="width: 35%" />
+          <col />
+        </colgroup>
+        <tbody>
+          <tr<c:if  test="${jobNoticeInfo.subCompanyYn eq 'Y'}"> style="display:none;"</c:if>>
+            <th scope="row"><LTag:message code="app.lbl.applyCompany" />
+              <!--지원회사--><span class="essential">필수 입력</span>
+            </th>
+            <td>
+              <span class="tdCon"><c:out value='${jobNoticeInfo.companyName}' /></span>
+            </td>
+            <td colspan="2" class="empty"></td>
+          </tr>
+          
+          <c:forEach items="${orderOfDesireList.code}" varStatus="i">
+          <tr>
+            <th scope="row">
+              <label  <c:if
+              test="${orderOfDesireList.code[i.index] == '1'}">
+              </c:if> for="orgCode_${orderOfDesireList.code[i.index]}">
+              <c:out value='${orderOfDesireList.value[i.index]}' /><!--1지망-->
+              <c:if test="${orderOfDesireList.code[i.index] == '1'}"><span
+                      class="Lhide">(필수)</span></c:if></label>
+            </th>
+            <td colspan="3">
+              <div class="row">
+                  <select id="orgCode_${orderOfDesireList.code[i.index]}"
+                      name="orgCode_${orderOfDesireList.code[i.index]}"
+                      onchange="onChangeOrgCode(this);"
+                      title="<c:out value='${orderOfDesireList.value[i.index]}' /> <LTag:message code="
+                      app.lbl.orgCode" />">
+                  <option value="">
+                      <c:choose>
+                          <c:when test="${jobNoticeInfo.subCompanyYn eq 'Y'}">지원회사
+                          </c:when>
+                          <c:otherwise>
+                              <LTag:message code="app.lbl.orgCode" />
+                          </c:otherwise>
+                      </c:choose>
+                  </option>
+                  <c:forEach items="${desireOrgCodeList.orgCode}" varStatus="j">
+                      <option
+                          value="<c:out value='${desireOrgCodeList.orgCode[j.index]}'/>"
+                          <c:if
+                          test="${orderOfDesireList.code[i.index]==hopeWork.orderOfDesire[i.index] && hopeWork.orgCode[i.index]==desireOrgCodeList.orgCode[j.index]}">
+                          selected="selected" </c:if>>
+                          <c:out value='${desireOrgCodeList.orgName[j.index]}' />
+                      </option>
+                  </c:forEach>
+                  </select>
+                  <input type="hidden"
+                      id="recSectorId_${orderOfDesireList.code[i.index]}"
+                      name="recSectorId_${orderOfDesireList.code[i.index]}"
+                      value="<c:out value='${desireOrgCodeList.recSectorId[j.index]}' />" />
+                  <select id="jobCode_${orderOfDesireList.code[i.index]}"
+                      name="jobCode_${orderOfDesireList.code[i.index]}"
+                      onchange="onChangeJobCode(this);"
+                      title="<c:out value='${orderOfDesireList.value[i.index]}' /> <LTag:message code="
+                      app.lbl.jobCode" />">
+                  <option value="">
+                      <LTag:message code="app.lbl.jobCode" />
+                  </option>
+                  </select>
+                  <c:forEach items="${desireJobCodeList.jobCode}" varStatus="k">
+                      <c:if
+                          test="${orderOfDesireList.code[i.index]==hopeWork.orderOfDesire[i.index] && hopeWork.jobCode[i.index]==desireJobCodeList.jobCode[k.index]}">
+                          <c:if
+                              test="${hopeWork.recSectorId[i.index]==desireJobCodeList.recSectorId[k.index]}">
+                              <input type="hidden"
+                                  id="input_jobCode_${orderOfDesireList.code[i.index]}"
+                                  class="${desireJobCodeList.recSectorId[k.index]}"
+                                  value="<c:out value='${desireJobCodeList.jobCode[k.index]}' />" />
+                          </c:if>
+                      </c:if>
+                  </c:forEach>
+                  <select id="locationCode_${orderOfDesireList.code[i.index]}"
+                      name="locationCode_${orderOfDesireList.code[i.index]}"
+                      title="<c:out value='${orderOfDesireList.value[i.index]}' /> <LTag:message code="
+                      app.lbl.locationCode" />">
+                  <option value="">
+                      <LTag:message code="app.lbl.locationCode" />
+                  </option>
+                  </select>
+                  <c:forEach items="${desireLocCodeList.locationCode}"
+                      varStatus="l">
+                      <c:if
+                          test="${orderOfDesireList.code[i.index]==hopeWork.orderOfDesire[i.index] && hopeWork.locationCode[i.index]==desireLocCodeList.locationCode[l.index] && hopeWork.recSectorId[i.index]==desireLocCodeList.recSectorId[l.index]}">
+                          <input type="hidden"
+                              id="input_locationCode_${orderOfDesireList.code[i.index]}"
+                              value="<c:out value='${desireLocCodeList.locationCode[l.index]}'/>" />
+                      </c:if>
+                <span class="empty"></span>
+                  </c:forEach>
+              </div>
+            </td>
+          </tr>
+          </c:forEach>
+
+        <%-- <c:if test="${jobNoticeInfo.lgatFlag == 'Y'}">
+            <tr>
+                <th scope="row"><label class="required"
+                        for="fitLocCode">
+                        <LTag:message code="app.lbl.fitLocCode" />
+                        <span class="essential">필수 입력</span>
+                    </label></th>
+                <td colspan="3">
+                  <div class="row">
+                    <select id="fitLocCode" name="fitLocCode">
+                        <option value="">
+                            <LTag:message code="app.lbl.select" />
+                        </option>
+                        <c:choose>
+                            <c:when test="${not empty baseInfo.fitLocCode}">
+                                지원서에 인적성검사 설정값이 있을 경우
+                                <c:forEach items="${lgatAreaList.code}"
+                                    varStatus="l">
+                                    <option
+                                        value="<c:out value='${lgatAreaList.code[l.index]}'/>"
+                                        <c:if
+                                        test="${baseInfo.fitLocCode==lgatAreaList.code[l.index]}">
+                                        selected="selected" </c:if>>
+                                        <c:out
+                                            value='${lgatAreaList.value[l.index]}' />
+                                    </option>
+                                </c:forEach>
+                            </c:when>
+                            <c:when
+                                test="${jobNoticeInfo.careerTypeCode == 'A' && jobNoticeInfo.recruitTypeCode == 'A'}">
+                                신입공채의 경우
+                                <c:forEach items="${lgatAreaList.code}"
+                                    varStatus="l">
+                                    <option
+                                        value="<c:out value='${lgatAreaList.code[l.index]}'/>"
+                                        <c:if
+                                        test="${openRecruitLocInfo.fitLocCode==lgatAreaList.code[l.index]}">
+                                        selected="selected" </c:if>>
+                                        <c:out
+                                            value='${lgatAreaList.value[l.index]}' />
+                                    </option>
+                                </c:forEach>
+                            </c:when>
+                            <c:otherwise>
+                                지원서에 설정값도 없고 신입공채도 아닌경우
+                                <c:forEach items="${lgatAreaList.code}"
+                                    varStatus="l">
+                                    <option
+                                        value="<c:out value='${lgatAreaList.code[l.index]}'/>">
+                                        <c:out
+                                            value='${lgatAreaList.value[l.index]}' />
+                                    </option>
+                                </c:forEach>
+                            </c:otherwise>
+                        </c:choose>
+                    </select>
+                    <select id="fitLangCode" name="fitLangCode">
+                        <option value="">
+                            <LTag:message code="app.lbl.select" />
+                        </option>
+                        <c:forEach items="${lgatLangList.code}" varStatus="l">
+                            <option
+                                value="<c:out value='${lgatLangList.code[l.index]}'/>"
+                                <c:if
+                                test="${baseInfo.fitLangCode==lgatLangList.code[l.index]}">
+                                selected="selected" </c:if>>
+                                <c:out value='${lgatLangList.value[l.index]}' />
+                            </option>
+                        </c:forEach>
+                    </select>
+                    <c:if
+                        test="${jobNoticeInfo.careerTypeCode == 'A' && jobNoticeInfo.recruitTypeCode == 'A'}">
+                        <p class="LinstructionWithinTable">인적성 검사 희망지역을 변경하면
+                            <c:choose>
+                                <c:when test="${'FIRSTHALF' eq halfDate.halfDate}">
+                                    상반기</c:when>
+                                <c:when test="${'SECONDHALF' eq halfDate.halfDate}">
+                                    하반기</c:when>
+                            </c:choose> 신입사원 공채에 지원한 모든 지원서의 인적성 지역이 동일하게 변경됩니다.
+                          </p>
+
+                        <div
+                            class="LinstructionWithinTable sameOpenRecruitApplicationList">
+                            <c:forEach
+                                items="${sameOpenRecruitApplicationList.jobNoticeName}"
+                                varStatus="l">
+                                <div>
+                                    <span>[
+                                        <c:out
+                                            value='${sameOpenRecruitApplicationList.companyName[l.index]}' />
+                                        /
+                                        <c:out
+                                            value='${sameOpenRecruitApplicationList.resumeStatusName[l.index]}' />
+                                        ]
+                                    </span>
+                                    <span>
+                                        <c:out
+                                            value='${sameOpenRecruitApplicationList.jobNoticeName[l.index]}' />
+                                    </span>
+                                    <strong>[
+                                        <c:out
+                                            value='${sameOpenRecruitApplicationList.fitLocName[l.index]}' />
+                                        ]
+                                    </strong>
+                                </div>
+                            </c:forEach>
+                        </div>
+                        <span class="empty"></span>
+                    </c:if>
+                  </div>
+                </td>
+            </tr>
+            </c:if> --%>
+
+        </tbody>
+      </table>
+    </div>
+  </article>
+          </c:if> <!-- / 지원사항 끝 -->
+
+  <article class="sec2">
+    <h3><LTag:message code="app.titl.baseInfo" /><!--기본사항--></h3>
+    <div class="table">
+      <table>
+        <caption>
+         <LTag:message code="app.titl.baseInfo" />
+        </caption>
+        <colgroup>
+          <col style="width: 12%" />
+          <col style="width: 35%" />
+          <col style="width: 18%" />
+          <col />
+        </colgroup>
+        <tbody>
+          <tr>
+            <th scope="row"><LTag:message code="app.lbl.koreanName" /><!--한글성명--></th>
+            <td>
+              <span class="tdCon"><c:out value="${applyMasterInfo.koreanName}" /></span>
+            </td>
+            <th scope="row"><LTag:message code="app.lbl.englishName" /><!--영문성명--></th>
+            <td>
+              <span class="tdCon"><c:out value='${applyMasterInfo.englishName}' /></span>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row"><LTag:message code="app.lbl.birthDate" /><!--생년월일--></th>
+            <td>
+              <span class="tdCon"><c:out value="${applyMasterInfo.birthDate}" /></span>
+            </td>
+            <th scope="row"><LTag:message code="app.lbl.genderCode" /><!--성별--><span class="essential">필수 입력</span></th>
+            <td class="p0">
+              <span class="input">
+                <input type="radio"  id="fGenderM" name="genderCode" value="M" <c:if test="${baseInfo.genderCode == 'M'}">
+                                      checked="checked" </c:if> />
+                <label for="fGenderM"><LTag:message code="app.lbl.male" /><!--남--></label>
+              </span>
+              <span class="input">
+                <input type="radio" id="fGenderF" name="genderCode" value="F" <c:if test="${baseInfo.genderCode == 'F'}"> checked="checked" </c:if> />
+                <label for="fGenderF"><LTag:message code="app.lbl.female" /><!--여--></label>
+              </span>
+              <p class="info">병역 정보 확인을 위해 필요합니다.</p>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row"><LTag:message code="app.lbl.nationalityCode" /><!--국적--><span class="essential">필수 입력</span></th>
+            <td>
+              <div class="inputBox inputSearch">
+                <input type="text"  id="nationalityName" title="국적"
+                  name="nationalityName" size="10"
+                  value="${!empty baseInfo.nationalityName == true ? baseInfo.nationalityName : '대한민국(한국)'}"
+                  readonly="readonly" />
+              <input type="hidden" id="nationalityCode"
+                  name="nationalityCode"
+                  value="${!empty baseInfo.nationalityCode == true ? baseInfo.nationalityCode : 'KR'}" />
+                <button type="button" class="searchBtn" onclick="dui.Calendar.close();searchCodePopup(this,'NA');">검색</button>
+              </div>
+            </td>
+            <th scope="row"><LTag:message code="app.lbl.email" /><!--이메일--><span class="essential">필수 입력</span></th>
+            <td>
+              <span class="tdCon"><c:out value='${applyMasterInfo.email}' /></span>
+            </td>
+          </tr>
+          <!-- 비자 추가 -->
+          <tr id="visaTypeTr" <c:if
+            test="${baseInfo.nationalityCode == null || baseInfo.nationalityCode == 'KR'}">
+            style="display:none;"</c:if>>
+            <th scope="row"><label for="visaTypeCode"><LTag:message code="app.lbl.visaType" /></label></th>
+            <td>
+              <select id="visaTypeCode" name="visaTypeCode">
+                <option value="">
+                    <LTag:message code="app.lbl.select" />
+                </option>
+                <c:forEach items="${visaTypeList.code}" varStatus="l">
+                    <option
+                        value="<c:out value='${visaTypeList.code[l.index]}'/>"
+                        <c:if
+                        test="${baseInfo.visaTypeCode==visaTypeList.code[l.index]}">
+                        selected="selected" </c:if>>
+                        <c:out value='${visaTypeList.value[l.index]}' />
+                    </option>
+                  </c:forEach>
+              </select>
+            </td>
+            <td colspan="2"></td>
+          </tr>
+          <tr>
+            <th scope="row">
+              <LTag:message code="app.lbl.cellPhone" /><!--휴대전화--><span class="essential">필수 입력</span>
+            </th>
+            <td>
+              <span class="tdCon"><c:out value='${applyMasterInfo.cellPhone}' /></span>
+            </td>
+            <th scope="row">
+              <label for="additionalContact"><LTag:message code="app.lbl.additionalContact" /><!--추가연락처--><span class="essential">필수 입력</span></label>
+            </th>
+            <td>
+              <div class="inputBox">
+                <input type="text" id="additionalContact" name="additionalContact"
+                    type="text" size="20"
+                    value="<c:out value='${applyMasterInfo.additionalContact}'/>"
+                    onKeyPress="return $.onKeyPressFilter('[0-9-]', event);"
+                    style="ime-mode:disabled;"
+                    onkeyup="this.value=this.value.replace(/[^0-9-]/g,'')"
+                    maxlength="30"  placeholder="’-’구분 없이 숫자만 입력하세요." />
+              </div>
+            </td>
+          </tr>
+          <c:choose>
+          <c:when
+            test="${jobNoticeInfo.recruitTypeCode == 'D' || jobNoticeInfo.recruitTypeCode == 'H'}">
+            <tr>
+                <th scope="row">
+                  <label for="addFile"><LTag:message code="app.lbl.uploadApply" /><span class="essential">필수 입력</span></label>
+                </th>
+                <td colspan="3">
+                    <div class="row">
+                      <input type="hidden" id="deleteFileSeqNo"
+                          name="deleteFileSeqNo" />
+                      <input type="hidden" id="baseattachFileId"
+                          name="baseattachFileId"
+                          value="<c:out value='${baseInfo.attachFileId}'/>" />
+
+                      <div class="upload upload2">
+                          <div class="fileUpload">
+                            <button class="btn minW fileAdd type5" type="button" onclick="addItem('#baseThesis','baseApply');">
+                              <LTag:message code="app.lbl.addAttachFile" />
+                            </button>
+                            <p><LTag:message code="app.cont.attachFileLimit" /></p>
+                          </div>
+                          <div class="fileUploadC">
+                              <c:forEach
+                                  items="${baseApplyFileList.attachFileId}"
+                                  varStatus="j">
+                                  <div class="fileUploadForm">
+                                    <a for="attatch1" class="uploadBtn">
+                                      <span>파일선택</span>
+                                    </a>
+                                    <input type="file" name="file_attach" title="1번째 파일 입력" class="input" placeholder="파일찾기" id="attatch1">
+                                    <a class="fileName" href="javascript:;"
+                                            onClick="fileDownload('${baseApplyFileList.dlFileName[j.index]}','${baseApplyFileList.attachFileId[j.index]}')">
+                                      <c:out value='${baseApplyFileList.dlFileName[j.index]}' />
+                                    </a>
+                                    <button type="button" class="fileDelete" onclick='deleteItem(this);'>삭제</button>                  
+                                    <input type="hidden" id="fileSeqNo"
+                                        name="fileSeqNo"
+                                        value="<c:out value='${baseApplyFileList.fileSeqNo[j.index]}'/>" />
+                                  </div>
+                              </c:forEach>
+                          </div>
+                        </div>
+                      <!--폰 적용 부분
+                            <div class="Lexplanation displayInPhone">
+                                <p>
+                                    <LTag:message code="com.inf.029" />
+                                </p>
+                                <ul class="LblockItemList Lfile">
+                                    <c:forEach
+                                        items="${baseApplyFileList.attachFileId}"
+                                        varStatus="j">
+                                        <li style="">
+                                            <c:out
+                                                value='${baseApplyFileList.dlFileName[j.index]}' />
+                                        </li>
+                                    </c:forEach>
+                                </ul>
+                            </div>-->
+                        </div>
+                </td>
+            </tr>
+        </c:when>
+        <c:otherwise>
+        <c:if test="${jobNoticeInfo.addressFlag == 'N'}">
+          <tr>
+            <th scope="row"><LTag:message code="app.lbl.currentAddress" /><!--현주소--><span class="essential">필수 입력</span></th>
+            <td>
+              <div class="row">
+                <span class="input">
+                  <input
+                    type="radio" id="currentLocation_domestic" name="address" value="A"  checked="checked" />
+                  />
+                  <label for="currentLocation_domestic"><LTag:message code="app.lbl.domesticAddress" /><!--국내--></label>
+                </span>
+                <span class="input">
+                  <input
+                    type="radio" id="currentLocation_abroad" name="address" value="O" <c:if test="${applyMasterInfo.typeCode == 'O'}"> checked='checked'</c:if> />
+                  <label for="currentLocation_abroad"><LTag:message code="app.lbl.overseaAddress" /><!--해외--></label>
+                </span>
+                
+                <span class="address">
+                  <button type="button" id="postPopup" class="btn type5" onclick="dui.Calendar.close();searchAddrPopup(this);">
+                    <LTag:message code="com.lbl.postCode" /><!--우편번호-->
+                  </button>
+                  <span class="inputBox inputSearch pL10" id="countryDiv">
+                    <input type="text" id="countryName" name="countryName" value="<c:out value='${applyMasterInfo.countryName}'/>" readonly="readonly" title="국적 검색" />                    
+                    <input type="hidden" id="countryCode" name="countryCode" value="<c:out value='${applyMasterInfo.countryCode}'/>" />
+                    <button type="button"  class="searchBtn" onclick="searchCodePopup(this,'NA');">검색</button>
+                  </span>                
+                  <span class="inputBox pL10">
+                    <input type="text"  id="postalCode" name="postalCode" size="10" value="<c:out value='${applyMasterInfo.postalCode}'/>" readonly="readonly" maxlength="20" title="<LTag:message code=" com.lbl.postCode" />" />
+                  </span>
+                </span>
+              </div>
+            </td>
+            <td colspan="2">
+              <div class="inputBox pL10">
+                <input type="text" id="addressLine1Info" name="addressLine1Info" value="<c:out value='${applyMasterInfo.addressLine1Info}'/>" readonly="readonly" maxlength="1000" title="주소" />
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <th></th>
+            <td colspan="3">
+              <div class="inputBox">
+                <input
+                  type="text" id="addressLine2Info" name="addressLine2Info" value="<c:out value='${applyMasterInfo.addressLine2Info}' />" maxlength="1000" title="상세 주소" placeholder="<LTag:message code='com.inf.006'/>" 
+                  placeholder="동 이하 주소는 기재하지 않으셔도 됩니다."
+                />
+              </div>
+            </td>
+          </tr>
+              </c:if>
+            </c:otherwise>
+          </c:choose>
+        </tbody>
+      </table>
+    </div>
+    <p class="warning" title="안내">
+      <LTag:message code="app.cont.additionalTips" />
+      <!--추가 연락처 입력 시 해외의 경우라면 국가번호를 포함하여 입력해주세요.-->
+    </p>
+    <c:if test="${jobNoticeInfo.recruitTypeCode == 'D' || jobNoticeInfo.recruitTypeCode == 'H'}">
+      <p class="warning" title="안내">모든 첨부파일 크기의 총합이 3MB 이하가 되어야 합니다.</p>
+    </c:if>
+  </article>
+
+  <article class="sec3">
+    <h3><LTag:message code="app.lbl.applyChannel" /><!--지원채널--></h3>
+    <div class="table">
+      <table>
+        <caption><LTag:message code="app.lbl.applyChannel" /></caption>
+        <colgroup>
+          <col style="width: 12%" />
+          <col style="width: 35%" />
+          <col style="width: 18%" />
+          <col />
+        </colgroup>
+        <tbody>
+          <tr>
+            <th scope="row">
+              <label for="applychannelCode">
+                <LTag:message code="app.lbl.applyChannel" /><!--지원채널--><span class="essential">필수 입력</span>
+              </label>
+            </th>
+            <td>
+              <select id="applychannelCode" name="applychannelCode" title="지원채널 선택하기">
+                <option value=""><LTag:message code="app.lbl.select" /></option>
+                <c:forEach items="${applyChannelList.code}"
+                  varStatus="l">
+                  <option
+                      value="<c:out value='${applyChannelList.code[l.index]}' />"
+                      <c:if
+                      test="${applyChannelList.code[l.index] == baseInfo.applychannelCode }">
+                      selected </c:if>>
+                      <c:out
+                          value='${applyChannelList.value[l.index]}' />
+                  </option>
+                </c:forEach>
+              </select>
+            </td>
+            <th scope="row">
+              <label for="applychannelDetailText">
+                <LTag:message code="app.lbl.applyChannelDetail" /><!--지원채널 상세--><span class="essential">필수 입력</span>
+              </label>
+            </th>
+            <td>
+              <div class="inputBox">
+                <input type="text" id="applychannelDetailText" name="applychannelDetailText" value="<c:out value='${baseInfo.applychannelDetailText}' />" maxlength="100" />
+              </div>
+            </td>
+           
+            <th scope="row" id="applyPlatform">
+              <label for="applyplatformCode"><LTag:message code="app.lbl.applyPlatform" /> <!-- 채용 플랫폼 --></label>
+            </th>
+            <td id="applyPlatformSelect">
+              <div class="row">
+                <select id="applyplatformCode" name="applyplatformCode">
+                  <option value=""><LTag:message code=" app.lbl.select" /></option>
+                  <c:forEach items="${applyPlatformList.code}" varStatus="i">
+                    <option
+                        value="<c:out value='${applyPlatformList.code[i.index]}' />"
+                        <c:if
+                        test="${baseInfo.applyplatformCode == applyPlatformList.code[i.index]}">
+                        selected </c:if>>
+                        <c:out value='${applyPlatformList.value[i.index]}' />
+                    </option>
+                  </c:forEach>
+                </select>
+                <span class="inputBox">
+                  <input title="기타 플랫폼" type="text" id="applyplatformEtc"
+                    class="blockInPhone" name="applyplatformEtc" size="10"
+                    style="width:30%;"
+                    value="<c:out value='${baseInfo.applyplatformEtc}' />"
+                    maxlength="100" />
+                </span>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="warning" title="안내사항"><LTag:message code="app.cont.applyChannelTips" /></p>
+  </article>
+
+  
+<c:if
+    test="${jobNoticeInfo.recruitTypeCode != 'D' && jobNoticeInfo.recruitTypeCode != 'H'}">
+    <c:if test="${jobNoticeInfo.militaryInputFlag == 'N'}">
+  <article class="sec4">
+    <h3><LTag:message code="app.titl.milCont" /><!--병역--></h3>
+    <div class="table">
+      <table>
+        <caption><LTag:message code="app.titl.milCont" /></caption>
+        <colgroup>
+          <col style="width: 12%" />
+          <col style="width: 35%" />
+          <col style="width: 18%" />
+          <col />
+        </colgroup>
+        <tbody>
+          <tr>
+            <th scope="row">
+              <label for="milDischargeCode">
+              <LTag:message code="app.lbl.milDischargeCode" /><!--병역구분--><span class="essential">필수 입력</span>
+              </label>
+            </th>
+            <td>
+              <select id="milDischargeCode" name="milDischargeCode">
+                <option value="">
+                  <LTag:message code="app.lbl.select" />
+                </option>
+                <c:forEach items="${militaryDisChanList.code}" varStatus="i">
+                  <option value="<c:out value='${militaryDisChanList.code[i.index]}'/>"
+                    <c:if test="${baseInfo.milDischargeCode == militaryDisChanList.code[i.index]}"> selected</c:if>>
+                    <c:out value='${militaryDisChanList.value[i.index]}' />
+                  </option>
+                </c:forEach>
+              </select>
+            </td>
+            <th scope="row"><label for="militaryClassCode"><LTag:message code="app.lbl.militaryClassCode" /><!--군별--></label></th>
+            <td>
+              <select id="militaryClassCode" name="militaryClassCode">
+                <option value=""><LTag:message code="app.lbl.select" /></option>
+                <c:forEach items="${militarySrvPartList.code}" varStatus="i">
+                  <option value="<c:out value='${militarySrvPartList.code[i.index]}' />" 
+                    <c:if test="${baseInfo.militaryClassCode == militarySrvPartList.code[i.index]}"> selected</c:if>>
+                    <c:out value='${militarySrvPartList.value[i.index]}' />
+                  </option>
+                </c:forEach>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row"><label for="milGrageCode"><LTag:message code="app.lbl.milGrageCode" /><!--계급--></label></th>
+            <td>
+              <select id="milGrageCode" name="milGrageCode">
+                <option value=""><LTag:message code="app.lbl.select" /></option>
+                  <c:forEach items="${milGrageCodeList.code}" varStatus="i">
+                    <option value="<c:out value='${milGrageCodeList.code[i.index]}' />" 
+                      <c:if test="${baseInfo.milGrageCode == milGrageCodeList.code[i.index]}"> selected </c:if>>
+                      <c:out value='${milGrageCodeList.value[i.index]}' />
+                    </option>
+                  </c:forEach>
+              </select>
+            </td>
+            <th scope="row"><label for="milStartDate"><LTag:message code="app.lbl.milPeriodDate" /><!--복무기간--></label></th>
+            <td>
+              <span class="duration">
+                <span class="inputBox">
+                  <input type="text" id="milStartDate" name="milStartDate" value="<c:out value='${baseInfo.milStartDate}' />" readonly="readonly" title="<LTag:message code=" app.lbl.milPeriodDate" /> 시작일">
+                </span>
+                <button type="button" id="milStartDate_cal" class="LiconCalendar"
+                      data-calendar="milStartDate">달력</button>
+                <span class="bar">~</span>
+                <div class="inputBox">
+                  <input type="text" id="milEndDate" name="milEndDate"
+                      value="<c:out value='${baseInfo.milEndDate}' />" readonly="readonly"
+                      title="<LTag:message code=" app.lbl.milPeriodDate" /> 종료일">
+                </div>
+                <button type="button" id="milEndDate_cal" class="LiconCalendar"
+                      data-calendar="milEndDate">달력</button>
+              </span>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row"><label for="milExmptReasonCode"><LTag:message code="app.lbl.milExmptReasonCode" /><!--면제사유--></label></th>
+            <td>
+              <select id="milExmptReasonCode" name="milExmptReasonCode">
+                <option value="">
+                  <LTag:message code="app.lbl.select" />
+                </option>
+                <c:forEach items="${milExeReList.code}" varStatus="i">
+                  <option value="<c:out value='${milExeReList.code[i.index]}' />" <c:if
+                    test="${baseInfo.milExmptReasonCode == milExeReList.code[i.index]}">
+                    selected </c:if>>
+                    <c:out value='${milExeReList.value[i.index]}' />
+                  </option>
+                </c:forEach>
+              </select>
+            </td>
+            <th scope="row"><label
+                      for="milExmptDetailReason">
+                      <LTag:message code="app.lbl.milExmptDetailReason" /><!--면제 기타 사유-->
+                  </label></th>
+            <td>
+              <div class="inputBox">
+                <input type="text" id="milExmptDetailReason" name="milExmptDetailReason"
+                      value="<c:out value='${baseInfo.milExmptDetailReason}' />" maxlength="50"
+                      disabled="disabled" />
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </article>
+</c:if>
+
+<c:if test="${jobNoticeInfo.etcInputFlag == 'N'}">
+  <article class="sec5">
+    <h3><LTag:message code="app.titl.jobPreferEmploy" /><!--기타--></h3>
+    <div class="table">
+      <table>
+        <caption>
+          <LTag:message code="app.titl.jobPreferEmploy" />
+        </caption>
+        <colgroup>
+          <col style="width: 12%" />
+          <col style="width: 35%" />
+          <col style="width: 18%" />
+          <col />
+        </colgroup>
+        <tbody>
+          <tr>
+            <th scope="row">
+              <label for="veteranTypeCode"><LTag:message code="app.lbl.veteranFlag" /><!--보훈여부--><span class="essential">필수 입력</span></label>
+              
+            </th>
+            <td>
+              <select id="veteranTypeCode" name="veteranTypeCode">
+                <option value="">
+                  <LTag:message code="app.lbl.notApplicable" />
+                </option>
+                <c:forEach items="${veteranTypeList.code}" varStatus="i">
+                  <option value="<c:out value='${veteranTypeList.code[i.index]}' />"
+                    <c:if test="${baseInfo.veteranTypeCode == veteranTypeList.code[i.index]}">selected</c:if>>
+                    <c:out value='${veteranTypeList.value[i.index]}' />
+                  </option>
+                </c:forEach>
+              </select>
+            </td>
+            <th scope="row"><label for="veteranCode">
+      <LTag:message code="app.lbl.veteranCode" /><!--보훈번호-->
+  </label></th>
+            <td>
+              <input id="veteranCode" name="veteranCode" type="text" disabled="disabled"
+      value="<c:out value='${baseInfo.veteranCode}' />" maxlength="20" />
+            </td>
+          </tr>
+          <tr>
+            <th scope="row"><label for="veteranRelationship">보훈대상과관계</label></th>
+            <td>
+              <select id="veteranRelationship" name="veteranRelationship" disabled="disabled">
+                <option value="">
+                  <LTag:message code="app.lbl.select" />
+                </option>
+                <c:forEach items="${veteranRelationshipList.code}" varStatus="i">
+                  <option value="<c:out value='${veteranRelationshipList.code[i.index]}' />" <c:if
+                    test="${baseInfo.veteranRelationship == veteranRelationshipList.code[i.index]}">
+                    selected </c:if>>
+                    <c:out value='${veteranRelationshipList.value[i.index]}' />
+                  </option>
+                </c:forEach>
+              </select>
+            </td>
+            <th scope="row"><label for="veteranTypeCode">취업보호대상자</label></th>
+            <td>
+              <span class="input">
+                <input type="radio" id="veteranEmploymentFlag_yes" name="veteranEmploymentFlag"
+          disabled="disabled" value="Y" <c:if test="${baseInfo.veteranEmploymentFlag=='Y'}">
+      checked="checked" </c:if> ><label for="veteranEmploymentFlag_yes">Yes</label>
+              </span>
+              <span class="input">
+                <input type="radio" id="veteranEmploymentFlag_no" name="veteranEmploymentFlag"
+          disabled="disabled" value="N" <c:if test="${baseInfo.veteranEmploymentFlag!='Y'}">
+      checked="checked" </c:if> ><label for="veteranEmploymentFlag_no">No</label>
+              </span>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">
+              <label for="disabilityTypeCode"><LTag:message code="app.lbl.disabilityFlag" /><span class="essential">필수 입력</span></label>
+              
+            </th>
+            <td>
+              <select id="disabilityTypeCode" name="disabilityTypeCode">
+                <option value="">
+                  <LTag:message code="app.lbl.notApplicable" />
+                </option>
+                <c:forEach items="${disabilityTypeList.code}" varStatus="i">
+                  <option value="<c:out value='${disabilityTypeList.code[i.index]}' />" <c:if
+                    test="${baseInfo.disabilityTypeCode == disabilityTypeList.code[i.index]}"> selected
+                    </c:if>>
+                    <c:out value='${disabilityTypeList.value[i.index]}' />
+                  </option>
+                </c:forEach>
+              </select>
+            </td>
+            <th scope="row">
+              <label for="disabilityGradeCode"><LTag:message code="app.lbl.disabilityGrade" /><!--장애등급--><span class="essential">필수 입력</span></label>
+              
+            </th>
+            <td>
+              <select id="disabilityGradeCode" name="disabilityGradeCode" disabled="disabled">
+                <option value="">
+                  <LTag:message code="app.lbl.select" />
+                </option>
+                <c:forEach items="${disabilityGradeList.code}" varStatus="i">
+                  <option value="<c:out value='${disabilityGradeList.code[i.index]}'/>" <c:if
+                    test="${baseInfo.disabilityGradeCode == disabilityGradeList.code[i.index]}">
+                    selected </c:if>>
+                    <c:out value='${disabilityGradeList.value[i.index]}' />
+                  </option>
+                </c:forEach>
+              </select>
+            </td>
+          </tr>
+          <%-- FPT - Static Analysis Handle - DELETE --%>
+          <c:if test="${jobNoticeInfo.lowIncomeInputFlag == 'Y'}">
+          </c:if>
+        </tbody>
+      </table>
+    </div>
+    
+  <c:choose>
+    <%-- 저소득층 정보 입력받는 경우의 가이드 메세지 --%>
+    <c:when test="${jobNoticeInfo.lowIncomeInputFlag == 'Y'}">
+      <%-- FPT - Static Analysis Handle - DELETE --%>
+    </c:when>
+
+    <%-- 저소득층 정보 입력받지 않는 경우의 가이드 메세지 --%>
+      <c:otherwise>
+        <p class="warning" title="안내사항">
+          <LTag:message code="app.cont.preferCont1_5" />
+        </p>
+        <p class="warning" title="안내사항">
+          <LTag:message code="app.cont.preferCont1_2" />
+        </p>
+      </c:otherwise>
+    </c:choose>
+  </article>
+  <div class="bottomWrap">
+    <div class="left">
+      <a href="#n" class="btn round type6 prev"><span>이전</span></a>
+    </div>
+    <div class="right">
+      <button type="submit" class="btn round type6" id="btnSaveBaseInfo">
+        <span><LTag:message code="com.btn.save" /></span>
+      </button>
+      <button type="submit" class="btn round type5 next" onclick="nextTab(this,1);">
+        <span><LTag:message code="com.btn.next" /></span>
+      </button>
+    </div>
+  </div>
+  </c:if>
+
+
+  <c:if test="${jobNoticeInfo.recruitTypeCode == 'D' || jobNoticeInfo.recruitTypeCode == 'H'}">
+      <div class="bottomWrap">
+        <div class="left"></div>
+        <div class="right">          
+          <span class="input">
+            <input type="checkbox" id="applyAgreeFlag" name="applyAgreeFlag" value="Y" />
+            <label for="applyAgreeFlag">입력한 내용은 사실과 틀림없음을 확인합니다.</label>
+          </span>
+          <button type="button" class="btn round type5 next"  id="btnUploadBaseSumbit">
+            <span><LTag:message code="app.btn.confSubmit" /></span>
+          </button>
+        </div>
+      </div>
+  </c:if>
+  </form>
+</section>
+
+
+<!-- 원본 
+<section class="tabCon" id="tabCon1">
   <article class="sec1">
     <h3>지원사항</h3>
     <div class="table">
@@ -27,7 +880,7 @@
                 >1지망<span class="essential">필수 입력</span></label
               >
             </th>
-            <td>
+            <td colspan="3">
               <div class="row">
                 <select title="조직 선택">
                   <option value="">조직</option>
@@ -47,10 +900,6 @@
                   <option value="">선택5</option>
                   <option value="">선택6</option>
                 </select>
-              </div>
-            </td>
-            <td colspan="2">
-              <div class="row">
                 <select title="근무지 선택" class="mL10">
                   <option value="">근무지</option>
                   <option value="">선택1</option>
@@ -62,6 +911,7 @@
                 </select>
                 <span class="empty"></span>
               </div>
+                                          <p class="LinstructionWithinTable">인적성 검사 희망지역을 변경하면 dflakfjlakjeoiafaskdfjsa;fkldsa;fjlkfelkajflkdfjas</p>
             </td>
           </tr>
           <tr>
@@ -250,6 +1100,45 @@
                   <div class="inputBox pL10">
                     <input type="text" id="inputText1" title="우편번호" />
                   </div>
+                </span>
+              </div>
+            </td>
+            <td colspan="2">
+              <div class="inputBox pL10">
+                <input type="text" id="inputText1" title="주소1" />
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">현주소<span class="essential">필수 입력</span></th>
+            <td>
+              <div class="row">
+                <span class="input">
+                  <input
+                    type="radio"
+                    id="rd1"
+                    name="radio"
+                    value=""
+                    checked=""
+                  />
+                  <label for="rd1">국내</label>
+                </span>
+                <span class="input">
+                  <input
+                    type="radio"
+                    id="rd1"
+                    name="radio"
+                    value=""
+                    checked=""
+                  />
+                  <label for="rd1">해외</label>
+                </span>
+                  <span class="inputBox inputSearch pL10">
+                    <input type="text">
+                    <button type="button"  class="searchBtn">검색</button>
+                  </span>
+                <span class="inputBox pL10">
+                  <input type="text" placeholder="ZIPCODE">
                 </span>
               </div>
             </td>
@@ -559,4 +1448,5 @@
       </button>
     </div>
   </div>
-</section>
+</section> -->
+

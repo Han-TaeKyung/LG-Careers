@@ -1,8 +1,99 @@
+<%--
+/*------------------------------------------------------------------------------
+* PROJ : LG Group Recruit Portal Prj. * NAME : registAppBaseInfo.jsp * DESC :
+입사지원서 작성 - 기본인적사항/상세인적사항/경력사항/자기소개서/제출확인 *
+Author : Publisher * Copyright 2013 LG Group, All rights reserved.
+*------------------------------------------------------------------------------
+* Change Logs
+*------------------------------------------------------------------------------
+* 1.0. YoungRan : 2013. 9. 30. Initial Created. 현장직추가 2018.05.08 * 1.1.
+wssim : 2019. 8. 22. 동의서 추가 ((agree190822))_
+*------------------------------------------------------------------------------*/
+--%> <%@ page language="java" pageEncoding="utf-8" %>
 <!DOCTYPE html>
 <html lang="ko">
   @@include('./../layouts/include/subHead.html')
 
   <body>
+    <script type="text/javascript">
+      var careerType = '<c:out value="${jobNoticeInfo.careerTypeCode}"/>';
+      var jobNoticeId = '<c:out value="${jobNoticeInfo.jobNoticeId}"/>';
+      var recruitTypeCode = '<c:out value="${jobNoticeInfo.recruitTypeCode}"/>';
+      var prevExperCount = '<c:out value="${prevExperCount}"/>';
+      var militaryInputFlag = '<c:out value="${jobNoticeInfo.militaryInputFlag}"/>';
+      var lowIncomeInputFlag = '<c:out value="${jobNoticeInfo.lowIncomeInputFlag}"/>';
+      var languageInputFlag = '<c:out value="${jobNoticeInfo.languageInputFlag}"/>';
+      var globalInputFlag = '<c:out value="${jobNoticeInfo.globalInputFlag}"/>';
+      var schoolInputFlag = '<c:out value="${jobNoticeInfo.schoolInputFlag}"/>';
+      var engineeringAccrFlag = '<c:out value="${jobNoticeInfo.engineeringAccrFlag}"/>';
+      var highschoolFlag = '<c:out value="${jobNoticeInfo.highschoolFlag}"/>';
+      var addSchoolFlag = '<c:out value="${jobNoticeInfo.addSchoolFlag}"/>';
+      var addTextFlag = '<c:out value="${jobNoticeInfo.addTextFlag}"/>';
+      var addTextType = '<c:out value="${jobNoticeInfo.addTextType}"/>';
+      var lgatFlag = '<c:out value="${jobNoticeInfo.lgatFlag}"/>';
+      var addressYN = '<c:out value="${jobNoticeInfo.addressFlag}"/>';
+      var jobStartDate = '<c:out value="${jobNoticeInfo.recStartDate}"/>';
+      var applyCustomSubmitGuideCode = '<c:out value="${jobNoticeInfo.applyCustomSubmitGuideCode}"/>';
+
+      var qualificationInputFlag = '<c:out value="${jobNoticeInfo.qualificationInputFlag}"/>';
+      var etcInputFlag = '<c:out value="${jobNoticeInfo.etcInputFlag}"/>';
+      var passFlag = '<c:out value="${jobNoticeInfo.passOption}"/>';
+      var collegeInfoCount = '<c:out value="${collegeInfoCount}"/>';
+      var uniCount = '<c:out value="${uniCount}"/>';
+      var masterCount = '<c:out value="${masterCount}"/>';
+      var doctorCount = '<c:out value="${doctorCount}"/>';
+      var globalCount = '<c:out value="${globalCount}"/>';
+      var qualifiCount = '<c:out value="${qualifiCount}"/>';
+      var alreadyApply = '<c:out value="${alreadyApply}"/>';
+      var alreadyOtherApply = '<c:out value="${alreadyOtherApply}"/>';
+      var orderOfDesireCount = '<c:out value="${orderOfDesireCount}"/>';
+
+      var tabIdx = '<c:out value="${param.tabIdx}"/>';
+      var recAvail = '<c:out value="${jobNoticeInfo.recAvail}"/>';
+      var resumeStatus = '<c:out value="${baseInfo.resumeStatus}"/>';
+      var appTabIdx = '<c:out value="${data.appTabIdx}"/>';
+
+
+      var elemschInputFlag = '<c:out value="${jobNoticeInfo.elemschInputFlag}"/>';
+      //화확현장직추가
+      var highschRankInputFlag = '<c:out value="${jobNoticeInfo.highschRankInputFlag}"/>';
+      var highschAttendInputFlag = '<c:out value="${jobNoticeInfo.highschAttendInputFlag}"/>';
+      var middleschInputFlag = '<c:out value="${jobNoticeInfo.middleschInputFlag}"/>';
+      var highschRankCourse = '<c:out value="${jobNoticeInfo.highschRankCourse}"/>';
+      //동의서추가
+      var reputeAgreeYn = '<c:out value="${jobNoticeInfo.reputeAgreeYn}"/>';
+      var saleSecViolAgreeYn = '<c:out value="${jobNoticeInfo.saleSecViolAgreeYn}"/>';
+      var agreeCnt = 0; if (reputeAgreeYn == "N") agreeCnt++; if (saleSecViolAgreeYn == "N") agreeCnt++;
+
+      var schoolInputSelected = ${ empty jobNoticeInfo.schoolInputSelected ?'[]': jobNoticeInfo.schoolInputSelected };
+      var sameOpenRecruitApplicationList = []; // 제출시 같은 공채의 지원정보 표시하지 않음.
+
+
+      var flaCodeList;
+      var flaLevelList;
+      var languageTestList;
+
+      var desireLocCodeList = ${ empty jsonDesireLocCodeList ?'null': jsonDesireLocCodeList };
+      var desireJobCodeList = ${ empty jsonDesireJobCodeList ?'null': jsonDesireJobCodeList };
+
+      if (languageInputFlag == 'N') {
+          flaCodeList = ${empty jsonFlaCodeList ? 'null' : jsonFlaCodeList };
+          if (passFlag != 'Y') {
+              flaLevelList = ${empty jsonFlaLevelList ? 'null' : jsonFlaLevelList };
+          }
+
+          languageTestList = ${empty jsonLanguageTestList ? 'null' : jsonLanguageTestList };
+      }
+    </script>
+    <!--   header 추가 코드   
+                <script type="text/javascript" src="${cdnJsPath}/app/appl/aplc/retrieveAppBaseInfo.js"></script>
+                <script type="text/javascript" src="${cdnJsPath}/app/appl/aplc/retrieveDupApply.js"></script>
+                <script type="text/javascript" src="${cdnJsPath}/com/popup/searchPopup.js"></script>
+                <script type="text/javascript" src="${cdnJsPath}/app/appl/aplc/checkApplyDialog.js"></script>
+                <script type="text/javascript" src="${cdnJsPath}/app/appl/aplc/submitConfirmDialog.js"></script>
+                <script type="text/javascript" src="${cdnJqueryPath}/jquery.placeholder.js"></script>
+                <script type="text/javascript" src="${cdnJqueryPath}/jquery.tmpl.min.js"></script>
+                <script type="text/javascript" src="${cdnJsPath}/ff_bugfix.js"></script>-->
     <div id="headers">@@include('./../layouts/include/header.html')</div>
     <!--header END-->
     <div id="container" class="subContainer subBGW">
@@ -11,11 +102,11 @@
           @@include('./apply/include/applyTop.html')
           <!-- step end // tab1 start -->
           <div class="tabConWrap">
-            @@include('./apply/include/apply5.html')
-            @@include('./apply/include/apply4.html')
+            @@include('./apply/include/apply1.html')
+            <!--@@include('./apply/include/apply2.html')
             @@include('./apply/include/apply3.html')
-            @@include('./apply/include/apply2.html')
-            <!--@include('./apply/include/apply1.html')-->
+            @@include('./apply/include/apply4.html')
+            @@include('./apply/include/apply5.html')-->
           </div>
         </div>
       </div>
