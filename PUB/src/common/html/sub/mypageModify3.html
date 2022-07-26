@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="ko">
+  @@include('./../layouts/include/subHead.html')
+
+  <body>
+    <div id="headers">@@include('./../layouts/include/header.html')</div>
+    <!--header END-->
+    <div id="container" class="subContainer subBGW">
+      <div class="subConWrap">
+        @@include('./../layouts/include/mypageSide.html')
+        <!-- lnb END -->
+        <div class="subContent mpContent">
+          <div class="subContentTop mB40">
+            <div>
+              <h3>정보수정</h3>
+            </div>
+          </div>
+          <!-- subContentTop END -->
+          <div class="tabMenu">
+            <ul class="tabs">
+              <li data-tab-target="pwmodify" class="tab">
+                <a herf="#n" class="tabBtn">비밀번호 변경</a>
+              </li>
+              <li data-tab-target="infomodify" class="tab tabOn">
+                <a herf="#n" class="tabBtn">기본정보 변경</a>
+              </li>
+            </ul>
+          </div>
+          <div class="mypageModify mypageModifyForm">
+            <div class="tabCon">
+              <div id="pwmodify" data-tab-content class="tabOn">
+                <h4 class="blind">기본정보 변경(회원정보 수정)</h4>
+                <div class="joinStep">
+                  <h5>회원정보 수정</h5>
+                  <div class="joinForm">
+                    <ul>
+                      <li class="formH">
+                        <span>비밀번호 변경일</span>
+                      </li>
+                      <li class="formD">
+                        <p class="formDTxt">2022-01-01, 15:59:59</p>
+                      </li>
+                    </ul>
+                    <ul>
+                      <li class="formH">
+                        <span>마지막 로그인</span>
+                      </li>
+                      <li class="formD">
+                        <p class="formDTxt">2022-06-01, 15:59:59</p>
+                      </li>
+                    </ul>
+                    <ul>
+                      <li class="formH">
+                        <span class="com">아이디(이메일)</span>
+                      </li>
+                      <li class="formD">
+                        <div>
+                          <span class="inputBox disabled">
+                            <input type="text" id="id" disabled value="LG@Lg.com">
+                            <label for="id">아이디</label>
+                          </span>
+                        </div>
+                      </li>
+                    </ul>
+                    <ul>
+                      <li class="formH">
+                        <span class="com">이메일</span>
+                      </li>
+                      <li class="formD">
+                        <div>
+                          <span class="inputBox wd228">
+                            <input type="text" id="emailID">
+                            <label for="emailID">이메일아이디</label>
+                          </span>
+                          @
+                          <span class="inputBox wd228">
+                            <input type="text" id="emailAD">
+                            <label for="emailAD">이메일주소</label>
+                          </span>
+                          <span class="input selectBox wd228">
+                            <select>
+                              <option value="">직접입력</option>
+                              <option value="">선택1</option>
+                              <option value="">선택2</option>
+                              <option value="">선택3</option>
+                              <option value="">선택4</option>
+                              <option value="">선택5</option>
+                              <option value="">선택6</option>
+                            </select>
+                            <span class="icoArrow">
+                              <img src="/common/images/icon/select.png" alt="">
+                            </span>
+                          </span>
+                        </div>
+                        <p class="formInfo">보조 이메일은 아이디/비밀번호 찾기에 이용됩니다. 반드시 사용중인 이메일을 정확하게 입력해주세요.</p>
+                      </li>
+                    </ul>
+                    <ul>
+                      <li class="formH">
+                        <span class="com">이메일 확인</span>
+                      </li>
+                      <li class="formD  crtWrap">
+                        <div>
+                          <a href="#" class="btn minW">인증번호 받기</a>
+                          <!-- 인증완료 버튼 주석처리-->
+                          <!-- <a href="#" class="btn minW type2 icoImg"><span><img src="/common/images/icon/chkIco.png" alt=""></span>인증완료</a> -->
+                          <span class="inputBox wd464">
+                            <input type="text" id="number">
+                            <label for="number">인증번호</label>
+                            <div class="crtNum">05:00</div>
+                          </span>
+                          <a href="#" class="btn type5">확인</a>
+                        </div>
+                        <p class="formInfo">
+                          인증번호 받기를 클릭하시면, 입력하신 <span class="point">이메일</span> 및 <span class="point">보조이메일</span>로 인증메일이 전송됩니다.<br> 
+                          이메일로 발송되는 인증코드를 <span class="point">5분 이내</span>에 입력하여 주세요.
+                        </p>
+                      </li>
+                    </ul>
+                    
+                    <ul>
+                      <li class="formH">
+                        <span class="com">한글이름</span>
+                      </li>
+                      <li class="formD">
+                        <div>
+                          <span class="inputBox wd356 ">
+                            <input type="text" id="lastname" value="성">
+                            <label for="lastname">성</label>
+                          </span>
+                          <span class="inputBox wd356">
+                            <input type="text" id="firstname" value="이름">
+                            <label for="firstname">이름</label>
+                          </span>
+                        </div>
+                      </li>
+                    </ul>
+                    <ul>
+                      <li class="formH">
+                        <span class="com">영문이름</span>
+                      </li>
+                      <li class="formD">
+                        <div>
+                          <span class="inputBox wd356">
+                            <input type="text" id="lastname" value="성(Last Name)">
+                            <label for="lastname">성</label>
+                          </span>
+                          <span class="inputBox wd356">
+                            <input type="text" id="firstname" value="이름(First Name)">
+                            <label for="firstname">이름</label>
+                          </span>
+                        </div>
+                      </li>
+                    </ul>
+                    <ul>
+                      <li class="formH">
+                        <span class="com">휴대폰 번호</span>
+                      </li>
+                      <li class="formD">
+                        <div>
+                          <span class="inputBox ">
+                            <input type="text" id="phone" value="010-1234-5678">
+                            <label for="phone">휴대폰 번호</label>
+                          </span>
+                        </div>  
+                      </li>
+                    </ul>
+                    <ul>
+                      <li class="formH">
+                        <span class="com">생년월일</span>
+                      </li>
+                      <li class="formD">
+                        <div>
+                          <span class="inputBox ">
+                            <input type="text" id="birthday" value="20010101">
+                            <label for="birthday">생년월일</label>
+                          </span>
+                        </div>  
+                      </li>
+                    </ul>
+                    <ul>
+                      <li class="formH">SNS 계정</li>
+                      <li class="formD">
+                        <ul class="formSns">
+                          <li><a href="#">
+                            <img src="/common/images/icon/kakao2.png" alt="카카오톡">
+                          </a></li>
+                          <li><a href="#">
+                            <img src="/common/images/icon/google2.png" alt="구글">
+                          </a></li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </div><!-- joinForm END -->
+                </div>
+                <div class="joinStep2">
+                  <h5>[선택] 관심 분야 설정</h5>
+                  <p class="infoText">관심있는 회사, 업무, 근무지, 전공을 등록하면 관련 공고를 자동으로 추천하여 알려드립니다.</p>
+                  <p class="infoText point mT5 mB30">(최대 3개까지 등록 가능, 설정일로부터 6개월까지 알림 정보 제공)</p>
+                  <div class="joinForm">
+                    <ul>
+                      <li class="formH">
+                        <span">관심회사</span>
+                      </li>
+                      <li class="formD">
+                        <div>
+                          <span class="input selectBox wd235">
+                            <select>
+                              <option value="">직접입력</option>
+                              <option value="">선택1</option>
+                              <option value="">선택2</option>
+                              <option value="">선택3</option>
+                              <option value="">선택4</option>
+                              <option value="">선택5</option>
+                              <option value="">선택6</option>
+                            </select>
+                            <span class="icoArrow">
+                              <img src="/common/images/icon/select.png" alt="">
+                            </span>
+                          </span>
+                          <span class="input selectBox wd235">
+                            <select>
+                              <option value="">직접입력</option>
+                              <option value="">선택1</option>
+                              <option value="">선택2</option>
+                              <option value="">선택3</option>
+                              <option value="">선택4</option>
+                              <option value="">선택5</option>
+                              <option value="">선택6</option>
+                            </select>
+                            <span class="icoArrow">
+                              <img src="/common/images/icon/select.png" alt="">
+                            </span>
+                          </span>
+                          <span class="input selectBox wd235">
+                            <select>
+                              <option value="">직접입력</option>
+                              <option value="">선택1</option>
+                              <option value="">선택2</option>
+                              <option value="">선택3</option>
+                              <option value="">선택4</option>
+                              <option value="">선택5</option>
+                              <option value="">선택6</option>
+                            </select>
+                            <span class="icoArrow">
+                              <img src="/common/images/icon/select.png" alt="">
+                            </span>
+                          </span>
+                        </div>
+                      </li>
+                    </ul>
+                    <ul>
+                      <li class="formH">
+                        <span">관심업무</span>
+                      </li>
+                      <li class="formD">
+                        <div>
+                          <span class="input selectBox wd235">
+                            <select>
+                              <option value="">직접입력</option>
+                              <option value="">선택1</option>
+                              <option value="">선택2</option>
+                              <option value="">선택3</option>
+                              <option value="">선택4</option>
+                              <option value="">선택5</option>
+                              <option value="">선택6</option>
+                            </select>
+                            <span class="icoArrow">
+                              <img src="/common/images/icon/select.png" alt="">
+                            </span>
+                          </span>
+                          <span class="input selectBox wd235">
+                            <select>
+                              <option value="">직접입력</option>
+                              <option value="">선택1</option>
+                              <option value="">선택2</option>
+                              <option value="">선택3</option>
+                              <option value="">선택4</option>
+                              <option value="">선택5</option>
+                              <option value="">선택6</option>
+                            </select>
+                            <span class="icoArrow">
+                              <img src="/common/images/icon/select.png" alt="">
+                            </span>
+                          </span>
+                          <span class="input selectBox wd235">
+                            <select>
+                              <option value="">직접입력</option>
+                              <option value="">선택1</option>
+                              <option value="">선택2</option>
+                              <option value="">선택3</option>
+                              <option value="">선택4</option>
+                              <option value="">선택5</option>
+                              <option value="">선택6</option>
+                            </select>
+                            <span class="icoArrow">
+                              <img src="/common/images/icon/select.png" alt="">
+                            </span>
+                          </span>
+                        </div>
+                      </li>
+                    </ul>
+                    <ul>
+                      <li class="formH">
+                        <span">관심근무지</span>
+                      </li>
+                      <li class="formD">
+                        <div>
+                          <span class="input selectBox wd235">
+                            <select>
+                              <option value="">직접입력</option>
+                              <option value="">선택1</option>
+                              <option value="">선택2</option>
+                              <option value="">선택3</option>
+                              <option value="">선택4</option>
+                              <option value="">선택5</option>
+                              <option value="">선택6</option>
+                            </select>
+                            <span class="icoArrow">
+                              <img src="/common/images/icon/select.png" alt="">
+                            </span>
+                          </span>
+                          <span class="input selectBox wd235">
+                            <select>
+                              <option value="">직접입력</option>
+                              <option value="">선택1</option>
+                              <option value="">선택2</option>
+                              <option value="">선택3</option>
+                              <option value="">선택4</option>
+                              <option value="">선택5</option>
+                              <option value="">선택6</option>
+                            </select>
+                            <span class="icoArrow">
+                              <img src="/common/images/icon/select.png" alt="">
+                            </span>
+                          </span>
+                          <span class="input selectBox wd235">
+                            <select>
+                              <option value="">직접입력</option>
+                              <option value="">선택1</option>
+                              <option value="">선택2</option>
+                              <option value="">선택3</option>
+                              <option value="">선택4</option>
+                              <option value="">선택5</option>
+                              <option value="">선택6</option>
+                            </select>
+                            <span class="icoArrow">
+                              <img src="/common/images/icon/select.png" alt="">
+                            </span>
+                          </span>
+                        </div>
+                      </li>
+                    </ul>
+                    <ul>
+                      <li class="formH">
+                        <span">관련전공</span>
+                      </li>
+                      <li class="formD">
+                        <div>
+                          <span class="input selectBox wd235">
+                            <select>
+                              <option value="">직접입력</option>
+                              <option value="">선택1</option>
+                              <option value="">선택2</option>
+                              <option value="">선택3</option>
+                              <option value="">선택4</option>
+                              <option value="">선택5</option>
+                              <option value="">선택6</option>
+                            </select>
+                            <span class="icoArrow">
+                              <img src="/common/images/icon/select.png" alt="">
+                            </span>
+                          </span>
+                          <span class="input selectBox wd235">
+                            <select>
+                              <option value="">직접입력</option>
+                              <option value="">선택1</option>
+                              <option value="">선택2</option>
+                              <option value="">선택3</option>
+                              <option value="">선택4</option>
+                              <option value="">선택5</option>
+                              <option value="">선택6</option>
+                            </select>
+                            <span class="icoArrow">
+                              <img src="/common/images/icon/select.png" alt="">
+                            </span>
+                          </span>
+                          <span class="input selectBox wd235">
+                            <select>
+                              <option value="">직접입력</option>
+                              <option value="">선택1</option>
+                              <option value="">선택2</option>
+                              <option value="">선택3</option>
+                              <option value="">선택4</option>
+                              <option value="">선택5</option>
+                              <option value="">선택6</option>
+                            </select>
+                            <span class="icoArrow">
+                              <img src="/common/images/icon/select.png" alt="">
+                            </span>
+                          </span>
+                        </div>
+                      </li>
+                    </ul>
+                    <ul>
+                      <li class="formH"></li>
+                      <li class="formD">
+                        <p class="formInfo mT0 mB10">선택한 관심정보에 따라 자동 추천되는 공고를 휴대폰이나 이메일로 알림 받으시겠어요?</p>
+                        <span class="input">
+                          <input type="checkbox" id="chk1" value="" checked="">
+                          <label for="chk1">받지 않음</label>
+                        </span>
+                        <span class="input">
+                          <input type="checkbox" id="chk2" value="" checked="">
+                          <label for="chk2">이메일(E-Mail)</label>
+                        </span>
+                        <span class="input">
+                          <input type="checkbox" id="chk3" value="" checked="">
+                          <label for="chk3">휴대폰(카카오톡 or SMS)</label>
+                        </span>
+                      </li>
+                    </ul>
+                  </div><!-- joinForm END -->
+                </div>
+                <div class="tCenter mT60">
+                  <a href="#" class="btn type6 round large">취소</a>
+                  <a href="#" class="btn type3 round large">확인</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- subContent END -->
+      </div>
+      <!-- subConWrap END -->
+    </div>
+
+    <footer id="footer">@@include('./../layouts/include/footer.html')</footer>
+  </body>
+  <script>
+    $('.likeIco a').click(function(){
+      $(this).toggleClass('likeOn');
+      return false;
+    });
+  </script>
+</html>

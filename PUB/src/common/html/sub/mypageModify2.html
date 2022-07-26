@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+  @@include('./../layouts/include/subHead.html')
+
+  <body>
+    <div id="headers">@@include('./../layouts/include/header.html')</div>
+    <!--header END-->
+    <div id="container" class="subContainer subBGW">
+      <div class="subConWrap">
+        @@include('./../layouts/include/mypageSide.html')
+        <!-- lnb END -->
+        <div class="subContent mpContent">
+          <div class="subContentTop mB40">
+            <div>
+              <h3>정보수정</h3>
+            </div>
+          </div>
+          <!-- subContentTop END -->
+          <div class="tabMenu">
+            <ul class="tabs">
+              <li data-tab-target="pwmodify" class="tab">
+                <a herf="#n" class="tabBtn">비밀번호 변경</a>
+              </li>
+              <li data-tab-target="infomodify" class="tab tabOn">
+                <a herf="#n" class="tabBtn">기본정보 변경</a>
+              </li>
+            </ul>
+          </div>
+          <div class="mypageModify">
+            <div class="tabCon">
+              <div id="pwmodify" data-tab-content class="tabOn">
+                <h4 class="blind">기본정보 변경</h4>
+                <div class="joinForm">
+                  <p class="infoMDTxt tCenter subTitle2 mB40">본인확인을 위해 다시 한 번 <span>비밀번호</span>를 입력해 주세요.</p>
+                  <ul>
+                    <li class="formH">
+                      <span>비밀번호</span>
+                    </li>
+                    <li class="formD">
+                      <div class="formError">
+                        <span class="inputBox">
+                          <input type="password" id="password" placeholder="비밀번호를 입력하세요.">
+                          <label for="password">비밀번호</label>
+                        </span>
+                      </div>  
+                      <p class="formError">비밀번호가 일치하지 않습니다.</p><!-- 오류 -->
+                    </li>
+                  </ul>
+                </div>
+                <div class="tCenter mT60">
+                  <a href="#" class="btn type6 round large">취소</a>
+                  <a href="#" class="btn type3 round large">확인</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- subContent END -->
+      </div>
+      <!-- subConWrap END -->
+    </div>
+
+    <footer id="footer">@@include('./../layouts/include/footer.html')</footer>
+  </body>
+  <script>
+    $('.likeIco a').click(function(){
+      $(this).toggleClass('likeOn');
+      return false;
+    });
+  </script>
+</html>

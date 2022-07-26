@@ -223,6 +223,9 @@
 .mT80 {
   margin-top: 8rem;
 }
+.pT0{
+  padding-top: 0 !important;
+}
 
 @for $i from 1 through 10 {
   .mT#{$i*5} {
