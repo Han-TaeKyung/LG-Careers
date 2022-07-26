@@ -733,6 +733,89 @@
       }
     }
   }
+  //마이페이지 lnb
+  &.mypageLnb{
+    box-shadow: none;
+    padding: 0 4rem;
+    .lnbWrap{
+      >div{
+        margin-top: 6rem;
+        >ul{
+          &:first-child{
+            border-bottom: .1rem solid $GrayE7;
+            padding-bottom: 3rem;
+            margin-bottom: 3rem;
+          }
+          li{
+            & + li{
+              margin-top: 3rem;
+            }
+            &.active{
+              a{
+                color:$LGBlack;
+                i{
+                  svg{
+                    path{
+                      stroke: $LGBlack;
+                    }
+                    rect{
+                      stroke: $LGBlack;
+                    }
+                  }
+                }
+              }
+            }
+            a{
+              font-size: 1.7rem;
+              font-weight: 600;
+              letter-spacing: -0.02em;
+              line-height: 1.7rem;
+              color:$GrayAE;
+              i{
+                margin-right: 2rem;
+                svg{
+                  vertical-align: middle;
+                }
+              }
+              &:hover, 
+              &:focus{
+                color:$LGBlack;
+                i{
+                  svg{
+                    path{
+                      stroke: $LGBlack;
+                    }
+                    rect{
+                      stroke: $LGBlack;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+        &.mySNS{
+          margin-top: 8rem;
+          h5{
+            font-size: 2.2rem;
+            font-weight: 600;
+            line-height: 2.2rem;
+            letter-spacing: -0.02em;
+            color:$LGBlack;
+          }
+          ul{
+            margin-top: 3rem;
+            display: flex;
+            justify-content: flex-start;
+            li{
+              margin-right: 1.2rem;
+              margin-top: 0;
+            }
+          }
+        }
+      }
+    }
+  }
 }
 .mobile{
   display: none;
