@@ -2,6 +2,13 @@
 .w300px {
   width: 300px;
 }
+.skip {
+  position:absolute;
+  width:1px;
+  height:1px;
+  opacity:0;
+
+}
 
 .subConWrap.apply {
   &.write {
@@ -277,6 +284,18 @@
           display:inline-flex;
           align-items:center;
           min-height:48px;
+        }
+
+        &.type2 {
+          padding:0;
+          table {
+            th {
+              padding:16px 10px;
+            }
+            td {
+              padding:20px 10px;
+            }
+          }
         }
       }
       .inputSearch {
