@@ -1,3 +1,2005 @@
+
+<c:if test="${jobNoticeInfo.recruitTypeCode != 'D' && jobNoticeInfo.recruitTypeCode != 'H'}">
+<section class="tabCon" id="tabCon2">
+  <form id="appDetailForm" name="appDetailForm" method="post" enctype="multipart/form-data">
+    <rec:savedToken name="sessionscopedetail" scope="session" />
+    <h2 class="skip">
+        <LTag:message code="app.tab.detailInfo" />
+    </h2>
+<!-- 지원서 작성 안내 -->
+<p class="more">
+  <LTag:message code="app.btn.applyWriteGuide" />
+  <a href="" onclick="applcationGuidePopup();"><LTag:message code="app.cont.view" /></a>
+</p>
+
+<c:if  test="${!empty beforeDetailInfo.jobNoticeId && (jobNoticeInfo.schoolInputFlag == 'N' || jobNoticeInfo.qualificationInputFlag == 'N' || jobNoticeInfo.languageInputFlag == 'N' || jobNoticeInfo.globalInputFlag == 'N')}">
+  <div class="moreWrap right">
+    <p class="more" id="beforeDetail">
+      <LTag:message code="app.cont.topCont_1" /> 
+      <a href="#" onClick="retrieveBeforeDetailInfo();">
+        <LTag:message code="app.cont.topCont_6" />
+      </a>
+    </p>
+  </div>
+</c:if>
+<!-- //지원서 작성 안내 끝 -->
+
+<c:if test="${jobNoticeInfo.schoolInputFlag == 'N'}">
+  <article class="sec1">
+    <h3>최종 학력</h3>
+    <p>졸업예정자의 경우 최종학력은 졸업예정 학력으로 선택하여 작성바랍니다.</p>
+    <div class="table">
+      <span class="input w300px">
+        <select title="최종 학력 선택" id="degreeType" name="degreeType">
+          <option value="">
+            <LTag:message code="app.lbl.select" />
+          </option>
+          <c:forEach items="${degreeTypeList.code}" varStatus="i">
+          <%-- FPT - Static Analysis Handle - DELETE --%>
+            <c:choose>
+              <c:when
+                test="${jobNoticeInfo.recruitTypeCode == 'I' || jobNoticeInfo.recruitTypeCode == 'J'}">
+                <c:if test="${degreeTypeList.code[i.index] != 'M' && degreeTypeList.code[i.index] != 'E'}">
+                <option value="<c:out value='${degreeTypeList.code[i.index]}' />"
+                  <c:if test="${degreeType == degreeTypeList.code[i.index]}"> selected</c:if>>
+                  <c:out value='${degreeTypeList.value[i.index]}' />
+                </option>
+              </c:if>
+            </c:when>
+            <c:otherwise>
+              <c:if
+                test="${!(jobNoticeInfo.highschoolFlag == 'Y' && degreeTypeList.code[i.index] == 'H')  && !(jobNoticeInfo.middleschInputFlag == 'Y' && degreeTypeList.code[i.index] == 'M') && !(jobNoticeInfo.elemschInputFlag == 'Y' && degreeTypeList.code[i.index] == 'E')}">
+                <option value="<c:out value='${degreeTypeList.code[i.index]}' />" <c:if
+                  test="${degreeType == degreeTypeList.code[i.index]}"> selected
+                </c:if>>
+                <c:out value='${degreeTypeList.value[i.index]}' />
+              </option>
+              </c:if>
+            </c:otherwise>
+          </c:choose>
+        </c:forEach>
+        </select>
+      </span>
+    </div>
+  </article>
+
+<!-- 초등학교 -->
+<c:if test="${jobNoticeInfo.elemschInputFlag == 'N'}">
+  <article class="sec1-1" id="elemschoolDiv" style="display:none;">
+    <h3><LTag:message code="app.titl.elemschool" /><!--초등학교--></h3>
+    <div class="addWrap">
+      <button class="delete" type="button" onclick="fnEraseData('elemschoolDiv');" title="초등학교 입력 지우기">지우기</button>
+    </div>
+    <div class="table">
+      <table>
+        <caption><LTag:message code="app.titl.elemschool" /></caption>
+        <colgroup>
+          <col style="width: 12%" />
+          <col style="width: 35%" />
+          <col style="width: 18%" />
+          <col />
+        </colgroup>
+        <tbody>
+          <tr>
+            <th scope="row"><label for="elemSchoolName"><LTag:message code="app.lbl.schoolName" /><!--학교명--><span class="essential">필수 입력</span></label></th>
+            <td>
+              <div class="inputSearch inputBox">
+                <input type="text" id="elemSchoolName" name="elemSchoolName" readonly="readonly" value="<c:out value='${elemInfo.schoolName}' />" />
+                <input type="hidden" id="elemSchoolCode" name="elemSchoolCode" value="<c:out value='${elemInfo.schoolCode}' />" />
+                <button type="button" class="searchBtn" onclick="searchSchoolPopup(this,'E');">검색</button>
+              </div>
+            </td>
+            <th scope="row"><LTag:message code="app.lbl.locationName" /><!--소재지--><span class="essential">필수 입력</span></th>
+            <td>
+              <div class="inputSearch inputBox">
+                <input type="text" id="elemLocationName" name="elemLocationName" value="<c:out value='${elemInfo.locationName}' />" readonly="readonly" maxlength="300" />
+                <input type="hidden" id="elemAddressSido"
+                    name="elemAddressSido"
+                    value="<c:out value='${elemInfo.addressSido}' />" />
+                <input type="hidden" id="elemAddressSigu"
+                    name="elemAddressSigu"
+                    value="<c:out value='${elemInfo.addressSigu}' />" />
+                <button type="button" class="searchBtn" onclick="searchSchoolLocPopup(this);">검색</button>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row"><LTag:message code="app.lbl.preriodDate" /><!--기간--><span class="essential">필수 입력</span></th>
+            <td>
+              <span class="duration">
+                <span class="inputBox">
+                  <input
+                    type="text" id="elemstartDate"
+                    name="elemstartDate"
+                    value="<c:out value='${elemInfo.startDate}' />"
+                    maxlength="11" readonly="readonly"
+                    title="<LTag:message code=" app.lbl.preriodDate" /> 시작일" />
+                </span>
+                <button
+                  type="button"
+                  class="LiconCalendar"
+                  data-calendar="elemstartDate"
+                  title="<LTag:message code=" app.lbl.preriodDate" /> 시작일 달력 열기"
+                >
+                  달력
+                </button>
+                <span class="bar">~</span>
+                <div class="inputBox">
+                  <input
+                    type="text" id="elemendDate"
+                    name="elemendDate"
+                    value="<c:out value='${elemInfo.endDate}' />" maxlength="11"
+                    readonly="readonly" title="<LTag:message code="
+                    app.lbl.preriodDate" /> 종료일" />
+                </div>
+                <button
+                  type="button"
+                  class="LiconCalendar"
+                  data-calendar="elemendDate"
+                  title="<LTag:message code=" app.lbl.preriodDate" /> 종료일 달력 열기"
+                >
+                  달력
+                </button>
+              </span>
+            </td>
+            <th scope="row"><label for="elemGraduationStatusCode">
+              <LTag:message code="app.lbl.graduationFlag" /><!--졸업구분--><span class="essential">필수 입력</span></label>
+            </th>
+            <td>              
+              <select id="elemGraduationStatusCode" name="elemGraduationStatusCode">
+                <option value=""><LTag:message code="app.lbl.select" /></option>
+                <c:forEach items="${graduationList.code}" varStatus="i">
+                  <option value="<c:out value='${graduationList.code[i.index]}' />"
+                    <c:if test="${elemInfo.graduationStatusCode == graduationList.code[i.index]}"> selected</c:if>>
+                    <c:out value='${graduationList.value[i.index]}' />
+                  </option>
+                </c:forEach>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </article>
+  </c:if>
+
+  <!-- 중학교  -->
+  <c:if test="${jobNoticeInfo.middleschInputFlag == 'N'}">
+  <article class="sec1-2" id="middleschoolDiv" style="display:none;">
+    <h3><LTag:message code="app.titl.middleschool" /><!--중학교--></h3>
+    <div class="addWrap">
+      <button class="delete" type="button" onclick="fnEraseData('middleschoolDiv');" title="<LTag:message code="app.titl.middleschool" /> 입력 지우기">지우기</button>
+    </div>
+    <div class="table">
+      <table>
+        <caption><LTag:message code="app.titl.middleschool" /></caption>
+        <colgroup>
+          <col style="width: 12%" />
+          <col style="width: 35%" />
+          <col style="width: 18%" />
+          <col />
+        </colgroup>
+        <tbody>
+          <tr>
+            <th scope="row"><label for="middleSchoolName"><LTag:message code="app.lbl.schoolName" />학교명<span class="essential">필수 입력</span></label></th>
+            <td>
+              <div class="inputSearch inputBox">
+                <input type="text" id="middleSchoolName" name="middleSchoolName" size="10" readonly="readonly" value="<c:out value='${middleInfo.schoolName}' />" />                                        <input type="hidden" id="middleSchoolCode" name="middleSchoolCode" value="<c:out value='${middleInfo.schoolCode}' />" />
+                <button type="button" class="searchBtn" onclick="searchSchoolPopup(this,'D');">검색</button>
+              </div>
+            </td>
+            <th scope="row"><label for="middleLocationName"><LTag:message code="app.lbl.locationName" /><!--소재지--><span class="essential">필수 입력</span></label>></th>
+            <td>
+              <div class="inputSearch inputBox">
+                <input type="text" id="middleLocationName" name="middleLocationName" value="<c:out value='${middleInfo.locationName}' />" readonly="readonly" maxlength="300" />
+                <input type="hidden" id="middleAddressSido" name="middleAddressSido" value="<c:out value='${middleInfo.addressSido}' />" />
+                <input type="hidden" id="middleAddressSigu" name="middleAddressSigu" value="<c:out value='${middleInfo.addressSigu}' />" />
+                <button type="button" class="searchBtn" onclick="searchSchoolLocPopup(this);">검색</button>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row"><LTag:message code="app.lbl.preriodDate" /><!--기간--><span class="essential">필수 입력</span></th>
+            <td>
+              <span class="duration">
+                <span class="inputBox">
+                    <input type="text" class="Ltext" id="middlestartDate" name="middlestartDate" value="<c:out value='${middleInfo.startDate}' />"  maxlength="11" readonly="readonly" 
+                    title="<LTag:message code=" app.lbl.preriodDate" /> 시작일" />
+                </span>
+                <button
+                  type="button"
+                  id="milStartDate_cal"
+                  class="LiconCalendar"
+                 data-calendar="middlestartDate"
+                 title="<LTag:message code=" app.lbl.preriodDate" /> 시작일 달력 열기"
+                >
+                  달력
+                </button>
+                <span class="bar">~</span>
+                <div class="inputBox">
+                  <input type="text" id="middleendDate"
+                      name="middleendDate"
+                      value="<c:out value='${middleInfo.endDate}' />"
+                      maxlength="11" readonly="readonly"
+                      title="<LTag:message code=" app.lbl.preriodDate" /> 종료일" />
+                </div>
+                <button
+                  type="button"
+                  id="milStartDate_cal"
+                  class="LiconCalendar"
+                  data-calendar="middleendDate"
+                 title="<LTag:message code=" app.lbl.preriodDate" /> 종료일 달력 열기"
+                >
+                  달력
+                </button>
+              </span>
+            </td>
+            <th scope="row">
+              <label for="middleGraduationStatusCode"><LTag:message code="app.lbl.graduationFlag" /><!--졸업구분--><span class="essential">필수 입력</span></label>
+            </th>
+            <td>
+              <select id="middleGraduationStatusCode"
+                name="middleGraduationStatusCode">
+                <option value="">
+                  <LTag:message code="app.lbl.select" />
+                </option>
+                <c:forEach items="${graduationList.code}" varStatus="i">
+                  <option value="<c:out value='${graduationList.code[i.index]}' />"
+                    <c:if test="${middleInfo.graduationStatusCode == graduationList.code[i.index]}">selected</c:if>>
+                   <c:out value='${graduationList.value[i.index]}' />
+                  </option>
+                </c:forEach>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div> 
+  </article>
+</c:if>
+
+
+  <!-- 고등학교 -->
+  <c:if test="${jobNoticeInfo.highschoolFlag == 'N'}">
+  <article class="sec1-3" id="highschoolDiv" style="display:none">
+    <h3><LTag:message code="app.titl.highschool" /><!--고등학교--></h3>
+    <div class="addWrap">
+      <button class="delete" type="button" onclick="fnEraseData('highschoolDiv');" title="<LTag:message code="app.titl.highschool" /> 입력 지우기">지우기</button>
+    </div>
+    <div class="table">
+      <table>
+        <caption>
+          <LTag:message code="app.titl.highschool" />
+        </caption>
+        <colgroup>
+          <col style="width: 12%" />
+          <col style="width: 35%" />
+          <col style="width: 18%" />
+          <col />
+        </colgroup>
+        <tbody>
+          <tr>
+            <th scope="row">
+              <label for="highSchoolName"><LTag:message code="app.lbl.schoolName" /><!--학교명--><span class="essential">필수 입력</span></label></th>
+            <td>
+              <div class="inputSearch inputBox">
+                <input type="text" id="highSchoolName" name="highSchoolName" readonly="readonly"
+                  value="<c:out value='${highInfo.schoolName}' />" />
+                <input type="hidden" id="highSchoolCode"
+                  name="highSchoolCode"
+                  value="<c:out value='${highInfo.schoolCode}' />" />
+                <button type="button" class="searchBtn"
+                  onclick="searchSchoolPopup(this,'H');">검색</button>
+              </div>
+            </td>
+            <th scope="row"><label for="highLocationName"><LTag:message code="app.lbl.locationName" /><!--소재지--><span class="essential">필수 입력</span></label></th>
+            <td>
+              <div class="inputSearch inputBox">
+                <input type="text" id="highLocationName" name="highLocationName"
+                  value="<c:out value='${highInfo.locationName}' />"
+                  readonly="readonly" maxlength="300" />
+                <input type="hidden" id="highAddressSido"
+                  name="highAddressSido"
+                  value="<c:out value='${highInfo.addressSido}' />" />
+                <input type="hidden" id="highAddressSigu"  name="highAddressSigu"
+                  value="<c:out value='${highInfo.addressSigu}' />" />
+                <button type="button"
+                  onclick="searchSchoolLocPopup(this);" class="searchBtn">검색</button>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row"><LTag:message code="app.lbl.preriodDate" /><!--기간--><span class="essential">필수 입력</span></th>
+            <td>
+              <span class="duration">
+                <span class="inputBox">
+                 <input type="text" class="Ltext" id="highstartDate"
+                  name="highstartDate"
+                  value="<c:out value='${highInfo.startDate}' />"
+                  maxlength="11" readonly="readonly"
+                  title="<LTag:message code=" app.lbl.preriodDate" /> 시작일" />
+                </span>
+                <button
+                  type="button"
+                  id="milStartDate_cal"
+                  class="LiconCalendar"
+                  data-calendar="highstartDate"
+                  title="<LTag:message code=" app.lbl.preriodDate" /> 시작일 달력 열기"
+                >
+                  달력
+                </button>
+                <span class="bar">~</span>
+                <div class="inputBox">
+                  <input type="text" class="Ltext" id="highendDate"
+                    name="highendDate"
+                    value="<c:out value='${highInfo.endDate}' />" maxlength="11"
+                    readonly="readonly" title="<LTag:message code="
+                    app.lbl.preriodDate" /> 종료일" />
+                </div>
+                <button
+                  type="button"
+                  id="milStartDate_cal"
+                  class="LiconCalendar"
+                  data-calendar="highendDate"
+                  title="<LTag:message code=" app.lbl.preriodDate" /> 종료일 달력 열기"
+                >
+                  달력
+                </button>
+              </span>
+            </td>
+            <th scope="row">
+              <label for="highGraduationStatusCode">
+               <LTag:message code="app.lbl.graduationFlag" /><!--졸업구분--><span class="essential">필수 입력</span>
+               </label>
+            </th>
+            <td>
+              <select id="highGraduationStatusCode" name="highGraduationStatusCode">
+                <option value="">
+                  <LTag:message code="app.lbl.select" />
+                </option>
+                <c:forEach items="${graduationList.code}" varStatus="i">
+                  <option
+                    value="<c:out value='${graduationList.code[i.index]}' />"
+                    <c:if test="${highInfo.graduationStatusCode == graduationList.code[i.index]}">selected</c:if>>
+                    <c:out value='${graduationList.value[i.index]}' />
+                  </option>
+                </c:forEach>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row"><label for="highStudyTypeCode"><LTag:message code="app.lbl.detailMajorName" /></label><!--전공계열--></th>
+            <td>
+              <div class="row">
+              <select id="highStudyTypeCode" name="highStudyTypeCode" class="minwidth100">
+                <option value="">
+                  <LTag:message code="app.lbl.select" />
+                </option>
+                <c:forEach items="${studyTypeList.code}" varStatus="i">
+                  <option value="<c:out value='${studyTypeList.code[i.index]}' />" <c:if
+                    test="${highInfo.studyTypeCode == studyTypeList.code[i.index]}"> selected
+                    </c:if>>
+                    <c:out value='${studyTypeList.value[i.index]}' />
+                  </option>
+                </c:forEach>
+              </select>
+              <div class="inputBox">
+                <input title="<LTag:message code=" app.lbl.detailMajorName" /> 직접입력" type="text"
+                id="detailMajorName" name="detailMajorName" disabled="disabled" value="
+                <c:out value='${highInfo.detailMajorName}' />" maxlength="100" />
+              </div>
+              </div>
+            </td>
+            <th scope="row"></th>
+            <td></td>
+          </tr>
+  <c:if test="${jobNoticeInfo.highschRankInputFlag == 'N' || jobNoticeInfo.highschAttendInputFlag == 'N'}">
+          <tr>
+            <th scope="row">생활기록부 등</th>
+            <td colspan="3">
+              <div class="upload upload2">
+                <div class="fileUpload">
+                  <c:if test="${i.index == 0}">
+                      <input type="hidden" id="deleteFileSeqNo" name="deleteFileSeqNo" />
+                  </c:if>
+                  <input type="hidden" id="highattachFileId_${i.index+1}"
+                    name="highattachFileId_${i.index+1}"
+                    value="<c:out value='${highInfo.attachFileId}'/>" />
+                  <button id="fileAdd" class="btn minW fileAdd type5" type="button"
+                    onclick="addItem('#highThesis_${i.index+1}','high_${i.index+1}');">
+                    <LTag:message code="app.lbl.addAttachFile" /><!--파일 추가-->
+                  </button>
+                  <p></p>
+                </div>
+                <div id="highThesis_${i.index+1}" class="fileUploadC">
+                  <c:forEach items="${schoolFileList.attachFileId}" varStatus="k">
+                    <c:if test="${schoolFileList.attachFileId[k.index] == highInfo.attachFileId}">
+                      <div class="fileUploadForm">
+                        <a href="javascript:;" class="uploadBtn"
+                          onClick="fileDownload('${schoolFileList.dlFileName[k.index]}','${schoolFileList.attachFileId[k.index]}')">
+                          <span>파일선택</span>
+                        </a>
+                        <input type="hidden" id="fileSeqNo" name="fileSeqNo"
+                            value="<c:out value='${schoolFileList.fileSeqNo[k.index]}'/>" />
+                        <input type="hidden" id="hightDlFileName" name="hightDlFileName"
+                            value="<c:out value='${schoolFileList.dlFileName[k.index]}'/>" />
+                        <span class="fileName"><c:out value='${schoolFileList.dlFileName[k.index]}' /></span>
+                        <button type="button" class="fileDelete" onclick='deleteItem(this);'>삭제</button>
+                      </div>
+                    </c:if>
+                  </c:forEach>
+                </div>
+              </div>
+              <!-- 폰에서 작동하는 코드
+              <div class="Lexplanation displayInPhone">
+                  <p>
+                      <LTag:message code="com.inf.029" />
+                  </p>
+                  <ul class="LblockItemList Lfile">
+                      <c:forEach items="${schoolFileList.attachFileId}" varStatus="j">
+                          <c:if
+                              test="${schoolFileList.attachFileId[k.index] == highInfo.attachFileId}">
+                              <li style="">
+                                  <c:out value='${schoolFileList.dlFileName[k.index]}' />
+                              </li>
+                          </c:if>
+                      </c:forEach>
+                  </ul>
+              </div>-->
+              </td>
+            </tr>
+          </c:if>
+        </tbody>
+      </table>
+    </div>       
+      <c:if
+        test="${jobNoticeInfo.highschRankInputFlag == 'N' || jobNoticeInfo.highschAttendInputFlag == 'N'}">
+        <p class="warning" title="안내">
+          첨부 파일은 1개만 가능하며 파일 형식은 JPG, PNG, PDF 만 가능합니다. 파일 용량은 3MB 이내로 등록 바랍니다.
+        </p>
+      </c:if>
+  </article>
+  </c:if>
+
+  
+  <!-- 고교생활현황 -->
+  <c:if test="${jobNoticeInfo.highschAttendInputFlag == 'N'}">
+  <article class="sec1-3-2" id="highschAttendDiv" style="display:none">
+    <h3><LTag:message code="app.titl.highschAttend" /><!--고교생활현황--></h3>
+    <div class="addWrap">
+      <button class="delete" type="button" onclick="fnEraseData('highschAttendDiv');" title="<LTag:message code="app.titl.highschAttend" /> 입력 지우기">지우기</button>
+    </div>
+    <div class="table type2">
+      <table>
+        <caption><LTag:message code="app.titl.highschAttend" /></caption>
+        <colgroup>
+          <col style="width: 12%" />
+          <col style="width: 7%" />
+          <col style="width: 7%" />
+          <col stype="width: 8%" />
+          <col style="width: 7%" />
+          <col style="width: 7%" />
+          <col style="width: 8%" />
+          <col style="width: 7%" />
+          <col style="width: 7%" />
+          <col style="width: 8%" />
+          <col style="width: 7%" />
+          <col style="width: 7%" />
+          <col style="width: 8%" />
+        </colgroup>
+        <thead>
+          <tr>
+            <th scope="col" rowspan="2"><LTag:message code="app.lbl.recruitType" /></th>
+            <th scope="col" colspan="3">결석일수</th>
+            <th scope="col" colspan="3">지각</th>
+            <th scope="col" colspan="3">조퇴</th>
+            <th scope="col" colspan="3">결과</th>
+          </tr>
+          <tr>
+            <th scope="col">
+              <label for="attendabsentDis">질병<span class="essential">필수 입력</span></label>
+            </th>
+            <th scope="col">
+              <label class="required" for="attendabsentNot">무단<span class="essential">필수 입력</span></label>
+            </th>
+            <th scope="col">
+              <label class="required" for="attendabsentEtc">기타<span class="essential">필수 입력</span></label>
+            </th>
+            <th scope="col">
+              <label class="required" for="attendlateDis">질병<span class="essential">필수 입력</span></label>
+            </th>
+            <th scope="col">
+              <label class="required" for="attendlateNot">무단<span class="essential">필수 입력</span></label>
+            </th>
+            <th scope="col">
+                <label class="required" for="attendlateEtc">기타<span class="essential">필수 입력</span></label>
+            </th>
+            <th scope="col">
+              <label class="required" for="attendshortDis">질병<span class="essential">필수 입력</span></label>
+            </th>
+            <th scope="col">
+              <label class="required" for="attendshortNot">무단<span class="essential">필수 입력</span></label>
+            </th>
+            <th scope="col">
+              <label class="required" for="attendshortEtc">기타<span class="essential">필수 입력</span></label>
+            </th>
+            <th scope="col">
+              <label class="required" for="attendmissedDis">질병<span class="essential">필수 입력</span></label>
+            </th>
+            <th scope="col">
+              <label class="required" for="attendmissedNot">무단<span class="essential">필수 입력</span></label>
+            </th>
+            <th scope="col">
+              <label class="required" for="attendmissedEtc">기타<span class="essential">필수 입력</span></label>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>전체합계</td>
+            <td>
+              <div class="inputBox">
+                <input type="text" id="attendabsentDis"
+                  name="attendabsentDis"
+                  value="<c:out value='${highschAttendInfo.absentDis[0]}'/>"
+                  size="5" maxlength="3" title="질병"
+                  onKeyPress="return $.onKeyPressFilter('[0-9]', event);"
+                  style="ime-mode:disabled;"
+                  onkeyup="this.value=this.value.replace(/[^0-9]/g,'')">
+              </div>
+            </td>
+            <td>
+              <div class="inputBox">
+                <input type="text" id="attendabsentNot"
+                  name="attendabsentNot"
+                  value="<c:out value='${highschAttendInfo.absentNot[0]}'/>" maxlength="3" title="무단"
+                  onKeyPress="return $.onKeyPressFilter('[0-9]', event);"
+                  style="ime-mode:disabled;"
+                  onkeyup="this.value=this.value.replace(/[^0-9]/g,'')">
+              </div>
+            </td>
+            <td>
+              <div class="inputBox">
+                <input type="text" id="attendabsentEtc"
+                  name="attendabsentEtc"
+                  value="<c:out value='${highschAttendInfo.absentEtc[0]}'/>" maxlength="3" title="기타"
+                  onKeyPress="return $.onKeyPressFilter('[0-9]', event);"
+                  style="ime-mode:disabled;"
+                  onkeyup="this.value=this.value.replace(/[^0-9]/g,'')">
+              </div>
+            </td>
+            <td>
+              <div class="inputBox">
+                <input type="text" id="attendlateDis"
+                  name="attendlateDis"
+                  value="<c:out value='${highschAttendInfo.lateDis[0]}'/>" maxlength="3" title="질병"
+                  onKeyPress="return $.onKeyPressFilter('[0-9]', event);"
+                  style="ime-mode:disabled;"
+                  onkeyup="this.value=this.value.replace(/[^0-9]/g,'')">
+              </div>
+            </td>
+            <td>
+              <div class="inputBox">
+                <input type="text" id="attendlateNot"
+                  name="attendlateNot"
+                  value="<c:out value='${highschAttendInfo.lateNot[0]}'/>" maxlength="3" title="무단"
+                  onKeyPress="return $.onKeyPressFilter('[0-9]', event);"
+                  style="ime-mode:disabled;"
+                  onkeyup="this.value=this.value.replace(/[^0-9]/g,'')">
+              </div>
+            </td>
+            <td>
+              <div class="inputBox">
+                <input type="text" id="attendlateEtc"
+                  name="attendlateEtc"
+                  value="<c:out value='${highschAttendInfo.lateEtc[0]}'/>" maxlength="3" title="기타"
+                  onKeyPress="return $.onKeyPressFilter('[0-9]', event);"
+                  style="ime-mode:disabled;"
+                  onkeyup="this.value=this.value.replace(/[^0-9]/g,'')">
+              </div>
+            </td>
+            <td>
+              <div class="inputBox">
+                <input type="text" id="attendshortDis"
+                  name="attendshortDis"
+                  value="<c:out value='${highschAttendInfo.shortDis[0]}'/>" maxlength="3" title="질병"
+                  onKeyPress="return $.onKeyPressFilter('[0-9]', event);"
+                  style="ime-mode:disabled;"
+                  onkeyup="this.value=this.value.replace(/[^0-9]/g,'')">
+              </div>
+            </td>
+            <td>
+              <div class="inputBox">
+                <input type="text" id="attendshortNot"
+                  name="attendshortNot"
+                  value="<c:out value='${highschAttendInfo.shortNot[0]}'/>" maxlength="3" title="무단"
+                  onKeyPress="return $.onKeyPressFilter('[0-9]', event);"
+                  style="ime-mode:disabled;"
+                  onkeyup="this.value=this.value.replace(/[^0-9]/g,'')">
+              </div>
+            </td>
+            <td>
+              <div class="inputBox">
+                <input type="text" id="attendshortEtc"
+                  name="attendshortEtc"
+                  value="<c:out value='${highschAttendInfo.shortEtc[0]}'/>" maxlength="3" title="기타"
+                  onKeyPress="return $.onKeyPressFilter('[0-9]', event);"
+                  style="ime-mode:disabled;"
+                  onkeyup="this.value=this.value.replace(/[^0-9]/g,'')">
+              </div>
+            </td>
+            <td>
+              <div class="inputBox">
+                <input type="text" id="attendmissedDis"
+                  name="attendmissedDis"
+                  value="<c:out value='${highschAttendInfo.missedDis[0]}'/>" maxlength="3" title="질병"
+                  onKeyPress="return $.onKeyPressFilter('[0-9]', event);"
+                  style="ime-mode:disabled;"
+                  onkeyup="this.value=this.value.replace(/[^0-9]/g,'')">
+              </div>
+            </td>
+            <td>
+              <div class="inputBox">
+                <input type="text" id="attendmissedNot"
+                  name="attendmissedNot"
+                  value="<c:out value='${highschAttendInfo.missedNot[0]}'/>" maxlength="3" title="무단"
+                  onKeyPress="return $.onKeyPressFilter('[0-9]', event);"
+                  style="ime-mode:disabled;"
+                  onkeyup="this.value=this.value.replace(/[^0-9]/g,'')">
+              </div>
+            </td>
+            <td>
+              <div class="inputBox">
+                <input type="text" id="attendmissedEtc"
+                  name="attendmissedEtc"
+                  value="<c:out value='${highschAttendInfo.missedEtc[0]}'/>" maxlength="3" title="기타"
+                  onKeyPress="return $.onKeyPressFilter('[0-9]', event);"
+                  style="ime-mode:disabled;"
+                  onkeyup="this.value=this.value.replace(/[^0-9]/g,'')">
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="table type2">
+      <table>
+        <caption>수업일수, 수상경력에 대한 정보 입력</caption>
+        <colgroup>
+        <col style="width:12%">
+        <col style="width:13%">
+        <col>
+      </colgroup>
+        <thead>
+          <tr>
+            <th scope="col"><LTag:message code="app.lbl.recruitType" /></th>
+            <th scope="col">
+              <label for="attendschoolDays">수업일수<span class="essential">필수 입력</span></label>
+            </th>
+            <th scope="col">
+              <label for="attendawardRecord">수상경력<span class="essential">필수 입력</span></label>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>전체합계</td>
+            <td>
+              <div class="inputBox">
+              <input type="text" id="attendschoolDays"
+                name="attendschoolDays"
+                value="<c:out value='${highschAttendInfo.schoolDays[0]}'/>" maxlength="3" title="수업일수"
+                onKeyPress="return $.onKeyPressFilter('[0-9]', event);"
+                style="ime-mode:disabled;"
+                onkeyup="this.value=this.value.replace(/[^0-9]/g,'')">
+              </div>
+            </td>
+            <td>
+              <div class="inputBox">
+              <input type="text" id="attendawardRecord"
+                name="attendawardRecord"
+                value="<c:out value='${highschAttendInfo.awardRecord[0]}'/>"
+                maxlength="100" title="수상경력">
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="warning" title="경고사항">수상경력은 100글자 이내로 입력해주시기 바랍니다.</p>
+  </article>
+  </c:if> 
+
+    <!-- 고교성적상세 과목수에 따라 모두 그림 -->
+  <c:if test="${jobNoticeInfo.highschRankInputFlag == 'N'}">
+  <article class="sec1-3-3" id="highschRankDiv" style="display:none">
+    <h3><LTag:message code="app.titl.highschRank" /></h3>
+    <div class="addWrap">
+      <button class="delete" type="button" onclick="fnEraseData('highschAttendDiv');" title="<LTag:message code="app.titl.highschAttend" /> 입력 지우기">지우기</button>
+    </div>
+    <div class="table type2">
+      <table>        
+        <caption>
+            <LTag:message code="app.titl.highschRank" />
+        </caption>
+        <colgroup>
+            <col style="width:12%;" />
+            <col style="width:14%;" />
+            <col style="width:10%;" />
+            <col style="width:10%;" />
+            <col style="width:10%;" />
+            <col style="width:14%;" />
+            <col style="width:10%;" />
+            <col style="width:10%;" />
+            <col style="width:10%;" />
+        </colgroup>
+        <thead>
+          <%-- FPT - Static Analysis Handle - DELETE --%>
+          <tr>
+              <th scope="col">학년</label></th>
+              <th scope="col"><label
+                      for="rankschCourseFrt">1학기 과목</label></th>
+              <th scope="col"><label
+                      for="rankschCreditFrt">단위수</label></th>
+              <th scope="col"><label
+                      for="rankschRankFrt">석차등급</label></th>
+              <th scope="col"><label
+                      for="rankschNosesFrt">수강인원</label></th>
+              <th scope="col"><label
+                      for="rankschCourseSnd">2학기 과목</label></th>
+              <th scope="col"><label
+                      for="rankschCreditSnd">단위수</label></th>
+              <th scope="col"><label
+                      for="rankschRankSnd">석차등급</label></th>
+              <th scope="col"><label
+                      for="rankschNosesSnd">수강인원</label></th>
+          </tr>
+          </thead>
+            <tbody>
+                <c:forEach items="${highschRankList.schoolGrade}" varStatus="i">
+                    <tr>
+                        <td><input type="hidden" id="rankschoolGrade_${i.index}"
+                              name="rankschoolGrade_${i.index}"
+                              value="<c:out value='${highschRankList.schoolGrade[i.index]}'/>">${highschRankList.schoolGrade[i.index]}
+                        </td>
+                        <td><input type="text" id="rankschCourseFrt_${i.index}"
+                              name="rankschCourseFrt_${i.index}"
+                              value="<c:out value='${highschRankList.schCourseFrt[i.index]}'/>"
+                              maxlength="8" title="과목"></td>
+                        <td><input type="text" id="rankschCreditFrt_${i.index}"
+                              name="rankschCreditFrt_${i.index}"
+                              value="<c:out value='${highschRankList.schCreditFrt[i.index]}'/>"
+                              maxlength="5" title="단위수"></td>
+                        <td><input type="text" id="rankschRankFrt_${i.index}"
+                              name="rankschRankFrt_${i.index}"
+                              value="<c:out value='${highschRankList.schRankFrt[i.index]}'/>"
+                              maxlength="5" title="석차등급"></td>
+                        <td><input type="text" id="rankschNosesFrt_${i.index}"
+                              name="rankschNosesFrt_${i.index}"
+                              value="<c:out value='${highschRankList.schNosesFrt[i.index]}'/>"
+                              maxlength="5" title="수강수"></td>
+                        <td><input type="text" id="rankschCourseSnd_${i.index}"
+                              name="rankschCourseSnd_${i.index}"
+                              value="<c:out value='${highschRankList.schCourseSnd[i.index]}'/>"
+                              maxlength="8" title="과목"></td>
+                        <td><input type="text" id="rankschCreditSnd_${i.index}"
+                              name="rankschCreditSnd_${i.index}"
+                              value="<c:out value='${highschRankList.schCreditSnd[i.index]}'/>"
+                              maxlength="5" title="단위수"></td>
+                        <td><input type="text" id="rankschRankSnd_${i.index}"
+                              name="rankschRankSnd_${i.index}"
+                              value="<c:out value='${highschRankList.schRankSnd[i.index]}'/>"
+                              maxlength="5" title="석차등급"></td>
+                        <td><input type="text" id="rankschNosesSnd_${i.index}"
+                              name="rankschNosesSnd_${i.index}"
+                              value="<c:out value='${highschRankList.schNosesSnd[i.index]}'/>"
+                              maxlength="5" title="수강수"></td>
+                    </tr>
+                </c:forEach>
+            </tbody>
+          </table>
+      </div>
+      <ul class="bu">
+        <li>성적은 고등학교 생활기록부에 근거하여 입력해주시고, 입력과목 선정 기준은 단위수가 높은 상위
+            <c:out value="${jobNoticeInfo.highschRankCourse}" />개 과목 기입<br>
+            ① 동일 단위수 과목이 있는 경우: 과학, 영어, 수학, 국어, 전공(실업계, 특성화고, 특목고) 교과 순으로 기재<br>
+            ② 석차등급 미표기 과목 제외(Ex. 예체능 과목)</li>
+        <li>성적이 성취도로 표기되는 경우 A→1, B→3, C→5, D→7, E→9로 입력하시고, 성적이 석차로 표기되는 경우는 석차등급란에 해당 과목의 석차를 입력</li>
+        <li>빈칸이 있는 경우 모든 빈칸에 반드시 "." 입력해야 다음 단계로 넘어갈 수 있음(Ex. 과목수가
+          <c:out value="${jobNoticeInfo.highschRankCourse}" />개 미만인 경우)</li>
+      </ul>
+      </article>
+
+
+  <article class="sec1-4" id="collegeDiv">
+    <h3><LTag:message code="app.lbl.college" /> <span id="collegeCount">(
+      <c:out value='${collegeInfoCount}' />)<!--전문대학-->
+    </h3>
+    <ul class="bu">
+      <li> <LTag:message code="app.cont.additionalTip12" /></li>
+      <li><LTag:message code="app.cont.additionalTip7" /></li>
+    </ul>
+    <p><LTag:message code="app.cont.collegeCont_1" /></p>
+    <div class="addWrap">
+      <button type="button" class="delete" onclick="fnEraseData('collegeDiv');"  id="collegeAddBtn" title="<LTag:message code="app.lbl.college" /> 입력 지우기">지우기</button>
+      <button type="button" class="add" title="<LTag:message code="app.lbl.college" /> 추가">추가</button>
+    </div>
+
+    <div class="tRight">
+      <button type="button" class="deleteBtn">
+        <span>1번 째 공인어학성적 삭제</span>
+      </button>
+    </div>
+    <div class="table">
+      <table>
+        <caption>
+          전문대학(1) - 학교명, 소재지, 기간, 졸업구분, 전공계열에 대한 정보
+          제공
+        </caption>
+        <colgroup>
+          <col style="width: 12%" />
+          <col style="width: 35%" />
+          <col style="width: 18%" />
+          <col />
+        </colgroup>
+        <tbody>
+          <tr>
+            <th scope="row">학교명<span class="essential">필수 입력</span></th>
+            <td>
+              <div class="inputSearch inputBox">
+                <input type="text" />
+                <button type="button" class="searchBtn">검색</button>
+              </div>
+            </td>
+            <th scope="row">소재지<span class="essential">필수 입력</span></th>
+            <td>
+              <div class="inputSearch inputBox">
+                <input type="text" />
+                <button type="button" class="searchBtn">검색</button>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">기간<span class="essential">필수 입력</span></th>
+            <td>
+              <span class="duration">
+                <span class="inputBox">
+                  <input
+                    type="text"
+                    id="inputText1"
+                    placeholder="텍스트 입력"
+                  />
+                </span>
+                <button
+                  type="button"
+                  id="milStartDate_cal"
+                  class="LiconCalendar"
+                  data-calendar="milStartDate"
+                >
+                  달력
+                </button>
+                <span class="bar">~</span>
+                <span class="inputBox">
+                  <input
+                    type="text"
+                    id="inputText1"
+                    placeholder="텍스트 입력"
+                  />
+                </span>
+                <button
+                  type="button"
+                  id="milStartDate_cal"
+                  class="LiconCalendar"
+                  data-calendar="milStartDate"
+                >
+                  달력
+                </button>
+              </span>
+            </td>
+            <th scope="row">
+              졸업구분<span class="essential">필수 입력</span>
+            </th>
+            <td>
+              <select name="" title="졸업구분 선택">
+                <option value="">1</option>
+                <option value="">2</option>
+                <option value="">3</option>
+                <option value="">4</option>
+                <option value="">5</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">전공명<span class="essential">필수 입력</span></th>
+            <td>
+              <div class="inputSearch inputBox">
+                <input type="text" />
+                <button type="button" class="searchBtn">검색</button>
+              </div>
+            </td>
+            <th scope="row">
+              전체평점<span class="essential">필수 입력</span>
+            </th>
+            <td>
+              <div class="row">
+                <div class="inputBox">
+                  <input type="text" />
+                </div>
+                <span class="bar">/</span>
+                <select name="" title="평점 선택">
+                  <option value="">1</option>
+                  <option value="">2</option>
+                  <option value="">3</option>
+                  <option value="">4</option>
+                  <option value="">5</option>
+                </select>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <ul class="bu">
+      <li>해당 사항이 없을 경우, 작성하지 않으셔도 됩니다.</li>
+      <li>
+        타 학교로 편입한 경우, 해당 학교의 졸업구분은 '타교편입'으로 선택해
+        주시기 바랍니다.
+      </li>
+    </ul>
+  </article>
+
+  <article class="sec1-5">
+    <h3>대학교(1)</h3>
+    <p>
+      두 개 이상의 4년제 대학을 졸업한 경우 또는 편입 한 경우, ‘+추가’ 를
+      선택하여 작성해 주십시오.
+    </p>
+    <div class="addWrap">
+      <button type="button" class="delete">지우기</button>
+      <button type="button" class="add">추가</button>
+    </div>
+    <div class="table">
+      <table>
+        <caption>
+          대학교(1) - 학교명, 소재지, 기간, 졸업구분, 전공명, 검색 부/복수전공,
+          전체평점, 전공평점, 전체이수학점, 전체 이수학점, 복수전공 이수학점,
+          복수전공 평점, 부전공 이수학점, 부전공 평점, 공학인증에 대한 정보 제공
+        </caption>
+        <colgroup>
+          <col style="width: 12%" />
+          <col style="width: 35%" />
+          <col style="width: 18%" />
+          <col />
+        </colgroup>
+        <tbody>
+          <tr>
+            <th scope="row">학교명<span class="essential">필수 입력</span></th>
+            <td>
+              <div class="inputSearch inputBox">
+                <input type="text" />
+                <button type="button" class="searchBtn">검색</button>
+              </div>
+            </td>
+            <th scope="row">소재지<span class="essential">필수 입력</span></th>
+            <td>
+              <div class="inputSearch inputBox">
+                <input type="text" />
+                <button type="button" class="searchBtn">검색</button>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">기간<span class="essential">필수 입력</span></th>
+            <td>
+              <span class="duration">
+                <span class="inputBox">
+                  <input
+                    type="text"
+                    id="inputText1"
+                    placeholder="텍스트 입력"
+                  />
+                </span>
+                <button
+                  type="button"
+                  id="milStartDate_cal"
+                  class="LiconCalendar"
+                  data-calendar="milStartDate"
+                >
+                  달력
+                </button>
+                <span class="bar">~</span>
+                <span class="inputBox">
+                  <input
+                    type="text"
+                    id="inputText1"
+                    placeholder="텍스트 입력"
+                  />
+                </span>
+                <button
+                  type="button"
+                  id="milStartDate_cal"
+                  class="LiconCalendar"
+                  data-calendar="milStartDate"
+                >
+                  달력
+                </button>
+              </span>
+            </td>
+            <th scope="row">
+              졸업구분<span class="essential">필수 입력</span>
+            </th>
+            <td>
+              <select name="" title="졸업구분 선택">
+                <option value="">1</option>
+                <option value="">2</option>
+                <option value="">3</option>
+                <option value="">4</option>
+                <option value="">5</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">전공명<span class="essential">필수 입력</span></th>
+            <td>
+              <div class="inputSearch inputBox">
+                <input type="text" />
+                <button type="button" class="searchBtn">검색</button>
+              </div>
+            </td>
+            <th scope="row">
+              부/복수전공<span class="essential">필수 입력</span>
+            </th>
+            <td>
+              <div class="row">
+                <select name="" title="평점 선택">
+                  <option value="">1</option>
+                  <option value="">2</option>
+                  <option value="">3</option>
+                  <option value="">4</option>
+                  <option value="">5</option>
+                </select>
+                <div class="inputSearch inputBox mL10">
+                  <input type="text" />
+                  <button type="button" class="searchBtn">검색</button>
+                </div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">
+              전체평점<span class="essential">필수 입력</span>
+            </th>
+            <td>
+              <div class="countWrap row">
+                <div class="inputBox">
+                  <input type="text" />
+                </div>
+                <span class="bar">/</span>
+                <div class="inputBox">
+                  <select name="" title="평점 선택">
+                    <option value="">1</option>
+                    <option value="">2</option>
+                    <option value="">3</option>
+                    <option value="">4</option>
+                    <option value="">5</option>
+                  </select>
+                </div>
+              </div>
+            </td>
+            <th scope="row"></th>
+            <td></td>
+          </tr>
+          <tr>
+            <th scope="row">
+              전공평점<span class="essential">필수 입력</span>
+            </th>
+            <td>
+              <div class="countWrap row">
+                <div class="inputBox">
+                  <input type="text" />
+                </div>
+                <span class="bar">/</span>
+                <div class="inputBox">
+                  <select name="" title="평점 선택">
+                    <option value="">1</option>
+                    <option value="">2</option>
+                    <option value="">3</option>
+                    <option value="">4</option>
+                    <option value="">5</option>
+                  </select>
+                </div>
+              </div>
+            </td>
+            <th scope="row"></th>
+            <td></td>
+          </tr>
+          <tr>
+            <th scope="row">전체 이수학점</th>
+            <td>
+              <div class="inputBox">
+                <label for="inputText1">텍스트입력</label>
+                <input type="text" id="inputText1" placeholder="텍스트 입력" />
+              </div>
+            </td>
+            <th scope="row">전공 이수학점</th>
+            <td>
+              <div class="inputBox">
+                <label for="inputText1">텍스트입력</label>
+                <input type="text" id="inputText1" placeholder="텍스트 입력" />
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">복수전공 이수학점</th>
+            <td>
+              <div class="inputBox">
+                <label for="inputText1">텍스트입력</label>
+                <input type="text" id="inputText1" placeholder="텍스트 입력" />
+              </div>
+            </td>
+            <th scope="row">복수전공 평점</th>
+            <td>
+              <div class="countWrap row">
+                <div class="inputBox">
+                  <input type="text" />
+                </div>
+                <span class="bar">/</span>
+                <div class="inputBox">
+                  <select name="" title="평점 선택">
+                    <option value="">1</option>
+                    <option value="">2</option>
+                    <option value="">3</option>
+                    <option value="">4</option>
+                    <option value="">5</option>
+                  </select>
+                </div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">부전공 이수학점</th>
+            <td>
+              <div class="inputBox">
+                <label for="inputText1">텍스트입력</label>
+                <input type="text" id="inputText1" placeholder="텍스트 입력" />
+              </div>
+            </td>
+            <th scope="row">부전공 평점</th>
+            <td>
+              <div class="countWrap row">
+                <div class="inputBox">
+                  <input type="text" />
+                </div>
+                <span class="bar">/</span>
+                <div class="inputBox">
+                  <select name="" title="평점 선택">
+                    <option value="">1</option>
+                    <option value="">2</option>
+                    <option value="">3</option>
+                    <option value="">4</option>
+                    <option value="">5</option>
+                  </select>
+                </div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <th scope="col">공학인증</th>
+            <td>
+              <span class="input">
+                <input type="radio" id="rd1" name="radio" value="" checked="" />
+                <label for="rd1">Yes</label>
+              </span>
+              <span class="input">
+                <input type="radio" id="rd1" name="radio" value="" checked="" />
+                <label for="rd1">No</label>
+              </span>
+            </td>
+            <th scope="col"></th>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <ul class="bu">
+      <li>
+        타 학교로 편입한 경우, 해당 학교의 졸업구분은 ‘타교편입’으로 선택해
+        주시기 바랍니다.
+      </li>
+      <li>
+        교환학생 내용은 입력하지 마십시오.(복수 학교 졸업이 아닙니다.)<br />
+        단, 국내/해외 대학을 연계하여 두 개의 학위를 인정받은 경우에는 각각
+        입력해주시기 바랍니다.
+      </li>
+      <li>기간은 졸업일 또는 졸업예정일 기준으로 입력해주시기 바랍니다.</li>
+      <li>
+        복수/부전공이 모두 있는 경우 한 가지만 선택하여 입력해주시기 바랍니다.
+      </li>
+      <li>
+        전공이수학점은 전공필수, 전공선택 등 성적증명서상 전공으로 확인가능한
+        과목만 기입해 주시기 바랍니다.<br />
+        (예> 공학계열 전공자는 수학/물리/화학등 전공기초과목 제외)
+      </li>
+    </ul>
+  </article>
+
+  <article class="sec1-6">
+    <h3>대학교-석사(1)</h3>
+    <p>
+      두 개 이상의 석사 학위를 소지한 경우, ‘+추가’ 를 선택하여 작성해 주십시오.
+    </p>
+    <div class="table">
+      <table>
+        <caption>
+          대학교(1) - 학교명, 소재지, 기간, 졸업구분, 전공명, 검색 부/복수전공,
+          전체평점, 전공평점, 전체이수학점, 전체 이수학점, 복수전공 이수학점,
+          복수전공 평점, 부전공 이수학점, 부전공 평점, 공학인증에 대한 정보 제공
+        </caption>
+        <colgroup>
+          <col style="width: 12%" />
+          <col style="width: 35%" />
+          <col style="width: 18%" />
+          <col />
+        </colgroup>
+        <tbody>
+          <tr>
+            <th scope="row">학교명<span class="essential">필수 입력</span></th>
+            <td>
+              <div class="inputSearch inputBox">
+                <input type="text" />
+                <button type="button" class="searchBtn">검색</button>
+              </div>
+            </td>
+            <th scope="row">소재지<span class="essential">필수 입력</span></th>
+            <td>
+              <div class="inputSearch inputBox">
+                <input type="text" />
+                <button type="button" class="searchBtn">검색</button>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">기간<span class="essential">필수 입력</span></th>
+            <td>
+              <span class="duration">
+                <span class="inputBox">
+                  <input
+                    type="text"
+                    id="inputText1"
+                    placeholder="텍스트 입력"
+                  />
+                </span>
+                <button
+                  type="button"
+                  id="milStartDate_cal"
+                  class="LiconCalendar"
+                  data-calendar="milStartDate"
+                >
+                  달력
+                </button>
+                <span class="bar">~</span>
+                <span class="inputBox">
+                  <input
+                    type="text"
+                    id="inputText1"
+                    placeholder="텍스트 입력"
+                  />
+                </span>
+                <button
+                  type="button"
+                  id="milStartDate_cal"
+                  class="LiconCalendar"
+                  data-calendar="milStartDate"
+                >
+                  달력
+                </button>
+              </span>
+            </td>
+            <th scope="row">
+              졸업구분<span class="essential">필수 입력</span>
+            </th>
+            <td>
+              <select name="" title="졸업구분 선택">
+                <option value="">1</option>
+                <option value="">2</option>
+                <option value="">3</option>
+                <option value="">4</option>
+                <option value="">5</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">전공명<span class="essential">필수 입력</span></th>
+            <td>
+              <div class="inputSearch inputBox">
+                <input type="text" />
+                <button type="button" class="searchBtn">검색</button>
+              </div>
+            </td>
+            <th scope="row">
+              전체평점<span class="essential">필수 입력</span>
+            </th>
+            <td>
+              <div class="row countWrap">
+                <div class="inputBox">
+                  <input type="text" />
+                </div>
+                <span class="bar">/</span>
+                <select name="" title="평점 선택">
+                  <option value="">1</option>
+                  <option value="">2</option>
+                  <option value="">3</option>
+                  <option value="">4</option>
+                  <option value="">5</option>
+                </select>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">
+              지도교수<span class="essential">필수 입력</span>
+            </th>
+            <td>
+              <div class="inputBox">
+                <input type="text" />
+              </div>
+            </td>
+            <th scope="row">
+              연구실명<span class="essential">필수 입력</span>
+            </th>
+            <td>
+              <div class="inputBox">
+                <label for="inputText1">텍스트입력</label>
+                <input type="text" id="inputText1" placeholder="텍스트 입력" />
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row" rowspan="2">
+              전공분야<span class="essential">필수 입력</span>
+            </th>
+            <td colspan="3">
+              <p>연구분야 제목을 입력해주십시오.</p>
+              <div class="inputBox">
+                <label for="inputText1">텍스트입력</label>
+                <input type="text" id="inputText1" />
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="3">
+              <p class="tRight">글자수 0 / 100자 ~ 1000자</p>
+              <div class="inputBox">
+                <textarea
+                  id="textBox1"
+                  placeholder="자신의 주 연구 분야를 자유롭게 기술하세요. (어필할 수 있는 논문/특허/프로젝트 등 포함)"
+                  title=""
+                ></textarea>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">
+              논문/주요연구과제<span class="essential">필수 입력</span>
+            </th>
+            <td colspan="3">
+              <div class="upload upload2">
+                <div class="fileUpload">
+                  <button
+                    id="fileAdd"
+                    class="btn minW fileAdd type5"
+                    type="button"
+                  >
+                    첨부파일 추가
+                  </button>
+                </div>
+                <div class="fileUploadC"></div>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <ul class="bu">
+      <li>첨부 파일은 2개까지 가능하며 파일 형식은 PDF만 가능합니다.</li>
+      <li>
+        파일 용량이 개당 3MB로 제한되므로 관련 연구에 대한 요약본으로 등록
+        바랍니다.
+      </li>
+    </ul>
+  </article>
+  <article class="sec1-7">
+    <h3>대학교-박사(1)</h3>
+    <p>
+      두 개 이상의 박사 학위를 소지한 경우, ‘+추가’ 를 선택하여 작성해 주십시오.
+    </p>
+    <div class="table">
+      <table>
+        <caption>
+          대학교(1) - 학교명, 소재지, 기간, 졸업구분, 전공명, 검색 부/복수전공,
+          전체평점, 전공평점, 전체이수학점, 전체 이수학점, 복수전공 이수학점,
+          복수전공 평점, 부전공 이수학점, 부전공 평점, 공학인증에 대한 정보 제공
+        </caption>
+        <colgroup>
+          <col style="width: 12%" />
+          <col style="width: 35%" />
+          <col style="width: 18%" />
+          <col />
+        </colgroup>
+        <tbody>
+          <tr>
+            <th scope="row">학교명<span class="essential">필수 입력</span></th>
+            <td>
+              <div class="inputSearch inputBox">
+                <input type="text" />
+                <button type="button" class="searchBtn">검색</button>
+              </div>
+            </td>
+            <th scope="row">소재지<span class="essential">필수 입력</span></th>
+            <td>
+              <div class="inputSearch inputBox">
+                <input type="text" />
+                <button type="button" class="searchBtn">검색</button>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">기간<span class="essential">필수 입력</span></th>
+            <td>
+              <span class="duration">
+                <span class="inputBox">
+                  <input
+                    type="text"
+                    id="inputText1"
+                    placeholder="텍스트 입력"
+                  />
+                </span>
+                <button
+                  type="button"
+                  id="milStartDate_cal"
+                  class="LiconCalendar"
+                  data-calendar="milStartDate"
+                >
+                  달력
+                </button>
+                <span class="bar">~</span>
+                <span class="inputBox">
+                  <input
+                    type="text"
+                    id="inputText1"
+                    placeholder="텍스트 입력"
+                  />
+                </span>
+                <button
+                  type="button"
+                  id="milStartDate_cal"
+                  class="LiconCalendar"
+                  data-calendar="milStartDate"
+                >
+                  달력
+                </button>
+              </span>
+            </td>
+            <th scope="row">
+              졸업구분<span class="essential">필수 입력</span>
+            </th>
+            <td>
+              <select name="" title="졸업구분 선택">
+                <option value="">1</option>
+                <option value="">2</option>
+                <option value="">3</option>
+                <option value="">4</option>
+                <option value="">5</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">전공명<span class="essential">필수 입력</span></th>
+            <td>
+              <div class="inputSearch inputBox">
+                <input type="text" />
+                <button type="button" class="searchBtn">검색</button>
+              </div>
+            </td>
+            <th scope="row">
+              전체평점<span class="essential">필수 입력</span>
+            </th>
+            <td>
+              <div class="row countWrap">
+                <div class="inputBox">
+                  <input type="text" />
+                </div>
+                <span class="bar">/</span>
+                <select name="" title="평점 선택">
+                  <option value="">1</option>
+                  <option value="">2</option>
+                  <option value="">3</option>
+                  <option value="">4</option>
+                  <option value="">5</option>
+                </select>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">
+              지도교수<span class="essential">필수 입력</span>
+            </th>
+            <td>
+              <div class="inputBox">
+                <input type="text" />
+              </div>
+            </td>
+            <th scope="row">
+              연구실명<span class="essential">필수 입력</span>
+            </th>
+            <td>
+              <div class="inputBox">
+                <label for="inputText1">텍스트입력</label>
+                <input type="text" id="inputText1" placeholder="텍스트 입력" />
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row" rowspan="2">
+              전공분야<span class="essential">필수 입력</span>
+            </th>
+            <td colspan="3">
+              <p>연구분야 제목을 입력해주십시오.</p>
+              <div class="inputBox">
+                <label for="inputText1">텍스트입력</label>
+                <input type="text" id="inputText1" />
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="3">
+              <p class="tRight">글자수 0 / 100자 ~ 1000자</p>
+              <div class="inputBox">
+                <textarea
+                  id="textBox1"
+                  placeholder="자신의 주 연구 분야를 자유롭게 기술하세요. (어필할 수 있는 논문/특허/프로젝트 등 포함)"
+                  title=""
+                ></textarea>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">
+              논문/주요연구과제<span class="essential">필수 입력</span>
+            </th>
+            <td colspan="3">
+              <div class="upload upload2">
+                <div class="fileUpload">
+                  <button
+                    id="fileAdd"
+                    class="btn minW fileAdd type5"
+                    type="button"
+                  >
+                    첨부파일 추가
+                  </button>
+                </div>
+                <div class="fileUploadC"></div>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <ul class="bu">
+      <li>첨부 파일은 2개까지 가능하며 파일 형식은 PDF만 가능합니다.</li>
+      <li>
+        파일 용량이 개당 3MB로 제한되므로 관련 연구에 대한 요약본으로 등록
+        바랍니다.
+      </li>
+    </ul>
+  </article>
+
+  <article class="sec2">
+    <h3>동의서</h3>
+    <p class="more">
+      평판 조회 동의서 작성 안내
+      <a href="">보기</a>
+    </p>
+    <p class="more">영업비밀 침해금지 동의서 작성 안내 <a href="">보기</a></p>
+    <div class="table type3">
+      <table>
+        <caption>
+          평판 조회 동의 - 평판 조회 동의, 영업비밀 침해금지 동의에 대한 정보
+          제공
+        </caption>
+        <colgroup>
+          <col style="width: 15%" />
+          <col style="width: 85%" />
+        </colgroup>
+        <tbody>
+          <tr>
+            <th scope="row">
+              평판 조회 동의<span class="essential">필수 입력</span>
+            </th>
+            <td>
+              <div class="row">
+                <span class="input">
+                  <input type="radio" id="rd1" name="radio" value="" />
+                  <label for="rd1">동의함</label>
+                </span>
+                <span class="input">
+                  <input type="radio" id="rd1" name="radio" value="" />
+                  <label for="rd1">동의하지않음</label>
+                </span>
+                <span class="input">
+                  <input type="checkbox" id="chk1" value="" />
+                  <label for="chk1">서명</label>
+                </span>
+                <span class="more"> 평판 조회 <a href="">보기</a> </span>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">
+              영업비밀 침해금지 동의<span class="essential">필수 입력</span>
+            </th>
+            <td>
+              <div class="row">
+                <span class="input">
+                  <input type="radio" id="rd1" name="radio" value="" />
+                  <label for="rd1">동의함</label>
+                </span>
+                <span class="input">
+                  <input type="radio" id="rd1" name="radio" value="" />
+                  <label for="rd1">동의하지않음</label>
+                </span>
+                <span class="input">
+                  <input type="checkbox" id="chk1" value="" />
+                  <label for="chk1">서명</label>
+                </span>
+                <span class="more">
+                  영업비밀 침해금지 동의서 <a href="">보기</a>
+                </span>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </article>
+
+  <article class="sec3">
+    <h3>공인어학성적(2)</h3>
+    <div class="addWrap">
+      <button class="add" type="button">추가</button>
+    </div>
+    <div class="table type2">
+      <table>
+        <caption>
+          공인어학성적(2) - 언어, 시험명, 점수(급), 취득일자에 대한 정보 제공
+        </caption>
+        <colgroup>
+          <col style="width: 23%" />
+          <col style="width: 22%" />
+          <col style="width: 22%" />
+          <col style="width: 23%" />
+          <col />
+        </colgroup>
+        <thead>
+          <tr>
+            <th scope="col">언어<span class="essential">필수 입력</span></th>
+            <th scope="col">시험명<span class="essential">필수 입력</span></th>
+            <th scope="col">
+              점수(급)<span class="essential">필수 입력</span>
+            </th>
+            <th scope="col">
+              취득일자<span class="essential">필수 입력</span>
+            </th>
+            <th scope="col"><span class="skip">삭제</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <select title="셀렉트 이름">
+                <option value="">--선택--</option>
+                <option value="">선택1</option>
+                <option value="">선택2</option>
+                <option value="">선택3</option>
+                <option value="">선택4</option>
+                <option value="">선택5</option>
+                <option value="">선택6</option>
+              </select>
+            </td>
+            <td>
+              <select title="셀렉트 이름">
+                <option value="">--선택--</option>
+                <option value="">선택1</option>
+                <option value="">선택2</option>
+                <option value="">선택3</option>
+                <option value="">선택4</option>
+                <option value="">선택5</option>
+                <option value="">선택6</option>
+              </select>
+            </td>
+            <td>
+              <div class="inputBox">
+                <label for="inputText1">텍스트입력</label>
+                <input type="text" id="inputText1" placeholder="텍스트 입력" />
+              </div>
+            </td>
+            <td>
+              <span class="duration">
+                <span class="inputBox">
+                  <input
+                    type="text"
+                    id="inputText1"
+                    placeholder="텍스트 입력"
+                  />
+                </span>
+                <button
+                  type="button"
+                  id="milStartDate_cal"
+                  class="LiconCalendar"
+                  data-calendar="milStartDate"
+                >
+                  달력
+                </button>
+              </span>
+            </td>
+            <td class="tRight">
+              <button type="button" class="delete">
+                <span>1번 째 공인어학성적 삭제</span>
+              </button>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <select title="셀렉트 이름">
+                <option value="">--선택--</option>
+                <option value="">선택1</option>
+                <option value="">선택2</option>
+                <option value="">선택3</option>
+                <option value="">선택4</option>
+                <option value="">선택5</option>
+                <option value="">선택6</option>
+              </select>
+            </td>
+            <td>
+              <select title="셀렉트 이름">
+                <option value="">--선택--</option>
+                <option value="">선택1</option>
+                <option value="">선택2</option>
+                <option value="">선택3</option>
+                <option value="">선택4</option>
+                <option value="">선택5</option>
+                <option value="">선택6</option>
+              </select>
+            </td>
+            <td>
+              <div class="inputBox">
+                <label for="inputText1">텍스트입력</label>
+                <input type="text" id="inputText1" placeholder="텍스트 입력" />
+              </div>
+            </td>
+            <td>
+              <span class="duration">
+                <span class="inputBox">
+                  <input
+                    type="text"
+                    id="inputText1"
+                    placeholder="텍스트 입력"
+                  />
+                </span>
+                <button
+                  type="button"
+                  id="milStartDate_cal"
+                  class="LiconCalendar"
+                  data-calendar="milStartDate"
+                >
+                  달력
+                </button>
+              </span>
+            </td>
+            <td class="tRight">
+              <button type="button" class="delete">
+                <span>1번 째 공인어학성적 삭제</span>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <ul class="bu">
+      <li>해당 직무와 연관성이 높은 항목부터 입력해주시기 바랍니다.</li>
+      <li>
+        공인어학성적은 지원서 접수 마감일 기준 최근 2년 이내의 성적을
+        입력해주시기 바랍니다.
+      </li>
+    </ul>
+  </article>
+
+  <article class="sec4">
+    <h3>외국어역량(1)</h3>
+    <div class="addWrap">
+      <button class="add" type="button">추가</button>
+    </div>
+    <div class="table type2">
+      <table>
+        <caption>
+          외국어역량(1) - 언어, 사용국가, 사용 가능 정도에 대한 정보 제공
+        </caption>
+        <colgroup>
+          <col style="width: 30%" />
+          <col style="width: 30%" />
+          <col style="width: 30%" />
+          <col style="" />
+          <col />
+        </colgroup>
+        <thead>
+          <tr>
+            <th scope="col">언어<span class="essential">필수 입력</span></th>
+            <th scope="col">
+              사용국가<span class="essential">필수 입력</span>
+            </th>
+            <th scope="col">
+              사용 가능 정도<span class="essential">필수 입력</span>
+              <button type="button" class="moreInfo">
+                사용 가능 정도 기준 알아보기
+              </button>
+            </th>
+            <th scope="col"><span class="skip">삭제</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <select title="셀렉트 이름">
+                <option value="">--선택--</option>
+                <option value="">선택1</option>
+                <option value="">선택2</option>
+                <option value="">선택3</option>
+                <option value="">선택4</option>
+                <option value="">선택5</option>
+                <option value="">선택6</option>
+              </select>
+            </td>
+            <td>
+              <div class="inputSearch inputBox">
+                <input type="text" disabled />
+                <button type="button" class="searchBtn">검색</button>
+              </div>
+            </td>
+            <td>
+              <select title="셀렉트 이름">
+                <option value="">--선택--</option>
+                <option value="">선택1</option>
+                <option value="">선택2</option>
+                <option value="">선택3</option>
+                <option value="">선택4</option>
+                <option value="">선택5</option>
+                <option value="">선택6</option>
+              </select>
+            </td>
+            <td class="tRight">
+              <button type="button" class="delete">
+                <span>1번 째 외국어역량 삭제</span>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="warning">
+      사용국가는 '기타 제 3외국어'를 선택하신 경우에 한해 정확히 입력해 주시기
+      바랍니다.
+    </p>
+  </article>
+
+  <article class="sec5">
+    <h3>자격증(1)</h3>
+    <div class="addWrap">
+      <button class="add" type="button">추가</button>
+    </div>
+    <div class="table type2">
+      <table>
+        <caption>
+          자격증(1) - 자격증명, 자격등급, 취득일자, 인증기관에 대한 정보 제공
+        </caption>
+        <colgroup>
+          <col style="width: 23%" />
+          <col style="width: 22%" />
+          <col style="width: 22%" />
+          <col style="width: 23%" />
+          <col />
+        </colgroup>
+        <thead>
+          <tr>
+            <th scope="col">
+              자격증명<span class="essential">필수 입력</span>
+            </th>
+            <th scope="col">
+              자격등급<span class="essential">필수 입력</span>
+            </th>
+            <th scope="col">
+              취득일자<span class="essential">필수 입력</span>
+            </th>
+            <th scope="col">
+              인증기관<span class="essential">필수 입력</span>
+            </th>
+            <th scope="col"><span class="skip">삭제</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <div class="inputSearch inputBox">
+                <input type="text" />
+                <button type="button" class="searchBtn">검색</button>
+              </div>
+            </td>
+            <td>
+              <div class="inputBox">
+                <label for="inputText1">텍스트입력</label>
+                <input type="text" id="inputText1" placeholder="텍스트 입력" />
+              </div>
+            </td>
+            <td>
+              <span class="duration">
+                <span class="inputBox">
+                  <input
+                    type="text"
+                    id="inputText1"
+                    placeholder="텍스트 입력"
+                  />
+                </span>
+                <button
+                  type="button"
+                  id="milStartDate_cal"
+                  class="LiconCalendar"
+                  data-calendar="milStartDate"
+                >
+                  달력
+                </button>
+              </span>
+            </td>
+            <td>
+              <div class="inputBox">
+                <label for="inputText1">텍스트입력</label>
+                <input type="text" id="inputText1" placeholder="텍스트 입력" />
+              </div>
+            </td>
+            <td class="tRight">
+              <button type="button" class="delete">
+                <span>1번 째 자격증 삭제</span>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <ul class="bu">
+      <li>해당 직무와 관련된 면허가 있는 경우에도 입력 가능합니다.</li>
+      <li>직무와 연관성이 높은 항목부터 입력해주시기 바랍니다.</li>
+      <li>
+        모든 자격 사항은 지원서 작성 마감일 이전에 인증받은 사항만 인정됩니다.
+      </li>
+    </ul>
+  </article>
+
+  <div class="bottomWrap">
+    <div class="left">
+      <button type="submit" class="btn round type6 prev">
+        <span>이전</span>
+      </button>
+    </div>
+    <div class="right">
+      <button type="submit" class="btn round type6">
+        <span>임시저장</span>
+      </button>
+      <button type="submit" class="btn round type5 next">
+        <span>다음</span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- clone -->
 <section class="tabCon" id="tabCon2">
   <article class="sec1">
     <h3>최종 학력</h3>
@@ -19,322 +2021,212 @@
 
   <article class="sec1-1">
     <h3>고등학교</h3>
+    <div class="addWrap">
+      <button class="delete" type="button">지우기</button>
+    </div>
     <div class="table">
       <table>
-        <caption>고등학교 - 학교명, 소재지, 기간, 졸업구분, 전공계열에 대한 정보 제공</caption>
+        <caption>
+          고등학교 - 학교명, 소재지, 기간, 졸업구분, 전공계열에 대한 정보 제공
+        </caption>
         <colgroup>
-          <col style="width:15%" >
-          <col style="width:35%">
-          <col style="width:15%">
-          <col style="width:35%">
+          <col style="width: 12%" />
+          <col style="width: 35%" />
+          <col style="width: 18%" />
+          <col />
         </colgroup>
         <tbody>
-        <tr>
-          <th scope="row">학교명<span class="essential">필수 입력</span></th>
-          <td>
-            <div class="inputSearch inputBox">
-              <input type="text" />
-              <button type="button" class="searchBtn">검색</button>
-            </div>
-          </td>
-          <th scope="row">소재지<span class="essential">필수 입력</span></th>
-          <td>
-
-            <div class="inputSearch inputBox">
-              <input type="text" />
-              <button type="button" class="searchBtn">검색</button>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <th scope="row">기간<span class="essential">필수 입력</span></th>
-          <td>
+          <tr>
+            <th scope="row">학교명<span class="essential">필수 입력</span></th>
+            <td>
+              <div class="inputSearch inputBox">
+                <input type="text" />
+                <button type="button" class="searchBtn">검색</button>
+              </div>
+            </td>
+            <th scope="row">소재지<span class="essential">필수 입력</span></th>
+            <td>
+              <div class="inputSearch inputBox">
+                <input type="text" />
+                <button type="button" class="searchBtn">검색</button>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">기간<span class="essential">필수 입력</span></th>
+            <td>
               <span class="duration">
                 <span class="inputBox">
                   <input
-                          type="text"
-                          id="inputText1"
-                          placeholder="텍스트 입력"
+                    type="text"
+                    id="inputText1"
+                    placeholder="텍스트 입력"
                   />
                 </span>
                 <button
-                        type="button"
-                        id="milStartDate_cal"
-                        class="LiconCalendar"
-                        data-calendar="milStartDate"
+                  type="button"
+                  id="milStartDate_cal"
+                  class="LiconCalendar"
+                  data-calendar="milStartDate"
                 >
                   달력
                 </button>
                 <span class="bar">~</span>
                 <div class="inputBox">
                   <input
-                          type="text"
-                          id="inputText1"
-                          id="inputText1"
-                          placeholder="텍스트 입력"
+                    type="text"
+                    id="inputText1"
+                    id="inputText1"
+                    placeholder="텍스트 입력"
                   />
                 </div>
                 <button
-                        type="button"
-                        id="milStartDate_cal"
-                        class="LiconCalendar"
-                        data-calendar="milStartDate"
+                  type="button"
+                  id="milStartDate_cal"
+                  class="LiconCalendar"
+                  data-calendar="milStartDate"
                 >
                   달력
                 </button>
               </span>
-          </td>
-          <th scope="row">졸업구분<span class="essential">필수 입력</span></th>
-          <td>
-            <select name="" title="졸업구분 선택">
-              <option value="">1</option>
-              <option value="">2</option>
-              <option value="">3</option>
-              <option value="">4</option>
-              <option value="">5</option>
-            </select>
-          </td>
-        </tr>
-        <tr>
-          <th scope="row">전공계열</th>
-          <td>
-            <select name="" title="전공계열 선택">
-              <option value="">선택하세요</option>
-              <option value="">2</option>
-              <option value="">3</option>
-              <option value="">4</option>
-              <option value="">5</option>
-            </select>
-          </td>
-          <th scope="row"></th>
-          <td></td>
-        </tr>
-        </tbody>
-      </table>
-    </div>
-
-  </article>
-  <article class="sec1-2">
-    <h3>전문대학(1)</h3>
-    <div class="table">
-      <table>
-        <caption>전문대학(1) - 학교명, 소재지, 기간, 졸업구분, 전공계열에 대한 정보 제공</caption>
-        <colgroup>
-          <col style="width:15%" >
-          <col style="width:35%">
-          <col style="width:15%">
-          <col style="width:35%">
-        </colgroup>
-        <tbody>
-        <tr>
-          <th scope="row">학교명<span class="essential">필수 입력</span></th>
-          <td>
-            <div class="inputSearch inputBox">
-              <input type="text" />
-              <button type="button" class="searchBtn">검색</button>
-            </div>
-          </td>
-          <th scope="row">소재지<span class="essential">필수 입력</span></th>
-          <td>
-
-            <div class="inputSearch inputBox">
-              <input type="text" />
-              <button type="button" class="searchBtn">검색</button>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <th scope="row">기간<span class="essential">필수 입력</span></th>
-          <td>
-              <span class="duration">
-                <span class="inputBox">
-                  <input
-                          type="text"
-                          id="inputText1"
-                          placeholder="텍스트 입력"
-                  />
-                </span>
-                <button
-                        type="button"
-                        id="milStartDate_cal"
-                        class="LiconCalendar"
-                        data-calendar="milStartDate"
-                >
-                  달력
-                </button>
-                <span class="bar">~</span>
-                <span class="inputBox">
-                  <input
-                          type="text"
-                          id="inputText1"
-                          placeholder="텍스트 입력"
-                  />
-                </span>
-                <button
-                        type="button"
-                        id="milStartDate_cal"
-                        class="LiconCalendar"
-                        data-calendar="milStartDate"
-                >
-                  달력
-                </button>
-              </span>
-          </td>
-          <th scope="row">졸업구분<span class="essential">필수 입력</span></th>
-          <td>
-            <select name="" title="졸업구분 선택">
-              <option value="">1</option>
-              <option value="">2</option>
-              <option value="">3</option>
-              <option value="">4</option>
-              <option value="">5</option>
-            </select>
-          </td>
-        </tr>
-        <tr>
-          <th scope="row">전공명<span class="essential">필수 입력</span></th>
-          <td>
-            <div class="inputSearch inputBox">
-              <input type="text" />
-              <button type="button" class="searchBtn">검색</button>
-            </div>
-          </td>
-          <th scope="row">전체평점<span class="essential">필수 입력</span></th>
-          <td>
-            <div class="">
-              <div class="inputBox">
-                <input type="text">
-              </div>
-              <span class="bar">/</span>
-              <div class="inputBox">
-                <select name="" title="평점 선택">
-                  <option value="">1</option>
-                  <option value="">2</option>
-                  <option value="">3</option>
-                  <option value="">4</option>
-                  <option value="">5</option>
-                </select>
-              </div>
-            </div>
-          </td>
-        </tr>
-        </tbody>
-      </table>
-    </div>
-
-  </article>
-
-  <article class="sec1-3">
-    <h3>대학교(1)</h3>
-    <div class="table">
-      <table>
-        <caption>대학교(1) - 학교명, 소재지, 기간, 졸업구분, 전공명, 검색 부/복수전공, 전체평점, 전공평점, 전체이수학점, 전체 이수학점, 복수전공 이수학점, 복수전공 평점, 부전공 이수학점, 부전공 평점, 공학인증에 대한 정보 제공</caption>
-        <colgroup>
-          <col style="width:15%" >
-          <col style="width:35%">
-          <col style="width:15%">
-          <col style="width:35%">
-        </colgroup>
-        <tbody>
-        <tr>
-          <th scope="row">학교명<span class="essential">필수 입력</span></th>
-          <td>
-            <div class="inputSearch inputBox">
-              <input type="text" />
-              <button type="button" class="searchBtn">검색</button>
-            </div>
-          </td>
-          <th scope="row">소재지<span class="essential">필수 입력</span></th>
-          <td>
-
-            <div class="inputSearch inputBox">
-              <input type="text" />
-              <button type="button" class="searchBtn">검색</button>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <th scope="row">기간<span class="essential">필수 입력</span></th>
-          <td>
-              <span class="duration">
-                <span class="inputBox">
-                  <input
-                          type="text"
-                          id="inputText1"
-                          placeholder="텍스트 입력"
-                  />
-                </span>
-                <button
-                        type="button"
-                        id="milStartDate_cal"
-                        class="LiconCalendar"
-                        data-calendar="milStartDate"
-                >
-                  달력
-                </button>
-                <span class="bar">~</span>
-                <span class="inputBox">
-                  <input
-                          type="text"
-                          id="inputText1"
-                          placeholder="텍스트 입력"
-                  />
-                </span>
-                <button
-                        type="button"
-                        id="milStartDate_cal"
-                        class="LiconCalendar"
-                        data-calendar="milStartDate"
-                >
-                  달력
-                </button>
-              </span>
-          </td>
-          <th scope="row">졸업구분<span class="essential">필수 입력</span></th>
-          <td>
-            <select name="" title="졸업구분 선택">
-              <option value="">1</option>
-              <option value="">2</option>
-              <option value="">3</option>
-              <option value="">4</option>
-              <option value="">5</option>
-            </select>
-          </td>
-        </tr>
-        <tr>
-          <th scope="row">전공명<span class="essential">필수 입력</span></th>
-          <td>
-            <div class="inputSearch inputBox">
-              <input type="text" />
-              <button type="button" class="searchBtn">검색</button>
-            </div>
-          </td>
-          <th scope="row">부/복수전공<span class="essential">필수 입력</span></th>
-          <td>
-            <div class="">
-              <select name="" title="평점 선택">
+            </td>
+            <th scope="row">
+              졸업구분<span class="essential">필수 입력</span>
+            </th>
+            <td>
+              <select name="" title="졸업구분 선택">
                 <option value="">1</option>
                 <option value="">2</option>
                 <option value="">3</option>
                 <option value="">4</option>
                 <option value="">5</option>
               </select>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">전공계열</th>
+            <td>
+              <select name="" title="전공계열 선택">
+                <option value="">선택하세요</option>
+                <option value="">2</option>
+                <option value="">3</option>
+                <option value="">4</option>
+                <option value="">5</option>
+              </select>
+            </td>
+            <th scope="row"></th>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </article>
+  <article class="sec1-2">
+    <h3>전문대학(1)</h3>
+    <p>
+      두 개 이상의 전문대학을 졸업한 경우 또는 편입한 경우, '+추가'를 선택하여
+      작성해 주십시오.
+    </p>
+    <div class="addWrap">
+      <button type="button" class="delete">지우기</button>
+      <button type="button" class="add">추가</button>
+    </div>
+    <div class="table">
+      <table>
+        <caption>
+          전문대학(1) - 학교명, 소재지, 기간, 졸업구분, 전공계열에 대한 정보
+          제공
+        </caption>
+        <colgroup>
+          <col style="width: 12%" />
+          <col style="width: 35%" />
+          <col style="width: 18%" />
+          <col />
+        </colgroup>
+        <tbody>
+          <tr>
+            <th scope="row">학교명<span class="essential">필수 입력</span></th>
+            <td>
               <div class="inputSearch inputBox">
                 <input type="text" />
                 <button type="button" class="searchBtn">검색</button>
               </div>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <th scope="row">전체평점<span class="essential">필수 입력</span></th>
-          <td>
-            <div class="countWrap">
-              <div class="inputBox">
-                <input type="text">
+            </td>
+            <th scope="row">소재지<span class="essential">필수 입력</span></th>
+            <td>
+              <div class="inputSearch inputBox">
+                <input type="text" />
+                <button type="button" class="searchBtn">검색</button>
               </div>
-              <span class="bar">/</span>
-              <div class="inputBox">
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">기간<span class="essential">필수 입력</span></th>
+            <td>
+              <span class="duration">
+                <span class="inputBox">
+                  <input
+                    type="text"
+                    id="inputText1"
+                    placeholder="텍스트 입력"
+                  />
+                </span>
+                <button
+                  type="button"
+                  id="milStartDate_cal"
+                  class="LiconCalendar"
+                  data-calendar="milStartDate"
+                >
+                  달력
+                </button>
+                <span class="bar">~</span>
+                <span class="inputBox">
+                  <input
+                    type="text"
+                    id="inputText1"
+                    placeholder="텍스트 입력"
+                  />
+                </span>
+                <button
+                  type="button"
+                  id="milStartDate_cal"
+                  class="LiconCalendar"
+                  data-calendar="milStartDate"
+                >
+                  달력
+                </button>
+              </span>
+            </td>
+            <th scope="row">
+              졸업구분<span class="essential">필수 입력</span>
+            </th>
+            <td>
+              <select name="" title="졸업구분 선택">
+                <option value="">1</option>
+                <option value="">2</option>
+                <option value="">3</option>
+                <option value="">4</option>
+                <option value="">5</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">전공명<span class="essential">필수 입력</span></th>
+            <td>
+              <div class="inputSearch inputBox">
+                <input type="text" />
+                <button type="button" class="searchBtn">검색</button>
+              </div>
+            </td>
+            <th scope="row">
+              전체평점<span class="essential">필수 입력</span>
+            </th>
+            <td>
+              <div class="row">
+                <div class="inputBox">
+                  <input type="text" />
+                </div>
+                <span class="bar">/</span>
                 <select name="" title="평점 선택">
                   <option value="">1</option>
                   <option value="">2</option>
@@ -343,246 +2235,397 @@
                   <option value="">5</option>
                 </select>
               </div>
-            </div>
-          </td>
-          <th scope="row"></th>
-          <td></td>
-        </tr>
-        <tr>
-          <th scope="row">전공평점<span class="essential">필수 입력</span></th>
-          <td>
-            <div class="countWrap">
-              <div class="inputBox">
-                <input type="text">
-              </div>
-              <span class="bar">/</span>
-              <div class="inputBox">
-                <select name="" title="평점 선택">
-                  <option value="">1</option>
-                  <option value="">2</option>
-                  <option value="">3</option>
-                  <option value="">4</option>
-                  <option value="">5</option>
-                </select>
-              </div>
-            </div>
-          </td>
-          <th scope="row"></th>
-          <td></td>
-        </tr>
-        <tr>
-          <th scope="row">전체 이수학점</th>
-          <td>
-            <div class="inputBox">
-              <label for="inputText1">텍스트입력</label>
-              <input type="text" id="inputText1" placeholder="텍스트 입력">
-            </div>
-          </td>
-          <th scope="row">전공 이수학점</th>
-          <td>
-            <div class="inputBox">
-              <label for="inputText1">텍스트입력</label>
-              <input type="text" id="inputText1" placeholder="텍스트 입력">
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <th scope="row">복수전공 이수학점</th>
-          <td>
-            <div class="inputBox">
-              <label for="inputText1">텍스트입력</label>
-              <input type="text" id="inputText1" placeholder="텍스트 입력">
-            </div>
-          </td>
-          <th scope="row">복수전공 평점</th>
-          <td>
-            <div class="countWrap">
-              <div class="inputBox">
-                <input type="text">
-              </div>
-              <span class="bar">/</span>
-              <div class="inputBox">
-                <select name="" title="평점 선택">
-                  <option value="">1</option>
-                  <option value="">2</option>
-                  <option value="">3</option>
-                  <option value="">4</option>
-                  <option value="">5</option>
-                </select>
-              </div>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <th scope="row">부전공 이수학점</th>
-          <td>
-            <div class="inputBox">
-              <label for="inputText1">텍스트입력</label>
-              <input type="text" id="inputText1" placeholder="텍스트 입력">
-            </div>
-          </td>
-          <th scope="row">부전공 평점</th>
-          <td>
-            <div class="countWrap">
-              <div class="inputBox">
-                <input type="text">
-              </div>
-              <span class="bar">/</span>
-              <div class="inputBox">
-                <select name="" title="평점 선택">
-                  <option value="">1</option>
-                  <option value="">2</option>
-                  <option value="">3</option>
-                  <option value="">4</option>
-                  <option value="">5</option>
-                </select>
-              </div>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <th scope="col">공학인증</th>
-          <td>
-            <span class="input">
-              <input type="radio" id="rd1" name="radio" value="" checked="">
-              <label for="rd1">Yes</label>
-            </span>
-            <span class="input">
-              <input type="radio" id="rd1" name="radio" value="" checked="">
-              <label for="rd1">No</label>
-            </span>
-          </td>
-          <th scope="col">
-          </th>
-          <td></td>
-        </tr>
+            </td>
+          </tr>
         </tbody>
       </table>
     </div>
     <ul class="bu">
-      <li>타 학교로 편입한 경우, 해당 학교의 졸업구분은 ‘타교편입’으로 선택해 주시기 바랍니다.</li>
-      <li>교환학생 내용은 입력하지 마십시오.(복수 학교 졸업이 아닙니다.)<br/>
-        단, 국내/해외 대학을 연계하여 두 개의 학위를 인정받은 경우에는 각각 입력해주시기 바랍니다.</li>
-      <li>기간은 졸업일 또는 졸업예정일 기준으로 입력해주시기 바랍니다.</li>
-      <li>복수/부전공이 모두 있는 경우 한 가지만 선택하여 입력해주시기 바랍니다.</li>
-      <li>전공이수학점은 전공필수, 전공선택 등 성적증명서상 전공으로 확인가능한 과목만 기입해 주시기 바랍니다.<br />
-        (예> 공학계열 전공자는 수학/물리/화학등 전공기초과목 제외)</li>
+      <li>해당 사항이 없을 경우, 작성하지 않으셔도 됩니다.</li>
+      <li>
+        타 학교로 편입한 경우, 해당 학교의 졸업구분은 '타교편입'으로 선택해
+        주시기 바랍니다.
+      </li>
     </ul>
-
   </article>
 
-  <article class="sec1-4">
-    <h3>대학교-석사(1)</h3>
-    <p>두 개 이상의 석사 학위를 소지한 경우, ‘+추가’ 를 선택하여 작성해 주십시오.</p>
+  <article class="sec1-3">
+    <h3>대학교(1)</h3>
+    <p>
+      두 개 이상의 4년제 대학을 졸업한 경우 또는 편입 한 경우, ‘+추가’ 를
+      선택하여 작성해 주십시오.
+    </p>
+    <div class="addWrap">
+      <button type="button" class="delete">지우기</button>
+      <button type="button" class="add">추가</button>
+    </div>
     <div class="table">
       <table>
-        <caption>대학교(1) - 학교명, 소재지, 기간, 졸업구분, 전공명, 검색 부/복수전공, 전체평점, 전공평점, 전체이수학점, 전체 이수학점, 복수전공 이수학점, 복수전공 평점, 부전공 이수학점, 부전공 평점, 공학인증에 대한 정보 제공</caption>
+        <caption>
+          대학교(1) - 학교명, 소재지, 기간, 졸업구분, 전공명, 검색 부/복수전공,
+          전체평점, 전공평점, 전체이수학점, 전체 이수학점, 복수전공 이수학점,
+          복수전공 평점, 부전공 이수학점, 부전공 평점, 공학인증에 대한 정보 제공
+        </caption>
         <colgroup>
-          <col style="width:15%" >
-          <col style="width:35%">
-          <col style="width:15%">
-          <col style="width:35%">
+          <col style="width: 12%" />
+          <col style="width: 35%" />
+          <col style="width: 18%" />
+          <col />
         </colgroup>
         <tbody>
-        <tr>
-          <th scope="row">학교명<span class="essential">필수 입력</span></th>
-          <td>
-            <div class="inputSearch inputBox">
-              <input type="text" />
-              <button type="button" class="searchBtn">검색</button>
-            </div>
-          </td>
-          <th scope="row">소재지<span class="essential">필수 입력</span></th>
-          <td>
-
-            <div class="inputSearch inputBox">
-              <input type="text" />
-              <button type="button" class="searchBtn">검색</button>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <th scope="row">기간<span class="essential">필수 입력</span></th>
-          <td>
+          <tr>
+            <th scope="row">학교명<span class="essential">필수 입력</span></th>
+            <td>
+              <div class="inputSearch inputBox">
+                <input type="text" />
+                <button type="button" class="searchBtn">검색</button>
+              </div>
+            </td>
+            <th scope="row">소재지<span class="essential">필수 입력</span></th>
+            <td>
+              <div class="inputSearch inputBox">
+                <input type="text" />
+                <button type="button" class="searchBtn">검색</button>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">기간<span class="essential">필수 입력</span></th>
+            <td>
               <span class="duration">
                 <span class="inputBox">
                   <input
-                          type="text"
-                          id="inputText1"
-                          placeholder="텍스트 입력"
+                    type="text"
+                    id="inputText1"
+                    placeholder="텍스트 입력"
                   />
                 </span>
                 <button
-                        type="button"
-                        id="milStartDate_cal"
-                        class="LiconCalendar"
-                        data-calendar="milStartDate"
+                  type="button"
+                  id="milStartDate_cal"
+                  class="LiconCalendar"
+                  data-calendar="milStartDate"
                 >
                   달력
                 </button>
                 <span class="bar">~</span>
                 <span class="inputBox">
                   <input
-                          type="text"
-                          id="inputText1"
-                          placeholder="텍스트 입력"
+                    type="text"
+                    id="inputText1"
+                    placeholder="텍스트 입력"
                   />
                 </span>
                 <button
-                        type="button"
-                        id="milStartDate_cal"
-                        class="LiconCalendar"
-                        data-calendar="milStartDate"
+                  type="button"
+                  id="milStartDate_cal"
+                  class="LiconCalendar"
+                  data-calendar="milStartDate"
                 >
                   달력
                 </button>
               </span>
-          </td>
-          <th scope="row">졸업구분<span class="essential">필수 입력</span></th>
-          <td>
-            <select name="" title="졸업구분 선택">
-              <option value="">1</option>
-              <option value="">2</option>
-              <option value="">3</option>
-              <option value="">4</option>
-              <option value="">5</option>
-            </select>
-          </td>
-        </tr>
-        <tr>
-          <th scope="row">전공명<span class="essential">필수 입력</span></th>
-          <td>
-            <div class="inputSearch inputBox">
-              <input type="text" />
-              <button type="button" class="searchBtn">검색</button>
-            </div>
-          </td>
-          <th scope="row">전체평점<span class="essential">필수 입력</span></th>
-          <td>
-            <div class="">
-              <select name="" title="평점 선택">
+            </td>
+            <th scope="row">
+              졸업구분<span class="essential">필수 입력</span>
+            </th>
+            <td>
+              <select name="" title="졸업구분 선택">
                 <option value="">1</option>
                 <option value="">2</option>
                 <option value="">3</option>
                 <option value="">4</option>
                 <option value="">5</option>
               </select>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">전공명<span class="essential">필수 입력</span></th>
+            <td>
               <div class="inputSearch inputBox">
                 <input type="text" />
                 <button type="button" class="searchBtn">검색</button>
               </div>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <th scope="row">지도교수<span class="essential">필수 입력</span></th>
-          <td>
-            <div class="countWrap">
-              <div class="inputBox">
-                <input type="text">
+            </td>
+            <th scope="row">
+              부/복수전공<span class="essential">필수 입력</span>
+            </th>
+            <td>
+              <div class="row">
+                <select name="" title="평점 선택">
+                  <option value="">1</option>
+                  <option value="">2</option>
+                  <option value="">3</option>
+                  <option value="">4</option>
+                  <option value="">5</option>
+                </select>
+                <div class="inputSearch inputBox mL10">
+                  <input type="text" />
+                  <button type="button" class="searchBtn">검색</button>
+                </div>
               </div>
-              <span class="bar">/</span>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">
+              전체평점<span class="essential">필수 입력</span>
+            </th>
+            <td>
+              <div class="countWrap row">
+                <div class="inputBox">
+                  <input type="text" />
+                </div>
+                <span class="bar">/</span>
+                <div class="inputBox">
+                  <select name="" title="평점 선택">
+                    <option value="">1</option>
+                    <option value="">2</option>
+                    <option value="">3</option>
+                    <option value="">4</option>
+                    <option value="">5</option>
+                  </select>
+                </div>
+              </div>
+            </td>
+            <th scope="row"></th>
+            <td></td>
+          </tr>
+          <tr>
+            <th scope="row">
+              전공평점<span class="essential">필수 입력</span>
+            </th>
+            <td>
+              <div class="countWrap row">
+                <div class="inputBox">
+                  <input type="text" />
+                </div>
+                <span class="bar">/</span>
+                <div class="inputBox">
+                  <select name="" title="평점 선택">
+                    <option value="">1</option>
+                    <option value="">2</option>
+                    <option value="">3</option>
+                    <option value="">4</option>
+                    <option value="">5</option>
+                  </select>
+                </div>
+              </div>
+            </td>
+            <th scope="row"></th>
+            <td></td>
+          </tr>
+          <tr>
+            <th scope="row">전체 이수학점</th>
+            <td>
               <div class="inputBox">
+                <label for="inputText1">텍스트입력</label>
+                <input type="text" id="inputText1" placeholder="텍스트 입력" />
+              </div>
+            </td>
+            <th scope="row">전공 이수학점</th>
+            <td>
+              <div class="inputBox">
+                <label for="inputText1">텍스트입력</label>
+                <input type="text" id="inputText1" placeholder="텍스트 입력" />
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">복수전공 이수학점</th>
+            <td>
+              <div class="inputBox">
+                <label for="inputText1">텍스트입력</label>
+                <input type="text" id="inputText1" placeholder="텍스트 입력" />
+              </div>
+            </td>
+            <th scope="row">복수전공 평점</th>
+            <td>
+              <div class="countWrap row">
+                <div class="inputBox">
+                  <input type="text" />
+                </div>
+                <span class="bar">/</span>
+                <div class="inputBox">
+                  <select name="" title="평점 선택">
+                    <option value="">1</option>
+                    <option value="">2</option>
+                    <option value="">3</option>
+                    <option value="">4</option>
+                    <option value="">5</option>
+                  </select>
+                </div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">부전공 이수학점</th>
+            <td>
+              <div class="inputBox">
+                <label for="inputText1">텍스트입력</label>
+                <input type="text" id="inputText1" placeholder="텍스트 입력" />
+              </div>
+            </td>
+            <th scope="row">부전공 평점</th>
+            <td>
+              <div class="countWrap row">
+                <div class="inputBox">
+                  <input type="text" />
+                </div>
+                <span class="bar">/</span>
+                <div class="inputBox">
+                  <select name="" title="평점 선택">
+                    <option value="">1</option>
+                    <option value="">2</option>
+                    <option value="">3</option>
+                    <option value="">4</option>
+                    <option value="">5</option>
+                  </select>
+                </div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <th scope="col">공학인증</th>
+            <td>
+              <span class="input">
+                <input type="radio" id="rd1" name="radio" value="" checked="" />
+                <label for="rd1">Yes</label>
+              </span>
+              <span class="input">
+                <input type="radio" id="rd1" name="radio" value="" checked="" />
+                <label for="rd1">No</label>
+              </span>
+            </td>
+            <th scope="col"></th>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <ul class="bu">
+      <li>
+        타 학교로 편입한 경우, 해당 학교의 졸업구분은 ‘타교편입’으로 선택해
+        주시기 바랍니다.
+      </li>
+      <li>
+        교환학생 내용은 입력하지 마십시오.(복수 학교 졸업이 아닙니다.)<br />
+        단, 국내/해외 대학을 연계하여 두 개의 학위를 인정받은 경우에는 각각
+        입력해주시기 바랍니다.
+      </li>
+      <li>기간은 졸업일 또는 졸업예정일 기준으로 입력해주시기 바랍니다.</li>
+      <li>
+        복수/부전공이 모두 있는 경우 한 가지만 선택하여 입력해주시기 바랍니다.
+      </li>
+      <li>
+        전공이수학점은 전공필수, 전공선택 등 성적증명서상 전공으로 확인가능한
+        과목만 기입해 주시기 바랍니다.<br />
+        (예> 공학계열 전공자는 수학/물리/화학등 전공기초과목 제외)
+      </li>
+    </ul>
+  </article>
+
+  <article class="sec1-4">
+    <h3>대학교-석사(1)</h3>
+    <p>
+      두 개 이상의 석사 학위를 소지한 경우, ‘+추가’ 를 선택하여 작성해 주십시오.
+    </p>
+    <div class="table">
+      <table>
+        <caption>
+          대학교(1) - 학교명, 소재지, 기간, 졸업구분, 전공명, 검색 부/복수전공,
+          전체평점, 전공평점, 전체이수학점, 전체 이수학점, 복수전공 이수학점,
+          복수전공 평점, 부전공 이수학점, 부전공 평점, 공학인증에 대한 정보 제공
+        </caption>
+        <colgroup>
+          <col style="width: 12%" />
+          <col style="width: 35%" />
+          <col style="width: 18%" />
+          <col />
+        </colgroup>
+        <tbody>
+          <tr>
+            <th scope="row">학교명<span class="essential">필수 입력</span></th>
+            <td>
+              <div class="inputSearch inputBox">
+                <input type="text" />
+                <button type="button" class="searchBtn">검색</button>
+              </div>
+            </td>
+            <th scope="row">소재지<span class="essential">필수 입력</span></th>
+            <td>
+              <div class="inputSearch inputBox">
+                <input type="text" />
+                <button type="button" class="searchBtn">검색</button>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">기간<span class="essential">필수 입력</span></th>
+            <td>
+              <span class="duration">
+                <span class="inputBox">
+                  <input
+                    type="text"
+                    id="inputText1"
+                    placeholder="텍스트 입력"
+                  />
+                </span>
+                <button
+                  type="button"
+                  id="milStartDate_cal"
+                  class="LiconCalendar"
+                  data-calendar="milStartDate"
+                >
+                  달력
+                </button>
+                <span class="bar">~</span>
+                <span class="inputBox">
+                  <input
+                    type="text"
+                    id="inputText1"
+                    placeholder="텍스트 입력"
+                  />
+                </span>
+                <button
+                  type="button"
+                  id="milStartDate_cal"
+                  class="LiconCalendar"
+                  data-calendar="milStartDate"
+                >
+                  달력
+                </button>
+              </span>
+            </td>
+            <th scope="row">
+              졸업구분<span class="essential">필수 입력</span>
+            </th>
+            <td>
+              <select name="" title="졸업구분 선택">
+                <option value="">1</option>
+                <option value="">2</option>
+                <option value="">3</option>
+                <option value="">4</option>
+                <option value="">5</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">전공명<span class="essential">필수 입력</span></th>
+            <td>
+              <div class="inputSearch inputBox">
+                <input type="text" />
+                <button type="button" class="searchBtn">검색</button>
+              </div>
+            </td>
+            <th scope="row">
+              전체평점<span class="essential">필수 입력</span>
+            </th>
+            <td>
+              <div class="row countWrap">
+                <div class="inputBox">
+                  <input type="text" />
+                </div>
+                <span class="bar">/</span>
                 <select name="" title="평점 선택">
                   <option value="">1</option>
                   <option value="">2</option>
@@ -591,55 +2634,267 @@
                   <option value="">5</option>
                 </select>
               </div>
-            </div>
-          </td>
-          <th scope="row">연구실명<span class="essential">필수 입력</span></th>
-          <td>
-            <div class="inputBox">
-              <label for="inputText1">텍스트입력</label>
-              <input type="text" id="inputText1" placeholder="텍스트 입력">
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <th scope="row" rowspan="2">전공분야<span class="essential">필수 입력</span></th>
-          <td colspan="3">
-            <p>연구분야 제목을 입력해주십시오.</p>
-            <div class="inputBox">
-              <label for="inputText1">텍스트입력</label>
-              <input type="text" id="inputText1" placeholder="텍스트 입력">
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td colspan="3">
-            <div class="inputBox">
-              <textarea id="textBox1" placeholder="자신의 주 연구 분야를 자유롭게 기술하세요. (어필할 수 있는 논문/특허/프로젝트 등 포함)" title=""></textarea>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <th scope="row">논문/주요연구과제<span class="essential">필수 입력</span></th>
-          <td colspan="3">
-            <div class="inputBox upload">
-              <div class="uploadWrap">
-                <input type="file" name="file_attach" id="attach" title="파일경로" class="input" placeholder="파일찾기">
-                <span class="fileName"></span>
-                <button type="button" class="clear">파일 제거</button>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">
+              지도교수<span class="essential">필수 입력</span>
+            </th>
+            <td>
+              <div class="inputBox">
+                <input type="text" />
               </div>
-              <label for="attach" class="uploadBtn"><span>첨부파일 추가</span></label>
-            </div>
-          </td>
-        </tr>
+            </td>
+            <th scope="row">
+              연구실명<span class="essential">필수 입력</span>
+            </th>
+            <td>
+              <div class="inputBox">
+                <label for="inputText1">텍스트입력</label>
+                <input type="text" id="inputText1" placeholder="텍스트 입력" />
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row" rowspan="2">
+              전공분야<span class="essential">필수 입력</span>
+            </th>
+            <td colspan="3">
+              <p>연구분야 제목을 입력해주십시오.</p>
+              <div class="inputBox">
+                <label for="inputText1">텍스트입력</label>
+                <input type="text" id="inputText1" />
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="3">
+              <p class="tRight">글자수 0 / 100자 ~ 1000자</p>
+              <div class="inputBox">
+                <textarea
+                  id="textBox1"
+                  placeholder="자신의 주 연구 분야를 자유롭게 기술하세요. (어필할 수 있는 논문/특허/프로젝트 등 포함)"
+                  title=""
+                ></textarea>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">
+              논문/주요연구과제<span class="essential">필수 입력</span>
+            </th>
+            <td colspan="3">
+              <div class="upload upload2">
+                <div class="fileUpload">
+                  <button
+                    id="fileAdd"
+                    class="btn minW fileAdd type5"
+                    type="button"
+                  >
+                    첨부파일 추가
+                  </button>
+                </div>
+                <div class="fileUploadC"></div>
+              </div>
+            </td>
+          </tr>
         </tbody>
       </table>
     </div>
 
     <ul class="bu">
       <li>첨부 파일은 2개까지 가능하며 파일 형식은 PDF만 가능합니다.</li>
-      <li>파일 용량이 개당 3MB로 제한되므로 관련 연구에 대한 요약본으로 등록 바랍니다.</li>
+      <li>
+        파일 용량이 개당 3MB로 제한되므로 관련 연구에 대한 요약본으로 등록
+        바랍니다.
+      </li>
     </ul>
+  </article>
+  <article class="sec1-5">
+    <h3>대학교-박사(1)</h3>
+    <p>
+      두 개 이상의 박사 학위를 소지한 경우, ‘+추가’ 를 선택하여 작성해 주십시오.
+    </p>
+    <div class="table">
+      <table>
+        <caption>
+          대학교(1) - 학교명, 소재지, 기간, 졸업구분, 전공명, 검색 부/복수전공,
+          전체평점, 전공평점, 전체이수학점, 전체 이수학점, 복수전공 이수학점,
+          복수전공 평점, 부전공 이수학점, 부전공 평점, 공학인증에 대한 정보 제공
+        </caption>
+        <colgroup>
+          <col style="width: 12%" />
+          <col style="width: 35%" />
+          <col style="width: 18%" />
+          <col />
+        </colgroup>
+        <tbody>
+          <tr>
+            <th scope="row">학교명<span class="essential">필수 입력</span></th>
+            <td>
+              <div class="inputSearch inputBox">
+                <input type="text" />
+                <button type="button" class="searchBtn">검색</button>
+              </div>
+            </td>
+            <th scope="row">소재지<span class="essential">필수 입력</span></th>
+            <td>
+              <div class="inputSearch inputBox">
+                <input type="text" />
+                <button type="button" class="searchBtn">검색</button>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">기간<span class="essential">필수 입력</span></th>
+            <td>
+              <span class="duration">
+                <span class="inputBox">
+                  <input
+                    type="text"
+                    id="inputText1"
+                    placeholder="텍스트 입력"
+                  />
+                </span>
+                <button
+                  type="button"
+                  id="milStartDate_cal"
+                  class="LiconCalendar"
+                  data-calendar="milStartDate"
+                >
+                  달력
+                </button>
+                <span class="bar">~</span>
+                <span class="inputBox">
+                  <input
+                    type="text"
+                    id="inputText1"
+                    placeholder="텍스트 입력"
+                  />
+                </span>
+                <button
+                  type="button"
+                  id="milStartDate_cal"
+                  class="LiconCalendar"
+                  data-calendar="milStartDate"
+                >
+                  달력
+                </button>
+              </span>
+            </td>
+            <th scope="row">
+              졸업구분<span class="essential">필수 입력</span>
+            </th>
+            <td>
+              <select name="" title="졸업구분 선택">
+                <option value="">1</option>
+                <option value="">2</option>
+                <option value="">3</option>
+                <option value="">4</option>
+                <option value="">5</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">전공명<span class="essential">필수 입력</span></th>
+            <td>
+              <div class="inputSearch inputBox">
+                <input type="text" />
+                <button type="button" class="searchBtn">검색</button>
+              </div>
+            </td>
+            <th scope="row">
+              전체평점<span class="essential">필수 입력</span>
+            </th>
+            <td>
+              <div class="row countWrap">
+                <div class="inputBox">
+                  <input type="text" />
+                </div>
+                <span class="bar">/</span>
+                <select name="" title="평점 선택">
+                  <option value="">1</option>
+                  <option value="">2</option>
+                  <option value="">3</option>
+                  <option value="">4</option>
+                  <option value="">5</option>
+                </select>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">
+              지도교수<span class="essential">필수 입력</span>
+            </th>
+            <td>
+              <div class="inputBox">
+                <input type="text" />
+              </div>
+            </td>
+            <th scope="row">
+              연구실명<span class="essential">필수 입력</span>
+            </th>
+            <td>
+              <div class="inputBox">
+                <label for="inputText1">텍스트입력</label>
+                <input type="text" id="inputText1" placeholder="텍스트 입력" />
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row" rowspan="2">
+              전공분야<span class="essential">필수 입력</span>
+            </th>
+            <td colspan="3">
+              <p>연구분야 제목을 입력해주십시오.</p>
+              <div class="inputBox">
+                <label for="inputText1">텍스트입력</label>
+                <input type="text" id="inputText1" />
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="3">
+              <p class="tRight">글자수 0 / 100자 ~ 1000자</p>
+              <div class="inputBox">
+                <textarea
+                  id="textBox1"
+                  placeholder="자신의 주 연구 분야를 자유롭게 기술하세요. (어필할 수 있는 논문/특허/프로젝트 등 포함)"
+                  title=""
+                ></textarea>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">
+              논문/주요연구과제<span class="essential">필수 입력</span>
+            </th>
+            <td colspan="3">
+              <div class="upload upload2">
+                <div class="fileUpload">
+                  <button
+                    id="fileAdd"
+                    class="btn minW fileAdd type5"
+                    type="button"
+                  >
+                    첨부파일 추가
+                  </button>
+                </div>
+                <div class="fileUploadC"></div>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
 
+    <ul class="bu">
+      <li>첨부 파일은 2개까지 가능하며 파일 형식은 PDF만 가능합니다.</li>
+      <li>
+        파일 용량이 개당 3MB로 제한되므로 관련 연구에 대한 요약본으로 등록
+        바랍니다.
+      </li>
+    </ul>
   </article>
 
   <article class="sec2">
@@ -649,7 +2904,7 @@
       <a href="">보기</a>
     </p>
     <p class="more">영업비밀 침해금지 동의서 작성 안내 <a href="">보기</a></p>
-    <div class="table">
+    <div class="table type3">
       <table>
         <caption>
           평판 조회 동의 - 평판 조회 동의, 영업비밀 침해금지 동의에 대한 정보
@@ -660,48 +2915,52 @@
           <col style="width: 85%" />
         </colgroup>
         <tbody>
-        <tr>
-          <th scope="row">
-            평판 조회 동의<span class="essential">필수 입력</span>
-          </th>
-          <td>
-              <span class="input">
-                <input type="radio" id="rd1" name="radio" value="" />
-                <label for="rd1">동의함</label>
-              </span>
-            <span class="input">
-                <input type="radio" id="rd1" name="radio" value="" />
-                <label for="rd1">동의하지않음</label>
-              </span>
-            <span class="input">
-                <input type="checkbox" id="chk1" value="" />
-                <label for="chk1">서명</label>
-              </span>
-            <span class="more"> 평판 조회 <a href="">보기</a> </span>
-          </td>
-        </tr>
-        <tr>
-          <th scope="row">
-            영업비밀 침해금지 동의<span class="essential">필수 입력</span>
-          </th>
-          <td>
-              <span class="input">
-                <input type="radio" id="rd1" name="radio" value="" />
-                <label for="rd1">동의함</label>
-              </span>
-            <span class="input">
-                <input type="radio" id="rd1" name="radio" value="" />
-                <label for="rd1">동의하지않음</label>
-              </span>
-            <span class="input">
-                <input type="checkbox" id="chk1" value="" />
-                <label for="chk1">서명</label>
-              </span>
-            <span class="more">
-                영업비밀 침해금지 동의서 <a href="">보기</a>
-              </span>
-          </td>
-        </tr>
+          <tr>
+            <th scope="row">
+              평판 조회 동의<span class="essential">필수 입력</span>
+            </th>
+            <td>
+              <div class="row">
+                <span class="input">
+                  <input type="radio" id="rd1" name="radio" value="" />
+                  <label for="rd1">동의함</label>
+                </span>
+                <span class="input">
+                  <input type="radio" id="rd1" name="radio" value="" />
+                  <label for="rd1">동의하지않음</label>
+                </span>
+                <span class="input">
+                  <input type="checkbox" id="chk1" value="" />
+                  <label for="chk1">서명</label>
+                </span>
+                <span class="more"> 평판 조회 <a href="">보기</a> </span>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">
+              영업비밀 침해금지 동의<span class="essential">필수 입력</span>
+            </th>
+            <td>
+              <div class="row">
+                <span class="input">
+                  <input type="radio" id="rd1" name="radio" value="" />
+                  <label for="rd1">동의함</label>
+                </span>
+                <span class="input">
+                  <input type="radio" id="rd1" name="radio" value="" />
+                  <label for="rd1">동의하지않음</label>
+                </span>
+                <span class="input">
+                  <input type="checkbox" id="chk1" value="" />
+                  <label for="chk1">서명</label>
+                </span>
+                <span class="more">
+                  영업비밀 침해금지 동의서 <a href="">보기</a>
+                </span>
+              </div>
+            </td>
+          </tr>
         </tbody>
       </table>
     </div>
@@ -712,139 +2971,140 @@
     <div class="addWrap">
       <button class="add" type="button">추가</button>
     </div>
-    <div class="table tCenter">
+    <div class="table type2">
       <table>
         <caption>
           공인어학성적(2) - 언어, 시험명, 점수(급), 취득일자에 대한 정보 제공
         </caption>
         <colgroup>
-          <col style="width: 25%" />
-          <col style="width: 25%" />
-          <col style="width: 25%" />
-          <col style="width: 25%" />
+          <col style="width: 23%" />
+          <col style="width: 22%" />
+          <col style="width: 22%" />
+          <col style="width: 23%" />
+          <col />
         </colgroup>
         <thead>
-        <tr>
-          <th scope="col">언어<span class="essential">필수 입력</span></th>
-          <th scope="col">시험명<span class="essential">필수 입력</span></th>
-          <th scope="col">
-            점수(급)<span class="essential">필수 입력</span>
-          </th>
-          <th scope="col">
-            취득일자<span class="essential">필수 입력</span>
-          </th>
-          <th scope="col"><span class="skip">삭제</span></th>
-        </tr>
+          <tr>
+            <th scope="col">언어<span class="essential">필수 입력</span></th>
+            <th scope="col">시험명<span class="essential">필수 입력</span></th>
+            <th scope="col">
+              점수(급)<span class="essential">필수 입력</span>
+            </th>
+            <th scope="col">
+              취득일자<span class="essential">필수 입력</span>
+            </th>
+            <th scope="col"><span class="skip">삭제</span></th>
+          </tr>
         </thead>
         <tbody>
-        <tr>
-          <td>
-            <select title="셀렉트 이름">
-              <option value="">--선택--</option>
-              <option value="">선택1</option>
-              <option value="">선택2</option>
-              <option value="">선택3</option>
-              <option value="">선택4</option>
-              <option value="">선택5</option>
-              <option value="">선택6</option>
-            </select>
-          </td>
-          <td>
-            <select title="셀렉트 이름">
-              <option value="">--선택--</option>
-              <option value="">선택1</option>
-              <option value="">선택2</option>
-              <option value="">선택3</option>
-              <option value="">선택4</option>
-              <option value="">선택5</option>
-              <option value="">선택6</option>
-            </select>
-          </td>
-          <td>
-            <div class="inputBox">
-              <label for="inputText1">텍스트입력</label>
-              <input type="text" id="inputText1" placeholder="텍스트 입력" />
-            </div>
-          </td>
-          <td>
+          <tr>
+            <td>
+              <select title="셀렉트 이름">
+                <option value="">--선택--</option>
+                <option value="">선택1</option>
+                <option value="">선택2</option>
+                <option value="">선택3</option>
+                <option value="">선택4</option>
+                <option value="">선택5</option>
+                <option value="">선택6</option>
+              </select>
+            </td>
+            <td>
+              <select title="셀렉트 이름">
+                <option value="">--선택--</option>
+                <option value="">선택1</option>
+                <option value="">선택2</option>
+                <option value="">선택3</option>
+                <option value="">선택4</option>
+                <option value="">선택5</option>
+                <option value="">선택6</option>
+              </select>
+            </td>
+            <td>
+              <div class="inputBox">
+                <label for="inputText1">텍스트입력</label>
+                <input type="text" id="inputText1" placeholder="텍스트 입력" />
+              </div>
+            </td>
+            <td>
               <span class="duration">
                 <span class="inputBox">
                   <input
-                          type="text"
-                          id="inputText1"
-                          placeholder="텍스트 입력"
+                    type="text"
+                    id="inputText1"
+                    placeholder="텍스트 입력"
                   />
                 </span>
                 <button
-                        type="button"
-                        id="milStartDate_cal"
-                        class="LiconCalendar"
-                        data-calendar="milStartDate"
+                  type="button"
+                  id="milStartDate_cal"
+                  class="LiconCalendar"
+                  data-calendar="milStartDate"
                 >
                   달력
                 </button>
               </span>
-          </td>
-          <td>
-            <button type="button" class="delete">
-              <span>1번 째 공인어학성적 삭제</span>
-            </button>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <select title="셀렉트 이름">
-              <option value="">--선택--</option>
-              <option value="">선택1</option>
-              <option value="">선택2</option>
-              <option value="">선택3</option>
-              <option value="">선택4</option>
-              <option value="">선택5</option>
-              <option value="">선택6</option>
-            </select>
-          </td>
-          <td>
-            <select title="셀렉트 이름">
-              <option value="">--선택--</option>
-              <option value="">선택1</option>
-              <option value="">선택2</option>
-              <option value="">선택3</option>
-              <option value="">선택4</option>
-              <option value="">선택5</option>
-              <option value="">선택6</option>
-            </select>
-          </td>
-          <td>
-            <div class="inputBox">
-              <label for="inputText1">텍스트입력</label>
-              <input type="text" id="inputText1" placeholder="텍스트 입력" />
-            </div>
-          </td>
-          <td>
+            </td>
+            <td class="tRight">
+              <button type="button" class="delete">
+                <span>1번 째 공인어학성적 삭제</span>
+              </button>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <select title="셀렉트 이름">
+                <option value="">--선택--</option>
+                <option value="">선택1</option>
+                <option value="">선택2</option>
+                <option value="">선택3</option>
+                <option value="">선택4</option>
+                <option value="">선택5</option>
+                <option value="">선택6</option>
+              </select>
+            </td>
+            <td>
+              <select title="셀렉트 이름">
+                <option value="">--선택--</option>
+                <option value="">선택1</option>
+                <option value="">선택2</option>
+                <option value="">선택3</option>
+                <option value="">선택4</option>
+                <option value="">선택5</option>
+                <option value="">선택6</option>
+              </select>
+            </td>
+            <td>
+              <div class="inputBox">
+                <label for="inputText1">텍스트입력</label>
+                <input type="text" id="inputText1" placeholder="텍스트 입력" />
+              </div>
+            </td>
+            <td>
               <span class="duration">
                 <span class="inputBox">
                   <input
-                          type="text"
-                          id="inputText1"
-                          placeholder="텍스트 입력"
+                    type="text"
+                    id="inputText1"
+                    placeholder="텍스트 입력"
                   />
                 </span>
                 <button
-                        type="button"
-                        id="milStartDate_cal"
-                        class="LiconCalendar"
-                        data-calendar="milStartDate"
+                  type="button"
+                  id="milStartDate_cal"
+                  class="LiconCalendar"
+                  data-calendar="milStartDate"
                 >
                   달력
                 </button>
               </span>
-          </td>
-          <td>
-            <button type="button" class="delete">
-              <span>1번 째 공인어학성적 삭제</span>
-            </button>
-          </td>
-        </tr>
+            </td>
+            <td class="tRight">
+              <button type="button" class="delete">
+                <span>1번 째 공인어학성적 삭제</span>
+              </button>
+            </td>
+          </tr>
         </tbody>
       </table>
     </div>
@@ -862,66 +3122,69 @@
     <div class="addWrap">
       <button class="add" type="button">추가</button>
     </div>
-    <div class="table tCenter">
+    <div class="table type2">
       <table>
         <caption>
           외국어역량(1) - 언어, 사용국가, 사용 가능 정도에 대한 정보 제공
         </caption>
         <colgroup>
-          <col style="width: 25%" />
-          <col style="width: 25%" />
-          <col style="width: 25%" />
-          <col style="width: 25%" />
+          <col style="width: 30%" />
+          <col style="width: 30%" />
+          <col style="width: 30%" />
+          <col style="" />
+          <col />
         </colgroup>
         <thead>
-        <tr>
-          <th scope="col">언어<span class="essential">필수 입력</span></th>
-          <th scope="col">
-            사용국가<span class="essential">필수 입력</span>
-          </th>
-          <th scope="col">
-            사용 가능 정도<span class="essential">필수 입력</span>
-            <button type="button" class="moreInfo">사용 가능 정도 기준 알아보기</button>
-          </th>
-          <th scope="col"><span class="skip">삭제</span></th>
-        </tr>
+          <tr>
+            <th scope="col">언어<span class="essential">필수 입력</span></th>
+            <th scope="col">
+              사용국가<span class="essential">필수 입력</span>
+            </th>
+            <th scope="col">
+              사용 가능 정도<span class="essential">필수 입력</span>
+              <button type="button" class="moreInfo">
+                사용 가능 정도 기준 알아보기
+              </button>
+            </th>
+            <th scope="col"><span class="skip">삭제</span></th>
+          </tr>
         </thead>
         <tbody>
-        <tr>
-          <td>
-            <select title="셀렉트 이름">
-              <option value="">--선택--</option>
-              <option value="">선택1</option>
-              <option value="">선택2</option>
-              <option value="">선택3</option>
-              <option value="">선택4</option>
-              <option value="">선택5</option>
-              <option value="">선택6</option>
-            </select>
-          </td>
-          <td>
-            <div class="inputSearch inputBox">
-              <input type="text" />
-              <button type="button" class="searchBtn">검색</button>
-            </div>
-          </td>
-          <td>
-            <select title="셀렉트 이름">
-              <option value="">--선택--</option>
-              <option value="">선택1</option>
-              <option value="">선택2</option>
-              <option value="">선택3</option>
-              <option value="">선택4</option>
-              <option value="">선택5</option>
-              <option value="">선택6</option>
-            </select>
-          </td>
-          <td>
-            <button type="button" class="delete">
-              <span>1번 째 외국어역량 삭제</span>
-            </button>
-          </td>
-        </tr>
+          <tr>
+            <td>
+              <select title="셀렉트 이름">
+                <option value="">--선택--</option>
+                <option value="">선택1</option>
+                <option value="">선택2</option>
+                <option value="">선택3</option>
+                <option value="">선택4</option>
+                <option value="">선택5</option>
+                <option value="">선택6</option>
+              </select>
+            </td>
+            <td>
+              <div class="inputSearch inputBox">
+                <input type="text" disabled />
+                <button type="button" class="searchBtn">검색</button>
+              </div>
+            </td>
+            <td>
+              <select title="셀렉트 이름">
+                <option value="">--선택--</option>
+                <option value="">선택1</option>
+                <option value="">선택2</option>
+                <option value="">선택3</option>
+                <option value="">선택4</option>
+                <option value="">선택5</option>
+                <option value="">선택6</option>
+              </select>
+            </td>
+            <td class="tRight">
+              <button type="button" class="delete">
+                <span>1번 째 외국어역량 삭제</span>
+              </button>
+            </td>
+          </tr>
         </tbody>
       </table>
     </div>
@@ -936,79 +3199,80 @@
     <div class="addWrap">
       <button class="add" type="button">추가</button>
     </div>
-    <div class="table tCenter">
+    <div class="table type2">
       <table>
         <caption>
           자격증(1) - 자격증명, 자격등급, 취득일자, 인증기관에 대한 정보 제공
         </caption>
         <colgroup>
-          <col style="width: 25%" />
-          <col style="width: 25%" />
-          <col style="width: 25%" />
-          <col style="width: 25%" />
+          <col style="width: 23%" />
+          <col style="width: 22%" />
+          <col style="width: 22%" />
+          <col style="width: 23%" />
+          <col />
         </colgroup>
         <thead>
-        <tr>
-          <th scope="col">
-            자격증명<span class="essential">필수 입력</span>
-          </th>
-          <th scope="col">
-            자격등급<span class="essential">필수 입력</span>
-          </th>
-          <th scope="col">
-            취득일자<span class="essential">필수 입력</span>
-          </th>
-          <th scope="col">
-            인증기관<span class="essential">필수 입력</span>
-          </th>
-          <th scope="col"><span class="skip">삭제</span></th>
-        </tr>
+          <tr>
+            <th scope="col">
+              자격증명<span class="essential">필수 입력</span>
+            </th>
+            <th scope="col">
+              자격등급<span class="essential">필수 입력</span>
+            </th>
+            <th scope="col">
+              취득일자<span class="essential">필수 입력</span>
+            </th>
+            <th scope="col">
+              인증기관<span class="essential">필수 입력</span>
+            </th>
+            <th scope="col"><span class="skip">삭제</span></th>
+          </tr>
         </thead>
         <tbody>
-        <tr>
-          <td>
-            <div class="inputSearch inputBox">
-              <input type="text" />
-              <button type="button" class="searchBtn">검색</button>
-            </div>
-          </td>
-          <td>
-            <div class="inputBox">
-              <label for="inputText1">텍스트입력</label>
-              <input type="text" id="inputText1" placeholder="텍스트 입력" />
-            </div>
-          </td>
-          <td>
+          <tr>
+            <td>
+              <div class="inputSearch inputBox">
+                <input type="text" />
+                <button type="button" class="searchBtn">검색</button>
+              </div>
+            </td>
+            <td>
+              <div class="inputBox">
+                <label for="inputText1">텍스트입력</label>
+                <input type="text" id="inputText1" placeholder="텍스트 입력" />
+              </div>
+            </td>
+            <td>
               <span class="duration">
                 <span class="inputBox">
                   <input
-                          type="text"
-                          id="inputText1"
-                          placeholder="텍스트 입력"
+                    type="text"
+                    id="inputText1"
+                    placeholder="텍스트 입력"
                   />
                 </span>
                 <button
-                        type="button"
-                        id="milStartDate_cal"
-                        class="LiconCalendar"
-                        data-calendar="milStartDate"
+                  type="button"
+                  id="milStartDate_cal"
+                  class="LiconCalendar"
+                  data-calendar="milStartDate"
                 >
                   달력
                 </button>
               </span>
-          </td>
-          <td>
-            <div class="inputBox">
-              <label for="inputText1">텍스트입력</label>
-              <input type="text" id="inputText1" placeholder="텍스트 입력" />
-            </div>
-          </td>
-          <td>
-            <button type="button" class="delete">
-              <span>1번 째 자격증 삭제</span>
-            </button>
-          </td>
-        </tr>
+            </td>
+            <td>
+              <div class="inputBox">
+                <label for="inputText1">텍스트입력</label>
+                <input type="text" id="inputText1" placeholder="텍스트 입력" />
+              </div>
+            </td>
+            <td class="tRight">
+              <button type="button" class="delete">
+                <span>1번 째 자격증 삭제</span>
+              </button>
+            </td>
+          </tr>
         </tbody>
       </table>
     </div>

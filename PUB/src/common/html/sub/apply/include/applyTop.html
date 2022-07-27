@@ -1,6 +1,7 @@
-
 <div class="titleWrap">
-    <h2>지원서 작성</h2>
+  <h2><LTag:message code="app.titl.applyInfo" /></h2>
+  <!--
+    header 설명 코드 : <LTag:message code="app.titl.applyTopTitle" />
     <div class="sta">
         <ul>
             <li>
@@ -11,44 +12,99 @@
             <li>Channel</li>
             <li class="staOn">Story</li>
         </ul>
-    </div>
+    </div>-->
 </div>
 
 <!-- title end // step start -->
 <div class="subContentTop">
+  <c:if
+    test="${jobNoticeInfo.recruitTypeCode != 'D' && jobNoticeInfo.recruitTypeCode != 'H'}"
+  >
     <ul class="stepWrap LblockTab">
-        <li class="stepItem Lcurrent">
-            <a href="" class="stepAnchor">
-                <span>기본사항</span>
-            </a>
-        </li>
+      <li class="stepItem Lcurrent">
+        <a href="#tabCon1" class="stepAnchor" onclick="$.submitFlag();">
+          <span><LTag:message code="app.tab.baseInfo" /><!--기본사항--></span>
+        </a>
+      </li>
+      <li class="stepItem">
+        <a href="#tabCon2" class="stepAnchor" onclick="$.submitFlag();">
+          <span
+            ><LTag:message code="app.tab.detailInfo" /><!--상세인적사항--></span
+          >
+        </a>
+      </li>
+      <c:if
+        test="${jobNoticeInfo.careerTypeCode != 'A' && jobNoticeInfo.careerTypeCode != 'C'}"
+      >
         <li class="stepItem">
-            <a href="" class="stepAnchor">
-                <span>상세인적사항</span>
-            </a>
+          <a href="#tabCon3" class="stepAnchor" onclick="$.submitFlag();">
+            <span
+              ><LTag:message code="app.tab.prevExpInfo" /><!--경력사항--></span
+            >
+          </a>
         </li>
-        <li class="stepItem">
-            <a href="" class="stepAnchor">
-                <span>경력사항</span>
-            </a>
-        </li>
-        <li class="stepItem">
-            <a href="" class="stepAnchor">
-                <span>자기소개서</span>
-            </a>
-        </li>
-        <li class="stepItem">
-            <a href="" class="stepAnchor">
-                <span>제출</span>
-            </a>
-        </li>
+      </c:if>
+      <li class="stepItem">
+        <a href="#tabCon4" class="stepAnchor" onclick="$.submitFlag();">
+          <span>
+            <c:choose>
+              <c:when
+                test="${jobNoticeInfo.careerTypeCode == 'A' || jobNoticeInfo.careerTypeCode == 'C'}"
+              >
+                <LTag:message code="app.tab.applicationTr" />
+              </c:when>
+              <c:otherwise>
+                <LTag:message code="app.tab.application" />
+              </c:otherwise>
+            </c:choose>
+
+            <!--자기소개서<--></span
+          >
+        </a>
+      </li>
+      <li class="stepItem">
+        <a
+          href="#tabCon5"
+          class="stepAnchor"
+          onclick="$.fViewAppCompleteDoc();"
+        >
+          <span>
+            <c:choose>
+              <c:when
+                test="${jobNoticeInfo.careerTypeCode == 'A' || jobNoticeInfo.careerTypeCode == 'C'}"
+              >
+                <LTag:message code="app.tab.confSubmitTr" />
+              </c:when>
+              <c:otherwise>
+                <LTag:message code="app.tab.confSubmit" />
+              </c:otherwise>
+            </c:choose>
+            <!--제출--></span
+          >
+        </a>
+      </li>
     </ul>
     <p class="warning type2" title="경고">
-        30분동안 이용이 없을 경우 개인신상보호를 위해 자동 로그아웃되니
-        지원서를 주기적으로 저장해주시기 바랍니다.
+      <LTag:message code="app.cont.saveCont" />
+      <!--30분동안 이용이 없을 경우 개인신상보호를 위해 자동 로그아웃되니 지원서를
+    주기적으로 저장해주시기 바랍니다.-->
     </p>
-    <p class="more">
-        지원서 작성 안내
-        <a href="">보기</a>
-    </p>
+  </c:if>
+  <c:if
+    test="${jobNoticeInfo.recruitTypeCode != 'D' && jobNoticeInfo.recruitTypeCode != 'H'}"
+  >
+    <form id="submitForm" name="submitForm" method="post">
+      <rec:savedToken name="applySumbit" />
+    </form>
+  </c:if>
+</div>
+
+<p class="more">
+  지원서 작성 안내
+  <a href="">보기</a>
+</p>
+<div class="moreWrap right">
+  <p class="more">
+    최근 제출한 지원서의 <a href="">[기본인적사항/병역/기타] 불러보기</a>
+  </p>
 </div>
