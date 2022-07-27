@@ -16,23 +16,57 @@
             </div>
           </div>
           <!-- subContentTop END -->
-          <div class="tabMenu mypageList">
+          <div class="tabMenu ">
             <ul class="tabs">
-              <li data-tab-target="myList" class="tab">
-                <button type="button" class="tabBtn">나의 채용 지원 현황</button>
+              <li data-tab-target="myList" class="tab ">
+                <a href="#n" class="tabBtn">나의 채용 지원 현황</a>
               </li>
               <li data-tab-target="appList" class="tab tabOn">
-                <button type="button" class="tabBtn">공고 지원 목록</button>
+                <a href="#n" class="tabBtn">공고 지원 목록</a>
               </li>
             </ul>
-
+          </div>
+          <div class="mypageList">
             <div class="tabCon">
-              <div id="myList" data-tab-content>
-                <h4 class="blind">나의 채용 지원 현황</h4>
-                1
-              </div>
-              <div id="appList" data-tab-content class="tabOn">
+              <div id="appList" data-tab-content  class="tabOn">
                 <h4 class="blind">공고 지원 목록</h4>
+                <div class="myAppCurrent"><!-- 진행중인 공고가있을때  -->
+                  <h5>전형 진행중인 채용 공고의 TODO를 확인하세요.</h5>
+                  <ul>
+                    <li>
+                      <div>
+                        <p class="cLabel">서류전형 TODO</p>
+                        <p class="cTitle"><a href="#"> Data 지표 관리 및 조달/나라장터 업무 담당자 모집</a></p>
+                        <p class="appInfo">
+                          <span><em>D-13</em>2022.07.10 23:00</span>
+                          <span>하이엠솔루텍</span>
+                          <span>서울 마포구</span>
+                          <span>경력</span>
+                          <span>R&D</span>
+                        </p>
+                      </div>
+                      <div>
+                        <a href="#" class="btn small minW">제출하기</a>
+                      </div>
+                    </li>
+                    <li>
+                      <div>
+                        <p class="cLabel">인적성 TODO</p>
+                        <p class="cTitle"><a href="#"> Data 지표 관리 및 조달/나라장터 업무 담당자 모집</a></p>
+                        <p class="appInfo">
+                          <span><em>D-13</em>2022.07.10 23:00</span>
+                          <span>하이엠솔루텍</span>
+                          <span>서울 마포구</span>
+                          <span>경력</span>
+                          <span>R&D</span>
+                        </p>
+                      </div>
+                      <div>
+                        <a href="#" class="btn small minW">제출하기</a>
+                      </div>
+                    </li>
+                  </ul>
+                </div><!-- myAppCurrent END -->
                 <ul class="guideAcc type2">
                   <li class="accItem" data-num="1">
                     <div class="q">
@@ -211,7 +245,6 @@
                 
             </div>
           </div>
-          <!-- chStoryTab END -->
         </div>
         <!-- subContent END -->
       </div>

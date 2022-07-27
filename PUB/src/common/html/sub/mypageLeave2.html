@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+  @@include('./../layouts/include/subHead.html')
+
+  <body>
+    <div id="headers">@@include('./../layouts/include/header.html')</div>
+    <!--header END-->
+    <div id="container" class="subContainer subBGW">
+      <div class="subConWrap">
+        @@include('./../layouts/include/mypageSide.html')
+        <!-- lnb END -->
+        <div class="subContent mpContent">
+          <div class="mypageLeaveD">
+            <h5>회원 탈퇴가 완료되었습니다.</h5>
+            <p>
+              그동안 LG Career를 이용해주시고, 사랑해주셔서 감사합니다.<br>
+              더욱 더 발전하는 LG Career가 되겠습니다.
+            </p>
+            <div class="icon">
+              <img src="/common/images/icon/leave.png" alt="아이콘">
+            </div>
+            <p class="infoGuide">
+              회원탈퇴 취소(복구)를 원하시는 경우 <a href="#">로그인 문의</a>를 통해 문의해 주세요. 
+            </p>
+            <div class="tCenter">
+              <a href="#" class="btn type5 round large">홈으로 이동</a>
+            </div>
+          </div>
+        </div>
+        <!-- subContent END -->
+      </div>
+      <!-- subConWrap END -->
+    </div>
+
+    <footer id="footer">@@include('./../layouts/include/footer.html')</footer>
+  </body>
+  <script>
+    $('.likeIco a').click(function(){
+      $(this).toggleClass('likeOn');
+      return false;
+    });
+    var attatchId = 1;
+    $("#fileAdd").click(function () {
+      var $attatchElem = $(
+        "<div class='fileUploadForm'><label for='attach' class='uploadBtn'><span>파일선택</span></label><input type='file' name='file_attach' title='파일경로' class='input' placeholder='파일찾기'><span class='fileName'>선택된 파일이 없습니다</span><button type='button' class='fileDelete'>삭제</button></div>"
+      );
+      $attatchElem
+        .find("label")
+        .attr("for", "attatch" + attatchId)
+        .find("span");
+      $attatchElem.find("input[type=file]").attr({
+        id: "attatch" + attatchId,
+        title: attatchId + "번째 파일 입력",
+      });
+      $attatchElem.find("fileDelete").text(attatchId + "번째 파일 입력 삭제");
+
+      $(".fileUploadC").append($attatchElem);
+      attatchId += 1;
+    });
+    $(document).on("change", ".fileUploadForm .input[type=file]", function (e) {
+      var $this = $(e.target),
+        $uploadText = $this.siblings(".fileName");
+      uploadFile = e.target.files;
+      $uploadText.text(uploadFile.item(0).name);
+      // $this.siblings(".clear").addClass("active");
+    });
+    $(document).on("click", ".fileDelete", function () {
+      $(this).parent().remove();
+      attatchId -= 1;
+    });
+  </script>
+</html>

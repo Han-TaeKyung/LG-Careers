@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ko">
+  @@include('./../layouts/include/subHead.html')
+
+  <body>
+    <div id="headers">@@include('./../layouts/include/header.html')</div>
+    <!--header END-->
+    <div id="container" class="subContainer subBGW">
+      <div class="subConWrap">
+        @@include('./../layouts/include/mypageSide.html')
+        <!-- lnb END -->
+        <div class="subContent mpContent">
+          <div class="subContentTop mB40">
+            <div>
+              <h3>지원현황</h3>
+            </div>
+          </div>
+          <!-- subContentTop END -->
+          <div class="tabMenu">
+            <ul class="tabs">
+              <li data-tab-target="myList" class="tab tabOn">
+                <a href="#n" class="tabBtn">나의 채용 지원 현황</a>
+              </li>
+              <li data-tab-target="appList" class="tab">
+                <a href="#n" class="tabBtn">공고 지원 목록</a>
+              </li>
+            </ul>
+          </div>
+          <div class="mypageList">
+            <div class="tabCon">
+              <div id="myList" data-tab-content class="tabOn">
+                <h4 class="blind">나의 채용 지원 현황</h4>
+                <div class="myAppCurrent" style="display: none">
+                  <h5>전형 진행중인 채용 공고의 TODO를 확인하세요.</h5>
+                  <ul>
+                    <li>
+                      <div>
+                        <p class="cLabel">서류전형 TODO</p>
+                        <p class="cTitle"><a href="#"> Data 지표 관리 및 조달/나라장터 업무 담당자 모집</a></p>
+                        <p class="appInfo">
+                          <span><em>D-13</em>2022.07.10 23:00</span>
+                          <span>하이엠솔루텍</span>
+                          <span>서울 마포구</span>
+                          <span>경력</span>
+                          <span>R&D</span>
+                        </p>
+                      </div>
+                      <div>
+                        <a href="#" class="btn small minW">제출하기</a>
+                      </div>
+                    </li>
+                    <li>
+                      <div>
+                        <p class="cLabel">인적성 TODO</p>
+                        <p class="cTitle"><a href="#"> Data 지표 관리 및 조달/나라장터 업무 담당자 모집</a></p>
+                        <p class="appInfo">
+                          <span><em>D-13</em>2022.07.10 23:00</span>
+                          <span>하이엠솔루텍</span>
+                          <span>서울 마포구</span>
+                          <span>경력</span>
+                          <span>R&D</span>
+                        </p>
+                      </div>
+                      <div>
+                        <a href="#" class="btn small minW">제출하기</a>
+                      </div>
+                    </li>
+                  </ul>
+                </div><!-- myAppCurrent END -->
+                <div class="calendarWarp">
+                  <p>캘린더를 이용해 나의 채용 지원 현황을 한 눈에 모아볼 수 있습니다.</p>
+                  <div id='calendar'></div>
+                </div>
+              </div>  <!-- calendarWarp END --> 
+            </div>
+          </div>
+        </div>
+        <!-- subContent END -->
+      </div>
+      <!-- subConWrap END -->
+    </div>
+
+    <footer id="footer">@@include('./../layouts/include/footer.html')</footer>
+  </body>
+  <script src="/common/js/lib/calendar.js"></script>
+  <script>
+    $('.likeIco a').click(function(){
+      $(this).toggleClass('likeOn');
+      return false;
+    });
+    document.addEventListener('DOMContentLoaded', function() {
+    var calendarEl = document.getElementById('calendar');
+
+    var calendar = new FullCalendar.Calendar(calendarEl, {
+      headerToolbar: {
+        left: 'prev,next,today',
+        center: 'title',
+        right: false  //hide 'dayGridMonth,timeGridWeek,timeGridDay'
+      },
+      locale:"ko",
+      initialDate: '2020-06-12',
+      navLinks: true, // can click day/week names to navigate views
+      businessHours: true, // display business hours
+      editable: true,
+      selectable: true,
+      events: [
+        {
+          title: 'Business Lunch',
+          start: '2020-06-03T13:00:00',
+          constraint: 'businessHours'
+        },
+        {
+          title: 'Meeting',
+          start: '2020-06-13T11:00:00',
+          constraint: 'availableForMeeting', // defined below
+          color: '#257e4a'
+        },
+        {
+          title: 'Conference',
+          start: '2020-06-18',
+          end: '2020-06-20'
+        },
+        {
+          title: 'Party',
+          start: '2020-06-29T20:00:00'
+        },
+
+        // areas where "Meeting" must be dropped
+        {
+          groupId: 'availableForMeeting',
+          start: '2020-06-11T10:00:00',
+          end: '2020-06-11T16:00:00',
+          display: 'background'
+        },
+        {
+          groupId: 'availableForMeeting',
+          start: '2020-06-13T10:00:00',
+          end: '2020-06-13T16:00:00',
+          display: 'background'
+        },
+
+        // red areas where no events can be dropped
+        {
+          start: '2020-06-24',
+          end: '2020-06-28',
+          overlap: false,
+          display: 'background',
+          color: '#ff9f89'
+        },
+        {
+          start: '2020-06-06',
+          end: '2020-06-08',
+          overlap: false,
+          display: 'background',
+          color: '#ff9f89'
+        }
+      ]
+    });
+
+    calendar.render();
+  });
+  </script>
+</html>
