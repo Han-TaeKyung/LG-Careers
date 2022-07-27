@@ -3969,20 +3969,66 @@ GRADUATION_STATUS\"')}">
               </div>
             </td>
           </tr>
+        </c:if>
+        <c:if test="${jobNoticeInfo.saleSecViolAgreeYn == 'N'}">         
+          <tr>
+            <th scope="row">
+            <label for="saleSecViolAgreeYn">
+              <LTag:message code="app.lbl.salesecviol.agree" />
+              <!--평판 조회 동의--><span class="essential">필수 입력</span>
+            </label>
+              
+            </th>
+            <td>
+              <div class="row">
+                <span class="input">
+                  <input type="radio" id="saleSecViolAgreeYn_yes" name="saleSecViolAgreeYn" value="Y" <c:if
+                  test="${baseInfo.saleAgreeYn=='Y'}"> checked="checked"
+                  </c:if> disabled="disabled" />
+                  <label for="saleSecViolAgreeYn_yes">동의함</label>
+                </span>
+                <span class="input">
+                  <input type="radio" id="saleSecViolAgreeYn_no" name="saleSecViolAgreeYn" value="N" <c:if
+                  test="${baseInfo.saleAgreeYn=='N'}"> checked="checked" </c:if> disabled="disabled" />
+                  <label
+                  for="saleSecViolAgreeYn_no">동의하지 않음</label>
+                </span>
+                <input type="hidden" id="saleSecViolAgreeYn" name="saleSecViolAgreeYn" value="${baseInfo.saleAgreeYn}" />
+                <input type="hidden" id="saleSignatureName" name="saleSignatureName"
+                  value="${baseInfo.saleSignatureName}" />
+                <input type="hidden" id="saleSignatureBirthDt" name="saleSignatureBirthDt"
+                  value="${baseInfo.saleSignatureBirthDt}" />
+                <span class="input">
+                  <input type="checkbox" id="saleAgreeSignature" value="Y" disabled="disabled" <c:if
+                  test="${baseInfo.saleAgreeYn=='Y' || baseInfo.saleAgreeYn=='N'}"> checked="checked"
+                </c:if> />
+                  <label for="chk1">서명</label>
+                </span>
+                <span class="more">영업비밀 침해금지 동의서 <a href="#"
+                  onclick="agreePopup('SALE','X','${jobNoticeInfo.jobNoticeId}');"><LTag:message code="app.cont.view" /></a> </span>
+              </div>
+            </td>
+          </tr>
+        </c:if>
         </tbody>
       </table>
     </div>
   </article>
+</c:if>
+<!-- 동의서 end -->
 
+
+<!-- 공인어학성적 -->
+<c:if test="${jobNoticeInfo.languageInputFlag == 'N'}">
   <article class="sec3">
-    <h3>공인어학성적(2)</h3>
+    <h3><LTag:message code="app.lbl.languageGrade" /> <span id="languageCount">(1)</span></h3>
     <div class="addWrap">
-      <button class="add" type="button">추가</button>
+      <button class="add" type="button" titl="<LTag:message code="app.lbl.languageGrade" />">추가</button>
     </div>
     <div class="table type2">
-      <table>
+      <table id="languageTable">
         <caption>
-          공인어학성적(2) - 언어, 시험명, 점수(급), 취득일자에 대한 정보 제공
+          <LTag:message code="app.lbl.languageGrade" />
         </caption>
         <colgroup>
           <col style="width: 23%" />
@@ -3993,13 +4039,33 @@ GRADUATION_STATUS\"')}">
         </colgroup>
         <thead>
           <tr>
-            <th scope="col">언어<span class="essential">필수 입력</span></th>
-            <th scope="col">시험명<span class="essential">필수 입력</span></th>
-            <th scope="col">
-              점수(급)<span class="essential">필수 입력</span>
+            <th scope="col"><label class="required" for="offilanguageCode_1">
+              <LTag:message code="app.lbl.language" />
+              <span class="essential">필수 입력</span></label>
             </th>
             <th scope="col">
-              취득일자<span class="essential">필수 입력</span>
+              <label for="offilangTestCode_1">
+                <LTag:message code="app.lbl.testName" />
+                <!--시험명--><span class="essential">필수 입력</span>
+              </label>
+              </th>
+            <th scope="col">
+              <label for="offipointGradeValue_1">
+                <c:choose>
+                  <c:when test="${jobNoticeInfo.passOption == 'Y'}">
+                    <LTag:message code="app.lbl.passOptionFlag" />
+                  </c:when>
+                  <c:otherwise>
+                    <LTag:message code="app.lbl.testScore" />
+                  </c:otherwise>
+                </c:choose><span class="essential">필수 입력</span>
+              </label>
+            </th>
+            <th scope="col">
+              <label for="offitestDate_1">
+                <LTag:message code="app.lbl.acquiredDate" />
+                <!--취득일자--><span class="essential">필수 입력</span>
+              </label>
             </th>
             <th scope="col"><span class="skip">삭제</span></th>
           </tr>
@@ -4007,109 +4073,71 @@ GRADUATION_STATUS\"')}">
         <tbody>
           <tr>
             <td>
-              <select title="셀렉트 이름">
-                <option value="">--선택--</option>
-                <option value="">선택1</option>
-                <option value="">선택2</option>
-                <option value="">선택3</option>
-                <option value="">선택4</option>
-                <option value="">선택5</option>
-                <option value="">선택6</option>
+              <select id="offilanguageCode_1" name="offilanguageCode_1"
+              onChange="getlangTestList(this,'')" title="<LTag:message code=" app.lbl.language" />">
+            <option value="">
+              <LTag:message code="app.lbl.select" />
+            </option>
+            <c:forEach items="${languageTypeList.code}" varStatus="l">
+              <option value="<c:out value='${languageTypeList.code[l.index]}' />">
+                <c:out value='${languageTypeList.value[l.index]}' />
+              </option>
+            </c:forEach>
               </select>
             </td>
             <td>
-              <select title="셀렉트 이름">
-                <option value="">--선택--</option>
-                <option value="">선택1</option>
-                <option value="">선택2</option>
-                <option value="">선택3</option>
-                <option value="">선택4</option>
-                <option value="">선택5</option>
-                <option value="">선택6</option>
+              <select id="offilangTestCode_1" name="offilangTestCode_1"
+              onChange="getGradeValueList(this,'')" title="<LTag:message code=" app.lbl.testName" />">
+            <option value="">
+              <LTag:message code="app.lbl.select" />
+            </option>
               </select>
             </td>
             <td>
-              <div class="inputBox">
+              <div id="divoffipointGradeValue_1"> 
+                <c:choose>
+                  <c:when test="${jobNoticeInfo.passOption == 'Y'}">
+                    <select id="offipointGradeValue_1" name="offipointGradeValue_1"
+                      title="<LTag:message code=" app.lbl.passOptionFlag" />">
+                    <option value="">
+                      <LTag:message code="app.lbl.select" />
+                    </option>
+                    <option value="PASS" <c:if
+                      test="${languageTypeList.pointGradeValue[j.index] == 'PASS'}">
+                      selected
+                    </c:if>>Pass</option>
+                    <option value="FAIL" <c:if test="${languageTypeList.pointGradeValue[j.index] == 'FAIL'}">
+                    selected </c:if>>Fail</option>
+                    </select>
+                    </c:when>
+                    <c:otherwise>
+                    <select id="offipointGradeValue_1" name="offipointGradeValue_1" title="<LTag:message code="
+                      app.lbl.testScore" />">
+                    <option value="">
+                      <LTag:message code="app.lbl.select" />
+                    </option>
+                    </select>
+                    </c:otherwise>
+
+                    </c:choose>
+              <!-- <div class="inputBox">
                 <label for="inputText1">텍스트입력</label>
                 <input type="text" id="inputText1" placeholder="텍스트 입력" />
-              </div>
+              </div> -->
+            </div>
             </td>
             <td>
               <span class="duration">
                 <span class="inputBox">
-                  <input
-                    type="text"
-                    id="inputText1"
-                    placeholder="텍스트 입력"
-                  />
+                  <input type="text" class="Ltext dateText" id="offitestDate_1" name="offitestDate_1"
+                  maxlength="11" readonly="readonly" title="<LTag:message code=" app.lbl.acquiredDate" />">
                 </span>
-                <button
-                  type="button"
-                  id="milStartDate_cal"
-                  class="LiconCalendar"
-                  data-calendar="milStartDate"
-                >
-                  달력
-                </button>
+                <button type="button" class="LiconCalendar" id="offiCal" data-calendar="offitestDate_1">달력</button>
               </span>
             </td>
             <td class="tRight">
-              <button type="button" class="delete">
-                <span>1번 째 공인어학성적 삭제</span>
-              </button>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <select title="셀렉트 이름">
-                <option value="">--선택--</option>
-                <option value="">선택1</option>
-                <option value="">선택2</option>
-                <option value="">선택3</option>
-                <option value="">선택4</option>
-                <option value="">선택5</option>
-                <option value="">선택6</option>
-              </select>
-            </td>
-            <td>
-              <select title="셀렉트 이름">
-                <option value="">--선택--</option>
-                <option value="">선택1</option>
-                <option value="">선택2</option>
-                <option value="">선택3</option>
-                <option value="">선택4</option>
-                <option value="">선택5</option>
-                <option value="">선택6</option>
-              </select>
-            </td>
-            <td>
-              <div class="inputBox">
-                <label for="inputText1">텍스트입력</label>
-                <input type="text" id="inputText1" placeholder="텍스트 입력" />
-              </div>
-            </td>
-            <td>
-              <span class="duration">
-                <span class="inputBox">
-                  <input
-                    type="text"
-                    id="inputText1"
-                    placeholder="텍스트 입력"
-                  />
-                </span>
-                <button
-                  type="button"
-                  id="milStartDate_cal"
-                  class="LiconCalendar"
-                  data-calendar="milStartDate"
-                >
-                  달력
-                </button>
-              </span>
-            </td>
-            <td class="tRight">
-              <button type="button" class="delete">
-                <span>1번 째 공인어학성적 삭제</span>
+              <button type="button" class="deleteBtn" id="languageDelBtn_1" onClick="deleteRow(this);">
+                <span data-src="ico_deleteAboveRow.png" data-alt="행 삭제">1번 째 공인어학성적 삭제</span>
               </button>
             </td>
           </tr>
@@ -4118,22 +4146,26 @@ GRADUATION_STATUS\"')}">
     </div>
     <ul class="bu">
       <li>해당 직무와 연관성이 높은 항목부터 입력해주시기 바랍니다.</li>
-      <li>
-        공인어학성적은 지원서 접수 마감일 기준 최근 2년 이내의 성적을
-        입력해주시기 바랍니다.
-      </li>
+      <li><LTag:message code="app.cont.additionalTip16" /></li>
     </ul>
   </article>
+</c:if>
+</c:if>
 
+<!-- 외국어 역량 가이드 -->
+<c:if test="${jobNoticeInfo.globalInputFlag == 'N'}">
   <article class="sec4">
-    <h3>외국어역량(1)</h3>
+    <h3>      
+      <LTag:message code="app.titl.global" /> <span id="globalCount">(
+        <c:out value='${globalCount}' />)
+      <!--외국어역량(1)--></h3>
     <div class="addWrap">
-      <button class="add" type="button">추가</button>
+      <button class="add"  id="globalAddBtn" type="button" title="<LTag:message code="app.titl.global" />">추가</button>
     </div>
     <div class="table type2">
-      <table>
+      <table id="globalTable">
         <caption>
-          외국어역량(1) - 언어, 사용국가, 사용 가능 정도에 대한 정보 제공
+          <LTag:message code="app.titl.global" />
         </caption>
         <colgroup>
           <col style="width: 30%" />
@@ -4144,15 +4176,28 @@ GRADUATION_STATUS\"')}">
         </colgroup>
         <thead>
           <tr>
-            <th scope="col">언어<span class="essential">필수 입력</span></th>
             <th scope="col">
-              사용국가<span class="essential">필수 입력</span>
+              <label for="glolanguageType_1">
+                <LTag:message code="app.lbl.language" />
+                <!--언어--><span class="essential">필수 입력</span></th>
+              </label>
+              
+            <th scope="col">
+              <label for="glouseCountryCode_1">
+                <LTag:message code="app.lbl.languageNation" />
+<!--사용국가--><span class="essential">필수 입력</span>
+              </label>
+              
             </th>
             <th scope="col">
+              <label for="glouseStartDate_1">
+                <LTag:message code="app.lbl.languageLevel" />
+                <button type="button" class="moreInfo" onclick="languageGuidePopup();">
+                  사용 가능 정도 기준 알아보기
+                </button>
+              </label>
               사용 가능 정도<span class="essential">필수 입력</span>
-              <button type="button" class="moreInfo">
-                사용 가능 정도 기준 알아보기
-              </button>
+              
             </th>
             <th scope="col"><span class="skip">삭제</span></th>
           </tr>
