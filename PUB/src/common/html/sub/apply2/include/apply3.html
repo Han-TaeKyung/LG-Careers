@@ -1,0 +1,191 @@
+
+<section class="tabCon" id="tabCon3">
+    <article class="sec1">
+      <h3>경력사항</h3>
+      <div class="addWrap">
+        <button type="button" class="add">추가</button>
+      </div>
+      <div class="table">
+        <table>
+          <caption>
+            경력사항 - 회사명, 기간, 소재지, 부서명, 직급, 직무, 이직사유,
+            연봉(만원(, 직무경험 상세기술에 대한 정보 제공
+          </caption>
+          <colgroup>
+            <col style="width: 12%" />
+            <col style="width: 35%" />
+            <col style="width: 18%" />
+            <col />
+          </colgroup>
+          <tbody>
+            <tr>
+              <th scope="row">회사명<span class="essential">필수 입력</span></th>
+              <td>
+                <div class="inputBox">
+                  <label for="inputText1">텍스트입력</label>
+                  <input type="text" id="inputText1" placeholder="텍스트 입력" />
+                </div>
+              </td>
+              <th scope="row">기간<span class="essential">필수 입력</span></th>
+              <td>
+                <div class="duration">
+                  <div class="inputBox">
+                    <input type="text" placeholder="YYYYMM" />
+                  </div>
+                  <span class="bar">~</span>
+                  <div class="inputBox">
+                    <input type="text" placeholder="YYYYMM" />
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">소재지<span class="essential">필수 입력</span></th>
+              <td>
+                <div class="inputSearch inputBox">
+                  <input type="text" />
+                  <button type="button" class="searchBtn">검색</button>
+                </div>
+              </td>
+              <th scope="row">부서명<span class="essential">필수 입력</span></th>
+              <td>
+                <div class="inputBox">
+                  <input type="text" id="inputText1" />
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">직급</th>
+              <td>
+                <div class="inputBox">
+                  <input type="text" id="inputText1" />
+                </div>
+              </td>
+              <th scope="row">직무<span class="essential">필수 입력</span></th>
+              <td>
+                <div class="inputBox">
+                  <input type="text" id="inputText1" />
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">
+                이직사유<span class="essential">필수 입력</span>
+              </th>
+              <td>
+                <div class="row">
+                  <select title="셀렉트 이름">
+                    <option value="">--선택--</option>
+                    <option value="">선택1</option>
+                    <option value="">선택2</option>
+                    <option value="">선택3</option>
+                    <option value="">선택4</option>
+                    <option value="">선택5</option>
+                    <option value="">선택6</option>
+                  </select>
+                  <div class="inputBox mL10">
+                    <input type="text" id="inputText1" disabled />
+                  </div>
+                </div>
+              </td>
+              <th scope="row">연봉(만원)</th>
+              <td>
+                <div class="inputBox">
+                  <label for="inputText1">텍스트입력</label>
+                  <input type="text" id="inputText1" />
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <th scope="col" colspan="4" class="thOnly">
+                직무경험 상세 기술<span class="essential">필수 입력</span>
+              </th>
+            </tr>
+            <tr>
+              <td colspan="4" class="tdOnly">
+                <div class="inputBox">
+                  <textarea id="textBox1"></textarea>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <ul class="bu">
+        <li>
+          최근 경력부터 입력하시되, 경력사항은 증빙서류를 통하여 확인 가능한
+          부분에 한합니다.
+        </li>
+        <li>경력사항에는 인턴, 아르바이트 등의 사항은 해당되지 않습니다.</li>
+        <li>경력 인정 여부는 각 사별/직무별로 다를 수 있습니다.</li>
+      </ul>
+    </article>
+  
+    <article>
+      <h3>추가사항</h3>
+      <div class="table">
+        <table>
+          <caption>
+            추가사항 - 희망연봉(만원), 입사가능일에 대한 정보 제공
+          </caption>
+          <colgroup>
+            <col style="width: 12%" />
+            <col style="width: 35%" />
+            <col style="width: 18%" />
+            <col />
+          </colgroup>
+          <tbody>
+            <tr>
+              <th scope="row">
+                희망연봉(만원)<span class="essential">필수 입력</span>
+              </th>
+              <td>
+                <div class="inputBox">
+                  <label for="inputText1">텍스트입력</label>
+                  <input type="text" id="inputText1" placeholder="텍스트 입력" />
+                </div>
+              </td>
+              <th scope="row">
+                입사가능일<span class="essential">필수 입력</span>
+              </th>
+              <td>
+                <span class="duration">
+                  <span class="inputBox">
+                    <input
+                      type="text"
+                      id="inputText1"
+                      placeholder="텍스트 입력"
+                    />
+                  </span>
+                  <button
+                    type="button"
+                    id="milStartDate_cal"
+                    class="LiconCalendar"
+                    data-calendar="milStartDate"
+                  >
+                    달력
+                  </button>
+                </span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </article>
+  
+    <div class="bottomWrap">
+      <div class="left">
+        <button type="submit" class="btn round type6 prev">
+          <span>이전</span>
+        </button>
+      </div>
+      <div class="right">
+        <button type="submit" class="btn round type6">
+          <span>임시저장</span>
+        </button>
+        <button type="submit" class="btn round type5 next">
+          <span>다음</span>
+        </button>
+      </div>
+    </div>
+  </section>

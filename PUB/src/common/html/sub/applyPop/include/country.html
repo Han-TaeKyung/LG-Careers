@@ -1,0 +1,81 @@
+<div class="dmui_dialog_container fade in" style="display: block">
+  <div class="dmui_dialog" style="left: 725.5px; top: 352.5px">
+    <div
+      class="dmui_dialog_content LsimplePopup searchnationality"
+      tabindex="-1"
+      style="outline: none"
+    >
+      <div class="dmui_dialog_header">
+        <h1 class="dmui_dialog_title">국적 검색</h1>
+      </div>
+      <div class="dmui_dialog_body" tabindex="0">
+        <div class="LblockPopupMain search">
+          <div class="Lexplanation">
+            <p>검색 버튼을 눌러 국가명을 선택하시기 바랍니다.</p>
+          </div>
+
+          <div class="LblockSearch">
+            <form
+              method="post"
+              action="#"
+              id="dlgSearchCode_form"
+              name="dlgSearchCode_form"
+            >
+              <span>
+                <input
+                  id="codeName"
+                  name="codeName"
+                  type="text"
+                  size="30"
+                  placeholder="두 글자 이상 입력해 주세요."
+                  title="검색"
+                />
+                <button type="button" id="searchCode">검색</button>
+              </span>
+            </form>
+          </div>
+          <div class="LblockListTable">
+            <div class="LtableScroll" tabindex="0">
+              <table
+                class="LsearchResult directInput"
+                id="dlgSearchCode_tableSearchCodeList"
+              >
+                <caption>
+                  검색 결과목록
+                </caption>
+
+                <thead>
+                  <tr>
+                    <th scope="col" class="Lfirst">국가명</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="Ltemplate">
+                    <td>
+                      <a
+                        href="#"
+                        onclick="dlgCode_select(this,'N'); return false;"
+                        >{$codeName}</a
+                      ><input
+                        type="hidden"
+                        id="code"
+                        name="code"
+                        value="{$codeValue}"
+                      />
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="dmui_dialog_footer">
+        <span><a href="#" class="dmui_dialog_footer_btn">닫기</a></span>
+      </div>
+      <div class="dmui_dialog_btn">
+        <span class="dmui_dialog_btn_close"><a href="#">닫기</a></span>
+      </div>
+    </div>
+  </div>
+</div>
