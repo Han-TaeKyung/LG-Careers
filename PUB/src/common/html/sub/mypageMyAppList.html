@@ -30,7 +30,7 @@
             <div class="tabCon">
               <div id="myList" data-tab-content class="tabOn">
                 <h4 class="blind">나의 채용 지원 현황</h4>
-                <div class="myAppCurrent" style="display: none;"><!-- 전형 진행중인 채용 공고 TODO가 있을때 -->
+                <div class="myAppCurrent"><!-- 전형 진행중인 채용 공고 TODO가 있을때 -->
                   <h5>전형 진행중인 채용 공고의 TODO를 확인하세요.</h5>
                   <ul>
                     <li>
@@ -46,7 +46,7 @@
                         </p>
                       </div>
                       <div>
-                        <a href="#" class="btn small minW">제출하기</a>
+                        <a href="#" class="btn small minW popBtn" data-pop="pop1">제출하기</a>
                       </div>
                     </li>
                     <li>
@@ -62,11 +62,226 @@
                         </p>
                       </div>
                       <div>
-                        <a href="#" class="btn small minW">제출하기</a>
+                        <a href="#" class="btn small minW popBtn" data-pop="pop2">제출하기</a>
                       </div>
                     </li>
                   </ul>
                 </div><!-- myAppCurrent END -->
+                <!-- 팝업 -->
+                <div class="popPanel" data-pop="pop1">
+                  <button class="bgClose">닫기</button>
+                  <div class="popConWrap wid1000">
+                    <div class="popTitle">
+                      <h3>증빙항목등록 제출하기</h3>
+                    </div>
+                    <div class="popCon popMyApp">
+                      <div class="popPhoto">
+                        <h5 class="popMyTitle">사진첨부</h5>
+                        <ul>
+                          <li class="photoBox">
+                            <img id="user_image" src="#" alt="">
+                          </li>
+                          <li>
+                            <div class="inputBox upload inputFile">
+                              <div class="uploadWrap ">
+                                <input  accept="" onchange="PreviewImage();"  type="file" name="file_attach" id="attach" title="파일경로" class="input" placeholder="파일찾기">
+                                <span class="fileName"></span>
+                              </div>
+                              <label for="attach" class="uploadBtn"><span class="blind">첨부파일 추가</span></label>
+                            </div>
+                            <ul class="bu">
+                              <li>이미지 형식은 <span>jpg(jpeg), png</span>를 지원합니다.</li>
+                              <li>사진의 크기 비율은 120x140 권장(비율이 다르면 사진이 찌그러질 수 있습니다.)</li>
+                            </ul>
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="popTable">
+                        <h5 class="popMyTitle">졸업(예정) / 성적 증명서</h5>
+                        <div>
+                          <ul class="wid12">
+                            <li class="popTh">학위</li>
+                            <li class="popTd">고등학교</li>
+                          </ul>
+                          <ul class="wid14">
+                            <li class="popTh">학교명</li>
+                            <li class="popTd">여의도고등학교</li>
+                          </ul>
+                          <ul class="wid12">
+                            <li class="popTh">전공</li>
+                            <li class="popTd">인문계</li>
+                          </ul>
+                          <ul class="wid31">
+                            <li class="popTh">졸업(예정)증명서 첨부</li>
+                            <li class="popTd">
+                              <div class="inputBox upload inputFile">
+                                <div class="uploadWrap">
+                                  <input type="file" name="file_attach" id="attach2" title="파일경로" class="input" placeholder="파일찾기">
+                                  <span class="fileName"></span>
+                                </div>
+                                <label for="attach2" class="uploadBtn"><span class="blind">첨부파일 추가</span></label>
+                              </div>
+                            </li>
+                          </ul>
+                          <ul class="wid31">
+                            <li class="popTh">성정즉명서 첨부</li>
+                            <li class="popTd">
+                              <div class="inputBox upload inputFile">
+                                <div class="uploadWrap">
+                                  <input type="file" name="file_attach" id="attach3" title="파일경로" class="input" placeholder="파일찾기">
+                                  <span class="fileName"></span>
+                                </div>
+                                <label for="attach3" class="uploadBtn"><span class="blind">첨부파일 추가</span></label>
+                              </div>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+
+                      <div class="popTable">
+                        <h5 class="popMyTitle">공인어학성적증명서</h5>
+                        <div>
+                          <ul class="wid23">
+                            <li class="popTh">어학시험명</li>
+                            <li class="popTd">TOEIC-Speaking</li>
+                          </ul>
+                          <ul class="wid23">
+                            <li class="popTh">점수</li>
+                            <li class="popTd">Intermediate High(150점)</li>
+                          </ul>
+                          <ul class="wid23">
+                            <li class="popTh">취득일자</li>
+                            <li class="popTd">2022-06-01</li>
+                          </ul>
+                          <ul class="wid31">
+                            <li class="popTh">증명서첨부 </li>
+                            <li class="popTd">
+                              <div class="inputBox upload inputFile">
+                                <div class="uploadWrap">
+                                  <input type="file" name="file_attach" id="attach4" title="파일경로" class="input" placeholder="파일찾기">
+                                  <span class="fileName"></span>
+                                </div>
+                                <label for="attach4" class="uploadBtn"><span class="blind">첨부파일 추가</span></label>
+                              </div>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+
+                      <div class="popTable">
+                        <h5 class="popMyTitle">자격증명서</h5>
+                        <div>
+                          <ul class="wid17">
+                            <li class="popTh">자격증명</li>
+                            <li class="popTd">자격증이름</li>
+                          </ul>
+                          <ul class="wid17">
+                            <li class="popTh">발급기관</li>
+                            <li class="popTd">발급기관이름</li>
+                          </ul>
+                          <ul class="wid17">
+                            <li class="popTh">취득일자</li>
+                            <li class="popTd">2022-06-01</li>
+                          </ul>
+                          <ul class="wid31">
+                            <li class="popTh">증명서첨부 </li>
+                            <li class="popTd">
+                              <div class="inputBox upload inputFile">
+                                <div class="uploadWrap">
+                                  <input type="file" name="file_attach" id="attach4" title="파일경로" class="input" placeholder="파일찾기">
+                                  <span class="fileName"></span>
+                                </div>
+                                <label for="attach4" class="uploadBtn"><span class="blind">첨부파일 추가</span></label>
+                              </div>
+                            </li>
+                          </ul>
+                          <ul class="wid18">
+                            <li class="popTh">자격증번호</li>
+                            <li class="popTd">2022-06-01</li>
+                          </ul>
+                        </div>
+                      </div>
+                      <div class="popBank">
+                        <h5 class="popMyTitle">면접비수령 계좌번호</h5>
+                        <div class="bank">
+                          <ul>
+                            <li class="bankT">예금주명</li>
+                            <li class="bankD">
+                              <div class="inputBox">
+                                <label for="inputText1">예금주명</label>
+                                <input type="text" id="inputText1" placeholder="반드시 본인 명의 계좌를 등록해주세요.">
+                              </div>
+                            </li>
+                          </ul>
+                          <ul>
+                            <li class="bankT">은행명</li>
+                            <li class="bankD">
+                              <span class="input">
+                                <select title="셀렉트 이름">
+                                  <option value="">--선택--</option>
+                                  <option value="">선택1</option>
+                                  <option value="">선택2</option>
+                                  <option value="">선택3</option>
+                                  <option value="">선택4</option>
+                                  <option value="">선택5</option>
+                                  <option value="">선택6</option>
+                                </select>
+                              </span>
+                            </li>
+                            <li class="bankT rgt">계좌번호</li>
+                            <li class="bankD">
+                              <div class="inputBox">
+                                <label for="inputText2">계좌번호</label>
+                                <input type="text" id="inputText2" placeholder="'-'구분 없이 숫자만 입력하세요.">
+                              </div>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                      <div>
+                        <h5 class="popMyTitle">기타</h5>
+                        <ul class="bu popMy">
+                          <li>증명서 형식은 jpg(jpeg), png, doc(x), ppt(x), xls(x), pdf를 지원합니다.</li>
+                          <li>첨부파일 크기는 개당 10M byte, 등록시 총 용량 10M byte의 제한을 두고 있습니다.</li>
+                          <li>특히, 스캔 이미지의 경우 0.5M byte 이하의 용량으로 생성하면 좀 더 원활한 시스템 이용에 도움이 됩니다.</li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="popFooter">
+                      <div>
+                        <a href="" class="btn popup popBtn">등록</a>
+                      </div>
+                    </div>
+                    <button type="button" class="close">닫기</button>
+                  </div>
+                </div>
+                <!-- 팝업 END-->
+                <!-- 오류팝업 -->
+                <div class="popPanel" data-pop="pop2">
+                  <button class="bgClose">닫기</button>
+                  <div class="popConWrap wid500">
+                    <div class="popTitle">
+                      <h3>오류</h3>
+                    </div>
+                    <div class="popCon minH150">
+                      <div class="tCenter">
+                        <img src="/common/images/icon/popError2.png" alt="오류아이콘">
+                        <p class="joinPop mT30">
+                          이미 제출이 완료된 상태입니다.<br>
+                          제출 서류를 수정하시겠어요?
+                        </p>
+                      </div>
+                    </div>
+                    <div class="popFooter">
+                      <div class="type2">
+                        <a href="" class="btn popup ptype2">취소</a>
+                        <a href="" class="btn popup">수정</a>
+                      </div>
+                    </div>
+                    <button type="button" class="close">닫기</button>
+                  </div>
+                </div>
+                <!-- 오류팝업  END-->
                 <div class="calendarWarp">
                   <p>캘린더를 이용해 나의 채용 지원 현황을 한 눈에 모아볼 수 있습니다.</p>
                   <div id='calendar'></div>
@@ -155,5 +370,13 @@
 
     calendar.render();
   });
+  //첨부파일
+  function PreviewImage() {
+    var preview = new FileReader();
+    preview.onload = function (e) {
+      document.getElementById("user_image").src = e.target.result;
+    };
+    preview.readAsDataURL(document.getElementById("attach").files[0]);
+  };
   </script>
 </html>
