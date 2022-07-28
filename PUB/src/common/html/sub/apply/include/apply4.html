@@ -1,4 +1,149 @@
 <section class="tabCon" id="tabCon4">
+<form id="introInfoForm" name="introInfoForm" method="post">
+  <rec:savedToken name="sessionscopeintro" scope="session" />
+  <div class="skip">
+    <c:choose>
+      <c:when test="${jobNoticeInfo.careerTypeCode == 'A' || jobNoticeInfo.careerTypeCode == 'C'}">
+        <LTag:message code="app.tab.applicationTr" />
+      </c:when>
+      <c:otherwise>
+        <LTag:message code="app.tab.application" />
+      </c:otherwise>
+    </c:choose>
+  </div>
+
+  <!-- 지원서 작성 안내 -->
+<p class="more">
+  <LTag:message code="app.btn.applyWriteGuide" />
+  <a href="" onclick="applcationGuidePopup();"><LTag:message code="app.cont.view" /></a>
+</p>
+
+<c:if test="${!empty beforeAppExprInfo.jobNoticeId}">
+  <div class="moreWrap right">
+    <p class="more">
+      <LTag:message code="app.btn.applyWriteGuide" />
+      <a href="#" onClick="applcationGuidePopup();">
+        <LTag:message code="app.cont.view" />
+      </a>
+    </p>
+  </div>
+</c:if>
+<!-- //지원서 작성 안내 끝 -->
+
+<%-- FPT - Static Analysis Handle - DELETE --%>
+<c:forEach items="${appIntroduceInfo.jobNoticeId}" varStatus="i">
+  <input type="hidden" id="introTypes_${i.index+1}" name="introTypes_${i.index+1}"
+    value="<c:out value='${appIntroduceInfo.introTypes[i.index]}'/>" />
+  <input type="hidden" id="careerType_${i.index+1}" name="careerType_${i.index+1}"
+    value="<c:out value='${appIntroduceInfo.careerType[i.index]}'/>" />
+
+  <article class="sec1">
+    <h3><c:out value='${appIntroduceInfo.questionType[i.index]}' /><!--My Career--></h3>
+    <div class="table type4">
+      <table>
+        <caption><c:out value='${appIntroduceInfo.questionType[i.index]}' /></caption>
+        <tbody>
+          <tr>
+            <th scope="row">
+              <label for="content_${i.index+1}">
+                <c:out value='${appIntroduceInfo.questionText[i.index]}' /><!--지원한 분야에 대한 본인의 핵심역량과 열정에 대하여-->
+              </label>
+              <button type="button" class="moreInfo" onClick="writeGuidePopup();">
+                지원한 분야의 핵심역량과 열정에 대한 예시
+              </button>
+              <span class="right">
+                <LTag:message code="app.lbl.charLength" /><span id="chardata_${i.index+1}"> 0</span> /
+              <c:if test="${!empty appIntroduceInfo.minLength[i.index]}">
+                <c:out value='${appIntroduceInfo.minLength[i.index]}' />
+                자 ~
+              </c:if>
+              <c:out value='${appIntroduceInfo.maxLength[i.index]}' />
+              자
+            </th>
+          </tr>
+          <tr>
+            <td>
+              <div class="inputBox">
+                <textarea id="content_${i.index+1}" name="content_${i.index+1}" class="LtextArea" <c:if
+                  test="${empty appIntroduceInfo.content[i.index]}"> placeholder="<c:out value='${appIntroduceInfo.guideText[i.index]}'/>" </c:if> ><c:out value='${appIntroduceInfo.content[i.index]}' /></textarea>
+                  <input type="hidden" class="minLength" id="minLength_${i.index+1}"
+                    name="minLength_${i.index+1}"
+                    value="<c:out value='${appIntroduceInfo.minLength[i.index]}' />" />
+                  <input type="hidden" class="maxLength" id="maxLength_${i.index+1}"
+                    name="maxLength_${i.index+1}"
+                    value="<c:out value='${appIntroduceInfo.maxLength[i.index]}' />" />
+                  <input type="hidden" id="questionText_${i.index+1}"
+                    value="<c:out value='${appIntroduceInfo.questionText[i.index]}' />" />
+                  <input type="hidden" id="guideText_${i.index+1}"
+                    value="<c:out value='${appIntroduceInfo.guideText[i.index]}' />" />
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </article>
+</c:forEach>
+</form>
+<!-- 
+  <article class="sec2">
+    <h3>My Future</h3>
+    <div class="table type4">
+      <table>
+        <caption></caption>
+        <tbody>
+          <tr>
+            <th scope="row">
+              입사 후 기여할 수 있는 부분에 대하여
+              <button type="button" class="moreInfo">
+                입사 후 기여 작성 예시
+              </button>
+              <span class="right">글자수 0 / 100자 ~ 1000자</span>
+            </th>
+          </tr>
+          <tr>
+            <td>
+              <div class="inputBox">
+                <label for="textBox1">텍스트박스</label>
+                <textarea
+                  id="textBox1"
+                  placeholder="입사후 지원한 모집분야에서 기여할 수 있는 부분을 관련지식, 프로젝트경험 및 기타역량을 기반으로 기술해주십시오.(입사후 업무가 모호할 경우 업무를 추측해서 작성 요망) "
+                ></textarea>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </article> -->
+
+  <div class="bottomWrap">
+    <div class="left">
+      <button type="button" class="btn round type6 prev" onclick="nextTab(this,<c:choose><c:when test="
+        ${jobNoticeInfo.careerTypeCode=='A' || jobNoticeInfo.careerTypeCode=='C' }">1
+        </c:when>
+        <c:otherwise>2</c:otherwise>
+        </c:choose>);">
+        <span><LTag:message code="app.btn.back" /></span>
+      </button>
+    </div>
+    <div class="right">
+      <button type="button" class="btn round type6" id="btnSaveIntroInfo">
+        <span><LTag:message code="com.btn.save" /></span>
+      </button>
+      <button type="button" class="btn round type5 next" onclick="nextTab(this,<c:choose><c:when test=" ${jobNoticeInfo.careerTypeCode=='A'
+        || jobNoticeInfo.careerTypeCode=='C' }">3
+        </c:when>
+        <c:otherwise>4</c:otherwise> 
+        </c:choose>);" >
+        <span><LTag:message code="com.btn.next" /></span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- clone 
+<section class="tabCon" id="tabCon4">
   <article class="sec1">
     <h3>My Career</h3>
     <div class="table type4">
@@ -77,3 +222,4 @@
     </div>
   </div>
 </section>
+-->

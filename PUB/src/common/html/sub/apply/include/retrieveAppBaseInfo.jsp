@@ -688,7 +688,7 @@
                               <LTag:message code="app.lbl.applyPlatform" />
                             </label></th>
                           <td style="width:35%" id="applyPlatformSelect">
-                            <select id="applyplatformCode" name="applyplatformCode"">
+                            <select id="applyplatformCode" name="applyplatformCode">
                                 <option value=""><LTag:message code=" app.lbl.select" /></option>
                             <c:forEach items="${applyPlatformList.code}" varStatus="i">
                               <option value="<c:out value='${applyPlatformList.code[i.index]}' />" <c:if
@@ -1657,7 +1657,7 @@
                                 value="<c:out value='${highschRankList.schoolGrade[i.index]}'/>">${highschRankList.schoolGrade[i.index]}
                             </td>
                             <td><input type="text" id="rankschCourseFrt_${i.index}" name="rankschCourseFrt_${i.index}"
-                                value="<c:out value='${highschRankList.schCourseFrt[i.index]}'/>" size="15"
+                                value="<c:out value='${highschRankList.schCourseFrt[i.index]}'/>" 
                                 maxlength="8" title="과목"></td>
                             <td><input type="text" id="rankschCreditFrt_${i.index}" name="rankschCreditFrt_${i.index}"
                                 value="<c:out value='${highschRankList.schCreditFrt[i.index]}'/>" size="10"
@@ -4729,7 +4729,7 @@
                                   </c:forTokens>
                                 </c:when>
                                 <c:when test="${addTextList.type[i.index] eq 'SELECT'}">
-                                  <select name="addTextValue">
+                                  <select name="addTextValue" title="추가사항 입력">
                                     <c:forTokens items="${addTextList.labels[i.index]}" delims="§" var="tag">
                                       <c:choose>
                                         <c:when test="${tag eq addTextList.value[i.index]}">
@@ -4777,7 +4777,7 @@
 
             </div>
             <!-- appDetailForm end div -->
-
+=====================================================================================
             <c:if test="${jobNoticeInfo.careerTypeCode != 'A' && jobNoticeInfo.careerTypeCode != 'C'}">
               <div id="LblockTabContent03" class="LblockTabContent">
                 <form id="prevExpInfoForm" name="prevExpInfoForm" method="post">
@@ -4955,7 +4955,7 @@
                                   <td>
                                     <span class="set_selectInput">
                                       <select id="exitReasonCode_${k.index+1}" name="exitReasonCode_${k.index+1}"
-                                        onChange="changeExitReason(this)" class="minwidth100">
+                                        onChange="changeExitReason(this)">
                                         <option value="">
                                           <LTag:message code="app.lbl.select" />
                                         </option>
@@ -5080,6 +5080,11 @@
             </div>
             </div>
             </c:if>
+
+
+
+=======================================================================================================
+
             <div id="LblockTabContent04" class="LblockTabContent">
               <form id="introInfoForm" name="introInfoForm" method="post">
                 <rec:savedToken name="sessionscopeintro" scope="session" />
@@ -5182,7 +5187,7 @@
             <!-- Start : 제출 탭 -->
             <div id="LblockTabContent05" class="LblockTabContent">
             </div>
-            <!-- End : 제출 탭 -->
+            <!-- End : 제출 탭 --> 
             </c:if>
             </div>
 
