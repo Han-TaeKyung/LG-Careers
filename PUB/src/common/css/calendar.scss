@@ -5,7 +5,7 @@
     p{
         font-size: 1.6rem;
         line-height: 1.6rem;
-        color:$Gray6B;
+        color:$LGBlack;
         margin-bottom: 3rem;
     }
 }
@@ -61,7 +61,11 @@
                 padding: 1rem 0 .8rem;
             }
         }
-        td{
+        td.fc-day{
+            background-color: $White;
+        } 
+        td.fc-day-today{
+            background-color: #f8f8f8;
         }
         .fc-daygrid-day{
             .fc-daygrid-day-number{
@@ -72,4 +76,29 @@
             }
         }
     } 
+    .fc-non-business{
+        background-color: $White !important;
+    }
+    .fc-h-event{
+        background-color: #FFE3EA;
+        border:.1rem solid #FFE3EA;
+        .fc-event-title{
+            color:$RedD0;
+            font-size: 1.2rem;
+            line-height: 1.8rem;
+        }
+    }
+    .fc-daygrid-dot-event{
+        .fc-event-time{
+            font-size: 1.2rem;
+            line-height: 1.2rem;
+            color: $LGBlack;
+        }
+        .fc-event-title{
+            font-size: 1.2rem;
+            line-height: 1.2rem;
+            font-weight: 400;
+            color: $LGBlack;
+        }
+    }
 }
