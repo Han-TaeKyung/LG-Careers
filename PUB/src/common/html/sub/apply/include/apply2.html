@@ -4185,7 +4185,7 @@ GRADUATION_STATUS\"')}">
             <th scope="col">
               <label for="glouseCountryCode_1">
                 <LTag:message code="app.lbl.languageNation" />
-<!--사용국가--><span class="essential">필수 입력</span>
+                <!--사용국가--><span class="essential">필수 입력</span>
               </label>
               
             </th>
@@ -4203,22 +4203,39 @@ GRADUATION_STATUS\"')}">
           </tr>
         </thead>
         <tbody>
+          <c:forEach items="${globalCompetList.jobNoticeId}" varStatus="i">
           <tr>
             <td>
-              <select title="셀렉트 이름">
-                <option value="">--선택--</option>
-                <option value="">선택1</option>
-                <option value="">선택2</option>
-                <option value="">선택3</option>
-                <option value="">선택4</option>
-                <option value="">선택5</option>
-                <option value="">선택6</option>
+              <select class="glolanguageType"
+                  id="glolanguageType_${i.index+1}"
+                  name="glolanguageType_${i.index+1}"
+                  title="<LTag:message code=" app.lbl.language" />">
+                <option value="">
+                  <LTag:message code="app.lbl.select" />
+                </option>
+                <c:forEach items="${languageTypeList2.code}" varStatus="l">
+                  <option
+                    value="<c:out value='${languageTypeList2.code[l.index]}' />"
+                    <c:if
+                    test="${globalCompetList.languageType[i.index] == languageTypeList2.code[l.index]}">
+                    selected</c:if>>
+                  <c:out value='${languageTypeList2.value[l.index]}' />
+                </option>
+                </c:forEach>
               </select>
             </td>
             <td>
               <div class="inputSearch inputBox">
-                <input type="text" disabled />
-                <button type="button" class="searchBtn">검색</button>
+                <input type="text" class="glouseCountryName" id="glouseCountryName_${i.index+1}"
+                  name="glouseCountryName_${i.index+1}" size="40"
+                  value="<c:out value='${globalCompetList.useCountryName[i.index]}' />"
+                  readonly="readonly" title="<LTag:message code=" app.lbl.languageNation" />" <c:if
+                  test="${not (globalCompetList.languageType[i.index] eq 'LANG999')}">
+                  disabled="disabled"</c:if>/>
+              <input type="hidden" class="glouseCountryCode" id="glouseCountryCode_${i.index+1}"
+                  name="glouseCountryCode_${i.index+1}"
+                  value="<c:out value='${globalCompetList.useCountryCode[i.index]}' />" />
+              <button type="button" class="searchBtn" onclick="searchCodePopup(this,'NA');">검색</button>
               </div>
             </td>
             <td>
