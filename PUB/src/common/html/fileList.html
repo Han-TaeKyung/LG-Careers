@@ -6,12 +6,336 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>LG Careers</title>
   <link rel="stylesheet" type="text/css" href="/common/css/style.css" />
+  <link rel="stylesheet" type="text/css" href="/common/css/fileList.css" />
   <script src="/common/js/lib/jquery-3.6.0.min.js"></script>
 </head>
 
-<body>
+<body id="fileList">
+  <header id="header">
+    <button type="button" class="btn type5" data-href="login">로그인/회원가입</button>
+    <button type="button" class="btn type5" data-href="channel">채널</button>
+    <button type="button" class="btn type5" data-href="apply">지원하기</button>
+    <button type="button" class="btn type5" data-href="myPage">마이페이지</button>
+  </header>
   <div class="fileListWrap">
     <h1 class="title1">파일리스트업(반응형 작업 대기 / PC작업만 완료)</h1>
+    <script>
+      var th = ['화면ID','화면명','화면경로','작업자','진행사항','등록일','비고'];
+      var category = ['login','channel','apply','myPage'];
+      var td = [
+      {
+        id : 1,
+        category : 'etc',
+        title : '공통 컴포넌트',
+        href : '/common/html/components/component.html',
+        owner : '태경,명화',
+        stepPC : '진행중',
+        stepMobile : '대기',
+        date : '2022-06-16',
+        empty : '',
+      },
+      {
+        id : 2,
+        category : 'etc',
+        title : '메인',
+        href : '/common/html/main/main.html',
+        owner : '태경,명화',
+        stepPC : '완료',
+        stepMobile : '대기',
+        date : '2022-06-16',
+        empty : '',
+      },
+      {
+        id : 3,
+        category : 'login',
+        title : '로그인',
+        href : '/common/html/sub/login.html',
+        owner : '태경',
+        stepPC : '완료',
+        stepMobile : '대기',
+        date : '2022-07-06',
+        empty : 'alert창 및 오류 표기 class 주석으로 표시',
+      },
+      {
+        id : 4,
+        category : 'login',
+        title : '비밀번호 변경',
+        href : '/common/html/sub/password.html',
+        owner : '태경',
+        stepPC : '완료',
+        stepMobile : '대기',
+        date : '2022-07-07',
+        empty : 'alert창 및 오류 표기 class 주석으로 표시',
+      },
+      {
+        id : 5,
+        category : 'login',
+        title : '비밀번호 변경',
+        href : '/common/html/sub/password.html',
+        owner : '태경',
+        stepPC : '완료',
+        stepMobile : '대기',
+        date : '2022-07-07',
+        empty : '',
+      },
+      {
+        id : 6,
+        category : 'login',
+        title : '로그인 완료',
+        href : '/common/html/sub/loginCom.html',
+        owner : '태경',
+        stepPC : '완료',
+        stepMobile : '대기',
+        date : '2022-07-07',
+        empty : '',
+      },
+      {
+        id : 7,
+        category : 'login',
+        title : '임시 비밀번호 변경',
+        href : '/common/html/sub/passwordTem.html',
+        owner : '태경',
+        stepPC : '완료',
+        stepMobile : '대기',
+        date : '2022-07-07',
+        empty : '',
+      },
+      {
+        id : 8,
+        category : 'login',
+        title : '이메일 찾기',
+        href : '/common/html/sub/findEmail.html',
+        owner : '명화',
+        stepPC : '완료',
+        stepMobile : '대기',
+        date : '2022-07-08',
+        empty : '',
+      },
+      {
+        id : 9,
+        category : 'login',
+        title : '비밀번호 찾기',
+        href : '/common/html/sub/findEmail.html',
+        owner : '명화,태경',
+        stepPC : '완료',
+        stepMobile : '대기',
+        date : '2022-07-08',
+        empty : '로그인문의 버튼 클릭시 팝업창',
+      },
+      {
+        id : 10,
+        category : 'login',
+        title : '회원가입 약관동의',
+        href : '/common/html/sub/joinStep1.html',
+        owner : '태경',
+        stepPC : '완료',
+        stepMobile : '대기',
+        date : '2022-07-08',
+        empty : '동의하지 않음 버튼클릭시 팝업창',
+      },
+      {
+        id : 11,
+        category : 'login',
+        title : '회원가입 정보입력',
+        href : '/common/html/sub/joinStep2.html',
+        owner : '태경',
+        stepPC : '완료',
+        stepMobile : '대기',
+        date : '2022-07-08',
+        empty : '오류 표기 class 주석으로 표시',
+      },
+      {
+        id : 12,
+        category : 'login',
+        title : '회원가입 완료',
+        href : '/common/html/sub/joinStep3.html',
+        owner : '태경',
+        stepPC : '완료',
+        stepMobile : '대기',
+        date : '2022-07-08',
+        empty : '',
+      },
+      {
+        id : 13,
+        category : 'channel',
+        title : '채널 메인',
+        href : '/common/html/sub/channelHome.html',
+        owner : '태경,명화',
+        stepPC : '진행중',
+        stepMobile : '대기',
+        date : '2022-06-16',
+        empty : '',
+      },
+      {
+        id : 14,
+        category : 'channel',
+        title : '채널 스토리',
+        href : '/common/html/sub/channelStory.html',
+        owner : '태경',
+        stepPC : '진행중',
+        stepMobile : '대기',
+        date : '2022-06-16',
+        empty : '',
+      },
+      {
+        id : 15,
+        category : 'channel',
+        title : '채널링 채용정보 리스트',
+        href : '/common/html/sub/channelList.html',
+        owner : '태경',
+        stepPC : '완료',
+        stepMobile : '대기',
+        date : '2022-07-11',
+        empty : '',
+      },
+      {
+        id : 16,
+        category : 'channel',
+        title : '채널링 채용정보 상세',
+        href : '/common/html/sub/channelView.html',
+        owner : '태경',
+        stepPC : '완료',
+        stepMobile : '대기',
+        date : '2022-07-12',
+        empty : '',
+      },
+      {
+        id : 17,
+        category : 'channel',
+        title : '채널-공지사항',
+        href : '/common/html/sub/channelNotice.html',
+        owner : '명화',
+        stepPC : '완료',
+        stepMobile : '대기',
+        date : '2022-07-11',
+        empty : '',
+      },
+      {
+        id : 18,
+        category : 'channel',
+        title : '채널-문의하기 - 자주묻는 질문',
+        href : '/common/html/sub/channelQuery.html',
+        owner : '명화',
+        stepPC : '완료',
+        stepMobile : '대기',
+        date : '2022-07-12',
+        empty : '',
+      },
+      {
+        id : 19,
+        category : 'channel',
+        title : '채널-문의하기 - 1:1 문의하기',
+        href : '/common/html/sub/channelQuery2.html',
+        owner : '명화',
+        stepPC : '완료',
+        stepMobile : '대기',
+        date : '2022-07-12',
+        empty : '',
+      },
+      {
+        id : 20,
+        category : 'apply',
+        title : '[개발]지원하기 - 지원서 작성',
+        href : '/common/html/sub/applyWrite.html',
+        owner : '태경, 명화',
+        stepPC : '완료',
+        stepMobile : '대기',
+        date : '2022-07-28',
+        empty : '',
+      },
+      {
+        id : 21,
+        category : 'apply',
+        title : '[퍼블]지원하기 - 지원서 작성',
+        href : '/common/html/sub/applyWrite2.html',
+        owner : '태경, 명화',
+        stepPC : '완료',
+        stepMobile : '대기',
+        date : '2022-07-28',
+        empty : '',
+      },
+      {
+        id : 22,
+        category : 'apply',
+        title : '채용공고 리스트',
+        href : '/common/html/sub/recruitList.html',
+        owner : '태경',
+        stepPC : '진행',
+        stepMobile : '대기',
+        date : '2022-07-25',
+        empty : '페이지 내부에 리스트와 검색결과없으때 작업되어있습니다.',
+      },
+      {
+        id : 23,
+        category : 'apply',
+        title : '채용공고 상세보기',
+        href : '/common/html/sub/recruitView.html',
+        owner : '태경',
+        stepPC : '완료',
+        stepMobile : '대기',
+        date : '2022-07-25',
+        empty : '',
+      },
+      {
+        id : 24,
+        category : 'apply',
+        title : '지원하기 - 팝업모음',
+        href : '',
+        owner : '태경',
+        stepPC : '완료',
+        stepMobile : '대기',
+        date : '2022-07-29',
+        empty : '',
+      },
+      {
+        id : 25,
+        category : 'apply',
+        title : '지원하기 - 팝업모음',
+        href : '/common/html/sub/applyPop.html',
+        owner : '명화',
+        stepPC : '진행',
+        stepMobile : '대기',
+        date : '2022-07-29',
+        empty : '',
+      },
+      ];
+
+    $(function(){      
+      var $header = $('#header'),
+       $headerBtn = $header.find('button');
+       $headerBtn.on('click', function(){
+        var $this = $(this),
+        thisHref = $this.attr('data-href');
+        var elemTop = $('body').find('#' + thisHref).offset().top;
+        $('html,body').animate({scrollTop:elemTop},300)
+        
+        
+       })
+    })
+
+    </script>
+    <div id="etc">
+    </div>
+    <div id="login">
+    </div>
+    <div id="channel">
+      <h2>채널</h2>
+      <table>
+        <thead>
+          <tr>
+          </tr>
+        </thead>
+        <tbody>
+          
+        </tbody>
+      </table>
+    </div>
+    <div id="apply">
+      
+    </div>
+    <div id="myPage">
+      
+    </div>
     <table>
       <caption>
         파일리스트업
