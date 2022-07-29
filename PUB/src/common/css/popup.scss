@@ -128,6 +128,13 @@
     }
   }
   .popTable{
+    &.type2{
+      >div{
+        .popTd{
+          line-height: 1.6rem;
+        }
+      }
+    }
     
     >div{
       border-top:.1rem solid $LGBlack;
@@ -149,8 +156,17 @@
       .wid23{
         width: 23%;
       }
+      .wid25{
+        width: 25%;
+      }
       .wid31{
         width: 31%;
+      }
+      .wid33{
+        width: 33%;
+      }
+      .wid34{
+        width: 34%;
       }
       .popTh{
         background-color: #f8f8f8;
@@ -207,6 +223,127 @@
       li{
         &::before{
           top:0.85rem
+        }
+      }
+    }
+  }
+  .appSummary{
+    background-color: #f8f8f8;
+    border-radius: 1.5rem;
+    padding: 3rem;
+    margin-bottom: 6rem;
+    ul{
+      display: flex;
+      justify-content: flex-start;
+      align-items:center;
+      margin-bottom: 2rem;
+        &:last-child{
+          margin-bottom: 0;
+        }
+      li{
+        &.sumT{
+          width: 18rem;
+          font-size: 1.6rem;
+          line-height: 1.6rem;
+          letter-spacing: -0.02em;
+          color: $LGBlack;
+        }
+        &.sumC{
+          width: calc(100% - 18rem);
+          font-size: 2rem;
+          letter-spacing: -0.02em;
+          color: $LGBlack;
+          font-weight: 600;
+        }
+      }
+    }
+  }
+  .popMyApp{
+    .resultTitle {
+      margin: 6rem 0 5rem;
+      font-size: 2.4rem;
+      line-height: 1;
+      letter-spacing: -0.02em;
+      font-weight: 600;
+    }
+    .sec1{
+      >h3{
+        font-size: 2rem;
+        line-height: 2rem;
+        letter-spacing: -0.02em;
+        color:$LGBlack;
+        font-weight: 600;
+        margin-bottom: 1.5rem;
+        margin-top: 4rem;
+      } 
+      .introCon{
+        border-top:.1rem solid $LGBlack;
+        .introConT{
+          border-bottom: .1rem solid $GrayE7;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 1.8rem 0;
+          p{
+            font-size: 1.6rem;
+            letter-spacing: -0.02em;
+            color: $LGBlack;
+          }
+          span{
+            font-size: 1.3rem;
+            letter-spacing: -0.02em;
+            line-height: 1.6rem;
+            color:$Gray6B;
+          }
+        }
+        .introConC{
+          border-bottom: .1rem solid $GrayE7;
+          font-size: 1.6rem;
+          letter-spacing: -0.02em;
+          line-height: 2.56rem;
+          color:$LGBlack;
+          padding: 2rem 0;
+        }
+      }
+    }
+    .table.type5{
+      margin-bottom: 4rem;
+      &.type6{
+        table{
+          tr{
+            th,td{
+              padding: 2rem 0 !important;
+            }
+          }
+        }
+      }
+      table{
+        border-bottom: .1rem solid $GrayE7;
+        tr{
+          th{
+            vertical-align: middle;
+            font-size: 1.6rem;
+            letter-spacing: -0.02em;
+            color: $LGBlack;
+            padding: 1.5rem 0;
+          }
+          td{
+            border-bottom: 0;
+            font-size: 1.6rem;
+            letter-spacing: -0.02em;
+            color: $LGBlack;
+            padding: 1.5rem 0;
+          }
+          &:first-child{
+            th,td{
+              padding: 2rem 0 1.5rem;
+            }
+          }
+          &:last-child{
+            th,td{
+              padding: 1.5rem 0 2rem;
+            }
+          }
         }
       }
     }
