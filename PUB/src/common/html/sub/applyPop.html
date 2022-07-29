@@ -10,13 +10,19 @@
         <div class="subContent">
           @@include('./apply2/include/applyTop.html')
           <!-- step end // tab1 start -->
-          <div class="tabConWrap">
-            @@include('./apply2/include/apply1.html')
-          </div>
+          <div class="tabConWrap"></div>
+
+          <!-- popup들 -->
+          <button
+            type="button"
+            class="btn type4"
+            onclick="window.open('./applyPop/include/RetrievePolicyAgree.html','_blank','width=900,height=900')"
+          >
+            개인정보동의서
+          </button>
         </div>
       </div>
     </div>
-
     <footer id="footer">@@include('./../layouts/include/footer.html')</footer>
   </body>
 </html>

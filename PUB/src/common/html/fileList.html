@@ -287,38 +287,60 @@
         date : '2022-07-29',
         empty : '',
       },
-      {
-        id : 25,
-        category : 'apply',
-        title : '지원하기 - 팝업모음',
-        href : '/common/html/sub/applyPop.html',
-        owner : '명화',
-        stepPC : '진행',
-        stepMobile : '대기',
-        date : '2022-07-29',
-        empty : '',
-      },
+      // {
+      //   id : 25,
+      //   category : 'apply',
+      //   title : '지원현황-공고지원목록',
+      //   href : '/common/html/sub/mypageAppList.html',
+      //   owner : '명화',
+      //   stepPC : '진행',
+      //   stepMobile : '대기',
+      //   date : '2022-07-29',
+      //   empty : '',
+      // },
+      // {
+      //   id : 26,
+      //   category : 'apply',
+      //   title : '마이페이지 - 팝업모음',
+      //   href : '/common/html/sub/applyPop.html',
+      //   owner : '명화',
+      //   stepPC : '진행',
+      //   stepMobile : '대기',
+      //   date : '2022-07-29',
+      //   empty : '',
+      // },
       ];
 
     $(function(){      
       var $header = $('#header'),
        $headerBtn = $header.find('button');
+
+       // header btn click
        $headerBtn.on('click', function(){
         var $this = $(this),
         thisHref = $this.attr('data-href');
         var elemTop = $('body').find('#' + thisHref).offset().top;
-        $('html,body').animate({scrollTop:elemTop},300)
-        
-        
+        $('html,body').animate({scrollTop:elemTop},300)        
+       });
+
+       // table
+       var $section = $('section');
+       $section.each(function(){
+        var $this = $(this);
+        var thisId = $this.attr('id');
+        var thisData = td.filter(x=>x.category === thisId);
+        console.log(thisData);
+        // var $table = $('')
        })
+
     })
 
     </script>
-    <div id="etc">
-    </div>
-    <div id="login">
-    </div>
-    <div id="channel">
+    <section id="etc">
+    </section>
+    <section id="login">
+    </section>
+    <section id="channel">
       <h2>채널</h2>
       <table>
         <thead>
@@ -329,13 +351,13 @@
           
         </tbody>
       </table>
-    </div>
-    <div id="apply">
+    </section>
+    <section id="apply">
       
-    </div>
-    <div id="myPage">
+    </section>
+    <section id="myPage">
       
-    </div>
+    </section>
     <table>
       <caption>
         파일리스트업

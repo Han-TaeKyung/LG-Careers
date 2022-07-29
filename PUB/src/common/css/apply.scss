@@ -125,7 +125,7 @@
       }
     }
 
-    .warning+.more {
+    .warning + .more {
       margin-top: 2.9rem;
     }
 
@@ -134,7 +134,7 @@
       line-height: 1.5;
       letter-spacing: -0.02em;
 
-      &+.addWrap {
+      & + .addWrap {
         margin-top: -13px;
       }
     }
@@ -221,7 +221,7 @@
         font-weight: 400;
         color: $LGBlack;
 
-        &+button {
+        & + button {
           margin-left: 12px;
         }
 
@@ -263,7 +263,7 @@
         border-top: 1px solid $LGBlack;
         border-bottom: 1px solid $GrayE7;
 
-        &+h3 {
+        & + h3 {
           margin-top: 55px;
         }
 
@@ -294,7 +294,7 @@
           td {
             padding: 7px 0 8px 10px;
 
-            &+td {
+            & + td {
               padding-left: 0;
             }
 
@@ -381,7 +381,6 @@
             }
 
             tbody {
-
               th,
               td {
                 border-bottom: 1px solid $GrayE7;
@@ -431,7 +430,6 @@
 
           table {
             tbody tr {
-
               th,
               td {
                 padding: 11px 0;
@@ -440,7 +438,8 @@
                 letter-spacing: -0.02em;
               }
 
-              td {}
+              td {
+              }
             }
           }
         }
@@ -480,7 +479,7 @@
         min-height: 58px;
         border-radius: 50px;
 
-        &+.btn {
+        & + .btn {
           margin-left: 6px;
         }
 
@@ -526,7 +525,8 @@
       display: flex;
       align-items: center;
 
-      >* {}
+      > * {
+      }
 
       .inputBox {
         flex: 1;
@@ -549,7 +549,7 @@
     /* article1 */
     article.sec1 {
       .row {
-        >* {
+        > * {
           flex: 1;
 
           &.empty {
@@ -566,7 +566,7 @@
 
     /* article2 */
     article.sec2 {
-      .row+.row {
+      .row + .row {
         margin-top: 10px;
       }
 
@@ -605,11 +605,11 @@
     article {
       margin-bottom: 50px;
 
-      &+article {
+      & + article {
         margin-top: 66px;
       }
 
-      .table+h3 {
+      .table + h3 {
         margin-top: 35px;
       }
 
@@ -631,6 +631,93 @@
             line-height: 1.65;
           }
         }
+      }
+    }
+  }
+}
+
+/* popup */
+.LblockContent {
+  position: relative;
+  padding: 20px;
+  h1 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    line-height: 24px;
+  }
+
+  .LblockContentMain {
+    p {
+      font-size: 1.6rem;
+      line-height: 1.5;
+      strong {
+        position: relative;
+        display: block;
+        padding-left: 15px;
+        font-size: 1.8rem;
+        line-height: 1.5;
+        margin: 10px 0;
+        &:before {
+          display: block;
+          position: absolute;
+          left: 0;
+          top: 10px;
+          width: 5px;
+          height: 5px;
+          border-radius: 50%;
+          background-color: $RedD0;
+        }
+      }
+      br {
+        display: none;
+      }
+    }
+    table {
+      width: 100% !important;
+      margin: 10px 0;
+      border-bottom: 1px solid $LGBlack;
+      border-right: 1px solid $LGBlack;
+      tr {
+        th,
+        td {
+          padding: 5px 10px;
+          vertical-align: middle;
+          border-top: 1px solid $LGBlack;
+          border-left: 1px solid $LGBlack;
+          font-size: 1.4rem;
+          line-height: 1.5;
+        }
+        th {
+          font-weight: 600;
+          text-align: center;
+        }
+      }
+    }
+    ol {
+      > li {
+      }
+    }
+  }
+  .LpopupClose {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 16px;
+    height: 16px;
+    font-size: 0;
+    line-height: 0;
+    a {
+      &:before {
+        display: block;
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        background: url(../images/icon/delete.svg) no-repeat center center;
+        background-size: 20px 20px;
+      }
+      span,
+      img {
+        display: none;
       }
     }
   }
