@@ -649,77 +649,34 @@
   .LblockContentMain {
     padding-bottom: 70px;
     p {
-      font-size: 1.6rem;
+      font-size: 1.4rem;
       line-height: 1.5;
-      strong {
-        position: relative;
+    }
+    h2 {
+      position: relative;
+      display: block;
+      padding-left: 15px;
+      font-size: 1.8rem;
+      line-height: 1.5;
+      margin: 10px 0;
+      font-weight:600;
+      &:before {
         display: block;
-        padding-left: 15px;
-        font-size: 1.8rem;
+        position: absolute;
+        left: 0;
+        top: 10px;
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        background-color: $RedD0;
+      }
+    }
+      h3,h4 {
+        margin:0;
+        font-size: 1.4rem;
         line-height: 1.5;
-        margin: 10px 0;
-        &:before {
-          display: block;
-          position: absolute;
-          left: 0;
-          top: 10px;
-          width: 5px;
-          height: 5px;
-          border-radius: 50%;
-          background-color: $RedD0;
-        }
+        font-weight:400;
       }
-      br {
-        display: none;
-      }
-    }
-    input[type="checkbox"] {
-      width: 12px;
-      height: 12px;
-      margin-right: 7px;
-      & + label {
-        position: relative;
-        margin-left: -30px;
-        padding-left: 30px;
-        &:before {
-          display: block;
-          position: absolute;
-          content: " ";
-          top: 0;
-          left: 0;
-          width: 2rem;
-          height: 2rem;
-          background-color: #d00042;
-          border-radius: 0.5rem;
-          border: 1px solid #d9dadb;
-          background-color: #ffffff;
-          box-sizing: border-box;
-          transition: all 0.2s;
-        }
-        &:after {
-          display: block;
-          position: absolute;
-          left: 0.5rem;
-          top: 0.7rem;
-          width: 1.1rem;
-          height: 0.8rem;
-          background: url(/common/images/icon/checkGray.svg) no-repeat center
-            center;
-          transition: all 0.2s;
-        }
-      }
-      &:checked + label {
-        &:before {
-          background-color: #d00042;
-          border-color: #d00042;
-        }
-        &:after {
-          visibility: visible;
-          opacity: 1;
-          background-image: url(/common/images/icon/check.svg);
-        }
-      }
-    }
     table {
       width: 100% !important;
       margin: 10px 0;
@@ -741,10 +698,21 @@
         }
       }
     }
-    ol {
+    ul {
       li {
-        font-size: 1.6rem;
+        position:relative;
+        font-size: 1.4rem;
         line-height: 1.5;
+        padding-left:10px;
+        &:before {
+          display:block;
+          position:absolute;
+          left:0;
+          top:10px;
+          width:5px;
+          height:1px;
+          background-color:$LGBlack;
+        }
       }
     }
     .LblockButton {
@@ -789,4 +757,65 @@
       }
     }
   }
+}
+
+
+/* 팝업 공통 */
+.LsimplePopup.searchaddress {width:410px; height:590px;}
+.LsimplePopup.searchschoolLoc {width:410px; height:460px;}
+.LsimplePopup.searchschool {width:410px; height:640px;}
+.LsimplePopup.searchmajor {width:410px; height:590px;}
+.LsimplePopup.searchnationality {width:410px;height:503px;}
+.LsimplePopup.searchcode {width:410px; height:570px;}
+.LsimplePopup.searchcertificate {width:410px;height:650px;}
+.LsimplePopup.submitconfirm {width:345px;height:223px;}
+.LsimplePopup.applyConfirmDialog {width:auto; height:auto; top: -50%;}
+
+.dmui_dialog_container {
+  overflow: hidden;
+  position:fixed;
+  left:0;
+  right:0;
+  width:100%;
+  height:100%;
+  z-index:9999;
+  transition:opacity .15s linear;
+  &.fade{
+    opacity:0;
+    .in {
+      opacity:1;
+      .dmui_dialog {
+      -webkit-transform: translate(0,-25%);
+      -ms-transform: translate(0,-25%);
+      transform: translate(0,-25%);
+      -webkit-transition: -webkit-transform .3s ease-out;
+      -moz-transition: -moz-transform .3s ease-out;
+      -o-transition: -o-transform .3s ease-out;
+      transition: transform .3s ease-out;
+    }
+  }
+  }
+  .dmui_dialog_content {
+    border:0;
+    border-radius:15px 15px 0 0 ;
+  }
+  .Lexplanation p {
+    position:relative;
+    padding-left:20px;
+    &:before {
+      display:block;
+      position:absolute;
+      top:0;
+      left:0;
+      width:20px;
+      height:20px;
+      background:url(../images/icon/warning.svg) no-repeat center center;
+    }
+  }
+}
+.LblockSearch input {
+  padding:7px 32px 7px 14px;
+  width:100%;
+  height:58px;
+  border-radius:30px;
 }
