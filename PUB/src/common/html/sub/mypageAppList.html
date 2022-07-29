@@ -16,23 +16,572 @@
             </div>
           </div>
           <!-- subContentTop END -->
-          <div class="tabMenu mypageList">
+          <div class="tabMenu ">
             <ul class="tabs">
-              <li data-tab-target="myList" class="tab">
-                <button type="button" class="tabBtn">나의 채용 지원 현황</button>
+              <li data-tab-target="myList" class="tab ">
+                <a href="#n" class="tabBtn">나의 채용 지원 현황</a>
               </li>
               <li data-tab-target="appList" class="tab tabOn">
-                <button type="button" class="tabBtn">공고 지원 목록</button>
+                <a href="#n" class="tabBtn">공고 지원 목록</a>
               </li>
             </ul>
-
+          </div>
+          <div class="mypageList">
             <div class="tabCon">
-              <div id="myList" data-tab-content>
-                <h4 class="blind">나의 채용 지원 현황</h4>
-                1
-              </div>
-              <div id="appList" data-tab-content class="tabOn">
+              <div id="appList" data-tab-content  class="tabOn">
                 <h4 class="blind">공고 지원 목록</h4>
+                <div class="myAppCurrent"><!-- 진행중인 공고가있을때  -->
+                  <h5>전형 진행중인 채용 공고의 TODO를 확인하세요.</h5>
+                  <ul>
+                    <li>
+                      <div>
+                        <p class="cLabel">서류전형 TODO</p>
+                        <p class="cTitle"><a href="#"> Data 지표 관리 및 조달/나라장터 업무 담당자 모집</a></p>
+                        <p class="appInfo">
+                          <span><em>D-13</em>2022.07.10 23:00</span>
+                          <span>하이엠솔루텍</span>
+                          <span>서울 마포구</span>
+                          <span>경력</span>
+                          <span>R&D</span>
+                        </p>
+                      </div>
+                      <div>
+                        <a href="#" class="btn small minW popBtn" data-pop="pop1">제출하기</a>
+                      </div>
+                    </li>
+                    <li>
+                      <div>
+                        <p class="cLabel">인적성 TODO</p>
+                        <p class="cTitle"><a href="#"> Data 지표 관리 및 조달/나라장터 업무 담당자 모집</a></p>
+                        <p class="appInfo">
+                          <span><em>D-13</em>2022.07.10 23:00</span>
+                          <span>하이엠솔루텍</span>
+                          <span>서울 마포구</span>
+                          <span>경력</span>
+                          <span>R&D</span>
+                        </p>
+                      </div>
+                      <div>
+                        <a href="#" class="btn small minW">제출하기</a>
+                      </div>
+                    </li>
+                  </ul>
+                </div><!-- myAppCurrent END -->
+              <!-- 팝업 -->
+                <div class="popPanel" data-pop="pop1">
+                  <button class="bgClose">닫기</button>
+                  <div class="popConWrap wid1000">
+                    <div class="popTitle">
+                      <h3>지원서 보기</h3>
+                    </div>
+                    <div class="popCon popMyApp">
+                      <div class="appSummary">
+                        <ul>
+                          <li class="sumT">공고제목</li>
+                          <li class="sumC">LG화학자회사 / 팜한농 채용연계형 신인 인턴 및 경력사원 모집 (비료_국내영업)</li>
+                        </ul>
+                        <ul>
+                          <li class="sumT">회사</li>
+                          <li class="sumC">팜한농</li>
+                        </ul>
+                        <ul>
+                          <li class="sumT">기간</li>
+                          <li class="sumC">2022. 06. 20 09:00 ~ 2022. 06. 28 20:00 </li>
+                        </ul>
+                      </div>
+                      <article class="sec1">
+                        <div class="resultTitle">1. 기본사항</div>
+                        <h3>지원사항</h3>
+                        <div class="table type5">
+                          <table>
+                            <caption></caption>
+                            <colgroup>
+                              <col style="width: 19%" />
+                              <col />
+                            </colgroup>
+                            <tbody>
+                              <tr>
+                                <th scope="row">1지망</th>
+                                <td>CDO부문/ Data Engineer/ 서울특별시</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">2지망</th>
+                                <td>CDO부문/ Data Engineer/ 서울특별시</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">3지망</th>
+                                <td>CDO부문/ Data Engineer/ 서울특별시</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                    
+                        <h3>기본인적사항</h3>
+                        <div class="table type5">
+                          <table>
+                            <caption></caption>
+                            <colgroup>
+                              <col style="width: 19%" />
+                              <col style="width: 31%" />
+                              <col style="width: 19%" />
+                              <col />
+                            </colgroup>
+                            <tbody>
+                              <tr>
+                                <th scope="row">한글성명</th>
+                                <td>김엘지</td>
+                                <th scope="row">영문성명</th>
+                                <td>kim lg</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">생년월일</th>
+                                <td>1900.00.00</td>
+                                <th scope="row">성별</th>
+                                <td>여</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">국적</th>
+                                <td>대한민국(한국)</td>
+                                <th scope="row">이메일</th>
+                                <td></td>
+                              </tr>
+                              <tr>
+                                <th scope="row">휴대전화</th>
+                                <td></td>
+                                <th scope="row">추가 연락처</th>
+                                <td></td>
+                              </tr>
+                              <tr>
+                                <th scope="row">현주소</th>
+                                <td>
+                                  07336<br />
+                                  서울특별시 영등포구 여의대로 128 (여의도동)
+                                </td>
+                                <th scope="row"></th>
+                                <td></td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                    
+                        <h3>지원채널</h3>
+                        <div class="table type5 type6">
+                          <table>
+                            <caption></caption>
+                            <colgroup>
+                              <col style="width: 19%" />
+                              <col />
+                            </colgroup>
+                            <tbody>
+                              <tr>
+                                <th scope="row">지원채널</th>
+                                <td>각 사 공식 홈페이지에서 확인</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                    
+                        <h3>병역사항</h3>
+                        <div class="table type5 type6">
+                          <table>
+                            <caption></caption>
+                            <colgroup>
+                              <col style="width: 19%" />
+                              <col />
+                            </colgroup>
+                            <tbody>
+                              <tr>
+                                <th scope="row">병역사항</th>
+                                <td>비대상(여성)</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                    
+                        <h3>기타사항</h3>
+                        <div class="table type5">
+                          <table>
+                            <caption></caption>
+                            <colgroup>
+                              <col style="width: 19%" />
+                              <col />
+                            </colgroup>
+                            <tbody>
+                              <tr>
+                                <th scope="row">보훈여부</th>
+                                <td>해당없음</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">장애여부</th>
+                                <td>해당없음</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </article>
+                    
+                      <article class="sec1">
+                        <div class="resultTitle">2. 상세인적사항</div>
+                    
+                        <h3>고등학교(1)</h3>
+                        <div class="table type5">
+                          <table>
+                            <caption></caption>
+                            <colgroup>
+                              <col style="width: 19%" />
+                              <col style="width: 31%" />
+                              <col style="width: 19%" />
+                              <col />
+                            </colgroup>
+                            <tbody>
+                              <tr>
+                                <th scope="row">학교명</th>
+                                <td></td>
+                                <th scope="row">소재지</th>
+                                <td></td>
+                              </tr>
+                              <tr>
+                                <th scope="row">기간</th>
+                                <td></td>
+                                <th scope="row">졸업구분</th>
+                                <td></td>
+                              </tr>
+                              <tr>
+                                <th scope="row">전공계열</th>
+                                <td></td>
+                                <th scope="row"></th>
+                                <td></td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                    
+                        <h3>전문대학(1)</h3>
+                        <div class="table type5">
+                          <table>
+                            <caption></caption>
+                            <colgroup>
+                              <col style="width: 19%" />
+                              <col style="width: 31%" />
+                              <col style="width: 19%" />
+                              <col />
+                            </colgroup>
+                            <tbody>
+                              <tr>
+                                <th scope="row">학교명</th>
+                                <td></td>
+                                <th scope="row">소재지</th>
+                                <td></td>
+                              </tr>
+                              <tr>
+                                <th scope="row">기간</th>
+                                <td></td>
+                                <th scope="row">졸업구분</th>
+                                <td></td>
+                              </tr>
+                              <tr>
+                                <th scope="row">전공계열</th>
+                                <td></td>
+                                <th scope="row"></th>
+                                <td></td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                    
+                        <h3>대학교(1)</h3>
+                        <div class="table type5">
+                          <table>
+                            <caption></caption>
+                            <colgroup>
+                              <col style="width: 19%" />
+                              <col style="width: 31%" />
+                              <col style="width: 19%" />
+                              <col />
+                            </colgroup>
+                            <tbody>
+                              <tr>
+                                <th scope="row">학교명</th>
+                                <td></td>
+                                <th scope="row">소재지</th>
+                                <td></td>
+                              </tr>
+                              <tr>
+                                <th scope="row">기간</th>
+                                <td></td>
+                                <th scope="row">졸업구분</th>
+                                <td></td>
+                              </tr>
+                              <tr>
+                                <th scope="row">전공계열</th>
+                                <td></td>
+                                <th scope="row"></th>
+                                <td></td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                    
+                        <h3>대학원-석사(1)</h3>
+                        <div class="table type5">
+                          <table>
+                            <caption></caption>
+                            <colgroup>
+                              <col style="width: 19%" />
+                              <col style="width: 31%" />
+                              <col style="width: 19%" />
+                              <col />
+                            </colgroup>
+                            <tbody>
+                              <tr>
+                                <th scope="row">학교명</th>
+                                <td></td>
+                                <th scope="row">소재지</th>
+                                <td></td>
+                              </tr>
+                              <tr>
+                                <th scope="row">기간</th>
+                                <td></td>
+                                <th scope="row">졸업구분</th>
+                                <td></td>
+                              </tr>
+                              <tr>
+                                <th scope="row">전공계열</th>
+                                <td></td>
+                                <th scope="row"></th>
+                                <td></td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                    
+                        <h3>대학원-박사(1)</h3>
+                        <div class="table type5">
+                          <table>
+                            <caption></caption>
+                            <colgroup>
+                              <col style="width: 19%" />
+                              <col style="width: 31%" />
+                              <col style="width: 19%" />
+                              <col />
+                            </colgroup>
+                            <tbody>
+                              <tr>
+                                <th scope="row">학교명</th>
+                                <td></td>
+                                <th scope="row">소재지</th>
+                                <td></td>
+                              </tr>
+                              <tr>
+                                <th scope="row">기간</th>
+                                <td></td>
+                                <th scope="row">졸업구분</th>
+                                <td></td>
+                              </tr>
+                              <tr>
+                                <th scope="row">전공계열</th>
+                                <td></td>
+                                <th scope="row"></th>
+                                <td></td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                    
+                        <h3>동의서</h3>
+                        <div class="table type5">
+                          <table>
+                            <caption></caption>
+                            <colgroup>
+                              <col style="width: 19%" />
+                              <col />
+                            </colgroup>
+                            <tbody>
+                              <tr>
+                                <th scope="row">평판 조회 동의</th>
+                                <td>동의함</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">영업비밀 침해금지 동의</th>
+                                <td>동의함</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                    
+                        <h3>공인어학성적(1)</h3>
+                        <div class="popTable type2">
+                          <div>
+                            <ul class="wid25">
+                              <li class="popTh">언어</li>
+                              <li class="popTd">영어</li>
+                            </ul>
+                            <ul class="wid25">
+                              <li class="popTh">시험명</li>
+                              <li class="popTd">토익</li>
+                            </ul>
+                            <ul class="wid25">
+                              <li class="popTh">점수(급)</li>
+                              <li class="popTd">900</li>
+                            </ul>
+                            <ul class="wid25">
+                              <li class="popTh">취등일자</li>
+                              <li class="popTd">2022.07.29</li>
+                            </ul>
+                          </div>
+                        </div>
+                        <h3>외국어역량(1)</h3>
+                        <div class="popTable type2">
+                          <div>
+                            <ul class="wid33">
+                              <li class="popTh">언어</li>
+                              <li class="popTd">영어</li>
+                            </ul>
+                            <ul class="wid33">
+                              <li class="popTh">사용국가</li>
+                              <li class="popTd"></li>
+                            </ul>
+                            <ul class="wid34">
+                              <li class="popTh">사용 가능 정도</li>
+                              <li class="popTd">중급 Business 회화</li>
+                            </ul>
+                          </div>
+                        </div>
+                    
+                        <h3>자격증(0)</h3>
+                        <div class="popTable type2">
+                          <div>
+                            <ul class="wid25">
+                              <li class="popTh">자격증명</li>
+                             
+                            </ul>
+                            <ul class="wid25">
+                              <li class="popTh">자격등급</li>
+                         
+                            </ul>
+                            <ul class="wid25">
+                              <li class="popTh">취득일자</li>
+                           
+                            </ul>
+                            <ul class="wid25">
+                              <li class="popTh">인증기관</li>
+                            
+                            </ul>
+                          </div>
+                        </div>
+                      </article>
+                    
+                      <article class="sec1">
+                        <div class="resultTitle">3. 경력사항</div>
+                        <h3>경력사항</h3>
+                        <div class="table type5">
+                          <table>
+                            <caption></caption>
+                            <colgroup>
+                              <col style="width: 19%" />
+                              <col style="width: 31%" />
+                              <col style="width: 19%" />
+                              <col />
+                            </colgroup>
+                            <tbody>
+                              <tr>
+                                <th scope="row">회사명</th>
+                                <td></td>
+                                <th scope="row">기간</th>
+                                <td>2022.01 ~ 2022.03 (0년 2개월)</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">소재지</th>
+                                <td></td>
+                                <th scope="row">부서명</th>
+                                <td></td>
+                              </tr>
+                              <tr>
+                                <th scope="row">직급</th>
+                                <td></td>
+                                <th scope="row">직무</th>
+                                <td></td>
+                              </tr>
+                              <tr>
+                                <th scope="row">이직사유</th>
+                                <td></td>
+                                <th scope="row">연봉(만원)</th>
+                                <td></td>
+                              </tr>
+                              <tr>
+                                <th scope="row" colspan="4">직무경험상세기술</th>
+                              </tr>
+                              <tr>
+                                <td colspan="4">
+                                  상세기술 입력란 상세기술 입력란 상세기술 입력란 상세기술 입력란
+                                  상세기술 입력란
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                    
+                        <h3>추가사항</h3>
+                        <div class="table type5 type6">
+                          <table>
+                            <caption></caption>
+                            <colgroup>
+                              <col style="width: 19%" />
+                              <col style="width: 31%" />
+                              <col style="width: 19%" />
+                              <col />
+                            </colgroup>
+                            <tbody>
+                              <tr>
+                                <th scope="row">희망연봉(만원)</th>
+                                <td>00000</td>
+                                <th scope="row">입사가능일</th>
+                                <td>2022.07.29</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </article>
+                    
+                      <article class="sec1">
+                        <div class="resultTitle">4. 자기소개서</div>
+                        <h3>지원동기</h3>
+                        <div class="mB40">
+                          <ul class="introCon">
+                            <li class="introConT">
+                              <p>팜현농 및 해당 직무에 지원하는 동기에 대해 기술하시오.</p>
+                              <span>글자수 336 / 100자 ~ 1000자</span>
+                            </li>
+                            <li class="introConC">
+                              자기소개서 입력란 자기소개서 입력란 자기소개서 입력란 자기소개서 입력란 자기소개서 입력란 자기소개서 입력란 자기소개서 입력란 자기소개서 입력란 자기소개서 입력란 자기소개서 입력란 자기소개서 입력란 자기소개서 입력란 자기소개서 입력란 자기소개서 입력란 자기소개서 입력란 자기소개서 입력란 자기소개서 입력란 자기소개서 입력란 자기소개서 입력란 자기소개서 입력란 자기소개서 입력란 자기소개서 입력란 자기소개서 입력란 자기소개서 입력란 자기소개서 입력란 자기소개서 입력란 자기소개서 입력란 자기소개서 입력란 자기소개서 입력란 자기소개서 
+                            </li>
+                          </ul>
+                        </div>
+                    
+                        <h3>자기소개</h3>
+                        <div>
+                          <ul class="introCon">
+                            <li class="introConT">
+                              <p>자신의 성장과정 및 개인 특성, 장점을 중심으로 기술하시오.</p>
+                              <span>글자수 336 / 100자 ~ 1000자</span>
+                            </li>
+                            <li class="introConC">
+                              자기소개서 입력란 자기소개서 입력란 자기소개서 입력란 자기소개서 입력란 자기소개서 입력란 자기소개서 입력란 자기소개서 입력란 자기소개서 입력란 자기소개서 입력란 자기소개서 입력란 자기소개서 입력란 자기소개서 입력란 자기소개서 입력란 자기소개서 입력란 자기소개서 입력란 자기소개서 입력란 자기소개서 입력란 자기소개서 입력란 자기소개서 입력란 자기소개서 입력란 자기소개서 입력란 자기소개서 입력란 자기소개서 입력란 자기소개서 입력란 자기소개서 입력란 자기소개서 입력란 자기소개서 입력란 자기소개서 입력란 자기소개서 입력란 자기소개서 
+                            </li>
+                          </ul>
+                        </div>
+                      </article>
+                    </div>
+                    <div class="popFooter">
+                      <div>
+                        <a href="" class="btn popup popBtn">등록</a>
+                      </div>
+                    </div>
+                    <button type="button" class="close">닫기</button>
+                  </div>
+                </div>
+                <!-- 팝업 END-->
+
                 <ul class="guideAcc type2">
                   <li class="accItem" data-num="1">
                     <div class="q">
@@ -211,7 +760,6 @@
                 
             </div>
           </div>
-          <!-- chStoryTab END -->
         </div>
         <!-- subContent END -->
       </div>

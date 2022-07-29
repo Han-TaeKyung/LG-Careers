@@ -33,6 +33,9 @@
     &.wid678 {
       width: 67.8rem;
     }
+    &.wid1000 {
+      width: 100rem;
+    }
     .popTitle {
       padding: 3rem 3rem 4rem;
       h3 {
@@ -48,6 +51,9 @@
       min-height: 225px;
       padding: 0 3rem 5rem;
       width: 100% !important;
+      &.minH150{
+        min-height: 15rem;
+      }
       .joinPop {
         font-size: 1.6rem;
         line-height: 2.56rem;
@@ -75,7 +81,319 @@
   &.active {
     display: flex;
   }
+  .popMyApp{
+    max-height: 80rem;
+    overflow: auto;
+    >div + div{
+      margin-top: 4rem;
+    }
+  }
+  .popMyTitle{
+    font-size: 2rem;
+      line-height: 2rem;
+      letter-spacing: -0.02em;
+      color: $LGBlack;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+  }
+  .popPhoto{
+    
+    >ul{
+      border-top:.1rem solid $LGBlack;
+      border-bottom: .1rem solid $GrayD9;
+      display: flex;
+      justify-content: flex-start;
+      padding: 2rem;
+      .photoBox{
+        border:.1rem solid $GrayE7;
+        width: 12rem;
+        height: 14rem;
+        background-image: url(/common/images/icon/photoFile.png);
+        background-repeat: no-repeat;
+        background-position: center;
+        margin-right: 2rem;
+      }
+      .bu{
+        margin-top: 1.5rem;
+        font-size: 1.4rem;
+        letter-spacing: -0.02em;
+        color:$LGBlack;
+        li{
+          margin-bottom: .6rem;
+          &::before{
+            top:0.85rem;
+          }
+        }
+      }
+    }
+  }
+  .popTable{
+    &.type2{
+      >div{
+        .popTd{
+          line-height: 1.6rem;
+        }
+      }
+    }
+    
+    >div{
+      border-top:.1rem solid $LGBlack;
+      border-bottom:.1rem solid $GrayD9;
+      display: flex;
+      justify-content: space-between;
+      .wid12{
+        width: 12%;
+      }
+      .wid14{
+        width: 14%;
+      }
+      .wid17{
+        width: 17%;
+      }
+      .wid18{
+        width: 18%;
+      }
+      .wid23{
+        width: 23%;
+      }
+      .wid25{
+        width: 25%;
+      }
+      .wid31{
+        width: 31%;
+      }
+      .wid33{
+        width: 33%;
+      }
+      .wid34{
+        width: 34%;
+      }
+      .popTh{
+        background-color: #f8f8f8;
+        font-size: 1.6rem;
+        line-height: 1.6rem;
+        letter-spacing: -0.02em;
+        color: $LGBlack;
+        text-align: center;
+        padding: 2rem 0;
+      }
+      .popTd{
+        padding: 2rem 1rem;
+        text-align: center;
+        vertical-align: middle;
+        line-height: 4.8rem;
+        font-size: 1.6rem;
+        letter-spacing: -0.02em;
+        color: $LGBlack;
+      }
+    }
+  }
+  .popBank{
+    .bank{
+      border-top:.1rem solid $LGBlack;
+      border-bottom: .1rem solid $GrayD9;
+      padding: 2rem 0;
+      ul{
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        margin-bottom: 1.5rem;
+        &:last-child{
+          margin-bottom: 0;
+        }
+        .bankT{
+          width:18rem;
+          &.rgt{
+            margin-left: 7rem;
+          }
+        }
+        .bankD{
+          width: 24.6rem;
+          .input{
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+  .popMy{
+    margin-top: 4rem;
+    &.bu{
+      line-height: 2.1rem;
+      li{
+        &::before{
+          top:0.85rem
+        }
+      }
+    }
+  }
+  .appSummary{
+    background-color: #f8f8f8;
+    border-radius: 1.5rem;
+    padding: 3rem;
+    margin-bottom: 6rem;
+    ul{
+      display: flex;
+      justify-content: flex-start;
+      align-items:center;
+      margin-bottom: 2rem;
+        &:last-child{
+          margin-bottom: 0;
+        }
+      li{
+        &.sumT{
+          width: 18rem;
+          font-size: 1.6rem;
+          line-height: 1.6rem;
+          letter-spacing: -0.02em;
+          color: $LGBlack;
+        }
+        &.sumC{
+          width: calc(100% - 18rem);
+          font-size: 2rem;
+          letter-spacing: -0.02em;
+          color: $LGBlack;
+          font-weight: 600;
+        }
+      }
+    }
+  }
+  .popMyApp{
+    .resultTitle {
+      margin: 6rem 0 5rem;
+      font-size: 2.4rem;
+      line-height: 1;
+      letter-spacing: -0.02em;
+      font-weight: 600;
+    }
+    .sec1{
+      >h3{
+        font-size: 2rem;
+        line-height: 2rem;
+        letter-spacing: -0.02em;
+        color:$LGBlack;
+        font-weight: 600;
+        margin-bottom: 1.5rem;
+        margin-top: 4rem;
+      } 
+      .introCon{
+        border-top:.1rem solid $LGBlack;
+        .introConT{
+          border-bottom: .1rem solid $GrayE7;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 1.8rem 0;
+          p{
+            font-size: 1.6rem;
+            letter-spacing: -0.02em;
+            color: $LGBlack;
+          }
+          span{
+            font-size: 1.3rem;
+            letter-spacing: -0.02em;
+            line-height: 1.6rem;
+            color:$Gray6B;
+          }
+        }
+        .introConC{
+          border-bottom: .1rem solid $GrayE7;
+          font-size: 1.6rem;
+          letter-spacing: -0.02em;
+          line-height: 2.56rem;
+          color:$LGBlack;
+          padding: 2rem 0;
+        }
+      }
+    }
+    .table.type5{
+      margin-bottom: 4rem;
+      &.type6{
+        table{
+          tr{
+            th,td{
+              padding: 2rem 0 !important;
+            }
+          }
+        }
+      }
+      table{
+        border-bottom: .1rem solid $GrayE7;
+        tr{
+          th{
+            vertical-align: middle;
+            font-size: 1.6rem;
+            letter-spacing: -0.02em;
+            color: $LGBlack;
+            padding: 1.5rem 0;
+          }
+          td{
+            border-bottom: 0;
+            font-size: 1.6rem;
+            letter-spacing: -0.02em;
+            color: $LGBlack;
+            padding: 1.5rem 0;
+          }
+          &:first-child{
+            th,td{
+              padding: 2rem 0 1.5rem;
+            }
+          }
+          &:last-child{
+            th,td{
+              padding: 1.5rem 0 2rem;
+            }
+          }
+        }
+      }
+    }
+  }
 }
+//팝업 첨부파일형식
+.inputBox.upload{
+  &.inputFile{
+    border:.1rem solid $GrayD9;
+    height: 4.8rem;
+    line-height: 4.8rem;
+    border-radius: .5rem;
+    padding:1rem;
+    display: flex;
+    justify-content: space-between;
+    .uploadWrap{
+      display: inherit;
+      height: 100%;
+      background-color: $White;
+    }
+    input{
+      display: block;
+      height: 100%;
+      width: calc(100% - 3.8rem);
+      color: $Gray6B;
+      font-size: 1.4rem;
+    }
+    input[type="file"] {
+      position: absolute;
+      width: 0;
+      height: 0;
+      padding: 0;
+      overflow: hidden;
+      border: 0;
+    }
+    label {
+      display: block;
+      padding: 0;
+      background-color: $LGBlack;
+      cursor: pointer;
+      width: 2.8rem;
+      height: 2.8rem;
+      border-radius: .5rem;
+      background-image: url(/common/images/icon/file.svg);
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+  }
+}
+
 
 /* 윈도우팝업 */
 .popWindow {

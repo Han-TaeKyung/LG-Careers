@@ -1,0 +1,104 @@
+@import "_variables", "_mixin";
+.calendarWarp{
+    border-top:.1rem solid $LGBlack;
+    padding-top: 3rem;
+    p{
+        font-size: 1.6rem;
+        line-height: 1.6rem;
+        color:$LGBlack;
+        margin-bottom: 3rem;
+    }
+}
+#calendar{
+    *{
+        font-family: "Arial";
+    }
+    
+    .fc-toolbar-title{
+        font-size: 2.4rem;
+        line-height: 2.4rem;
+        color:$LGBlack;
+        font-weight: 700;
+        margin-left: -14rem;
+    }
+    .fc-button-primary{
+        background-color: $LGBlack;
+        border: 0;
+        padding: 1.2rem 1.6rem;
+        font-size: inherit;
+        line-height: 1.4rem;
+        &.fc-prev-button{
+            border-radius: .3rem 0 0 .3rem;
+            .fc-icon{
+                width: .8rem;
+                height: 1.3rem;
+                background-image: url(/common/images/icon/fcArrow.png);
+            } 
+        }
+        &.fc-next-button{
+            border-radius: 0 .3rem .3rem 0;
+            .fc-icon{
+                width: .8rem;
+                height: 1.3rem;
+                background-image: url(/common/images/icon/fcArrow.png);
+                transform: rotate(180deg);
+            } 
+        }
+        &.fc-today-button{
+            font-size: 1.4rem;
+            padding: 1rem 1.1rem;
+            margin-left: 1.1rem;
+            border-radius: .3rem;
+            font-weight: 700;
+        }
+    }
+    .fc-scrollgrid {
+        th{
+            background-color: #f8f8f8;
+            .fc-col-header-cell-cushion {
+                font-size: 1.4rem;
+                line-height: 1.4rem;
+                padding: 1rem 0 .8rem;
+            }
+        }
+        td.fc-day{
+            background-color: $White;
+        } 
+        td.fc-day-today{
+            background-color: #f8f8f8;
+        }
+        .fc-daygrid-day{
+            .fc-daygrid-day-number{
+                font-size: 1.4rem;
+                line-height: 1.4rem;
+                color:$LGBlack;
+                padding: .7rem .4rem;
+            }
+        }
+    } 
+    .fc-non-business{
+        background-color: $White !important;
+    }
+    .fc-h-event{
+        background-color: #FFE3EA;
+        border:.1rem solid #FFE3EA;
+        .fc-event-title{
+            color:$RedD0;
+            font-size: 1.2rem;
+            line-height: 1.8rem;
+        }
+    }
+    .fc-daygrid-dot-event{
+        .fc-event-time{
+            font-size: 1.2rem;
+            line-height: 1.2rem;
+            color: $LGBlack;
+        }
+        .fc-event-title{
+            font-size: 1.2rem;
+            line-height: 1.2rem;
+            font-weight: 400;
+            color: $LGBlack;
+        }
+    }
+}
