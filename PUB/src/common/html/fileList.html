@@ -8,6 +8,15 @@
   <link rel="stylesheet" type="text/css" href="/common/css/style.css" />
   <link rel="stylesheet" type="text/css" href="/common/css/fileList.css" />
   <script src="/common/js/lib/jquery-3.6.0.min.js"></script>
+  <style>
+    table {
+      text-align:center;
+    }
+    h2 {
+      margin:30px 0 20px;
+      padding-top:20px;
+    }
+  </style>
 </head>
 
 <body id="fileList">
@@ -20,7 +29,7 @@
   <div class="fileListWrap">
     <h1 class="title1">파일리스트업(반응형 작업 대기 / PC작업만 완료)</h1>
     <script>
-      var th = ['화면ID','화면명','화면경로','작업자','진행사항','등록일','비고'];
+      var th = ['화면ID','화면명','화면경로','작업자','PC진행사항','Mobile진행사항','등록일','비고'];
       var category = ['login','channel','apply','myPage'];
       var td = [
       {
@@ -330,15 +339,36 @@
         var thisId = $this.attr('id');
         var thisData = td.filter(x=>x.category === thisId);
         console.log(thisData);
-        // var $table = $('')
-       })
-
-    })
+        var $table = $('<table style="text-align:center">\n'+
+          '<colgroup><col style="width:9%"><col style="width:15%"><col><col style="width:9%"><col style="width:9%"><col style="width:9%"><col style="width:10%"><col style="width:15%"></colgroup>\n'+
+          '<thead><tr></tr></thead><tbody></tbody></table>');
+        th.forEach(function(thElem){
+          var $th = $('<th></th>');
+          $th.text(thElem);
+          $table.find('thead tr').append($th);
+        });
+        thisData.forEach(function(trElem){ 
+          var $tr = $('<tr>' + 
+          '<td data-category><label>'+ trElem.category +'</label></td>\n' +
+          '<td data-title>'+ trElem.title +'</td>\n' +
+          '<td data-href><a href="'+ trElem.href +'" target="_blank">'+ trElem.href +'</a></td>\n' +
+          '<td data-owner>'+ trElem.owner +'</td>\n' +
+          '<td data-stepPC>'+ trElem.stepPC +'</td>\n' +
+          '<td data-stepMobile>'+ trElem.stepMobile +'</td>\n' +
+          '<td data-date>'+ trElem.date +'</td>\n' +
+          '<td data-empty>'+ trElem.empty +'</td></tr>');
+          $table.find('tbody').append($tr);
+        });
+        $this.append($table);
+       });
+    });
 
     </script>
     <section id="etc">
+      <h2></h2>
     </section>
     <section id="login">
+      <h2>로그인 관련</h2>
     </section>
     <section id="channel">
       <h2>채널</h2>
@@ -353,9 +383,11 @@
       </table>
     </section>
     <section id="apply">
+      <h2>지원하기</h2>
       
     </section>
     <section id="myPage">
+      <h2>마이페이지</h2>
       
     </section>
     <table>
