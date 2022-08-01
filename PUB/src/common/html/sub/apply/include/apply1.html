@@ -34,7 +34,7 @@
               value="<c:out value='${orderOfDesireCount}' />" />
       <table id="desireTable">
         <caption>
-          지원사항 - 지원회사, 1지망, 2지망에 대한 정보 제공
+          지원사항 - 지원회사, 1지망, 2지망
         </caption>
         <colgroup>
           <col style="width: 12%" />
@@ -43,7 +43,8 @@
         </colgroup>
         <tbody>
           <tr<c:if  test="${jobNoticeInfo.subCompanyYn eq 'Y'}"> style="display:none;"</c:if>>
-            <th scope="row"><LTag:message code="app.lbl.applyCompany" />
+            <th scope="row">
+              <LTag:message code="app.lbl.applyCompany" />
               <!--지원회사--><span class="essential">필수 입력</span>
             </th>
             <td>
@@ -55,7 +56,7 @@
           <c:forEach items="${orderOfDesireList.code}" varStatus="i">
           <tr>
             <th scope="row">
-              <label  <c:if
+              <label <c:if
               test="${orderOfDesireList.code[i.index] == '1'}">
               </c:if> for="orgCode_${orderOfDesireList.code[i.index]}">
               <c:out value='${orderOfDesireList.value[i.index]}' /><!--1지망-->
@@ -273,7 +274,7 @@
           <tr>
             <th scope="row"><LTag:message code="app.lbl.koreanName" /><!--한글성명--></th>
             <td>
-              <span class="tdCon"><c:out value="${applyMasterInfo.koreanName}" /></span>
+              <span class="tdCon" id="koreanName"><c:out value="${applyMasterInfo.koreanName}" /></span>
             </td>
             <th scope="row"><LTag:message code="app.lbl.englishName" /><!--영문성명--></th>
             <td>
@@ -283,7 +284,7 @@
           <tr>
             <th scope="row"><LTag:message code="app.lbl.birthDate" /><!--생년월일--></th>
             <td>
-              <span class="tdCon"><c:out value="${applyMasterInfo.birthDate}" /></span>
+              <span class="tdCon" id="birthDate"><c:out value="${applyMasterInfo.birthDate}" /></span>
             </td>
             <th scope="row"><LTag:message code="app.lbl.genderCode" /><!--성별--><span class="essential">필수 입력</span></th>
             <td class="p0">
@@ -300,7 +301,11 @@
             </td>
           </tr>
           <tr>
-            <th scope="row"><LTag:message code="app.lbl.nationalityCode" /><!--국적--><span class="essential">필수 입력</span></th>
+            <th scope="row">
+              <label for="nationalityName">
+              <LTag:message code="app.lbl.nationalityCode" /><!--국적--><span class="essential">필수 입력</span>
+            </label>
+          </th>
             <td>
               <div class="inputBox inputSearch">
                 <input type="text"  id="nationalityName" title="국적"
@@ -315,7 +320,7 @@
             </td>
             <th scope="row"><LTag:message code="app.lbl.email" /><!--이메일--><span class="essential">필수 입력</span></th>
             <td>
-              <span class="tdCon"><c:out value='${applyMasterInfo.email}' /></span>
+              <span class="tdCon" id="email"><c:out value='${applyMasterInfo.email}' /></span>
             </td>
           </tr>
           <!-- 비자 추가 -->
@@ -354,7 +359,7 @@
             <td>
               <div class="inputBox">
                 <input type="text" id="additionalContact" name="additionalContact"
-                    type="text" size="20"
+                    type="text"
                     value="<c:out value='${applyMasterInfo.additionalContact}'/>"
                     onKeyPress="return $.onKeyPressFilter('[0-9-]', event);"
                     style="ime-mode:disabled;"
@@ -381,19 +386,15 @@
                       <div class="upload upload2">
                           <div class="fileUpload">
                             <button class="btn minW fileAdd type5" type="button" onclick="addItem('#baseThesis','baseApply');">
-                              <LTag:message code="app.lbl.addAttachFile" />
+                              첨부파일 추가
                             </button>
                             <p><LTag:message code="app.cont.attachFileLimit" /></p>
                           </div>
-                          <div class="fileUploadC">
+                          <div class="fileUploadC" id="baseThesis">
                               <c:forEach
                                   items="${baseApplyFileList.attachFileId}"
                                   varStatus="j">
                                   <div class="fileUploadForm">
-                                    <a for="attatch1" class="uploadBtn">
-                                      <span>파일선택</span>
-                                    </a>
-                                    <input type="file" name="file_attach" title="1번째 파일 입력" class="input" placeholder="파일찾기" id="attatch1">
                                     <a class="fileName" href="javascript:;"
                                             onClick="fileDownload('${baseApplyFileList.dlFileName[j.index]}','${baseApplyFileList.attachFileId[j.index]}')">
                                       <c:out value='${baseApplyFileList.dlFileName[j.index]}' />
@@ -406,7 +407,7 @@
                               </c:forEach>
                           </div>
                         </div>
-                      <!--폰 적용 부분
+                      <%--폰 적용 부분
                             <div class="Lexplanation displayInPhone">
                                 <p>
                                     <LTag:message code="com.inf.029" />
@@ -421,7 +422,7 @@
                                         </li>
                                     </c:forEach>
                                 </ul>
-                            </div>-->
+                            </div>--%>
                         </div>
                 </td>
             </tr>
@@ -454,7 +455,7 @@
                     <button type="button"  class="searchBtn" onclick="searchCodePopup(this,'NA');">검색</button>
                   </span>                
                   <span class="inputBox pL10">
-                    <input type="text"  id="postalCode" name="postalCode" size="10" value="<c:out value='${applyMasterInfo.postalCode}'/>" readonly="readonly" maxlength="20" title="<LTag:message code=" com.lbl.postCode" />" />
+                    <input type="text"  id="postalCode" name="postalCode" value="<c:out value='${applyMasterInfo.postalCode}'/>" readonly="readonly" maxlength="20" title="<LTag:message code=" com.lbl.postCode" />" />
                   </span>
                 </span>
               </div>
@@ -466,12 +467,11 @@
             </td>
           </tr>
           <tr>
-            <th></th>
+            <td></td>
             <td colspan="3">
               <div class="inputBox">
                 <input
                   type="text" id="addressLine2Info" name="addressLine2Info" value="<c:out value='${applyMasterInfo.addressLine2Info}' />" maxlength="1000" title="상세 주소" placeholder="<LTag:message code='com.inf.006'/>" 
-                  placeholder="동 이하 주소는 기재하지 않으셔도 됩니다."
                 />
               </div>
             </td>
@@ -504,12 +504,12 @@
         </colgroup>
         <tbody>
           <tr>
-            <th scope="row">
+            <th scope="row" id="channelDetail">
               <label for="applychannelCode">
                 <LTag:message code="app.lbl.applyChannel" /><!--지원채널--><span class="essential">필수 입력</span>
               </label>
             </th>
-            <td>
+            <td id="channelDetailInput">
               <select id="applychannelCode" name="applychannelCode" title="지원채널 선택하기">
                 <option value=""><LTag:message code="app.lbl.select" /></option>
                 <c:forEach items="${applyChannelList.code}"
@@ -525,7 +525,7 @@
                 </c:forEach>
               </select>
             </td>
-            <th scope="row">
+            <th scope="row" id="applyPlatform">
               <label for="applychannelDetailText">
                 <LTag:message code="app.lbl.applyChannelDetail" /><!--지원채널 상세--><span class="essential">필수 입력</span>
               </label>
@@ -555,8 +555,7 @@
                 </select>
                 <span class="inputBox">
                   <input title="기타 플랫폼" type="text" id="applyplatformEtc"
-                    class="blockInPhone" name="applyplatformEtc" size="10"
-                    style="width:30%;"
+                    class="blockInPhone" name="applyplatformEtc"
                     value="<c:out value='${baseInfo.applyplatformEtc}' />"
                     maxlength="100" />
                 </span>
@@ -720,8 +719,10 @@
       <LTag:message code="app.lbl.veteranCode" /><!--보훈번호-->
   </label></th>
             <td>
-              <input id="veteranCode" name="veteranCode" type="text" disabled="disabled"
-      value="<c:out value='${baseInfo.veteranCode}' />" maxlength="20" />
+              <div class="inputBox">
+                <input id="veteranCode" name="veteranCode" type="text" disabled="disabled"
+                  value="<c:out value='${baseInfo.veteranCode}' />" maxlength="20" />
+              </div>
             </td>
           </tr>
           <tr>
@@ -775,7 +776,6 @@
             </td>
             <th scope="row">
               <label for="disabilityGradeCode"><LTag:message code="app.lbl.disabilityGrade" /><!--장애등급--><span class="essential">필수 입력</span></label>
-              
             </th>
             <td>
               <select id="disabilityGradeCode" name="disabilityGradeCode" disabled="disabled">
@@ -807,24 +807,22 @@
 
     <%-- 저소득층 정보 입력받지 않는 경우의 가이드 메세지 --%>
       <c:otherwise>
-        <p class="warning" title="안내사항">
-          <LTag:message code="app.cont.preferCont1_5" />
-        </p>
-        <p class="warning" title="안내사항">
-          <LTag:message code="app.cont.preferCont1_2" />
-        </p>
+        <ul class="bu">
+          <li><LTag:message code="app.cont.preferCont1_5" /></li>
+          <li><LTag:message code="app.cont.preferCont1_2" /></li>
+        </ul>
       </c:otherwise>
     </c:choose>
   </article>
+</c:if>
+
   <div class="bottomWrap">
-    <div class="left">
-      <a href="#n" class="btn round type6 prev"><span>이전</span></a>
-    </div>
+    <div class="left"></div>
     <div class="right">
-      <button type="submit" class="btn round type6" id="btnSaveBaseInfo">
+      <button type="button" class="btn round type6" id="btnSaveBaseInfo">
         <span><LTag:message code="com.btn.save" /></span>
       </button>
-      <button type="submit" class="btn round type5 next" onclick="nextTab(this,1);">
+      <button type="button" class="btn round type5 next" onclick="nextTab(this,1);">
         <span><LTag:message code="com.btn.next" /></span>
       </button>
     </div>
@@ -840,7 +838,7 @@
             <input type="checkbox" id="applyAgreeFlag" name="applyAgreeFlag" value="Y" />
             <label for="applyAgreeFlag">입력한 내용은 사실과 틀림없음을 확인합니다.</label>
           </span>
-          <button type="button" class="btn round type5 next"  id="btnUploadBaseSumbit">
+          <button type="button" class="btn round type5 next" id="btnUploadBaseSumbit">
             <span><LTag:message code="app.btn.confSubmit" /></span>
           </button>
         </div>

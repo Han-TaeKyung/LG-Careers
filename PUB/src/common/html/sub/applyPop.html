@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ko">
+  @@include('./../layouts/include/subHead.html')
+  <style>
+    .btn {
+      margin: 15px;
+    }
+    .popup {
+      display: none;
+    }
+    .dmui_dialog_btn {
+      cursor: pointer;
+    }
+  </style>
+  <body>
+    <div id="headers">@@include('./../layouts/include/header.html')</div>
+    <!--header END-->
+    <div id="container" class="subContainer subBGW">
+      <div class="subConWrap apply write">
+        <div class="subContent pops">
+          @@include('./apply2/include/applyTop.html')
+          <!-- step end // tab1 start -->
+          <div class="tabConWrap"></div>
+
+          <!-- popup들 -->
+          <button
+            type="button"
+            class="btn type4"
+            onclick="window.open('./applyPop/RetrievePolicyAgree.html','_blank','width=900,height=900')"
+          >
+            [전체변경] 개인정보동의서
+          </button>
+
+          <button class="btn type6" data-pop="country">
+            [변경없음] 국적 검색
+          </button>
+          <button class="btn type6" data-pop="searchAddress">
+            [변경없음] 주소 검색
+          </button>
+          <button class="btn type6" data-pop="searchSchool">
+            [변경없음] 학교 검색
+          </button>
+          <button class="btn type6" data-pop="searchSchoolLoc">
+            [변경없음] 학교 소재지 검색
+          </button>
+          <button class="btn type6" data-pop="searchmajor">
+            [변경없음] 전공 검색
+          </button>
+          <button class="btn type6" data-pop="submitwarn">
+            [변경없음] 입력 사항 확인 안내
+          </button>
+          <button class="btn type4" data-pop="applicationchangeConfirm">
+            [br 추가] 지원서 저장 안내
+          </button>
+          <button class="btn type6" data-pop="submitconfirm">
+            [변경없음] 지원서 제출 확인
+          </button>
+          <button class="btn type6" data-pop="submitguide">
+            [변경없음] 지원서 제출 안내
+          </button>
+          <button
+            class="btn type4"
+            onclick="window.open('./applyPop/RetrieveAgreePopup.html','_blank','width=570,height=1157')"
+          >
+            [하단 폼 변경] 평판조회 동의
+          </button>
+          <button
+            class="btn type4"
+            onclick="window.open('./applyPop/RetrieveAgreePopup2.html','_blank','width=570,height=1157')"
+          >
+            [하단 폼 변경] 영업비밀침해금지 동의
+          </button>
+          <button
+            class="btn type4"
+            onclick="window.open('./applyPop/talentGuide.html','_blank','width=765,height=780')"
+          >
+            [전체 변경] 외국어 역량 등급 설명
+          </button>
+          <button
+            class="btn type4"
+            onclick="window.open('./applyPop/introductionGuide.html','_blank','width=765,height=600')"
+          >
+            [전체 변경] 자기소개서 작성가이드
+          </button>
+          <button
+            class="btn type4"
+            onclick="window.open('./applyPop/appGuide.html','_blank','width=765,height=780')"
+          >
+            [전체 변경] 외국어 역량 등급 설명
+          </button>
+
+          <script>
+            $(function () {
+              $(".pops button").on("click", function () {
+                var $this = $(this);
+                $(".pops")
+                  .find("." + $this.attr("data-pop"))
+                  .css("display", "block");
+              });
+              $(".dmui_dialog_btn").on("click", function () {
+                $(this).closest(".popup").css("display", "none");
+              });
+            });
+          </script>
+          <div class="popup country">
+            @@include('./applyPop/include/country.html')
+          </div>
+          <div class="popup searchAddress">
+            @@include('./applyPop/include/searchAddress.html')
+          </div>
+          <div class="popup searchSchool">
+            @@include('./applyPop/include/searchSchool.html')
+          </div>
+          <div class="popup searchSchoolLoc">
+            @@include('./applyPop/include/searchSchoolLoc.html')
+          </div>
+          <div class="popup searchmajor">
+            @@include('./applyPop/include/searchmajor.html')
+          </div>
+          <div class="popup submitwarn">
+            @@include('./applyPop/include/submitwarn.html')
+          </div>
+          <div class="popup applicationchangeConfirm">
+            @@include('./applyPop/include/applicationchangeConfirm.html')
+          </div>
+          <div class="popup submitconfirm">
+            @@include('./applyPop/include/submitconfirm.html')
+          </div>
+          <div class="popup submitguide">
+            @@include('./applyPop/include/submitguide.html')
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer id="footer">@@include('./../layouts/include/footer.html')</footer>
+  </body>
+</html>

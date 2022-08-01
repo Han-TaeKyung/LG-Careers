@@ -3,9 +3,9 @@
 <section class="tabCon" id="tabCon2">
   <form id="appDetailForm" name="appDetailForm" method="post" enctype="multipart/form-data">
     <rec:savedToken name="sessionscopedetail" scope="session" />
-    <h2 class="skip">
+    <div class="skip">
         <LTag:message code="app.tab.detailInfo" />
-    </h2>
+    </div>
 <!-- 지원서 작성 안내 -->
 <p class="more">
   <LTag:message code="app.btn.applyWriteGuide" />
@@ -68,7 +68,7 @@
   <article class="sec1-1" id="elemschoolDiv" style="display:none;">
     <h3><LTag:message code="app.titl.elemschool" /><!--초등학교--></h3>
     <div class="addWrap">
-      <button class="delete" type="button" onclick="fnEraseData('elemschoolDiv');" title="초등학교 입력 지우기">지우기</button>
+      <button class="delete" type="button" onclick="fnEraseData('elemschoolDiv');" title="<LTag:message code="app.titl.elemschool" /> 입력 지우기">지우기</button>
     </div>
     <div class="table">
       <table>
@@ -92,7 +92,7 @@
             <th scope="row"><LTag:message code="app.lbl.locationName" /><!--소재지--><span class="essential">필수 입력</span></th>
             <td>
               <div class="inputSearch inputBox">
-                <input type="text" id="elemLocationName" name="elemLocationName" value="<c:out value='${elemInfo.locationName}' />" readonly="readonly" maxlength="300" />
+                <input type="text" id="elemLocationName" name="elemLocationName" value="<c:out value='${elemInfo.locationName}' />" readonly="readonly" maxlength="300" titl="<LTag:message code="app.lbl.locationName" />" />
                 <input type="hidden" id="elemAddressSido"
                     name="elemAddressSido"
                     value="<c:out value='${elemInfo.addressSido}' />" />
@@ -183,11 +183,13 @@
             <th scope="row"><label for="middleSchoolName"><LTag:message code="app.lbl.schoolName" />학교명<span class="essential">필수 입력</span></label></th>
             <td>
               <div class="inputSearch inputBox">
-                <input type="text" id="middleSchoolName" name="middleSchoolName" size="10" readonly="readonly" value="<c:out value='${middleInfo.schoolName}' />" />                                        <input type="hidden" id="middleSchoolCode" name="middleSchoolCode" value="<c:out value='${middleInfo.schoolCode}' />" />
+                <input type="text" id="middleSchoolName" name="middleSchoolName" size="10" readonly="readonly" value="<c:out value='${middleInfo.schoolName}' />" />                                        
+                <input type="hidden" id="middleSchoolCode" name="middleSchoolCode" value="<c:out value='${middleInfo.schoolCode}' />" />
                 <button type="button" class="searchBtn" onclick="searchSchoolPopup(this,'D');">검색</button>
               </div>
             </td>
-            <th scope="row"><label for="middleLocationName"><LTag:message code="app.lbl.locationName" /><!--소재지--><span class="essential">필수 입력</span></label>></th>
+            <th scope="row"><label for="middleLocationName"><LTag:message code="app.lbl.locationName" /><!--소재지--><span class="essential">필수 입력</span></label>
+            </th>
             <td>
               <div class="inputSearch inputBox">
                 <input type="text" id="middleLocationName" name="middleLocationName" value="<c:out value='${middleInfo.locationName}' />" readonly="readonly" maxlength="300" />
@@ -301,8 +303,8 @@
                   value="<c:out value='${highInfo.addressSido}' />" />
                 <input type="hidden" id="highAddressSigu"  name="highAddressSigu"
                   value="<c:out value='${highInfo.addressSigu}' />" />
-                <button type="button"
-                  onclick="searchSchoolLocPopup(this);" class="searchBtn">검색</button>
+                <button type="button" class="searchBtn"
+                  onclick="searchSchoolLocPopup(this);">검색</button>
               </div>
             </td>
           </tr>
@@ -388,8 +390,7 @@
               </div>
               </div>
             </td>
-            <th scope="row"></th>
-            <td></td>
+            <td colspan="2"></td>
           </tr>
   <c:if test="${jobNoticeInfo.highschRankInputFlag == 'N' || jobNoticeInfo.highschAttendInputFlag == 'N'}">
           <tr>
@@ -403,7 +404,7 @@
                   <input type="hidden" id="highattachFileId_${i.index+1}"
                     name="highattachFileId_${i.index+1}"
                     value="<c:out value='${highInfo.attachFileId}'/>" />
-                  <button id="fileAdd" class="btn minW fileAdd type5" type="button"
+                  <button class="btn minW fileAdd type5" type="button"
                     onclick="addItem('#highThesis_${i.index+1}','high_${i.index+1}');">
                     <LTag:message code="app.lbl.addAttachFile" /><!--파일 추가-->
                   </button>
@@ -413,15 +414,14 @@
                   <c:forEach items="${schoolFileList.attachFileId}" varStatus="k">
                     <c:if test="${schoolFileList.attachFileId[k.index] == highInfo.attachFileId}">
                       <div class="fileUploadForm">
-                        <a href="javascript:;" class="uploadBtn"
-                          onClick="fileDownload('${schoolFileList.dlFileName[k.index]}','${schoolFileList.attachFileId[k.index]}')">
-                          <span>파일선택</span>
-                        </a>
                         <input type="hidden" id="fileSeqNo" name="fileSeqNo"
                             value="<c:out value='${schoolFileList.fileSeqNo[k.index]}'/>" />
                         <input type="hidden" id="hightDlFileName" name="hightDlFileName"
                             value="<c:out value='${schoolFileList.dlFileName[k.index]}'/>" />
-                        <span class="fileName"><c:out value='${schoolFileList.dlFileName[k.index]}' /></span>
+                        <a class="fileName" href="javascript:;" class="uploadBtn"
+                          onClick="fileDownload('${schoolFileList.dlFileName[k.index]}','${schoolFileList.attachFileId[k.index]}')">
+                          <c:out value='${schoolFileList.dlFileName[k.index]}' />
+                        </a>
                         <button type="button" class="fileDelete" onclick='deleteItem(this);'>삭제</button>
                       </div>
                     </c:if>
@@ -488,46 +488,46 @@
         <thead>
           <tr>
             <th scope="col" rowspan="2"><LTag:message code="app.lbl.recruitType" /></th>
-            <th scope="col" colspan="3">결석일수</th>
-            <th scope="col" colspan="3">지각</th>
-            <th scope="col" colspan="3">조퇴</th>
-            <th scope="col" colspan="3">결과</th>
+            <th scope="col" colspan="3">결석일수<span class="essential">필수 입력</span></th>
+            <th scope="col" colspan="3">지각<span class="essential">필수 입력</span></th>
+            <th scope="col" colspan="3">조퇴<span class="essential">필수 입력</span></th>
+            <th scope="col" colspan="3">결과<span class="essential">필수 입력</span></th>
           </tr>
           <tr>
-            <th scope="col">
+            <th scope="col" title="결석일수-질병">
               <label for="attendabsentDis">질병<span class="essential">필수 입력</span></label>
             </th>
-            <th scope="col">
+            <th scope="col" title="결석일수-무단">
               <label class="required" for="attendabsentNot">무단<span class="essential">필수 입력</span></label>
             </th>
-            <th scope="col">
+            <th scope="col" title="결석일수-기타">
               <label class="required" for="attendabsentEtc">기타<span class="essential">필수 입력</span></label>
             </th>
-            <th scope="col">
+            <th scope="col" title="지각-질병">
               <label class="required" for="attendlateDis">질병<span class="essential">필수 입력</span></label>
             </th>
-            <th scope="col">
+            <th scope="col" title="지각-무단">
               <label class="required" for="attendlateNot">무단<span class="essential">필수 입력</span></label>
             </th>
-            <th scope="col">
+            <th scope="col" title="지각-기타">
                 <label class="required" for="attendlateEtc">기타<span class="essential">필수 입력</span></label>
             </th>
-            <th scope="col">
+            <th scope="col" title="조퇴-질병">
               <label class="required" for="attendshortDis">질병<span class="essential">필수 입력</span></label>
             </th>
-            <th scope="col">
+            <th scope="col" title="조퇴-무단">
               <label class="required" for="attendshortNot">무단<span class="essential">필수 입력</span></label>
             </th>
-            <th scope="col">
+            <th scope="col" title="조퇴-기타">
               <label class="required" for="attendshortEtc">기타<span class="essential">필수 입력</span></label>
             </th>
-            <th scope="col">
+            <th scope="col" title="결과-질병">
               <label class="required" for="attendmissedDis">질병<span class="essential">필수 입력</span></label>
             </th>
-            <th scope="col">
+            <th scope="col" title="결과-무단">
               <label class="required" for="attendmissedNot">무단<span class="essential">필수 입력</span></label>
             </th>
-            <th scope="col">
+            <th scope="col" title="결과-기타">
               <label class="required" for="attendmissedEtc">기타<span class="essential">필수 입력</span></label>
             </th>
           </tr>
@@ -540,7 +540,7 @@
                 <input type="text" id="attendabsentDis"
                   name="attendabsentDis"
                   value="<c:out value='${highschAttendInfo.absentDis[0]}'/>"
-                  size="5" maxlength="3" title="질병"
+                  maxlength="3" title="질병"
                   onKeyPress="return $.onKeyPressFilter('[0-9]', event);"
                   style="ime-mode:disabled;"
                   onkeyup="this.value=this.value.replace(/[^0-9]/g,'')">
@@ -660,6 +660,7 @@
         </tbody>
       </table>
     </div>
+
     <div class="table type2">
       <table>
         <caption>수업일수, 수상경력에 대한 정보 입력</caption>
@@ -684,20 +685,20 @@
             <td>전체합계</td>
             <td>
               <div class="inputBox">
-              <input type="text" id="attendschoolDays"
-                name="attendschoolDays"
-                value="<c:out value='${highschAttendInfo.schoolDays[0]}'/>" maxlength="3" title="수업일수"
-                onKeyPress="return $.onKeyPressFilter('[0-9]', event);"
-                style="ime-mode:disabled;"
-                onkeyup="this.value=this.value.replace(/[^0-9]/g,'')">
+                <input type="text" id="attendschoolDays"
+                  name="attendschoolDays"
+                  value="<c:out value='${highschAttendInfo.schoolDays[0]}'/>" maxlength="3" title="수업일수"
+                  onKeyPress="return $.onKeyPressFilter('[0-9]', event);"
+                  style="ime-mode:disabled;"
+                  onkeyup="this.value=this.value.replace(/[^0-9]/g,'')">
               </div>
             </td>
             <td>
               <div class="inputBox">
-              <input type="text" id="attendawardRecord"
-                name="attendawardRecord"
-                value="<c:out value='${highschAttendInfo.awardRecord[0]}'/>"
-                maxlength="100" title="수상경력">
+                <input type="text" id="attendawardRecord"
+                  name="attendawardRecord"
+                  value="<c:out value='${highschAttendInfo.awardRecord[0]}'/>"
+                  maxlength="100" title="수상경력">
               </div>
             </td>
           </tr>
@@ -716,7 +717,7 @@
       <button class="delete" type="button" onclick="fnEraseData('highschAttendDiv');" title="<LTag:message code="app.titl.highschAttend" /> 입력 지우기">지우기</button>
     </div>
     <div class="table type2">
-      <table>        
+      <table id="highschrankTable" >        
         <caption>
             <LTag:message code="app.titl.highschRank" />
         </caption>
@@ -807,161 +808,512 @@
           <c:out value="${jobNoticeInfo.highschRankCourse}" />개 미만인 경우)</li>
       </ul>
       </article>
+    </c:if>
 
 
-  <article class="sec1-4" id="collegeDiv">
+
+    <!-- 전문대학 -->
+  <article class="sec1-4" id="collegeDiv" style="display:none">
     <h3><LTag:message code="app.lbl.college" /> <span id="collegeCount">(
       <c:out value='${collegeInfoCount}' />)<!--전문대학-->
     </h3>
+    <p><LTag:message code="app.cont.collegeCont_1" /></p>
+    <div class="addWrap">
+      <button type="button" class="delete" onclick="fnEraseData('collegeDiv');"  title="<LTag:message code="app.lbl.college" /> 입력 지우기">지우기</button>
+      <button type="button" class="add" id="collegeAddBtn" title="<LTag:message code="app.lbl.college" /> 추가">추가</button>
+    </div>
+
+<c:forEach items="${collegeInfo.jobNoticeId}" varStatus="i"><!-- table 반복-->
+    <c:if test="${i.index != 0}">
+      <div class="tRight">
+        <button type="button" class="deleteBtn" onClick="delDataInfo(this,'coll');">
+          <span>다음 항목 삭제</span>
+        </button>
+      </div>
+    </c:if>
+    <div class="table">
+      <%-- 비즈니스 로직에서 학교이름의 키를 파싱해서 숫자를 세므로 학교이름이 필수가 아닌 상황에서 로직을 맞춰주기위해 순번을 넣음. --%>
+      <input type="hidden" id="collegeschoolSeqno_${i.index+1}"
+              name="collegeschoolSeqno_${i.index+1}" value="${i.index+1}" />
+      <table>
+        <caption><LTag:message code="app.lbl.college" /></caption>
+        <colgroup>
+            <col style="width:15%;" />
+            <col style="width:35%;" />
+            <col style="width:15%;" />
+            <col style="width:35%;" />
+        </colgroup>
+        <tbody>
+        <%-- 학교명 / 소재지 표시 --%>
+        <c:choose>
+          <c:when
+            test="${fn:contains(jobNoticeInfo.schoolInputSelected, '\"
+            SCHOOL_NAME\"') &&
+            fn:contains(jobNoticeInfo.schoolInputSelected, '\"LOCATION\"'
+            )}">
+
+            <%-- 학교명, 소재지 모두 입력받음 --%>
+          <tr>
+            <th scope="row"><label for="collegeschoolName_${i.index+1}"><LTag:message code="app.lbl.schoolName" /><!--학교명--><span class="essential">필수 입력</span></label></th>
+            <td>
+              <div class="inputSearch inputBox">                
+                <input type="text"
+                  id="collegeschoolName_${i.index+1}"
+                  name="collegeschoolName_${i.index+1}"
+                  readonly="readonly"
+                  value="<c:out value='${collegeInfo.schoolName[i.index]}' />" />
+                <input type="hidden"
+                  id="collegeschoolCode_${i.index+1}"
+                  name="collegeschoolCode_${i.index+1}"
+                  value="<c:out value='${collegeInfo.schoolCode[i.index]}' />" />
+                <button type="button"
+                  onclick="searchSchoolPopup(this,'C');" class="searchBtn">검색</button>
+              </div>
+            </td>
+            <th scope="row">
+              <label for="collegelocationName_${i.index+1}">
+                 <LTag:message code="app.lbl.locationName" /><!--소재지--><span class="essential">필수 입력</span>
+              </label>
+              </th>
+            <td>
+              <div class="inputSearch inputBox">
+                <input  type="text"
+                  id="collegelocationName_${i.index+1}"
+                  name="collegelocationName_${i.index+1}"
+                  value="<c:out value='${collegeInfo.locationName[i.index]}' />"
+                  readonly="readonly"
+                  maxlength="300" />
+                <input type="hidden"
+                  id="collegeaddressSido_${i.index+1}"
+                  name="collegeaddressSido_${i.index+1}"
+                  value="<c:out value='${collegeInfo.addressSido[i.index]}' />" />
+                <input type="hidden"
+                  id="collegeaddressSigu_${i.index+1}"
+                  name="collegeaddressSigu_${i.index+1}"
+                  value="<c:out value='${collegeInfo.addressSigu[i.index]}' />" />
+                <button type="button"
+                  onclick="searchSchoolLocPopup(this);" class="searchBtn">검색</button>
+              </div>
+            </td>
+          </tr>
+        </c:when>
+        <c:when
+            test="${fn:contains(jobNoticeInfo.schoolInputSelected, '\"
+            SCHOOL_NAME\"')}">
+            <%-- 학교명 만 입력받음 --%>
+          <tr>
+            <th scope="row"><label for="collegeschoolName_${i.index+1}"><LTag:message code="app.lbl.schoolName" /><!--학교명--><span class="essential">필수 입력</span></label></th>
+            <td colspan="3">
+              <div class="inputSearch inputBox">                
+                <input type="text"
+                  id="collegeschoolName_${i.index+1}"
+                  name="collegeschoolName_${i.index+1}"
+                  readonly="readonly"
+                  value="<c:out value='${collegeInfo.schoolName[i.index]}' />" />
+                <input type="hidden"
+                  id="collegeschoolCode_${i.index+1}"
+                  name="collegeschoolCode_${i.index+1}"
+                  value="<c:out value='${collegeInfo.schoolCode[i.index]}' />" />
+                <button type="button"
+                  onclick="searchSchoolPopup(this,'C');" class="searchBtn">검색</button>
+              </div>
+              </td>
+              <td colspan="2"></td>
+            </tr>
+        </c:when>
+        <c:when
+            test="${fn:contains(jobNoticeInfo.schoolInputSelected, '\"
+            LOCATION\"')}">
+            <%-- 소재지 만 입력받음 --%>
+          <tr>
+            <th scope="row">
+              <label for="collegelocationName_${i.index+1}">
+                 <LTag:message code="app.lbl.locationName" /><!--소재지--><span class="essential">필수 입력</span>
+              </label>
+              </th>
+            <td>
+              <div class="inputSearch inputBox">
+                <input  type="text"
+                  id="collegelocationName_${i.index+1}"
+                  name="collegelocationName_${i.index+1}"
+                  value="<c:out value='${collegeInfo.locationName[i.index]}' />"
+                  readonly="readonly"
+                  maxlength="300" />
+                <input type="hidden"
+                  id="collegeaddressSido_${i.index+1}"
+                  name="collegeaddressSido_${i.index+1}"
+                  value="<c:out value='${collegeInfo.addressSido[i.index]}' />" />
+                <input type="hidden"
+                  id="collegeaddressSigu_${i.index+1}"
+                  name="collegeaddressSigu_${i.index+1}"
+                  value="<c:out value='${collegeInfo.addressSigu[i.index]}' />" />
+                <button type="button"
+                  onclick="searchSchoolLocPopup(this);" class="searchBtn">검색</button>
+              </div>
+            </td>
+            <td colspan="2"></td>
+          </tr>
+        </c:when>
+    </c:choose>
+
+ <%-- 기간 / 졸업구분 표시 --%>
+
+    <c:choose>
+        <c:when
+            test="${fn:contains(jobNoticeInfo.schoolInputSelected, '\"
+            PERIOD\"') &&
+            fn:contains(jobNoticeInfo.schoolInputSelected, '\"GRADUATION_STATUS\"'
+            )}">
+            <%-- 기간, 졸업구분 모두 입력받음 --%>
+          <tr>
+            <th scope="row">
+              <label for="collegestartDate_${i.index+1}">
+                <LTag:message code="app.lbl.preriodDate" /><!--기간--><span class="essential">필수 입력</span>
+              </label>
+              </th>
+            <td>
+              <span class="duration">
+                <span class="inputBox">
+                  <input
+                    type="text"
+                    id="collegestartDate_${i.index+1}"
+                    name="collegestartDate_${i.index+1}"
+                    value="<c:out value='${collegeInfo.startDate[i.index]}' />"
+                    maxlength="11"
+                    readonly="readonly"
+                    title="기간 시작일" />
+                </span>
+                <button
+                  type="button"
+                  class="LiconCalendar"
+                  id="collegestartCal_${i.index+1}"
+                  data-calendar="collegestartDate_${i.index+1}">달력</button>
+                <span class="bar">~</span>
+                <span class="inputBox">
+                  <input
+                    type="text"
+                    id="collegeendDate_${i.index+1}"
+                    name="collegeendDate_${i.index+1}"
+                    value="<c:out value='${collegeInfo.endDate[i.index]}' />"
+                    maxlength="11"
+                    readonly="readonly"
+                    title="기간 종료일" />
+                </span>
+                <button
+                  type="button"
+                  class="LiconCalendar"
+                  id="collegeendCal_${i.index+1}"
+                  data-calendar="collegeendDate_${i.index+1}">달력</button>
+              </span>
+            </td>
+            <th scope="row">
+              <label for="collegegraduationStatusCode_${i.index+1}">
+                <LTag:message code="app.lbl.graduationFlag" /><!--졸업구분--><span class="essential">필수 입력</span>
+              </label>
+            </th>
+            <td>
+              <select id="collegegraduationStatusCode_${i.index+1}"
+                name="collegegraduationStatusCode_${i.index+1}">
+                <option value=""><LTag:message code="app.lbl.select" /></option>
+                <c:forEach
+                  items="${graduationList.code}"
+                  varStatus="l">
+                  <option
+                    value="<c:out value='${graduationList.code[l.index]}' />"
+                    <c:if test="${collegeInfo.graduationStatusCode[i.index] == graduationList.code[l.index]}">
+                    selected
+                    </c:if>>
+                    <c:out value='${graduationList.value[l.index]}' />
+                  </option>
+                </c:forEach>
+              </select>
+            </td>
+          </tr>
+            </c:when>
+            <c:when
+                test="${fn:contains(jobNoticeInfo.schoolInputSelected, '\"
+                PERIOD\"')}">
+                <%-- 기간 만 입력받음 --%>
+          <tr>
+            <th scope="row">
+              <label for="collegestartDate_${i.index+1}">
+                <LTag:message code="app.lbl.preriodDate" /><!--기간--><span class="essential">필수 입력</span>
+              </label>
+              </th>
+            <td>
+              <span class="duration">
+                <span class="inputBox">
+                  <input
+                    type="text"
+                    id="collegestartDate_${i.index+1}"
+                    name="collegestartDate_${i.index+1}"
+                    value="<c:out value='${collegeInfo.startDate[i.index]}' />"
+                    maxlength="11"
+                    readonly="readonly"
+                    title="기간 시작일" />
+                </span>
+                <button
+                  type="button"
+                  class="LiconCalendar"
+                  id="collegestartCal_${i.index+1}"
+                  data-calendar="collegestartDate_${i.index+1}">달력</button>
+                <span class="bar">~</span>
+                <span class="inputBox">
+                  <input
+                    type="text"
+                    id="collegeendDate_${i.index+1}"
+                    name="collegeendDate_${i.index+1}"
+                    value="<c:out value='${collegeInfo.endDate[i.index]}' />"
+                    size="11"
+                    maxlength="11"
+                    readonly="readonly"
+                    title="기간 종료일" />
+                </span>
+                <button
+                  type="button"
+                  class="LiconCalendar"
+                  id="collegeendCal_${i.index+1}"
+                  data-calendar="collegeendDate_${i.index+1}">달력</button>
+              </span>
+            </td>
+            <td colspan="2"></td>
+          </tr>
+            </c:when>
+            <c:when
+                test="${fn:contains(jobNoticeInfo.schoolInputSelected, '\"
+                GRADUATION_STATUS\"')}">
+
+                <%-- 졸업구분 만 입력받음 --%>
+              <tr>  
+                <th scope="row">
+                  <label for="collegegraduationStatusCode_${i.index+1}">
+                    <LTag:message code="app.lbl.graduationFlag" /><!--졸업구분--><span class="essential">필수 입력</span>
+                  </label>
+                </th>
+                <td>
+                  <select id="collegegraduationStatusCode_${i.index+1}"
+                    name="collegegraduationStatusCode_${i.index+1}">
+                    <option value=""><LTag:message code="app.lbl.select" /></option>
+                    <c:forEach
+                      items="${graduationList.code}"
+                      varStatus="l">
+                      <option
+                        value="<c:out value='${graduationList.code[l.index]}' />"
+                        <c:if test="${collegeInfo.graduationStatusCode[i.index] == graduationList.code[l.index]}">
+                        selected
+                        </c:if>>
+                        <c:out value='${graduationList.value[l.index]}' />
+                      </option>
+                    </c:forEach>
+                  </select>
+                </td>
+                <td colspan="2"></td>
+              </tr>
+            </c:when>
+        </c:choose>
+
+<%-- 전공명 / 전체평점 표시 --%>
+
+      <c:choose>
+          <c:when
+              test="${fn:contains(jobNoticeInfo.schoolInputSelected, '\"
+              MAJOR_NAME\"') &&
+              fn:contains(jobNoticeInfo.schoolInputSelected, '\"GPA_POINT\"'
+              )}">
+
+              <%-- 전공명, 전체평점 모두 입력받음
+                  --%>
+          <tr>
+            <th scope="row">
+              <label for="collegemajorName_${i.index+1}">
+                <LTag:message code="app.lbl.majorName" />
+                <!--전공명--><span class="essential">필수 입력</span>
+              </label>
+            </th>
+            <td>
+              <div class="inputSearch inputBox">
+                <input type="text"
+                  id="collegemajorName_${i.index+1}"
+                  name="collegemajorName_${i.index+1}"
+                  readonly="readonly"
+                  value="<c:out value='${collegeInfo.majorName[i.index]}' />" />
+                <input
+                  type="hidden"
+                  id="collegemajorCode_${i.index+1}"
+                  name="collegemajorCode_${i.index+1}"
+                  value="<c:out value='${collegeInfo.majorCode[i.index]}' />" />
+                <button
+                  type="button" class="searchBtn"
+                  onClick="searchMajorPopup(this)">검색</button>
+              </div>
+            </td>
+            <th scope="row">
+              <label for="collegegpaPoint_${i.index+1}">
+                 <LTag:message code="app.lbl.gpaPoint" /><!--전체평점--><span class="essential">필수 입력</span>
+              </label>
+              
+            </th>
+            <td>
+              <div class="row">
+                <div class="inputBox">
+                  <input type="text"
+                    id="collegegpaPoint_${i.index+1}"
+                    name="collegegpaPoint_${i.index+1}"
+                    value="<c:out value='${collegeInfo.gpaPoint[i.index]}'/>"
+                    maxlength="5"
+                    size="3"
+                    onKeyPress="return $.onKeyPressFilter('[0-9.]', event);"
+                    style="ime-mode:disabled;"
+                    onkeyup="this.value=this.value.replace(/[^0-9.]/g,'')" />
+                </div>
+                <span class="bar">/</span>
+                <select title="학점 총점"
+                  id="collegegpaPointCode_${i.index+1}"
+                  name="collegegpaPointCode_${i.index+1}"
+                  onChange="getText(this)">
+                  <option value=""><LTag:message code="app.lbl.select" /></option>
+                  <c:forEach
+                      items="${gpaTypeList.code}"
+                      varStatus="k">
+                      <option
+                        value="<c:out value='${gpaTypeList.code[k.index]}' />"
+                        <c:if test="${collegeInfo.gpaPointCode[i.index] == gpaTypeList.code[k.index]}">selected</c:if>>
+                        <c:out value='${gpaTypeList.value[k.index]}' />
+                      </option>
+                  </c:forEach>
+                </select>
+                <input
+                  type="hidden"
+                  id="collegegpaPointCodeVal_${i.index+1}"
+                  name="collegegpaPointCodeVal_${i.index+1}"
+                  value="<c:out value='${collegeInfo.gpaPointVal[i.index]}'/>" />
+              </div>
+            </td>
+          </tr>
+      </c:when>
+      <c:when
+          test="${fn:contains(jobNoticeInfo.schoolInputSelected, '\"
+          MAJOR_NAME\"')}">
+
+          <%-- 전공명 만 입력받음 --%>
+          <tr>
+            <th scope="row">
+              <label for="collegemajorName_${i.index+1}">
+                <LTag:message code="app.lbl.majorName" />
+                <!--전공명--><span class="essential">필수 입력</span>
+              </label>
+            </th>
+            <td>
+              <div class="inputSearch inputBox">
+                <input type="text"
+                  id="collegemajorName_${i.index+1}"
+                  name="collegemajorName_${i.index+1}"
+                  readonly="readonly"
+                  value="<c:out value='${collegeInfo.majorName[i.index]}' />" />
+                <input
+                  type="hidden"
+                  id="collegemajorCode_${i.index+1}"
+                  name="collegemajorCode_${i.index+1}"
+                  value="<c:out value='${collegeInfo.majorCode[i.index]}' />" />
+                <button
+                  type="button" class="searchBtn"
+                  onClick="searchMajorPopup(this)">검색</button>
+              </div>
+            </td>
+            <td colspan="2"></td>
+          </tr>
+      </c:when>
+      <c:when
+          test="${fn:contains(jobNoticeInfo.schoolInputSelected, '\"
+          GPA_POINT\"')}">
+
+          <%-- 전체평점 만 입력받음 --%>
+          <tr>
+            <th scope="row">
+              <label for="collegegpaPoint_${i.index+1}">
+                 <LTag:message code="app.lbl.gpaPoint" /><!--전체평점--><span class="essential">필수 입력</span>
+              </label>
+              
+            </th>
+            <td>
+              <div class="row">
+                <div class="inputBox">
+                  <input type="text"
+                    id="collegegpaPoint_${i.index+1}"
+                    name="collegegpaPoint_${i.index+1}"
+                    value="<c:out value='${collegeInfo.gpaPoint[i.index]}'/>"
+                    maxlength="5"
+                    size="3"
+                    onKeyPress="return $.onKeyPressFilter('[0-9.]', event);"
+                    style="ime-mode:disabled;"
+                    onkeyup="this.value=this.value.replace(/[^0-9.]/g,'')" />
+                </div>
+                <span class="bar">/</span>
+                <select title="학점 총점"
+                  id="collegegpaPointCode_${i.index+1}"
+                  name="collegegpaPointCode_${i.index+1}"
+                  onChange="getText(this)">
+                  <option value=""><LTag:message code="app.lbl.select" /></option>
+                  <c:forEach
+                      items="${gpaTypeList.code}"
+                      varStatus="k">
+                      <option
+                        value="<c:out value='${gpaTypeList.code[k.index]}' />"
+                        <c:if test="${collegeInfo.gpaPointCode[i.index] == gpaTypeList.code[k.index]}">selected</c:if>>
+                        <c:out value='${gpaTypeList.value[k.index]}' />
+                      </option>
+                  </c:forEach>
+                </select>
+                <input
+                  type="hidden"
+                  id="collegegpaPointCodeVal_${i.index+1}"
+                  name="collegegpaPointCodeVal_${i.index+1}"
+                  value="<c:out value='${collegeInfo.gpaPointVal[i.index]}'/>" />
+              </div>
+            </td>
+            <td colspan="2"></td>
+          </tr>
+      </c:when>
+      </c:choose>
+        </tbody>
+      </table>
+    </div>
+  </c:forEach>
+
+    <div id="addCollegeDiv"></div>
     <ul class="bu">
       <li> <LTag:message code="app.cont.additionalTip12" /></li>
       <li><LTag:message code="app.cont.additionalTip7" /></li>
     </ul>
-    <p><LTag:message code="app.cont.collegeCont_1" /></p>
-    <div class="addWrap">
-      <button type="button" class="delete" onclick="fnEraseData('collegeDiv');"  id="collegeAddBtn" title="<LTag:message code="app.lbl.college" /> 입력 지우기">지우기</button>
-      <button type="button" class="add" title="<LTag:message code="app.lbl.college" /> 추가">추가</button>
-    </div>
-
-    <div class="tRight">
-      <button type="button" class="deleteBtn">
-        <span>1번 째 공인어학성적 삭제</span>
-      </button>
-    </div>
-    <div class="table">
-      <table>
-        <caption>
-          전문대학(1) - 학교명, 소재지, 기간, 졸업구분, 전공계열에 대한 정보
-          제공
-        </caption>
-        <colgroup>
-          <col style="width: 12%" />
-          <col style="width: 35%" />
-          <col style="width: 18%" />
-          <col />
-        </colgroup>
-        <tbody>
-          <tr>
-            <th scope="row">학교명<span class="essential">필수 입력</span></th>
-            <td>
-              <div class="inputSearch inputBox">
-                <input type="text" />
-                <button type="button" class="searchBtn">검색</button>
-              </div>
-            </td>
-            <th scope="row">소재지<span class="essential">필수 입력</span></th>
-            <td>
-              <div class="inputSearch inputBox">
-                <input type="text" />
-                <button type="button" class="searchBtn">검색</button>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <th scope="row">기간<span class="essential">필수 입력</span></th>
-            <td>
-              <span class="duration">
-                <span class="inputBox">
-                  <input
-                    type="text"
-                    id="inputText1"
-                    placeholder="텍스트 입력"
-                  />
-                </span>
-                <button
-                  type="button"
-                  id="milStartDate_cal"
-                  class="LiconCalendar"
-                  data-calendar="milStartDate"
-                >
-                  달력
-                </button>
-                <span class="bar">~</span>
-                <span class="inputBox">
-                  <input
-                    type="text"
-                    id="inputText1"
-                    placeholder="텍스트 입력"
-                  />
-                </span>
-                <button
-                  type="button"
-                  id="milStartDate_cal"
-                  class="LiconCalendar"
-                  data-calendar="milStartDate"
-                >
-                  달력
-                </button>
-              </span>
-            </td>
-            <th scope="row">
-              졸업구분<span class="essential">필수 입력</span>
-            </th>
-            <td>
-              <select name="" title="졸업구분 선택">
-                <option value="">1</option>
-                <option value="">2</option>
-                <option value="">3</option>
-                <option value="">4</option>
-                <option value="">5</option>
-              </select>
-            </td>
-          </tr>
-          <tr>
-            <th scope="row">전공명<span class="essential">필수 입력</span></th>
-            <td>
-              <div class="inputSearch inputBox">
-                <input type="text" />
-                <button type="button" class="searchBtn">검색</button>
-              </div>
-            </td>
-            <th scope="row">
-              전체평점<span class="essential">필수 입력</span>
-            </th>
-            <td>
-              <div class="row">
-                <div class="inputBox">
-                  <input type="text" />
-                </div>
-                <span class="bar">/</span>
-                <select name="" title="평점 선택">
-                  <option value="">1</option>
-                  <option value="">2</option>
-                  <option value="">3</option>
-                  <option value="">4</option>
-                  <option value="">5</option>
-                </select>
-              </div>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <ul class="bu">
-      <li>해당 사항이 없을 경우, 작성하지 않으셔도 됩니다.</li>
-      <li>
-        타 학교로 편입한 경우, 해당 학교의 졸업구분은 '타교편입'으로 선택해
-        주시기 바랍니다.
-      </li>
-    </ul>
   </article>
 
-  <article class="sec1-5">
-    <h3>대학교(1)</h3>
-    <p>
-      두 개 이상의 4년제 대학을 졸업한 경우 또는 편입 한 경우, ‘+추가’ 를
-      선택하여 작성해 주십시오.
-    </p>
+
+  <!-- 대학교 -->
+  <article class="sec1-5" id="uniDiv" style="display:none">
+    <h3>
+      <LTag:message code="app.titl.uni" /> <span id="uniCount">(<c:out value='${uniCount}' />)
+    </h3>
+    <p><LTag:message code="app.cont.uniCont_1" /></p>
     <div class="addWrap">
-      <button type="button" class="delete">지우기</button>
-      <button type="button" class="add">추가</button>
+      <button type="button" class="delete" onclick="fnEraseData('uniDiv');" title="<LTag:message code="app.titl.uni" /> 입력 지우기">지우기</button>
+      <button type="button" class="add" id="uniAddBtn" title="<LTag:message code="app.titl.uni" /> 추가">추가</button>
     </div>
+
+<c:forEach items="${uniInfo.jobNoticeId}" varStatus="i">
+  <c:if test="${i.index != 0}">
+    <div class="tRight">    
+      <button type="button" class="deleteBtn" onClick="delDataInfo(this,'coll');">
+        <span>다음 항목 삭제</span>
+      </button>
+    </div>
+  </c:if>
     <div class="table">
+    <%-- 비즈니스 로직에서 학교이름의 키를 파싱해서 숫자를 세므로 학교이름이 필수가 아닌 상황에서 로직을 맞춰주기위해 순번을 넣음. --%>
+        <input type="hidden" id="unischoolSeqno_${i.index+1}"
+            name="unischoolSeqno_${i.index+1}" value="${i.index+1}" />
       <table>
         <caption>
-          대학교(1) - 학교명, 소재지, 기간, 졸업구분, 전공명, 검색 부/복수전공,
-          전체평점, 전공평점, 전체이수학점, 전체 이수학점, 복수전공 이수학점,
-          복수전공 평점, 부전공 이수학점, 부전공 평점, 공학인증에 대한 정보 제공
+          <LTag:message code="app.titl.uni" />
         </caption>
         <colgroup>
           <col style="width: 12%" />
@@ -970,269 +1322,1171 @@
           <col />
         </colgroup>
         <tbody>
+    <%-- 학교명 / 소재지 표시 --%>
+  <c:choose>
+      <c:when
+          test="${fn:contains(jobNoticeInfo.schoolInputSelected, '\"
+          SCHOOL_NAME\"') &&
+          fn:contains(jobNoticeInfo.schoolInputSelected, '\"LOCATION\"'
+          )}">
+
+          <%-- 학교명, 소재지 모두 입력받음 --%>
+
           <tr>
-            <th scope="row">학교명<span class="essential">필수 입력</span></th>
+            <th scope="row">
+              <label for="unischoolName_${i.index+1}">
+                <LTag:message code="app.lbl.schoolName" /><!--학교명--><span class="essential">필수 입력</span>
+              </label>
+            </th>
             <td>
               <div class="inputSearch inputBox">
-                <input type="text" />
-                <button type="button" class="searchBtn">검색</button>
+                <input type="text"
+                  id="unischoolName_${i.index+1}"
+                  name="unischoolName_${i.index+1}"
+                  readonly="readonly"
+                  value="<c:out value='${uniInfo.schoolName[i.index]}' />" />
+                <input type="hidden"
+                  id="unischoolCode_${i.index+1}"
+                  name="unischoolCode_${i.index+1}"
+                  value="<c:out value='${uniInfo.schoolCode[i.index]}' />" />
+                <button type="button" class="searchBtn"
+                  onclick="searchSchoolPopup(this,'U');">검색</button>
               </div>
             </td>
-            <th scope="row">소재지<span class="essential">필수 입력</span></th>
+            <th scope="row">
+              <label for="unilocationName_${i.index+1}">
+                <LTag:message code="app.lbl.locationName" /><!--소재지--><span class="essential">필수 입력</span>
+              </label>
+            </th>
             <td>
               <div class="inputSearch inputBox">
-                <input type="text" />
-                <button type="button" class="searchBtn">검색</button>
+                <input type="text"
+                      id="unilocationName_${i.index+1}"
+                      name="unilocationName_${i.index+1}"
+                      value="<c:out value='${uniInfo.locationName[i.index]}' />"
+                      readonly="readonly"
+                      maxlength="300" />
+                  <input type="hidden"
+                      id="uniaddressSido_${i.index+1}"
+                      name="uniaddressSido_${i.index+1}"
+                      value="<c:out value='${uniInfo.addressSido[i.index]}' />" />
+                  <input type="hidden"
+                      id="uniaddressSigu_${i.index+1}"
+                      name="uniaddressSigu_${i.index+1}"
+                      value="<c:out value='${uniInfo.addressSigu[i.index]}' />" />
+                  <button type="button" class="searchBtn"
+                      onclick="searchSchoolLocPopup(this);">검색</button>
               </div>
             </td>
           </tr>
+        </c:when>
+        <c:when
+            test="${fn:contains(jobNoticeInfo.schoolInputSelected, '\"
+            SCHOOL_NAME\"')}">
+
+            <%-- 학교명 만 입력받음 --%>
           <tr>
-            <th scope="row">기간<span class="essential">필수 입력</span></th>
+            <th scope="row">
+              <label for="unischoolName_${i.index+1}">
+                <LTag:message code="app.lbl.schoolName" /><!--학교명--><span class="essential">필수 입력</span>
+              </label>
+            </th>
+            <td>
+              <div class="inputSearch inputBox">
+                <input type="text"
+                  id="unischoolName_${i.index+1}"
+                  name="unischoolName_${i.index+1}"
+                  readonly="readonly"
+                  value="<c:out value='${uniInfo.schoolName[i.index]}' />" />
+                <input type="hidden"
+                  id="unischoolCode_${i.index+1}"
+                  name="unischoolCode_${i.index+1}"
+                  value="<c:out value='${uniInfo.schoolCode[i.index]}' />" />
+                <button type="button" class="searchBtn"
+                  onclick="searchSchoolPopup(this,'U');">검색</button>
+              </div>
+            </td>
+            <td colspan="2"></td>
+          </tr>
+        </c:when>
+        <c:when
+            test="${fn:contains(jobNoticeInfo.schoolInputSelected, '\"
+            LOCATION\"')}">
+
+            <%-- 소재지 만 입력받음 --%>
+          <tr>
+            <th scope="row">
+              <label for="unilocationName_${i.index+1}">
+                <LTag:message code="app.lbl.locationName" /><!--소재지--><span class="essential">필수 입력</span>
+              </label>
+            </th>
+            <td>
+              <div class="inputSearch inputBox">
+                <input type="text"
+                      id="unilocationName_${i.index+1}"
+                      name="unilocationName_${i.index+1}"
+                      value="<c:out value='${uniInfo.locationName[i.index]}' />"
+                      readonly="readonly"
+                      maxlength="300" />
+                  <input type="hidden"
+                      id="uniaddressSido_${i.index+1}"
+                      name="uniaddressSido_${i.index+1}"
+                      value="<c:out value='${uniInfo.addressSido[i.index]}' />" />
+                  <input type="hidden"
+                      id="uniaddressSigu_${i.index+1}"
+                      name="uniaddressSigu_${i.index+1}"
+                      value="<c:out value='${uniInfo.addressSigu[i.index]}' />" />
+                  <button type="button" class="searchBtn"
+                      onclick="searchSchoolLocPopup(this);">검색</button>
+              </div>
+            </td>
+            <td colspan="2"></td>
+          </tr>
+          </c:when>
+      </c:choose>
+
+       <%-- 기간 / 졸업구분 표시 --%>
+
+  <c:choose>
+      <c:when
+          test="${fn:contains(jobNoticeInfo.schoolInputSelected, '\"
+          PERIOD\"') &&
+          fn:contains(jobNoticeInfo.schoolInputSelected, '\"GRADUATION_STATUS\"'
+          )}">
+
+          <%-- 기간, 졸업구분 모두 입력받음 --%>
+          <tr>
+            <th scope="row">
+              <label for="unistartDate_${i.index+1}">
+                <LTag:message code="app.lbl.preriodDate" /><!--기간--><span class="essential">필수 입력</span>
+              </label>
+              </th>
             <td>
               <span class="duration">
                 <span class="inputBox">
                   <input
                     type="text"
-                    id="inputText1"
-                    placeholder="텍스트 입력"
-                  />
+                    id="unistartDate_${i.index+1}"
+                    name="unistartDate_${i.index+1}"
+                    maxlength="11"
+                    readonly="readonly"
+                    value="<c:out value='${uniInfo.startDate[i.index]}' />"
+                    title="기간 시작일" />
                 </span>
                 <button
                   type="button"
-                  id="milStartDate_cal"
                   class="LiconCalendar"
-                  data-calendar="milStartDate"
-                >
-                  달력
-                </button>
+                  id="unistartCal_${i.index+1}"
+                  data-calendar="unistartDate_${i.index+1}">달력</button>
                 <span class="bar">~</span>
                 <span class="inputBox">
                   <input
                     type="text"
-                    id="inputText1"
-                    placeholder="텍스트 입력"
-                  />
+                    id="uniendDate_${i.index+1}"
+                    name="uniendDate_${i.index+1}"
+                    maxlength="11"
+                    readonly="readonly"
+                    value="<c:out value='${uniInfo.endDate[i.index]}' />"
+                    title="기간 종료일" />
                 </span>
-                <button
-                  type="button"
-                  id="milStartDate_cal"
+                <button type="button"
                   class="LiconCalendar"
-                  data-calendar="milStartDate"
-                >
-                  달력
-                </button>
+                  id="uniendCal_${i.index+1}"
+                  data-calendar="uniendDate_${i.index+1}">달력</button>
               </span>
             </td>
             <th scope="row">
-              졸업구분<span class="essential">필수 입력</span>
+              <label for="unigraduationStatusCode_${i.index+1}">
+                <LTag:message code="app.lbl.graduationFlag" /><!--졸업구분--><span class="essential">필수 입력</span>
+              </label>
+              
             </th>
             <td>
-              <select name="" title="졸업구분 선택">
-                <option value="">1</option>
-                <option value="">2</option>
-                <option value="">3</option>
-                <option value="">4</option>
-                <option value="">5</option>
+              <select id="unigraduationStatusCode_${i.index+1}"
+                  name="unigraduationStatusCode_${i.index+1}">
+                  <option value="">
+                      <LTag:message
+                          code="app.lbl.select" />
+                  </option>
+                  <c:forEach
+                      items="${graduationList.code}"
+                      varStatus="l">
+                      <option
+                          value="<c:out value='${graduationList.code[l.index]}' />"
+                          <c:if
+                          test="${uniInfo.graduationStatusCode[i.index] == graduationList.code[l.index]}">
+                          selected
+                          </c:if>>
+                          <c:out
+                              value='${graduationList.value[l.index]}' />
+                      </option>
+                  </c:forEach>
               </select>
             </td>
           </tr>
+</c:when>
+<c:when
+test="${fn:contains(jobNoticeInfo.schoolInputSelected, '\"
+PERIOD\"')}">
+
+<%-- 기간 만 입력받음 --%>
+
           <tr>
-            <th scope="row">전공명<span class="essential">필수 입력</span></th>
+            <th scope="row">
+              <label for="unistartDate_${i.index+1}">
+                <LTag:message code="app.lbl.preriodDate" /><!--기간--><span class="essential">필수 입력</span>
+              </label>
+              </th>
+            <td>
+              <span class="duration">
+                <span class="inputBox">
+                  <input
+                    type="text"
+                    id="unistartDate_${i.index+1}"
+                    name="unistartDate_${i.index+1}"
+                    size="11"
+                    maxlength="11"
+                    readonly="readonly"
+                    value="<c:out value='${uniInfo.startDate[i.index]}' />"
+                    title="기간 시작일" />
+                </span>
+                <button
+                  type="button"
+                  class="LiconCalendar"
+                  id="unistartCal_${i.index+1}"
+                  data-calendar="unistartDate_${i.index+1}">달력</button>
+                <span class="bar">~</span>
+                <span class="inputBox">
+                  <input
+                    type="text"
+                    id="uniendDate_${i.index+1}"
+                    name="uniendDate_${i.index+1}"
+                    size="11"
+                    maxlength="11"
+                    readonly="readonly"
+                    value="<c:out value='${uniInfo.endDate[i.index]}' />"
+                    title="기간 종료일" />
+                </span>
+                <button type="button"
+                  class="LiconCalendar"
+                  id="uniendCal_${i.index+1}"
+                  data-calendar="uniendDate_${i.index+1}">달력</button>
+              </span>
+            </td>
+            <td colspan="2"></td>
+          </tr>
+
+</c:when>
+<c:when
+test="${fn:contains(jobNoticeInfo.schoolInputSelected, '\"
+GRADUATION_STATUS\"')}">
+
+<%-- 졸업구분 만 입력받음 --%>
+
+          <tr>
+            <th scope="row">
+              <label for="unigraduationStatusCode_${i.index+1}">
+                <LTag:message code="app.lbl.graduationFlag" /><!--졸업구분--><span class="essential">필수 입력</span>
+              </label>
+              
+            </th>
+            <td>
+              <select id="unigraduationStatusCode_${i.index+1}"
+                  name="unigraduationStatusCode_${i.index+1}">
+                  <option value="">
+                      <LTag:message
+                          code="app.lbl.select" />
+                  </option>
+                  <c:forEach
+                      items="${graduationList.code}"
+                      varStatus="l">
+                      <option
+                          value="<c:out value='${graduationList.code[l.index]}' />"
+                          <c:if
+                          test="${uniInfo.graduationStatusCode[i.index] == graduationList.code[l.index]}">
+                          selected
+                          </c:if>>
+                          <c:out
+                              value='${graduationList.value[l.index]}' />
+                      </option>
+                  </c:forEach>
+              </select>
+            </td>
+            <td colspan="2"></td>
+          </tr>
+</c:when>
+</c:choose>
+
+<%-- 전공명 / 부복수전공 구분 표시 --%>
+
+<c:choose>
+    <c:when
+        test="${fn:contains(jobNoticeInfo.schoolInputSelected, '\"
+        MAJOR_NAME\"') &&
+        fn:contains(jobNoticeInfo.schoolInputSelected, '\"MINOR_TYPE\"'
+        )}">
+
+        <%-- 전공명, 부복수전공 구분 모두 입력받음 --%>
+          <tr>
+            <th scope="row">
+              <label for="unimajorName_${i.index+1}">
+                <LTag:message code="app.lbl.majorName" /><!--전공명--><span class="essential">필수 입력</span>
+              </label>  
+            </th>            
             <td>
               <div class="inputSearch inputBox">
-                <input type="text" />
-                <button type="button" class="searchBtn">검색</button>
+                <input type="text"
+                  id="unimajorName_${i.index+1}"
+                  name="unimajorName_${i.index+1}"
+                  readonly="readonly"
+                  value="<c:out value='${uniInfo.majorName[i.index]}' />" />
+                <input
+                  type="hidden"
+                  id="unimajorCode_${i.index+1}"
+                  name="unimajorCode_${i.index+1}"
+                  value="<c:out value='${uniInfo.majorCode[i.index]}' />" />
+                <button
+                  type="button"
+                  onClick="searchMajorPopup(this)" class="searchBtn">검색</button>
               </div>
             </td>
             <th scope="row">
-              부/복수전공<span class="essential">필수 입력</span>
+              <label for="uniminorType_${i.index+1}">
+                  <LTag:message code="app.lbl.minorName" /><!--부/복수전공--><span class="essential">필수 입력</span>
+              </label>
             </th>
             <td>
               <div class="row">
-                <select name="" title="평점 선택">
-                  <option value="">1</option>
-                  <option value="">2</option>
-                  <option value="">3</option>
-                  <option value="">4</option>
-                  <option value="">5</option>
+                <select 
+                  id="uniminorType_${i.index+1}"
+                  name="uniminorType_${i.index+1}"
+                  title="부/복수전공 선택"
+                  class="minwidth100"
+                  <c:if
+                  test="${jobNoticeInfo.addSchoolFlag == 'N'}">
+                  onchange="onMinorChange(this);"
+                  </c:if>
+                  >
+                  <option
+                      value="">
+                      <LTag:message
+                          code="app.lbl.select" />
+                  </option>
+                  <c:forEach
+                      items="${minorTypeList.code}"
+                      varStatus="z">
+                      <option
+                          value="<c:out value='${minorTypeList.code[z.index]}' />"
+                          <c:if
+                          test="${uniInfo.minorType[i.index] == minorTypeList.code[z.index]}">
+                          selected
+                          </c:if>
+                          >
+                          <c:out
+                              value='${minorTypeList.value[z.index]}' />
+                      </option>
+                  </c:forEach>
                 </select>
                 <div class="inputSearch inputBox mL10">
-                  <input type="text" />
-                  <button type="button" class="searchBtn">검색</button>
+                  <input type="text"
+                    id="uniminorName_${i.index+1}"
+                    name="uniminorName_${i.index+1}"
+                    value="<c:out value='${uniInfo.minorName[i.index]}' />"
+                    readonly="readonly"
+                    title="전공명" />
+                  <input
+                      type="hidden"
+                      id="uniminorCode_${i.index+1}"
+                      name="uniminorCode_${i.index+1}"
+                      value="<c:out value='${uniInfo.minorCode[i.index]}' />" />
+                    <button type="button"
+                      onClick="searchMajorPopup(this)" class="searchBtn">검색</button>
                 </div>
               </div>
             </td>
           </tr>
+
+    </c:when>
+    <c:when
+        test="${fn:contains(jobNoticeInfo.schoolInputSelected, '\"
+        MAJOR_NAME\"')}">
+
+        <%-- 전공명 만 입력받음 --%>
+        <tr>
+            <th scope="row">
+              <label for="unimajorName_${i.index+1}">
+                <LTag:message code="app.lbl.majorName" /><!--전공명--><span class="essential">필수 입력</span></th>
+              </label>              
+            <td>
+              <div class="inputSearch inputBox">
+                <input type="text"
+                  id="unimajorName_${i.index+1}"
+                  name="unimajorName_${i.index+1}"
+                  readonly="readonly"
+                  value="<c:out value='${uniInfo.majorName[i.index]}' />" />
+                <input
+                  type="hidden"
+                  id="unimajorCode_${i.index+1}"
+                  name="unimajorCode_${i.index+1}"
+                  value="<c:out value='${uniInfo.majorCode[i.index]}' />" />
+                <button
+                  type="button"
+                  onClick="searchMajorPopup(this)" class="searchBtn">검색</button>
+              </div>
+            </td>
+          <td colspan="2"></td>
+        </tr>
+    </c:when>
+    <c:when
+        test="${fn:contains(jobNoticeInfo.schoolInputSelected, '\"
+        MINOR_TYPE\"')}">
+
+        <%-- 부복수전공 구분 만 입력받음
+            --%>
+        <tr>
+            <th scope="row">
+              <label for="uniminorType_${i.index+1}">
+                  <LTag:message code="app.lbl.minorName" /><!--부/복수전공--><span class="essential">필수 입력</span>
+              </label>
+            </th>
+            <td>
+              <div class="row">
+                <select 
+                  id="uniminorType_${i.index+1}"
+                  name="uniminorType_${i.index+1}"
+                  title="부/복수전공 선택"
+                  class="minwidth100"
+                  <c:if
+                  test="${jobNoticeInfo.addSchoolFlag == 'N'}">
+                  onchange="onMinorChange(this);"
+                  </c:if>
+                  >
+                  <option
+                      value="">
+                      <LTag:message
+                          code="app.lbl.select" />
+                  </option>
+                  <c:forEach
+                      items="${minorTypeList.code}"
+                      varStatus="z">
+                      <option
+                          value="<c:out value='${minorTypeList.code[z.index]}' />"
+                          <c:if
+                          test="${uniInfo.minorType[i.index] == minorTypeList.code[z.index]}">
+                          selected
+                          </c:if>
+                          >
+                          <c:out
+                              value='${minorTypeList.value[z.index]}' />
+                      </option>
+                  </c:forEach>
+                </select>
+                <div class="inputSearch inputBox mL10">
+                  <input type="text"
+                    id="uniminorName_${i.index+1}"
+                    name="uniminorName_${i.index+1}"
+                    value="<c:out value='${uniInfo.minorName[i.index]}' />"
+                    size="10"
+                    readonly="readonly"
+                    title="전공명" />
+                  <input
+                      type="hidden"
+                      id="uniminorCode_${i.index+1}"
+                      name="uniminorCode_${i.index+1}"
+                      value="<c:out value='${uniInfo.minorCode[i.index]}' />" />
+                    <button type="button"
+                      onClick="searchMajorPopup(this)" class="searchBtn">검색</button>
+                </div>
+              </div>
+            </td>
+          <td colspan="2"></td>
+        </tr>
+    </c:when>
+</c:choose>
+
+ <%-- 전체평점 표시 --%>
+      <c:if
+          test="${fn:contains(jobNoticeInfo.schoolInputSelected, '\"
+          GPA_POINT\"')}">
           <tr>
             <th scope="row">
-              전체평점<span class="essential">필수 입력</span>
+              <label for="unigpaPoint_${i.index+1}">
+                <LTag:message code="app.lbl.gpaPoint" /><!--전체평점-->                
+          <c:choose>
+              <c:when test="${jobNoticeInfo.careerTypeCode=='B'}"></c:when>
+              <c:otherwise>
+                <span class="essential">필수 입력</span>
+              </c:otherwise>
+            </c:choose>
+              </label>
             </th>
             <td>
               <div class="countWrap row">
                 <div class="inputBox">
-                  <input type="text" />
+                  <input type="text"
+                    id="unigpaPoint_${i.index+1}"
+                    name="unigpaPoint_${i.index+1}"
+                    value="<c:out value='${uniInfo.gpaPoint[i.index]}' />"
+                    maxlength="5"
+                    onKeyPress="return $.onKeyPressFilter('[0-9.]', event);"
+                    style="ime-mode:disabled;"
+                    onkeyup="this.value=this.value.replace(/[^0-9.]/g,'')" />
                 </div>
                 <span class="bar">/</span>
                 <div class="inputBox">
-                  <select name="" title="평점 선택">
-                    <option value="">1</option>
-                    <option value="">2</option>
-                    <option value="">3</option>
-                    <option value="">4</option>
-                    <option value="">5</option>
+                  <select title="전체평점"
+                    id="unigpaPointCode_${i.index+1}"
+                    name="unigpaPointCode_${i.index+1}"
+                    onChange="getText(this)">
+                    <option value=""><LTag:message code="app.lbl.select" /></option>
+                    <c:forEach items="${gpaTypeList.code}" varStatus="u">
+                      <option
+                        value="<c:out value='${gpaTypeList.code[u.index]}' />"
+                        <c:if
+                        test="${uniInfo.gpaPointCode[i.index] == gpaTypeList.code[u.index]}">
+                        selected
+                      </c:if>>
+                      <c:out value='${gpaTypeList.value[u.index]}' />
+                      </option>
+                    </c:forEach>
                   </select>
+                  <input type="hidden" id="unigpaPointCodeVal_${i.index+1}"
+                  name="unigpaPointCodeVal_${i.index+1}"
+                  value="<c:out value='${uniInfo.gpaPointVal[i.index]}'/>" />
                 </div>
               </div>
             </td>
             <th scope="row"></th>
             <td></td>
           </tr>
+        </c:if>
+<%-- 전공평점 표시 --%>
+<c:if test="${fn:contains(jobNoticeInfo.schoolInputSelected, '\"
+                              MAJOR_GPA\"')}">
+
           <tr>
             <th scope="row">
-              전공평점<span class="essential">필수 입력</span>
+              <label for="unimajorGpa_${i.index+1}">
+              <LTag:message code="app.lbl.majorGpa" /><!--전공평점-->
+                <c:choose>
+                  <c:when test="${jobNoticeInfo.careerTypeCode=='B'}">
+                  </c:when>
+                <c:otherwise>
+                  <span class="essential">필수 입력</span>
+                </c:otherwise>
+              </c:choose>
+              </label>
             </th>
             <td>
               <div class="countWrap row">
                 <div class="inputBox">
-                  <input type="text" />
+                  <input type="text" id="unimajorGpa_${i.index+1}"
+                    name="unimajorGpa_${i.index+1}" size="3"
+                    value="<c:out value='${uniInfo.majorGpa[i.index]}' />"
+                    maxlength="5"
+                    onKeyPress="return $.onKeyPressFilter('[0-9.]', event);"
+                    style="ime-mode:disabled;"
+                    onkeyup="this.value=this.value.replace(/[^0-9.]/g,'')" />
                 </div>
                 <span class="bar">/</span>
                 <div class="inputBox">
-                  <select name="" title="평점 선택">
-                    <option value="">1</option>
-                    <option value="">2</option>
-                    <option value="">3</option>
-                    <option value="">4</option>
-                    <option value="">5</option>
+                  <select title="전공평점" id="unimajorGpaCode_${i.index+1}"
+                    name="unimajorGpaCode_${i.index+1}"
+                    onChange="getText(this)">
+                    <option value="">
+                        <LTag:message code="app.lbl.select" />
+                    </option>
+                    <c:forEach items="${gpaTypeList.code}" varStatus="o">
+                        <option
+                            value="<c:out value='${gpaTypeList.code[o.index]}' />"
+                            <c:if
+                            test="${uniInfo.majorGpaCode[i.index] == gpaTypeList.code[o.index]}">
+                            selected
+                    </c:if>>
+                    <c:out value='${gpaTypeList.value[o.index]}' />
+                    </option>
+                  </c:forEach>
                   </select>
+                  <input type="hidden" id="unimajorGpaCodeVal_${i.index+1}"
+                    name="unimajorGpaCodeVal_${i.index+1}"
+                    value="<c:out value='${uniInfo.majorGpaPointVal[i.index]}'/>" />
                 </div>
               </div>
             </td>
             <th scope="row"></th>
             <td></td>
           </tr>
+        </c:if>
+
+ <%-- 전체이수학점 / 전공이수학점 표시 --%>
+ 
+<c:choose>
+  <c:when
+      test="${fn:contains(jobNoticeInfo.schoolInputSelected, '\"
+      TOTAL_POINT\"') &&
+      fn:contains(jobNoticeInfo.schoolInputSelected, '\"MAJOR_POINT\"'
+      )}">
+
+      <%-- 전체이수학점, 전공이수학점 구분 모두 입력받음 --%>
           <tr>
-            <th scope="row">전체 이수학점</th>
+            <th scope="row">
+              <label for="unitotalPoint_${i.index+1}"><LTag:message code="app.lbl.totalPoint" /><!--전체 이수학점-->
+              
+                <c:choose>
+                  <c:when test="${jobNoticeInfo.careerTypeCode=='B'}">
+                  </c:when>
+                <c:otherwise>
+                  <span class="essential">필수 입력</span>
+                </c:otherwise>
+              </c:choose>
+              </label>
+            </th>
             <td>
               <div class="inputBox">
-                <label for="inputText1">텍스트입력</label>
-                <input type="text" id="inputText1" placeholder="텍스트 입력" />
+                <input type="text"
+                  id="unitotalPoint_${i.index+1}"
+                  name="unitotalPoint_${i.index+1}"
+                  value="<c:out value='${uniInfo.totalPoint[i.index]}' />"
+                  maxlength="5"
+                  onKeyPress="return $.onKeyPressFilter('[0-9.]', event);"
+                  style="ime-mode:disabled;"
+                  onkeyup="this.value=this.value.replace(/[^0-9.]/g,'')" />
               </div>
             </td>
-            <th scope="row">전공 이수학점</th>
+            <th scope="row"><!--전공 이수학점-->
+              <label for="unimajorPoint_${i.index+1}">
+                <LTag:message code="app.lbl.majorPoint" />
+                <c:choose>
+                  <c:when test="${jobNoticeInfo.careerTypeCode=='B'}">
+                  </c:when>
+                <c:otherwise>
+                  <span class="essential">필수 입력</span>
+                </c:otherwise>
+              </c:choose>
+              </label>
+            </th>
             <td>
               <div class="inputBox">
-                <label for="inputText1">텍스트입력</label>
-                <input type="text" id="inputText1" placeholder="텍스트 입력" />
+                <input type="text"
+                  id="unimajorPoint_${i.index+1}"
+                  name="unimajorPoint_${i.index+1}"
+                  value="<c:out value='${uniInfo.majorPoint[i.index]}' />"
+                  maxlength="5"
+                  onKeyPress="return $.onKeyPressFilter('[0-9.]', event);"
+                  style="ime-mode:disabled;"
+                  onkeyup="this.value=this.value.replace(/[^0-9.]/g,'')" />
               </div>
             </td>
           </tr>
+
+</c:when>
+<c:when
+    test="${fn:contains(jobNoticeInfo.schoolInputSelected, '\"
+    TOTAL_POINT\"')}">
+
+    <%-- 전체이수학점 만 입력받음 --%>
           <tr>
-            <th scope="row">복수전공 이수학점</th>
+            <th scope="row">
+              <label for="unitotalPoint_${i.index+1}"><LTag:message code="app.lbl.totalPoint" /><!--전체 이수학점-->
+              
+                <c:choose>
+                  <c:when test="${jobNoticeInfo.careerTypeCode=='B'}">
+                  </c:when>
+                <c:otherwise>
+                  <span class="essential">필수 입력</span>
+                </c:otherwise>
+              </c:choose>
+              </label>
+            </th>
             <td>
               <div class="inputBox">
-                <label for="inputText1">텍스트입력</label>
-                <input type="text" id="inputText1" placeholder="텍스트 입력" />
+                <input type="text"
+                  id="unitotalPoint_${i.index+1}"
+                  name="unitotalPoint_${i.index+1}"
+                  size="3"
+                  value="<c:out value='${uniInfo.totalPoint[i.index]}' />"
+                  maxlength="5"
+                  onKeyPress="return $.onKeyPressFilter('[0-9.]', event);"
+                  style="ime-mode:disabled;"
+                  onkeyup="this.value=this.value.replace(/[^0-9.]/g,'')" />
               </div>
             </td>
-            <th scope="row">복수전공 평점</th>
+            <td colspan="2"></td>
+          </tr>
+        </c:when>
+        <c:when
+            test="${fn:contains(jobNoticeInfo.schoolInputSelected, '\"
+            MAJOR_POINT\"')}">
+
+            <%-- 전공이수학점 만 입력받음 --%>
+        <tr>
+          <th scope="row">전공 이수학점
+            <label for="unimajorPoint_${i.index+1}">
+              <LTag:message code="app.lbl.majorPoint" />
+              <c:choose>
+                <c:when test="${jobNoticeInfo.careerTypeCode=='B'}">
+                </c:when>
+              <c:otherwise>
+                <span class="essential">필수 입력</span>
+              </c:otherwise>
+            </c:choose>
+            </label>
+          </th>
+          <td>
+            <div class="inputBox">
+              <input type="text"
+                id="unimajorPoint_${i.index+1}"
+                name="unimajorPoint_${i.index+1}"
+                size="3"
+                value="<c:out value='${uniInfo.majorPoint[i.index]}' />"
+                maxlength="5"
+                onKeyPress="return $.onKeyPressFilter('[0-9.]', event);"
+                style="ime-mode:disabled;"
+                onkeyup="this.value=this.value.replace(/[^0-9.]/g,'')" />
+            </div>
+          </td>
+          <td colspan="2"></td>
+        </tr>
+          </c:when>
+      </c:choose>
+
+<%-- 복수전공이수학점 / 복수전공평점 표시 --%>
+
+  <c:choose>
+      <c:when
+          test="${fn:contains(jobNoticeInfo.schoolInputSelected, '\"
+          DOUBLE_POINT\"') &&
+          fn:contains(jobNoticeInfo.schoolInputSelected, '\"DOUBLE_GPA\"'
+          )}">
+
+          <%-- 복수전공이수학점, 복수전공평점 모두 입력받음 --%>
+
+
+          <tr <c:if test="${!empty uniInfo.minorType[i.index] && uniInfo.minorType[i.index] == 'A'}">
+                  style="display:none;" </c:if>>
+            <th scope="row">
+              <label
+                  for="unidoublePoint_${i.index+1}">
+                  <LTag:message
+                      code="app.lbl.doublePoint" />
+              </label><!--복수전공 이수학점--></th>
+            <td>
+              <div class="inputBox">
+                <input type="text"
+                  id="unidoublePoint_${i.index+1}"
+                  name="unidoublePoint_${i.index+1}"
+                  value="<c:out value='${uniInfo.doublePoint[i.index]}' />"
+                  maxlength="5"
+                  onKeyPress="return $.onKeyPressFilter('[0-9.]', event);"
+                  style="ime-mode:disabled;"
+                  onkeyup="this.value=this.value.replace(/[^0-9.]/g,'')" />
+              </div>
+            </td>
+            <th scope="row">
+              <label for="unidoubleMajorGpa_${i.index+1}">
+                  <LTag:message code="app.lbl.doubleMajorGpa" />
+              </label>
+              <!--복수전공 평점--></th>
             <td>
               <div class="countWrap row">
                 <div class="inputBox">
-                  <input type="text" />
+                  <input type="text"
+                    id="unidoubleMajorGpa_${i.index+1}"
+                    name="unidoubleMajorGpa_${i.index+1}"
+                    value="<c:out value='${uniInfo.doubleMajorGpa[i.index]}' />"
+                    maxlength="5"
+                    onKeyPress="return $.onKeyPressFilter('[0-9.]', event);"
+                    style="ime-mode:disabled;"
+                    onkeyup="this.value=this.value.replace(/[^0-9.]/g,'')" />
                 </div>
                 <span class="bar">/</span>
                 <div class="inputBox">
-                  <select name="" title="평점 선택">
-                    <option value="">1</option>
-                    <option value="">2</option>
-                    <option value="">3</option>
-                    <option value="">4</option>
-                    <option value="">5</option>
-                  </select>
+                  <select title="학점 총점"
+                    id="unidoubleMajorGpaCode_${i.index+1}"
+                    name="unidoubleMajorGpaCode_${i.index+1}"
+                    onChange="getText(this)">
+                    <option value="">
+                        <LTag:message
+                            code="app.lbl.select" />
+                    </option>
+                    <c:forEach
+                        items="${gpaTypeList.code}"
+                        varStatus="u">
+                        <option
+                            value="<c:out value='${gpaTypeList.code[u.index]}' />"
+                            <c:if
+                            test="${uniInfo.doubleMajorGpaCode[i.index] == gpaTypeList.code[u.index]}">
+                            selected </c:if>
+                            >
+                            <c:out
+                                value='${gpaTypeList.value[u.index]}' />
+                        </option>
+                    </c:forEach>
+                    </select>
+                    <input type="hidden"
+                        id="unidoubleMajorGpaCodeVal_${i.index+1}"
+                        name="unidoubleMajorGpaCodeVal_${i.index+1}"
+                        value="<c:out value='${uniInfo.doubleMajorGpaCode[i.index]}'/>" />
                 </div>
               </div>
             </td>
           </tr>
-          <tr>
-            <th scope="row">부전공 이수학점</th>
+      </c:when>
+      <c:when
+          test="${fn:contains(jobNoticeInfo.schoolInputSelected, '\"
+          DOUBLE_POINT\"')}">
+
+          <%-- 복수전공이수학점 만 입력받음 --%>
+
+          <tr <c:if
+                  test="${!empty uniInfo.minorType[i.index] && uniInfo.minorType[i.index] == 'A'}">
+                  style="display:none;" </c:if>><th scope="row">
+              <label
+                  for="unidoublePoint_${i.index+1}">
+                  <LTag:message
+                      code="app.lbl.doublePoint" />
+              </label><!--복수전공 이수학점--></th>
             <td>
               <div class="inputBox">
-                <label for="inputText1">텍스트입력</label>
-                <input type="text" id="inputText1" placeholder="텍스트 입력" />
+                <input type="text"
+                  id="unidoublePoint_${i.index+1}"
+                  name="unidoublePoint_${i.index+1}"
+                  size="3"
+                  value="<c:out value='${uniInfo.doublePoint[i.index]}' />"
+                  maxlength="5"
+                  onKeyPress="return $.onKeyPressFilter('[0-9.]', event);"
+                  style="ime-mode:disabled;"
+                  onkeyup="this.value=this.value.replace(/[^0-9.]/g,'')" />
               </div>
             </td>
-            <th scope="row">부전공 평점</th>
+            <td colspan="2"></td>
+          </tr>
+      </c:when>
+      <c:when
+          test="${fn:contains(jobNoticeInfo.schoolInputSelected, '\"
+          DOUBLE_GPA\"')}">
+
+          <%-- 복수전공평점 만 입력받음 --%>
+
+
+          <tr <c:if
+                  test="${!empty uniInfo.minorType[i.index] && uniInfo.minorType[i.index] == 'A'}">
+                  style="display:none;" </c:if>>
+            <th scope="row">
+              <label for="unidoubleMajorGpa_${i.index+1}">
+                  <LTag:message code="app.lbl.doubleMajorGpa" />
+              </label>
+              <!--복수전공 평점--></th>
             <td>
               <div class="countWrap row">
                 <div class="inputBox">
-                  <input type="text" />
+                  <input type="text"
+                    id="unidoubleMajorGpa_${i.index+1}"
+                    name="unidoubleMajorGpa_${i.index+1}"
+                    size="3"
+                    value="<c:out value='${uniInfo.doubleMajorGpa[i.index]}' />"
+                    maxlength="5"
+                    onKeyPress="return $.onKeyPressFilter('[0-9.]', event);"
+                    style="ime-mode:disabled;"
+                    onkeyup="this.value=this.value.replace(/[^0-9.]/g,'')" />
                 </div>
                 <span class="bar">/</span>
                 <div class="inputBox">
-                  <select name="" title="평점 선택">
-                    <option value="">1</option>
-                    <option value="">2</option>
-                    <option value="">3</option>
-                    <option value="">4</option>
-                    <option value="">5</option>
+                  <select title="학점 총점"
+                    id="unidoubleMajorGpaCode_${i.index+1}"
+                    name="unidoubleMajorGpaCode_${i.index+1}"
+                    onChange="getText(this)">
+                    <option value="">
+                        <LTag:message
+                            code="app.lbl.select" />
+                    </option>
+                    <c:forEach
+                        items="${gpaTypeList.code}"
+                        varStatus="u">
+                        <option
+                            value="<c:out value='${gpaTypeList.code[u.index]}' />"
+                            <c:if
+                            test="${uniInfo.doubleMajorGpaCode[i.index] == gpaTypeList.code[u.index]}">
+                            selected </c:if>
+                            >
+                            <c:out
+                                value='${gpaTypeList.value[u.index]}' />
+                        </option>
+                    </c:forEach>
+                    </select>
+                    <input type="hidden"
+                        id="unidoubleMajorGpaCodeVal_${i.index+1}"
+                        name="unidoubleMajorGpaCodeVal_${i.index+1}"
+                        value="<c:out value='${uniInfo.doubleMajorGpaCode[i.index]}'/>" />
+                </div>
+              </div>
+            </td>
+            <td colspan="2"></td>
+          </tr>
+      </c:when>
+  </c:choose>
+
+ <%-- 부전공이수학점 / 부전공평점 표시 --%>
+
+<c:choose>
+<c:when
+    test="${fn:contains(jobNoticeInfo.schoolInputSelected, '\"
+    MINOR_POINT\"') &&
+    fn:contains(jobNoticeInfo.schoolInputSelected, '\"MINOR_GPA\"'
+    )}">
+
+    <%-- 부전공이수학점, 부전공평점 모두 입력받음 --%>
+          <tr class="minor" <c:if
+            test="${!empty uniInfo.minorType[i.index] && uniInfo.minorType[i.index] == 'B'}">
+            style="display:none;"
+            </c:if>>
+            <th scope="row">
+              <label for="uniminorPoint_${i.index+1}">
+                <LTag:message code="app.lbl.minorPoint" />
+              </label>
+              <!--부전공 이수학점--></th>
+            <td>
+              <div class="inputBox">
+                <input type="text"
+                  id="uniminorPoint_${i.index+1}"
+                  name="uniminorPoint_${i.index+1}"
+                  value="<c:out value='${uniInfo.minorPoint[i.index]}' />"
+                  maxlength="5"
+                  onKeyPress="return $.onKeyPressFilter('[0-9.]', event);"
+                  style="ime-mode:disabled;"
+                  onkeyup="this.value=this.value.replace(/[^0-9.]/g,'')" />
+              </div>
+            </td>
+            <th scope="row"><label for="uniminorGpa_${i.index+1}">
+                    <LTag:message code="app.lbl.minorGpa" />
+                </label><!--부전공 평점-->
+            </th>
+            <td>
+              <div class="countWrap row">
+                <div class="inputBox">
+                  <input type="text"
+                    id="uniminorGpa_${i.index+1}"
+                    name="uniminorGpa_${i.index+1}"
+                    value="<c:out value='${uniInfo.minorGpa[i.index]}' />"
+                    maxlength="5"
+                    onKeyPress="return $.onKeyPressFilter('[0-9.]', event);"
+                    style="ime-mode:disabled;"
+                    onkeyup="this.value=this.value.replace(/[^0-9.]/g,'')" />
+                </div>
+                <span class="bar">/</span>
+                <div class="inputBox">
+                  <select title="학점 총점"
+                    id="uniminorGpaCode_${i.index+1}"
+                    name="uniminorGpaCode_${i.index+1}"
+                    onChange="getText(this)">
+                    <option
+                      value="">
+                      <LTag:message code="app.lbl.select" />
+                    </option>
+                    <c:forEach
+                      items="${gpaTypeList.code}"
+                      varStatus="o">
+                      <option
+                       value="<c:out value='${gpaTypeList.code[o.index]}' />"
+                        <c:if
+                         test="${uniInfo.minorGpaCode[i.index] == gpaTypeList.code[o.index]}">
+                         selected
+                         </c:if>
+                         >
+                        <c:out value='${gpaTypeList.value[o.index]}' />
+                        </option>
+                    </c:forEach>
                   </select>
+                    <input
+                        type="hidden"
+                        id="uniminorGpaPointVal_${i.index+1}"
+                        name="uniminorGpaPointVal_${i.index+1}"
+                        value="<c:out value='${uniInfo.minorGpaPointVal[i.index]}'/>" />
                 </div>
               </div>
             </td>
           </tr>
+</c:when>
+<c:when
+    test="${fn:contains(jobNoticeInfo.schoolInputSelected, '\"
+    MINOR_POINT\"')}">
+
+    <%-- 부전공이수학점 만 입력받음 --%>
+    <tr  <c:if
+      test="${!empty uniInfo.minorType[i.index] && uniInfo.minorType[i.index] == 'B'}">
+      style="display:none;"
+      </c:if>>
+      <th scope="row">
+        <label for="uniminorPoint_${i.index+1}">
+          <LTag:message code="app.lbl.minorPoint" />
+        </label>
+        <!--부전공 이수학점--></th>
+      <td>
+        <div class="inputBox">
+          <input type="text"
+            id="uniminorPoint_${i.index+1}"
+            name="uniminorPoint_${i.index+1}"
+            size="3"
+            value="<c:out value='${uniInfo.minorPoint[i.index]}' />"
+            maxlength="5"
+            onKeyPress="return $.onKeyPressFilter('[0-9.]', event);"
+            style="ime-mode:disabled;"
+            onkeyup="this.value=this.value.replace(/[^0-9.]/g,'')" />
+        </div>
+      </td>
+      <td colspan="2"></td>
+    </tr>
+
+</c:when>
+<c:when
+    test="${fn:contains(jobNoticeInfo.schoolInputSelected, '\"
+    MINOR_GPA\"')}">
+
+    <%-- 부전공평점 만 입력받음 --%>
+        <tr <c:if
+            test="${!empty uniInfo.minorType[i.index] && uniInfo.minorType[i.index] == 'B'}">
+            style="display:none;"
+            </c:if>>
+            
+            <th scope="row"><label for="uniminorGpa_${i.index+1}">
+                    <LTag:message code="app.lbl.minorGpa" />
+                </label><!--부전공 평점-->
+            </th>
+            <td>
+              <div class="countWrap row">
+                <div class="inputBox">
+                  <input type="text"
+                    id="uniminorGpa_${i.index+1}"
+                    name="uniminorGpa_${i.index+1}"
+                    value="<c:out value='${uniInfo.minorGpa[i.index]}' />"
+                    maxlength="5"
+                    onKeyPress="return $.onKeyPressFilter('[0-9.]', event);"
+                    style="ime-mode:disabled;"
+                    onkeyup="this.value=this.value.replace(/[^0-9.]/g,'')" />
+                </div>
+                <span class="bar">/</span>
+                <div class="inputBox">
+                  <select title="학점 총점"
+                    id="uniminorGpaCode_${i.index+1}"
+                    name="uniminorGpaCode_${i.index+1}"
+                    onChange="getText(this)">
+                    <option
+                      value="">
+                      <LTag:message code="app.lbl.select" />
+                    </option>
+                    <c:forEach
+                      items="${gpaTypeList.code}"
+                      varStatus="o">
+                      <option
+                       value="<c:out value='${gpaTypeList.code[o.index]}' />"
+                        <c:if
+                         test="${uniInfo.minorGpaCode[i.index] == gpaTypeList.code[o.index]}">
+                         selected
+                         </c:if>
+                         >
+                        <c:out value='${gpaTypeList.value[o.index]}' />
+                        </option>
+                    </c:forEach>
+                  </select>
+                    <input
+                        type="hidden"
+                        id="uniminorGpaPointVal_${i.index+1}"
+                        name="uniminorGpaPointVal_${i.index+1}"
+                        value="<c:out value='${uniInfo.minorGpaPointVal[i.index]}'/>" />
+                </div>
+              </div>
+            </td>
+              <td colspan="2"></td>
+            </tr>
+</c:when>
+</c:choose>
+
+
+<%-- 공학인증제 인증여부 입력 표시 --%>
+
+        <c:if
+            test="${jobNoticeInfo.engineeringAccrFlag == 'N'}">
+
           <tr>
-            <th scope="col">공학인증</th>
+            <th scope="col">
+              <label for="uniengineeringAccrFlag_yes_${i.index+1}">
+                <LTag:message code="app.lbl.engineeringFlag" /><!--공학인증-->
+                  <span class="essential">필수 입력</span>
+              </label>
+              </th>
             <td>
               <span class="input">
-                <input type="radio" id="rd1" name="radio" value="" checked="" />
-                <label for="rd1">Yes</label>
+                <input type="radio"
+                  id="uniengineeringAccrFlag_yes_${i.index+1}"
+                  name="uniengineeringAccrFlag_${i.index+1}"
+                  value="Y"
+                  <c:if
+                  test="${uniInfo.engineeringAccrFlag[i.index] == 'Y'}">
+                  checked="checked"
+                </c:if> >
+                <label for="engineeringAccrFlag_yes">Yes</label>
               </span>
               <span class="input">
-                <input type="radio" id="rd1" name="radio" value="" checked="" />
-                <label for="rd1">No</label>
+                <input type="radio"
+                  id="uniengineeringAccrFlag_no_${i.index+1}"
+                  name="uniengineeringAccrFlag_${i.index+1}"
+                  value="N" <c:if
+                  test="${uniInfo.engineeringAccrFlag[i.index] == 'N'}">
+                  checked="checked" </c:if>
+                  >
+                  <label for="engineeringAccrFlag_no">No</label>
               </span>
             </td>
             <th scope="col"></th>
             <td></td>
           </tr>
+        </c:if>
         </tbody>
       </table>
     </div>
+    </c:forEach>
+    <div id="addUniDiv"></div>
     <ul class="bu">
-      <li>
-        타 학교로 편입한 경우, 해당 학교의 졸업구분은 ‘타교편입’으로 선택해
-        주시기 바랍니다.
-      </li>
-      <li>
-        교환학생 내용은 입력하지 마십시오.(복수 학교 졸업이 아닙니다.)<br />
-        단, 국내/해외 대학을 연계하여 두 개의 학위를 인정받은 경우에는 각각
-        입력해주시기 바랍니다.
-      </li>
-      <li>기간은 졸업일 또는 졸업예정일 기준으로 입력해주시기 바랍니다.</li>
-      <li>
-        복수/부전공이 모두 있는 경우 한 가지만 선택하여 입력해주시기 바랍니다.
-      </li>
-      <li>
-        전공이수학점은 전공필수, 전공선택 등 성적증명서상 전공으로 확인가능한
-        과목만 기입해 주시기 바랍니다.<br />
-        (예> 공학계열 전공자는 수학/물리/화학등 전공기초과목 제외)
-      </li>
+              <%-- FPT - Static Analysis Handle - DELETE --%>
+      <li><LTag:message code="app.cont.additionalTip7" /></li>
+      <li><LTag:message code="app.cont.additionalTip8" /><br /><LTag:message code="app.cont.additionalTip18" /></li>
+      <li><LTag:message code="app.cont.additionalTip14" /></li>
+      <li><LTag:message code="app.cont.additionalTip15" /></li>
+      <c:if test="${jobNoticeInfo.addSchoolFlag == 'N'}">
+        <li>전공이수학점은 전공필수, 전공선택 등 성적증명서상 전공으로 확인가능한 과목만 기입해 주시기 바랍니다.
+            <br />(예> 공학계열 전공자는 수학/물리/화학등 전공기초과목 제외)
+        </li>
+      </c:if>
     </ul>
   </article>
 
-  <article class="sec1-6">
-    <h3>대학교-석사(1)</h3>
-    <p>
-      두 개 이상의 석사 학위를 소지한 경우, ‘+추가’ 를 선택하여 작성해 주십시오.
-    </p>
+
+  <!-- 대학교 - 석사-->
+  <article class="sec1-6" id="masterDiv" style="display:none">
+    <h3><LTag:message code="app.titl.master" />
+      <span id="masterCount">(
+          <c:out value='${masterCount}' />)</h3>
+    <p><LTag:message code="app.cont.masterCont_1" /></p>    
+    <div class="addWrap">
+      <button type="button" class="delete" onclick="fnEraseData('masterDiv');" title="<LTag:message code="app.titl.master" /> 입력 지우기">지우기</button>
+      <button type="button" class="add" title="<LTag:message code="app.titl.master" /> 추가">추가</button>
+    </div>
+
+    <c:forEach items="${masterInfo.jobNoticeId}" varStatus="i">
+        <c:if test="${i.index != 0}">
+      <div class="tRight">
+        <button type="button" class="deleteBtn"  onClick="delDataInfo(this,'master');">
+          <span>다음 항목 삭제</span>
+        </button>
+      </div>
+     </c:if>
+
     <div class="table">
+      <%-- 비즈니스 로직에서 학교이름의 키를 파싱해서 숫자를 세므로 학교이름이 필수가 아닌 상황에서 로직을 맞춰주기위해 순번을 넣음. --%>
+    <input type="hidden" id="masterschoolSeqno_${i.index+1}"
+        name="masterschoolSeqno_${i.index+1}" value="${i.index+1}" />
       <table>
-        <caption>
-          대학교(1) - 학교명, 소재지, 기간, 졸업구분, 전공명, 검색 부/복수전공,
-          전체평점, 전공평점, 전체이수학점, 전체 이수학점, 복수전공 이수학점,
-          복수전공 평점, 부전공 이수학점, 부전공 평점, 공학인증에 대한 정보 제공
-        </caption>
+        <caption><LTag:message code="app.titl.master" /></caption>
         <colgroup>
           <col style="width: 12%" />
           <col style="width: 35%" />
@@ -1240,185 +2494,677 @@
           <col />
         </colgroup>
         <tbody>
+           <%-- 학교명 / 소재지 표시 --%>
+           
+          <c:choose>
+              <c:when
+                  test="${fn:contains(jobNoticeInfo.schoolInputSelected, '\"
+                  SCHOOL_NAME\"') &&
+                  fn:contains(jobNoticeInfo.schoolInputSelected, '\"LOCATION\"'
+                  )}">
+
+                  <%-- 학교명, 소재지 모두 입력받음 --%>
+
           <tr>
-            <th scope="row">학교명<span class="essential">필수 입력</span></th>
+            <th scope="row">
+              <label for="masterschoolName_${i.index+1}">
+                  <LTag:message code="app.lbl.schoolName" /><!--학교명--><span class="essential">필수 입력</span>
+              </label>
+            </th>
             <td>
               <div class="inputSearch inputBox">
-                <input type="text" />
-                <button type="button" class="searchBtn">검색</button>
+                <input type="text"
+                  id="masterschoolName_${i.index+1}"
+                  name="masterschoolName_${i.index+1}"
+                  value="<c:out value='${masterInfo.schoolName[i.index]}' />"
+                  readonly="readonly" />
+                <input type="hidden"
+                    id="masterschoolCode_${i.index+1}"
+                    name="masterschoolCode_${i.index+1}"
+                    value="<c:out value='${masterInfo.schoolCode[i.index]}' />" />
+                <button type="button" class="searchBtn"
+                    onclick="searchSchoolPopup(this,'U');">검색</button>
               </div>
             </td>
-            <th scope="row">소재지<span class="essential">필수 입력</span></th>
+            <th scope="row">
+              <label for="masterlocationName_${i.index+1}">
+                <LTag:message code="app.lbl.locationName" /><!--소재지--><span class="essential">필수 입력</span>
+              </label>
+              </th>
             <td>
               <div class="inputSearch inputBox">
-                <input type="text" />
-                <button type="button" class="searchBtn">검색</button>
+                <input type="text"
+                  id="masterlocationName_${i.index+1}"
+                  name="masterlocationName_${i.index+1}"
+                  value="<c:out value='${masterInfo.locationName[i.index]}' />"
+                  readonly="readonly"
+                  maxlength="300" />
+                <input type="hidden"
+                  id="masteraddressSido_${i.index+1}"
+                  name="masteraddressSido_${i.index+1}"
+                  value="<c:out value='${masterInfo.addressSido[i.index]}' />" />
+                <input type="hidden"
+                  id="masteraddressSigu_${i.index+1}"
+                  name="masteraddressSigu_${i.index+1}"
+                  value="<c:out value='${masterInfo.addressSigu[i.index]}' />" />
+                <button type="button" class="searchBtn"
+                  onclick="searchSchoolLocPopup(this);">검색</button>
               </div>
             </td>
           </tr>
+</c:when>
+<c:when
+test="${fn:contains(jobNoticeInfo.schoolInputSelected, '\"
+SCHOOL_NAME\"')}">
+
+<%-- 학교명 만 입력받음 --%>
+
           <tr>
-            <th scope="row">기간<span class="essential">필수 입력</span></th>
+            <th scope="row">
+              <label for="masterschoolName_${i.index+1}">
+                  <LTag:message code="app.lbl.schoolName" /><!--학교명--><span class="essential">필수 입력</span></th>
+              </label>
+              
+            <td>
+              <div class="inputSearch inputBox">
+                <input type="text"
+                  id="masterschoolName_${i.index+1}"
+                  name="masterschoolName_${i.index+1}"
+                  value="<c:out value='${masterInfo.schoolName[i.index]}' />"
+                  size="25"
+                  readonly="readonly" />
+                <input type="hidden"
+                    id="masterschoolCode_${i.index+1}"
+                    name="masterschoolCode_${i.index+1}"
+                    value="<c:out value='${masterInfo.schoolCode[i.index]}' />" />
+                <button type="button" class="searchBtn"
+                    onclick="searchSchoolPopup(this,'U');">검색</button>
+              </div>
+            </td>
+          <td colspan="2"></td>
+        </tr>
+</c:when>
+<c:when
+test="${fn:contains(jobNoticeInfo.schoolInputSelected, '\"
+LOCATION\"')}">
+
+<%-- 소재지 만 입력받음 --%>
+          <tr>
+            <th scope="row">
+              <label for="masterlocationName_${i.index+1}">
+                <LTag:message code="app.lbl.locationName" /><!--소재지--><span class="essential">필수 입력</span>
+              </label>
+              </th>
+            <td>
+              <div class="inputSearch inputBox">
+                <input type="text"
+                  id="masterlocationName_${i.index+1}"
+                  name="masterlocationName_${i.index+1}"
+                  value="<c:out value='${masterInfo.locationName[i.index]}' />"
+                  readonly="readonly"
+                  maxlength="300" />
+                <input type="hidden"
+                  id="masteraddressSido_${i.index+1}"
+                  name="masteraddressSido_${i.index+1}"
+                  value="<c:out value='${masterInfo.addressSido[i.index]}' />" />
+                <input type="hidden"
+                  id="masteraddressSigu_${i.index+1}"
+                  name="masteraddressSigu_${i.index+1}"
+                  value="<c:out value='${masterInfo.addressSigu[i.index]}' />" />
+                <button type="button" class="searchBtn"
+                  onclick="searchSchoolLocPopup(this);">검색</button>
+              </div>
+            </td>
+            <td colspan="2"></td>
+          </tr>
+</c:when>
+</c:choose>
+
+<%-- 기간 / 졸업구분 표시 --%>
+
+<c:choose>
+<c:when
+test="${fn:contains(jobNoticeInfo.schoolInputSelected, '\"
+PERIOD\"') &&
+fn:contains(jobNoticeInfo.schoolInputSelected, '\"GRADUATION_STATUS\"'
+)}">
+
+<%-- 기간, 졸업구분 모두 입력받음 --%>
+          <tr>
+            <th scope="row">
+              <label for="masterstartDate_${i.index+1}">
+                <LTag:message code="app.lbl.preriodDate" /><!--기간--><span class="essential">필수 입력</span>
+              </label>
+             </th>
             <td>
               <span class="duration">
                 <span class="inputBox">
-                  <input
-                    type="text"
-                    id="inputText1"
-                    placeholder="텍스트 입력"
-                  />
+                  <input type="text"
+                    class="Ltext"
+                    id="masterstartDate_${i.index+1}"
+                    name="masterstartDate_${i.index+1}"
+                    value="<c:out value='${masterInfo.startDate[i.index]}' />"
+                    maxlength="11"
+                    readonly="readonly"
+                    title="기간 시작일" />
                 </span>
-                <button
-                  type="button"
-                  id="milStartDate_cal"
-                  class="LiconCalendar"
-                  data-calendar="milStartDate"
-                >
-                  달력
-                </button>
+                <button type="button"
+                class="LiconCalendar"
+                id="masterstartCal_${i.index+1}"
+                data-calendar="masterstartDate_${i.index+1}">달력</button>
                 <span class="bar">~</span>
                 <span class="inputBox">
-                  <input
-                    type="text"
-                    id="inputText1"
-                    placeholder="텍스트 입력"
-                  />
+                  <input type="text"
+                    class="Ltext"
+                    id="masterendDate_${i.index+1}"
+                    name="masterendDate_${i.index+1}"
+                    maxlength="11"
+                    value="<c:out value='${masterInfo.endDate[i.index]}' />"
+                    readonly="readonly"
+                    title="기간 종료일" />
                 </span>
-                <button
-                  type="button"
-                  id="milStartDate_cal"
+                <button type="button"
                   class="LiconCalendar"
-                  data-calendar="milStartDate"
-                >
-                  달력
-                </button>
+                  id="masterendCal_${i.index+1}"
+                  data-calendar="masterendDate_${i.index+1}">달력</button>
               </span>
             </td>
             <th scope="row">
-              졸업구분<span class="essential">필수 입력</span>
+              <label for="mastergraduationStatusCode_${i.index+1}">
+                <LTag:message code="app.lbl.graduationFlag" /><!--졸업구분--><span class="essential">필수 입력</span>
+              </label>
             </th>
             <td>
-              <select name="" title="졸업구분 선택">
-                <option value="">1</option>
-                <option value="">2</option>
-                <option value="">3</option>
-                <option value="">4</option>
-                <option value="">5</option>
+              <select
+                  id="mastergraduationStatusCode_${i.index+1}"
+                  name="mastergraduationStatusCode_${i.index+1}">
+                  <option value="">
+                      <LTag:message
+                          code="app.lbl.select" />
+                  </option>
+                  <c:forEach
+                      items="${graduationList.code}"
+                      varStatus="l">
+                      <option
+                          value="<c:out value='${graduationList.code[l.index]}' />"
+                          <c:if
+                          test="${masterInfo.graduationStatusCode[i.index] == graduationList.code[l.index]}">
+                          selected
+                          </c:if>>
+                          <c:out
+                              value='${graduationList.value[l.index]}' />
+                      </option>
+                  </c:forEach>
               </select>
             </td>
           </tr>
+
+
+</c:when>
+<c:when
+test="${fn:contains(jobNoticeInfo.schoolInputSelected, '\"
+PERIOD\"')}">
+
+<%-- 기간 만 입력받음 --%>
+
           <tr>
-            <th scope="row">전공명<span class="essential">필수 입력</span></th>
+            <th scope="row">
+              <label for="masterstartDate_${i.index+1}">
+                <LTag:message code="app.lbl.preriodDate" /><!--기간--><span class="essential">필수 입력</span>
+              </label>
+             </th>
+            <td>
+              <span class="duration">
+                <span class="inputBox">
+                  <input type="text"
+                    class="Ltext"
+                    id="masterstartDate_${i.index+1}"
+                    name="masterstartDate_${i.index+1}"
+                    size="11"
+                    value="<c:out value='${masterInfo.startDate[i.index]}' />"
+                    maxlength="11"
+                    readonly="readonly"
+                    title="기간 시작일" />
+                </span>
+                <button type="button"
+                class="LiconCalendar"
+                id="masterstartCal_${i.index+1}"
+                data-calendar="masterstartDate_${i.index+1}">달력</button>
+                <span class="bar">~</span>
+                <span class="inputBox">
+                  <input type="text"
+                    class="Ltext"
+                    id="masterendDate_${i.index+1}"
+                    name="masterendDate_${i.index+1}"
+                    size="11"
+                    maxlength="11"
+                    value="<c:out value='${masterInfo.endDate[i.index]}' />"
+                    readonly="readonly"
+                    title="기간 종료일" />
+                </span>
+                <button type="button"
+                  class="LiconCalendar"
+                  id="masterendCal_${i.index+1}"
+                  data-calendar="masterendDate_${i.index+1}">달력</button>
+              </span>
+            </td>
+            <td colspan="2"></td>
+          </tr>
+</c:when>
+<c:when
+test="${fn:contains(jobNoticeInfo.schoolInputSelected, '\"
+GRADUATION_STATUS\"')}">
+
+<%-- 졸업구분 만 입력받음 --%>
+          <tr>
+            <th scope="row">
+              <label for="mastergraduationStatusCode_${i.index+1}">
+                <LTag:message code="app.lbl.graduationFlag" /><!--졸업구분--><span class="essential">필수 입력</span>
+              </label>
+            </th>
+            <td>
+              <select
+                  id="mastergraduationStatusCode_${i.index+1}"
+                  name="mastergraduationStatusCode_${i.index+1}">
+                  <option value="">
+                      <LTag:message
+                          code="app.lbl.select" />
+                  </option>
+                  <c:forEach
+                      items="${graduationList.code}"
+                      varStatus="l">
+                      <option
+                          value="<c:out value='${graduationList.code[l.index]}' />"
+                          <c:if
+                          test="${masterInfo.graduationStatusCode[i.index] == graduationList.code[l.index]}">
+                          selected
+                          </c:if>>
+                          <c:out
+                              value='${graduationList.value[l.index]}' />
+                      </option>
+                  </c:forEach>
+              </select>
+            </td>
+            <td colspan="2"></td>
+          </tr>
+
+</c:when>
+</c:choose>
+<%-- 전공명 / 전체평점 표시 --%>
+
+    <c:choose>
+        <c:when
+            test="${fn:contains(jobNoticeInfo.schoolInputSelected, '\"
+            MAJOR_NAME\"') &&
+            fn:contains(jobNoticeInfo.schoolInputSelected, '\"GPA_POINT\"'
+            )}">
+
+            <%-- 전공명, 전체평점 모두 입력받음  --%>
+          <tr>
+            <th scope="row">
+              <label for="mastermajorName_${i.index+1}">
+              <LTag:message code="app.lbl.majorName" /><!--전공명--><span class="essential">필수 입력</span>
+              </label>
+              </th>
             <td>
               <div class="inputSearch inputBox">
-                <input type="text" />
-                <button type="button" class="searchBtn">검색</button>
+                <input type="text"
+                  id="mastermajorName_${i.index+1}"
+                  name="mastermajorName_${i.index+1}"
+                  value="<c:out value='${masterInfo.majorName[i.index]}' />"
+                  readonly="readonly" />
+                <input
+                  type="hidden"
+                  id="mastermajorCode_${i.index+1}"
+                  name="mastermajorCode_${i.index+1}"
+                  value="<c:out value='${masterInfo.majorCode[i.index]}' />" />
+                <button
+                  type="button" class="searchBtn"
+                  onClick="searchMajorPopup(this)">검색</button>
               </div>
             </td>
             <th scope="row">
-              전체평점<span class="essential">필수 입력</span>
+              <label for="mastergpaPoint_${i.index+1}">
+                <LTag:message code="app.lbl.gpaPoint" /><!--전체평점--><span class="essential">필수 입력</span>
+              </label>
+              
             </th>
             <td>
               <div class="row countWrap">
                 <div class="inputBox">
-                  <input type="text" />
+                  <input type="text"
+                    id="mastergpaPoint_${i.index+1}"
+                    name="mastergpaPoint_${i.index+1}"
+                    value="<c:out value='${masterInfo.gpaPoint[i.index]}' />"
+                    maxlength="5"
+                    onKeyPress="return $.onKeyPressFilter('[0-9.]', event);"
+                    style="ime-mode:disabled;"
+                    onkeyup="this.value=this.value.replace(/[^0-9.]/g,'')" />
                 </div>
                 <span class="bar">/</span>
-                <select name="" title="평점 선택">
-                  <option value="">1</option>
-                  <option value="">2</option>
-                  <option value="">3</option>
-                  <option value="">4</option>
-                  <option value="">5</option>
+                <select
+                  title="학점 총점"
+                  id="mastergpaPointCode_${i.index+1}"
+                  name="mastergpaPointCode_${i.index+1}"
+                  onChange="getText(this)">
+                  <option
+                      value="">
+                      <LTag:message
+                          code="app.lbl.select" />
+                  </option>
+                  <c:forEach
+                      items="${gpaTypeList.code}"
+                      varStatus="l">
+                      <option
+                          value="<c:out value='${gpaTypeList.code[l.index]}' />"
+                          <c:if
+                          test="${masterInfo.gpaPointCode[i.index] == gpaTypeList.code[l.index]}">
+                          selected
+                          </c:if>
+                          >
+                          <c:out
+                              value='${gpaTypeList.value[l.index]}' />
+                      </option>
+                  </c:forEach>
                 </select>
+                <input
+                  type="hidden"
+                  id="mastergpaPointCodeVal_${i.index+1}"
+                  name="mastergpaPointCodeVal_${i.index+1}"
+                  value="<c:out value='${masterInfo.gpaPointVal[i.index]}'/>" />
               </div>
             </td>
           </tr>
+
+        </c:when>
+        <c:when
+            test="${fn:contains(jobNoticeInfo.schoolInputSelected, '\"
+            MAJOR_NAME\"')}">
+
+            <%-- 전공명 만 입력받음 --%>
+
+            <tr>
+            <th scope="row">
+              <label for=""mastermajorName_${i.index+1}">
+              <LTag:message code="app.lbl.majorName" /><!--전공명--><span class="essential">필수 입력</span>
+              </label>
+              </th>
+            <td>
+              <div class="inputSearch inputBox">
+                <input type="text"
+                  id="mastermajorName_${i.index+1}"
+                  name="mastermajorName_${i.index+1}"
+                  value="<c:out value='${masterInfo.majorName[i.index]}' />"
+                  size="25"
+                  readonly="readonly" />
+                <input
+                  type="hidden"
+                  id="mastermajorCode_${i.index+1}"
+                  name="mastermajorCode_${i.index+1}"
+                  value="<c:out value='${masterInfo.majorCode[i.index]}' />" />
+                <button
+                  type="button" class="searchBtn"
+                  onClick="searchMajorPopup(this)">검색</button>
+              </div>
+            </td>
+              <td colspan="2"></td>
+            </tr>
+
+
+        </c:when>
+        <c:when
+            test="${fn:contains(jobNoticeInfo.schoolInputSelected, '\"
+            GPA_POINT\"')}">
+
+            <%-- 전체평점 만 입력받음 --%>
+            <tr>
+            <th scope="row">
+              <label for="mastergpaPoint_${i.index+1}">
+                <LTag:message code="app.lbl.gpaPoint" /><!--전체평점--><span class="essential">필수 입력</span>
+              </label>
+              
+            </th>
+            <td>
+              <div class="row countWrap">
+                <div class="inputBox">
+                  <input type="text"
+                    id="mastergpaPoint_${i.index+1}"
+                    name="mastergpaPoint_${i.index+1}"
+                    size="3"
+                    value="<c:out value='${masterInfo.gpaPoint[i.index]}' />"
+                    maxlength="5"
+                    onKeyPress="return $.onKeyPressFilter('[0-9.]', event);"
+                    style="ime-mode:disabled;"
+                    onkeyup="this.value=this.value.replace(/[^0-9.]/g,'')" />
+                </div>
+                <span class="bar">/</span>
+                <select
+                  title="학점 총점"
+                  id="mastergpaPointCode_${i.index+1}"
+                  name="mastergpaPointCode_${i.index+1}"
+                  onChange="getText(this)">
+                  <option
+                      value="">
+                      <LTag:message
+                          code="app.lbl.select" />
+                  </option>
+                  <c:forEach
+                      items="${gpaTypeList.code}"
+                      varStatus="l">
+                      <option
+                          value="<c:out value='${gpaTypeList.code[l.index]}' />"
+                          <c:if
+                          test="${masterInfo.gpaPointCode[i.index] == gpaTypeList.code[l.index]}">
+                          selected
+                          </c:if>
+                          >
+                          <c:out
+                              value='${gpaTypeList.value[l.index]}' />
+                      </option>
+                  </c:forEach>
+                </select>
+                <input
+                  type="hidden"
+                  id="mastergpaPointCodeVal_${i.index+1}"
+                  name="mastergpaPointCodeVal_${i.index+1}"
+                  value="<c:out value='${masterInfo.gpaPointVal[i.index]}'/>" />
+              </div>
+            </td>
+              <td colspan="2"></td>
+            </tr>
+
+
+        </c:when>
+    </c:choose>
+
+    <%-- 지도교수 -->
+
           <tr>
             <th scope="row">
-              지도교수<span class="essential">필수 입력</span>
+              <label for="masteracademicAdvisorName_${i.index+1}">
+ <LTag:message code="app.lbl.msprofessor" /><!--지도교수--><span class="essential">필수 입력</span>
+              </label>
+              
             </th>
             <td>
               <div class="inputBox">
-                <input type="text" />
+                <input type="text"
+                id="masteracademicAdvisorName_${i.index+1}"
+                name="masteracademicAdvisorName_${i.index+1}"
+                value="<c:out value='${masterInfo.academicAdvisorName[i.index]}' />"
+                maxlength="300" />
               </div>
             </td>
             <th scope="row">
-              연구실명<span class="essential">필수 입력</span>
+              <label for="masterlabName_${i.index+1}">
+                <LTag:message code="app.lbl.mastersUnivLab" /><!--연구실명--><span class="essential">필수 입력</span>
+              </label>
             </th>
             <td>
               <div class="inputBox">
-                <label for="inputText1">텍스트입력</label>
-                <input type="text" id="inputText1" placeholder="텍스트 입력" />
+                <input type="text"
+                id="masterlabName_${i.index+1}"
+                name="masterlabName_${i.index+1}"
+                value="<c:out value='${masterInfo.labName[i.index]}' />"
+                maxlength="100" />
               </div>
             </td>
           </tr>
           <tr>
             <th scope="row" rowspan="2">
-              전공분야<span class="essential">필수 입력</span>
+              <label for="mastertitleOfStudy_${i.index+1}">
+                <LTag:message code="app.lbl.msfield" /><!--전공분야--><span class="essential">필수 입력</span>
+              </label>
             </th>
             <td colspan="3">
-              <p>연구분야 제목을 입력해주십시오.</p>
+              <p><LTag:message code="app.cont.additionalTip13" /></p>
               <div class="inputBox">
-                <label for="inputText1">텍스트입력</label>
-                <input type="text" id="inputText1" />
+                <input type="text"
+                id="mastertitleOfStudy_${i.index+1}"
+                name="mastertitleOfStudy_${i.index+1}"
+                title="<LTag:message code="
+                app.lbl.msfield" />
+            제목" value="
+            <c:out
+                value='${masterInfo.titleOfStudy[i.index]}' />
+            " maxlength="300" />
               </div>
             </td>
           </tr>
           <tr>
             <td colspan="3">
-              <p class="tRight">글자수 0 / 100자 ~ 1000자</p>
+              <p class="tRight">
+                <LTag:message code="app.lbl.charLength" />
+                <span id="masterChar_${i.index+1}">0</span>/ 1500
+                <LTag:message code="app.lbl.char" />
+              </p>
               <div class="inputBox">
                 <textarea
-                  id="textBox1"
-                  placeholder="자신의 주 연구 분야를 자유롭게 기술하세요. (어필할 수 있는 논문/특허/프로젝트 등 포함)"
-                  title=""
-                ></textarea>
+                title="자신의 주 연구 분야를 자유롭게 기술하세요. (어필할 수 있는 논문/특허/프로젝트 등 포함)"
+                id="mastercontent_${i.index+1}"
+                name="mastercontent_${i.index+1}"
+                class="LtextArea"
+                placeholder="자신의 주 연구 분야를 자유롭게 기술하세요. (어필할 수 있는 논문/특허/프로젝트 등 포함)"><c:out value='${masterInfo.content[i.index]}' /></textarea>
               </div>
             </td>
           </tr>
           <tr>
             <th scope="row">
-              논문/주요연구과제<span class="essential">필수 입력</span>
+               <LTag:message code="app.lbl.mastersThesis" />
+              <!--논문/주요연구과제--><span class="essential">필수 입력</span>
             </th>
             <td colspan="3">
+                <c:if
+                  test="${i.index == 0}">
+                  <input
+                    type="hidden"
+                    id="deleteFileSeqNo"
+                    name="deleteFileSeqNo" />
+                </c:if>
+                <input type="hidden"
+                    id="masterattachFileId_${i.index+1}"
+                    name="masterattachFileId_${i.index+1}"
+                    value="<c:out value='${masterInfo.attachFileId[i.index]}'/>" />
               <div class="upload upload2">
                 <div class="fileUpload">
                   <button
-                    id="fileAdd"
-                    class="btn minW fileAdd type5"
                     type="button"
+                    onclick="addItem('#mastersThesis_${i.index+1}','master_${i.index+1}');"
+                    class="btn minW fileAdd type5"
                   >
-                    첨부파일 추가
+                    <LTag:message code="app.lbl.addAttachFile" />
                   </button>
                 </div>
-                <div class="fileUploadC"></div>
+                <div class="fileUploadC">
+                    <c:forEach
+                        items="${schoolFileList.attachFileId}"
+                        varStatus="j">
+                        <c:if
+                            test="${schoolFileList.attachFileId[j.index] == masterInfo.attachFileId[i.index]}">
+                  <div class="fileUploadForm">
+                    <a href="javascript:;" class="fileName" onClick="fileDownload('${schoolFileList.dlFileName[j.index]}','${schoolFileList.attachFileId[j.index]}')">
+                     <c:out value='${schoolFileList.dlFileName[j.index]}' />
+                    </a>
+                    <button type="button" class="fileDelete" onclick='deleteItem(this);'>삭제</button>
+                    <input
+                        type="hidden"
+                        id="fileSeqNo"
+                        name="fileSeqNo"
+                        value="<c:out value='${schoolFileList.fileSeqNo[j.index]}'/>" />
+                  </div>
+                        </c:if>
+                    </c:forEach>
+
+                </div>
+<%--모바일 코드
+            <div
+                class="Lexplanation displayInPhone">
+                <p>
+                    <LTag:message
+                        code="com.inf.029" />
+                </p>
+                <ul
+                    class="LblockItemList Lfile">
+                    <c:forEach
+                        items="${schoolFileList.attachFileId}"
+                        varStatus="j">
+                        <c:if
+                            test="${schoolFileList.attachFileId[j.index] == masterInfo.attachFileId[i.index]}">
+                            <li
+                                style="">
+                                <c:out
+                                    value='${schoolFileList.dlFileName[j.index]}' />
+                            </li>
+                        </c:if>
+                    </c:forEach>
+                </ul>
+            </div>
+          --%>
+
+
               </div>
             </td>
           </tr>
         </tbody>
       </table>
     </div>
+ </c:forEach>
+<div id="addMasterDiv"></div>
 
     <ul class="bu">
-      <li>첨부 파일은 2개까지 가능하며 파일 형식은 PDF만 가능합니다.</li>
-      <li>
-        파일 용량이 개당 3MB로 제한되므로 관련 연구에 대한 요약본으로 등록
-        바랍니다.
-      </li>
+      <li><LTag:message code="app.cont.additionalTip9" /></li>
+      <li><LTag:message code="app.cont.additionalTip11" /></li>
     </ul>
   </article>
-  <article class="sec1-7">
-    <h3>대학교-박사(1)</h3>
-    <p>
-      두 개 이상의 박사 학위를 소지한 경우, ‘+추가’ 를 선택하여 작성해 주십시오.
-    </p>
+
+  <!-- 대학교-박사 -->
+  <article class="sec1-7" id="doctorDiv" style="display:none">
+    <h3>
+      <LTag:message code="app.titl.doctor" />
+        <span id="doctorCount">(<c:out value='${doctorCount}' />)</span>
+      <!--대학교-박사--></h3>
+    <p><LTag:message code="app.cont.doctorCont_1" /></p>
+    
+    <div class="addWrap">
+      <button type="button" class="delete" onclick="fnEraseData('doctorDiv');" title="<LTag:message code="app.titl.doctor" /> 입력 지우기">지우기</button>
+      <button type="button"  id="doctorAddBtn" class="add" title="<LTag:message code="app.titl.doctor" /> 추가">추가</button>
+    </div>
+
+              <c:forEach items="${doctorInfo.jobNoticeId}" varStatus="i">
+                  <c:if test="${i.index != 0}">
+                    <div class="tRight">
+                      <button type="button" class="deleteBtn" onClick="delDataInfo(this,'doctor');">
+                        <span>다음 항목 삭제</span>
+                      </button>
+                    </div>
+                  </c:if>
+
     <div class="table">
+       <%-- 비즈니스 로직에서 학교이름의 키를 파싱해서 숫자를 세므로 학교이름이 필수가 아닌 상황에서 로직을 맞춰주기위해 순번을 넣음. --%>
+    <input type="hidden" id="doctorschoolSeqno_${i.index+1}"
+        name="doctorschoolSeqno_${i.index+1}" value="${i.index+1}" />
       <table>
-        <caption>
-          대학교(1) - 학교명, 소재지, 기간, 졸업구분, 전공명, 검색 부/복수전공,
-          전체평점, 전공평점, 전체이수학점, 전체 이수학점, 복수전공 이수학점,
-          복수전공 평점, 부전공 이수학점, 부전공 평점, 공학인증에 대한 정보 제공
-        </caption>
+        <caption><LTag:message code="app.titl.doctor" /></caption>
         <colgroup>
           <col style="width: 12%" />
           <col style="width: 35%" />
@@ -1426,252 +3172,809 @@
           <col />
         </colgroup>
         <tbody>
+           <%-- 학교명 / 소재지 표시 --%>
+        <c:choose>
+          <c:when
+          test="${fn:contains(jobNoticeInfo.schoolInputSelected, '\"
+          SCHOOL_NAME\"') &&
+          fn:contains(jobNoticeInfo.schoolInputSelected, '\"LOCATION\"'
+          )}">
+
+          <%-- 학교명, 소재지 모두 입력받음 --%>
           <tr>
-            <th scope="row">학교명<span class="essential">필수 입력</span></th>
+            <th scope="row">
+              <label for="doctorschoolName_${i.index+1}">
+               <LTag:message code="app.lbl.schoolName" /> <!--학교명--><span class="essential">필수 입력</span>
+              </label>
+            </th>
             <td>
               <div class="inputSearch inputBox">
-                <input type="text" />
-                <button type="button" class="searchBtn">검색</button>
+                <input type="text"
+                  id="doctorschoolName_${i.index+1}"
+                  name="doctorschoolName_${i.index+1}"
+                  value="<c:out value='${doctorInfo.schoolName[i.index]}' />"
+                  readonly="readonly" />
+                <input type="hidden"
+                  id="doctorschoolCode_${i.index+1}"
+                  name="doctorschoolCode_${i.index+1}"
+                  value="<c:out value='${doctorInfo.schoolCode[i.index]}' />" />
+                <button type="button" class="searchBtn"
+                    onclick="searchSchoolPopup(this,'U');">검색</button>
               </div>
             </td>
-            <th scope="row">소재지<span class="essential">필수 입력</span></th>
+            <th scope="row">
+              <label for="doctorlocationName_${i.index+1}">
+                <LTag:message code="app.lbl.locationName" />
+                <!--소재지--><span class="essential">필수 입력</span>
+              </label>
+              </th>
             <td>
               <div class="inputSearch inputBox">
-                <input type="text" />
-                <button type="button" class="searchBtn">검색</button>
+                <input type="text"
+                  id="doctorlocationName_${i.index+1}"
+                  name="doctorlocationName_${i.index+1}"
+                  value="<c:out value='${doctorInfo.locationName[i.index]}' />"
+                  readonly="readonly"
+                  maxlength="300" />
+                <input type="hidden"
+                  id="doctoraddressSido_${i.index+1}"
+                  name="doctoraddressSido_${i.index+1}"
+                  value="<c:out value='${doctorInfo.addressSido[i.index]}' />" />
+                <input type="hidden"
+                  id="doctoraddressSigu_${i.index+1}"
+                  name="doctoraddressSigu_${i.index+1}"
+                  value="<c:out value='${doctorInfo.addressSigu[i.index]}' />" />
+                <button type="button" class="searchBtn"
+                  onclick="searchSchoolLocPopup(this);">검색</button>
               </div>
             </td>
           </tr>
+</c:when>
+<c:when
+test="${fn:contains(jobNoticeInfo.schoolInputSelected, '\"
+SCHOOL_NAME\"')}">
+
+<%-- 학교명 만 입력받음 --%>
+
+        <tr>
+          <th scope="row">
+            <label for="doctorschoolName_${i.index+1}">
+              <LTag:message code="app.lbl.schoolName" /> <!--학교명--><span class="essential">필수 입력</span>
+            </label>
+          </th>
+          <td>
+            <div class="inputSearch inputBox">
+              <input type="text"
+                id="doctorschoolName_${i.index+1}"
+                name="doctorschoolName_${i.index+1}"
+                value="<c:out value='${doctorInfo.schoolName[i.index]}' />"
+                readonly="readonly" />
+              <input type="hidden"
+                id="doctorschoolCode_${i.index+1}"
+                name="doctorschoolCode_${i.index+1}"
+                value="<c:out value='${doctorInfo.schoolCode[i.index]}' />" />
+              <button type="button" class="searchBtn"
+                  onclick="searchSchoolPopup(this,'U');">검색</button>
+            </div>
+          </td>
+          <td colspan="2"></td>
+        </tr>
+
+</c:when>
+<c:when
+test="${fn:contains(jobNoticeInfo.schoolInputSelected, '\"
+LOCATION\"')}">
+
+<%-- 소재지 만 입력받음 --%>
+
           <tr>
-            <th scope="row">기간<span class="essential">필수 입력</span></th>
+            <th scope="row">
+              <label for="doctorlocationName_${i.index+1}">
+                <LTag:message code="app.lbl.locationName" />
+                <!--소재지--><span class="essential">필수 입력</span>
+              </label>
+              </th>
+            <td>
+              <div class="inputSearch inputBox">
+                <input type="text"
+                  id="doctorlocationName_${i.index+1}"
+                  name="doctorlocationName_${i.index+1}"
+                  value="<c:out value='${doctorInfo.locationName[i.index]}' />"
+                  readonly="readonly"
+                  maxlength="300" />
+                <input type="hidden"
+                  id="doctoraddressSido_${i.index+1}"
+                  name="doctoraddressSido_${i.index+1}"
+                  value="<c:out value='${doctorInfo.addressSido[i.index]}' />" />
+                <input type="hidden"
+                  id="doctoraddressSigu_${i.index+1}"
+                  name="doctoraddressSigu_${i.index+1}"
+                  value="<c:out value='${doctorInfo.addressSigu[i.index]}' />" />
+                <button type="button" class="searchBtn"
+                  onclick="searchSchoolLocPopup(this);">검색</button>
+              </div>
+            </td>
+            <td colspan="2"></td>
+          </tr>
+
+
+</c:when>
+</c:choose>
+<%-- 기간 / 졸업구분 표시 --%>
+
+<c:choose>
+<c:when
+test="${fn:contains(jobNoticeInfo.schoolInputSelected, '\"
+PERIOD\"') &&
+fn:contains(jobNoticeInfo.schoolInputSelected, '\"GRADUATION_STATUS\"'
+)}">
+
+<%-- 기간, 졸업구분 모두 입력받음 --%>
+
+          <tr>
+            <th scope="row">
+              <label for="doctorstartDate_${i.index+1}">
+                <LTag:message code="app.lbl.preriodDate" />     
+                <!--기간--><span class="essential">필수 입력</span></th>
+              </label>
+              
             <td>
               <span class="duration">
                 <span class="inputBox">
-                  <input
-                    type="text"
-                    id="inputText1"
-                    placeholder="텍스트 입력"
-                  />
+                  <input type="text"
+                    class="Ltext"
+                    id="doctorstartDate_${i.index+1}"
+                    name="doctorstartDate_${i.index+1}"
+                    value="<c:out value='${doctorInfo.startDate[i.index]}' />"
+                    maxlength="11"
+                    readonly="readonly"
+                    title="기간 시작일" />
                 </span>
-                <button
-                  type="button"
-                  id="milStartDate_cal"
+                <button type="button"
                   class="LiconCalendar"
-                  data-calendar="milStartDate"
-                >
-                  달력
-                </button>
+                  id="doctorstartCal_${i.index+1}"
+                  data-calendar="doctorstartDate_${i.index+1}">달력</button>
                 <span class="bar">~</span>
                 <span class="inputBox">
-                  <input
-                    type="text"
-                    id="inputText1"
-                    placeholder="텍스트 입력"
-                  />
+                  <input type="text"
+                    class="Ltext"
+                    id="doctorendDate_${i.index+1}"
+                    name="doctorendDate_${i.index+1}"
+                    maxlength="11"
+                    value="<c:out value='${doctorInfo.endDate[i.index]}' />"
+                    readonly="readonly"
+                    title="기간 종료일" />
                 </span>
-                <button
-                  type="button"
-                  id="milStartDate_cal"
+                <button type="button"
                   class="LiconCalendar"
-                  data-calendar="milStartDate"
-                >
-                  달력
-                </button>
+                  id="doctorendCal_${i.index+1}"
+                  data-calendar="doctorendDate_${i.index+1}">달력</button>
               </span>
             </td>
             <th scope="row">
-              졸업구분<span class="essential">필수 입력</span>
+              <label for="doctorgraduationStatusCode_${i.index+1}">
+                <LTag:message code="app.lbl.graduationFlag" />
+                <!--졸업구분--><span class="essential">필수 입력</span>
+              </label>              
             </th>
             <td>
-              <select name="" title="졸업구분 선택">
-                <option value="">1</option>
-                <option value="">2</option>
-                <option value="">3</option>
-                <option value="">4</option>
-                <option value="">5</option>
+              <select 
+                id="doctorgraduationStatusCode_${i.index+1}"
+                name="doctorgraduationStatusCode_${i.index+1}">
+                <option value="">
+                    <LTag:message
+                        code="app.lbl.select" />
+                </option>
+                <c:forEach
+                    items="${graduationList.code}"
+                    varStatus="l">
+                    <option
+                        value="<c:out value='${graduationList.code[l.index]}' />"
+                        <c:if
+                        test="${doctorInfo.graduationStatusCode[i.index] == graduationList.code[l.index]}">
+                        selected
+                        </c:if>>
+                        <c:out
+                            value='${graduationList.value[l.index]}' />
+                    </option>
+                </c:forEach>
               </select>
             </td>
           </tr>
+</c:when>
+<c:when
+test="${fn:contains(jobNoticeInfo.schoolInputSelected, '\"
+PERIOD\"')}">
+
+<%-- 기간 만 입력받음 --%>
+
           <tr>
-            <th scope="row">전공명<span class="essential">필수 입력</span></th>
+            <th scope="row">
+              <label for="doctorstartDate_${i.index+1}">
+                <LTag:message code="app.lbl.preriodDate" />     
+                <!--기간--><span class="essential">필수 입력</span></th>
+              </label>
+              
+            <td>
+              <span class="duration">
+                <span class="inputBox">
+                  <input type="text"
+                    class="Ltext"
+                    id="doctorstartDate_${i.index+1}"
+                    name="doctorstartDate_${i.index+1}"
+                    size="11"
+                    value="<c:out value='${doctorInfo.startDate[i.index]}' />"
+                    maxlength="11"
+                    readonly="readonly"
+                    title="기간 시작일" />
+                </span>
+                <button type="button"
+                  class="LiconCalendar"
+                  id="doctorstartCal_${i.index+1}"
+                  data-calendar="doctorstartDate_${i.index+1}">달력</button>
+                <span class="bar">~</span>
+                <span class="inputBox">
+                  <input type="text"
+                    class="Ltext"
+                    id="doctorendDate_${i.index+1}"
+                    name="doctorendDate_${i.index+1}"
+                    size="11"
+                    maxlength="11"
+                    value="<c:out value='${doctorInfo.endDate[i.index]}' />"
+                    readonly="readonly"
+                    title="기간 종료일" />
+                </span>
+                <button type="button"
+                  class="LiconCalendar"
+                  id="doctorendCal_${i.index+1}"
+                  data-calendar="doctorendDate_${i.index+1}">달력</button>
+              </span>
+            </td>
+            <td colspan="2"></td>
+          </tr>
+
+
+</c:when>
+<c:when
+test="${fn:contains(jobNoticeInfo.schoolInputSelected, '\"
+GRADUATION_STATUS\"')}">
+
+<%-- 졸업구분 만 입력받음 --%>
+          <tr>
+            <th scope="row">
+              <label for="doctorgraduationStatusCode_${i.index+1}">
+                <LTag:message code="app.lbl.graduationFlag" />
+                <!--졸업구분--><span class="essential">필수 입력</span>
+              </label>              
+            </th>
+            <td>
+              <select 
+                id="doctorgraduationStatusCode_${i.index+1}"
+                name="doctorgraduationStatusCode_${i.index+1}">
+                <option value="">
+                    <LTag:message
+                        code="app.lbl.select" />
+                </option>
+                <c:forEach
+                    items="${graduationList.code}"
+                    varStatus="l">
+                    <option
+                        value="<c:out value='${graduationList.code[l.index]}' />"
+                        <c:if
+                        test="${doctorInfo.graduationStatusCode[i.index] == graduationList.code[l.index]}">
+                        selected
+                        </c:if>>
+                        <c:out
+                            value='${graduationList.value[l.index]}' />
+                    </option>
+                </c:forEach>
+              </select>
+            </td>
+            <td colspan="2"></td>
+          </tr>
+</c:when>
+</c:choose>
+
+<%-- 전공명 / 전체평점 표시 --%>
+
+  <c:choose>
+      <c:when
+          test="${fn:contains(jobNoticeInfo.schoolInputSelected, '\"
+          MAJOR_NAME\"') &&
+          fn:contains(jobNoticeInfo.schoolInputSelected, '\"GPA_POINT\"'
+          )}">
+
+          <%-- 전공명, 전체평점 모두 입력받음 --%>
+          <tr>
+            <th scope="row">
+              <label for="doctormajorName_${i.index+1}">
+                <LTag:message code="app.lbl.majorName" />
+                <!--전공명--><span class="essential">필수 입력</span></th>
+              </label>
+              
             <td>
               <div class="inputSearch inputBox">
-                <input type="text" />
-                <button type="button" class="searchBtn">검색</button>
+                <input
+                    type="text"
+                    id="doctormajorName_${i.index+1}"
+                    name="doctormajorName_${i.index+1}"
+                    value="<c:out value='${doctorInfo.majorName[i.index]}' />"
+                    readonly="readonly" />
+                <input
+                    type="hidden"
+                    id="doctormajorCode_${i.index+1}"
+                    name="doctormajorCode_${i.index+1}"
+                    value="<c:out value='${doctorInfo.majorCode[i.index]}' />" />
+                <button
+                    type="button" class="searchBtn"
+                    onClick="searchMajorPopup(this)">검색</button>
               </div>
             </td>
             <th scope="row">
-              전체평점<span class="essential">필수 입력</span>
+              <label for="doctorgpaPoint_${i.index+1}">
+                <LTag:message code="app.lbl.gpaPoint" />
+                <!--전체평점--><span class="essential">필수 입력</span>  
+              </label>
+              
             </th>
             <td>
               <div class="row countWrap">
                 <div class="inputBox">
-                  <input type="text" />
+                  <input
+                    type="text"
+                    id="doctorgpaPoint_${i.index+1}"
+                    name="doctorgpaPoint_${i.index+1}"
+                    size="3"
+                    value="<c:out value='${doctorInfo.gpaPoint[i.index]}' />"
+                    maxlength="5"
+                    onKeyPress="return $.onKeyPressFilter('[0-9.]', event);"
+                    style="ime-mode:disabled;"
+                    onkeyup="this.value=this.value.replace(/[^0-9.]/g,'')" />
                 </div>
                 <span class="bar">/</span>
-                <select name="" title="평점 선택">
-                  <option value="">1</option>
-                  <option value="">2</option>
-                  <option value="">3</option>
-                  <option value="">4</option>
-                  <option value="">5</option>
+                <select
+                    title="학점 총점"
+                    id="doctorgpaPointCode_${i.index+1}"
+                    name="doctorgpaPointCode_${i.index+1}"
+                    onChange="getText(this)">
+                    <option
+                        value="">
+                        <LTag:message
+                            code="app.lbl.select" />
+                    </option>
+                    <c:forEach
+                        items="${gpaTypeList.code}"
+                        varStatus="l">
+                        <option
+                            value="<c:out value='${gpaTypeList.code[l.index]}' />"
+                            <c:if
+                            test="${doctorInfo.gpaPointCode[i.index] == gpaTypeList.code[l.index]}">
+                            selected
+                            </c:if>
+                            >
+                            <c:out
+                                value='${gpaTypeList.value[l.index]}' />
+                        </option>
+                    </c:forEach>
                 </select>
+                <input
+                    type="hidden"
+                    id="doctorgpaPointCodeVal_${i.index+1}"
+                    name="doctorgpaPointCodeVal_${i.index+1}"
+                    value="<c:out value='${doctorInfo.gpaPointVal[i.index]}'/>" />
               </div>
             </td>
           </tr>
+
+          
+
+      </c:when>
+      <c:when
+          test="${fn:contains(jobNoticeInfo.schoolInputSelected, '\"
+          MAJOR_NAME\"')}">
+
+          <%-- 전공명 만 입력받음 --%>
+
+
           <tr>
             <th scope="row">
-              지도교수<span class="essential">필수 입력</span>
+              <label for="doctormajorName_${i.index+1}">
+                <LTag:message code="app.lbl.majorName" />
+                <!--전공명--><span class="essential">필수 입력</span></th>
+              </label>
+              
+            <td>
+              <div class="inputSearch inputBox">
+                <input
+                    type="text"
+                    id="doctormajorName_${i.index+1}"
+                    name="doctormajorName_${i.index+1}"
+                    value="<c:out value='${doctorInfo.majorName[i.index]}' />"
+                    size="25"
+                    readonly="readonly" />
+                <input
+                    type="hidden"
+                    id="doctormajorCode_${i.index+1}"
+                    name="doctormajorCode_${i.index+1}"
+                    value="<c:out value='${doctorInfo.majorCode[i.index]}' />" />
+                <button
+                    type="button" class="searchBtn"
+                    onClick="searchMajorPopup(this)">검색</button>
+              </div>
+            </td>
+            <td colspan="2"></td>
+          </tr>
+
+
+
+      </c:when>
+      <c:when
+          test="${fn:contains(jobNoticeInfo.schoolInputSelected, '\"
+          GPA_POINT\"')}">
+
+          <%-- 전체평점 만 입력받음 --%>
+
+
+          <tr>
+            <th scope="row">
+              <label for="doctorgpaPoint_${i.index+1}">
+                <LTag:message code="app.lbl.gpaPoint" />
+                <!--전체평점--><span class="essential">필수 입력</span>  
+              </label>
+              
+            </th>
+            <td>
+              <div class="row countWrap">
+                <div class="inputBox">
+                  <input
+                    type="text"
+                    id="doctorgpaPoint_${i.index+1}"
+                    name="doctorgpaPoint_${i.index+1}"
+                    size="3"
+                    value="<c:out value='${doctorInfo.gpaPoint[i.index]}' />"
+                    maxlength="5"
+                    onKeyPress="return $.onKeyPressFilter('[0-9.]', event);"
+                    style="ime-mode:disabled;"
+                    onkeyup="this.value=this.value.replace(/[^0-9.]/g,'')" />
+                </div>
+                <span class="bar">/</span>
+                <select
+                    title="학점 총점"
+                    id="doctorgpaPointCode_${i.index+1}"
+                    name="doctorgpaPointCode_${i.index+1}"
+                    onChange="getText(this)">
+                    <option
+                        value="">
+                        <LTag:message
+                            code="app.lbl.select" />
+                    </option>
+                    <c:forEach
+                        items="${gpaTypeList.code}"
+                        varStatus="l">
+                        <option
+                            value="<c:out value='${gpaTypeList.code[l.index]}' />"
+                            <c:if
+                            test="${doctorInfo.gpaPointCode[i.index] == gpaTypeList.code[l.index]}">
+                            selected
+                            </c:if>
+                            >
+                            <c:out
+                                value='${gpaTypeList.value[l.index]}' />
+                        </option>
+                    </c:forEach>
+                </select>
+                <input
+                    type="hidden"
+                    id="doctorgpaPointCodeVal_${i.index+1}"
+                    name="doctorgpaPointCodeVal_${i.index+1}"
+                    value="<c:out value='${doctorInfo.gpaPointVal[i.index]}'/>" />
+              </div>
+            </td>
+            <td colspan="2"></td>
+          </tr>
+      </c:when>
+  </c:choose>
+
+          <tr>
+            <th scope="row">
+              <label for="doctormdDegreeCombined_${i.index+1}">
+              <LTag:message code="app.lbl.masterDoctor" /><!--석박 통합 과정--><span class="essential">필수 입력</span>  
+            </label> 
+            </th>
+            <td>
+              <span class="input">
+                  <input type="radio"
+                        id="doctormdDegreeCombined_yes_${i.index+1}"
+                        name="doctormdDegreeCombined_${i.index+1}"
+                        value="Y" <c:if
+                        test="${doctorInfo.mdDegreeCombined[i.index] == 'Y'}">
+                    checked="checked"
+                    </c:if> ><label
+                        for="doctormdDegreeCombined_yes_${i.index+1}">Yes</label>
+                </span>
+                <span class="input">
+                  <input type="radio"
+                        id="doctormdDegreeCombined_no_${i.index+1}"
+                        name="doctormdDegreeCombined_${i.index+1}"
+                        value="N" <c:if
+                        test="${doctorInfo.mdDegreeCombined[i.index] == 'N'}">
+                    checked="checked"
+                    </c:if> ><label
+                        for="doctormdDegreeCombined_no_${i.index+1}">No</label>
+                </span>
+            </td>
+            <td colspan="2"></td>
+          </tr>
+
+
+
+          <tr>
+            <th scope="row">
+              <label for="doctoracademicAdvisorName_${i.index+1}">
+                <LTag:message code="app.lbl.msprofessor" />
+                <!--지도교수--><span class="essential">필수 입력</span>
+              </label>
+              
             </th>
             <td>
               <div class="inputBox">
-                <input type="text" />
+                <input type="text"
+                  id="doctoracademicAdvisorName_${i.index+1}"
+                  name="doctoracademicAdvisorName_${i.index+1}"
+                  value="<c:out value='${doctorInfo.academicAdvisorName[i.index]}' />"
+                  maxlength="300" />
               </div>
             </td>
             <th scope="row">
-              연구실명<span class="essential">필수 입력</span>
+              <label for="doctorlabName_${i.index+1}">
+                <LTag:message code="app.lbl.mastersUnivLab" />
+                <!--연구실명--><span class="essential">필수 입력</span>
+              </label>
             </th>
             <td>
               <div class="inputBox">
-                <label for="inputText1">텍스트입력</label>
-                <input type="text" id="inputText1" placeholder="텍스트 입력" />
+                <input type="text"
+                  id="doctorlabName_${i.index+1}"
+                  name="doctorlabName_${i.index+1}"
+                  value="<c:out value='${doctorInfo.labName[i.index]}' />"
+                  maxlength="100" />
               </div>
             </td>
           </tr>
           <tr>
             <th scope="row" rowspan="2">
-              전공분야<span class="essential">필수 입력</span>
+              <label for="doctortitleOfStudy_${i.index+1}">
+                <LTag:message code="app.lbl.msfield" />
+                <!--전공분야--><span class="essential">필수 입력</span>
+              </label>
+              
             </th>
             <td colspan="3">
-              <p>연구분야 제목을 입력해주십시오.</p>
+              <p><LTag:message code="app.cont.additionalTip13" /></p>
               <div class="inputBox">
-                <label for="inputText1">텍스트입력</label>
-                <input type="text" id="inputText1" />
+                <input type="text"
+                    class="displayblock"
+                    id="doctortitleOfStudy_${i.index+1}"
+                    name="doctortitleOfStudy_${i.index+1}"
+                    title="<LTag:message code="
+                    app.lbl.msfield" />
+                제목" value="
+                <c:out
+                    value='${doctorInfo.titleOfStudy[i.index]}' />
+                " maxlength="300" />
               </div>
             </td>
           </tr>
           <tr>
             <td colspan="3">
-              <p class="tRight">글자수 0 / 100자 ~ 1000자</p>
+              <p class="tRight">
+                <LTag:message code="app.lbl.charLength" />
+                <span id="doctorChar_${i.index+1}">0</span>/ 1500
+                <LTag:message code="app.lbl.char" />
+              </p>
               <div class="inputBox">
                 <textarea
-                  id="textBox1"
-                  placeholder="자신의 주 연구 분야를 자유롭게 기술하세요. (어필할 수 있는 논문/특허/프로젝트 등 포함)"
-                  title=""
-                ></textarea>
+                  title="자신의 주 연구 분야를 자유롭게 기술하세요. (어필할 수 있는 논문/특허/프로젝트 등 포함)"
+                  id="doctorcontent_${i.index+1}"
+                  name="doctorcontent_${i.index+1}"
+                  class="LtextArea"
+                  placeholder="자신의 주 연구 분야를 자유롭게 기술하세요. (어필할 수 있는 논문/특허/프로젝트 등 포함)"><c:out value='${doctorInfo.content[i.index]}' /></textarea>
               </div>
             </td>
           </tr>
           <tr>
             <th scope="row">
-              논문/주요연구과제<span class="essential">필수 입력</span>
+              <LTag:message  code="app.lbl.mastersThesis" />
+              <!--논문/주요연구과제--><span class="essential">필수 입력</span>
             </th>
             <td colspan="3">
               <div class="upload upload2">
+              <input type="hidden"
+                  id="doctorattachFileId_${i.index+1}"
+                  name="doctorattachFileId_${i.index+1}"
+                  value="<c:out value='${doctorInfo.attachFileId[i.index]}'/>" />
                 <div class="fileUpload">
                   <button
-                    id="fileAdd"
-                    class="btn minW fileAdd type5"
-                    type="button"
-                  >
-                    첨부파일 추가
+                  type="button"
+                  class="btn_file"
+                  onclick="addItem('#doctorThesis_${i.index+1}','doctor_${i.index+1}');">
+                  <LTag:message code="app.lbl.addAttachFile" />
                   </button>
                 </div>
-                <div class="fileUploadC"></div>
+              <div class="fileUploadC" id="doctorThesis_${i.index+1}">
+                  <c:forEach items="${schoolFileList.attachFileId}" varStatus="j">
+                    <c:if test="${schoolFileList.attachFileId[j.index] == doctorInfo.attachFileId[i.index]}">
+                      <div class="fileUploadForm">
+                        <a href="javascript:;" class="fileName" onClick="fileDownload('${schoolFileList.dlFileName[j.index]}','${schoolFileList.attachFileId[j.index]}')"><c:out value='${schoolFileList.dlFileName[j.index]}' /></a>
+                        <button type="button" class="fileDelete" onclick='deleteItem(this);'>삭제</button>
+                        <input type="hidden"
+                          id="fileSeqNo"
+                          name="fileSeqNo"
+                          value="<c:out value='${schoolFileList.fileSeqNo[j.index]}'/>" />
+                      </div>
+                    </c:if>
+                  </c:forEach>
+                </div>
+                <%-- 모바일 소스
+                <div
+              class="Lexplanation displayInPhone">
+              <p>
+                  <LTag:message code="com.inf.029" />
+              </p>
+              <ul
+                  class="LblockItemList Lfile">
+                  <c:forEach
+                      items="${schoolFileList.attachFileId}"
+                      varStatus="j">
+                      <c:if
+                          test="${schoolFileList.attachFileId[j.index] == doctorInfo.attachFileId[i.index]}">
+                          <li
+                              style="">
+                              <c:out
+                                  value='${schoolFileList.dlFileName[j.index]}' />
+                          </li>
+                      </c:if>
+                  </c:forEach>
+              </ul>
+          </div>
+                --%>
               </div>
             </td>
           </tr>
         </tbody>
       </table>
     </div>
+    </c:forEach>
+    <div id="addDoctorDiv"></div>
 
     <ul class="bu">
-      <li>첨부 파일은 2개까지 가능하며 파일 형식은 PDF만 가능합니다.</li>
-      <li>
-        파일 용량이 개당 3MB로 제한되므로 관련 연구에 대한 요약본으로 등록
-        바랍니다.
-      </li>
+      <li><LTag:message code="app.cont.additionalTip9_1" /></li>
+      <li><LTag:message code="app.cont.additionalTip11" /></li>
     </ul>
   </article>
+  </c:if>
 
+  <!-- 동의서 -->
+  <c:if test="${jobNoticeInfo.reputeAgreeYn == 'N' || jobNoticeInfo.saleSecViolAgreeYn == 'N'}">
   <article class="sec2">
-    <h3>동의서</h3>
-    <p class="more">
-      평판 조회 동의서 작성 안내
-      <a href="">보기</a>
-    </p>
-    <p class="more">영업비밀 침해금지 동의서 작성 안내 <a href="">보기</a></p>
+    <h3><LTag:message code="app.lbl.agree" /><!--동의서--></h3>
+    
+    <c:if test="${jobNoticeInfo.reputeAgreeYn == 'N'}">
+      <p class="more">
+        <LTag:message code="app.lbl.agreeReputeWriteGuide" />
+        <a href="#" onclick="agreeGuidePopup1();"><LTag:message code="app.cont.view" /></a>
+      </p>
+    </c:if>
+    <c:if test="${jobNoticeInfo.saleSecViolAgreeYn == 'N'}">
+      <p class="more"><LTag:message code="app.lbl.agreeSaleWriteGuide" /> <a href="#" onclick="agreeGuidePopup2();"><LTag:message code="app.cont.view" /></a></p>
+    </c:if>
     <div class="table type3">
       <table>
-        <caption>
-          평판 조회 동의 - 평판 조회 동의, 영업비밀 침해금지 동의에 대한 정보
-          제공
-        </caption>
+        <caption><LTag:message code="app.lbl.agree" /></caption>
         <colgroup>
           <col style="width: 15%" />
           <col style="width: 85%" />
         </colgroup>
         <tbody>
+          <c:if test="${jobNoticeInfo.reputeAgreeYn == 'N'}">
           <tr>
             <th scope="row">
-              평판 조회 동의<span class="essential">필수 입력</span>
+              <label for="reputeAgreeYn">
+                <LTag:message code="app.lbl.repute.agree" />
+                <!--평판 조회 동의--><span class="essential">필수 입력</span>
+              </label>
+              
             </th>
             <td>
               <div class="row">
                 <span class="input">
-                  <input type="radio" id="rd1" name="radio" value="" />
-                  <label for="rd1">동의함</label>
+                  <input type="radio" id="reputeAgreeYn_yes"
+                    name="reputeAgreeYn" value="Y" <c:if
+                    test="${baseInfo.reputeAgreeYn=='Y'}"> checked="checked"
+                  </c:if> disabled="disabled" />
+                  <label for="reputeAgreeYn_yes">동의함</label>
                 </span>
                 <span class="input">
-                  <input type="radio" id="rd1" name="radio" value="" />
-                  <label for="rd1">동의하지않음</label>
+                  <input type="radio" id="reputeAgreeYn_no" name="reputeAgreeYn" value="N"
+                    <c:if test="${baseInfo.reputeAgreeYn=='N'}"> checked="checked"
+                  </c:if> disabled="disabled" />
+                  <label for="reputeAgreeYn_no">동의하지 않음</label>
                 </span>
+                <input type="hidden" id="reputeAgreeYn" name="reputeAgreeYn" value="${baseInfo.reputeAgreeYn}" />
+                <input type="hidden" id="reputeSignatureName" name="reputeSignatureName"
+                    value="${baseInfo.reputeSignatureName}" />
+                <input type="hidden" id="reputeSignatureBirthDt" name="reputeSignatureBirthDt"
+                    value="${baseInfo.reputeSignatureBirthDt}" />
                 <span class="input">
-                  <input type="checkbox" id="chk1" value="" />
-                  <label for="chk1">서명</label>
+                  <input type="checkbox" id="reputeAgreeSignature" value="Y" disabled="disabled" <c:if
+                    test="${baseInfo.reputeAgreeYn=='Y' || baseInfo.reputeAgreeYn=='N'}"> checked="checked"
+                  </c:if> />
+                  <label for="reputeAgreeSignature">서명</label>
                 </span>
-                <span class="more"> 평판 조회 <a href="">보기</a> </span>
+                <span class="more">평판 조회 동의서 <a href="#n" onclick="agreePopup('REPUTE','${jobNoticeInfo.reputeTypeCode}','${jobNoticeInfo.jobNoticeId}');"><LTag:message code="app.cont.view" /></a> </span>
               </div>
             </td>
           </tr>
+      </c:if>
+      <c:if test="${jobNoticeInfo.saleSecViolAgreeYn == 'N'}">
           <tr>
             <th scope="row">
-              영업비밀 침해금지 동의<span class="essential">필수 입력</span>
+              <label for="saleSecViolAgreeYn">
+                <LTag:message code="app.lbl.salesecviol.agree" />
+                <!--영업비밀 침해금지 동의--><span class="essential">필수 입력</span>
+              </label>
             </th>
             <td>
               <div class="row">
                 <span class="input">
-                  <input type="radio" id="rd1" name="radio" value="" />
-                  <label for="rd1">동의함</label>
+                  <input type="radio" id="saleSecViolAgreeYn_yes" name="saleSecViolAgreeYn"
+                          value="Y" <c:if test="${baseInfo.saleAgreeYn=='Y'}"> checked="checked"
+                  </c:if> disabled="disabled" />
+                  <label for="saleSecViolAgreeYn_yes">동의함</label>
                 </span>
                 <span class="input">
-                  <input type="radio" id="rd1" name="radio" value="" />
-                  <label for="rd1">동의하지않음</label>
+                  <input type="radio" id="saleSecViolAgreeYn_no" name="saleSecViolAgreeYn" value="N" <c:if
+                    test="${baseInfo.saleAgreeYn=='N'}"> checked="checked" </c:if> disabled="disabled" />
+                  <label for="saleSecViolAgreeYn_no">동의하지 않음</label>
                 </span>
+                <input type="hidden" id="saleSecViolAgreeYn" name="saleSecViolAgreeYn"
+                    value="${baseInfo.saleAgreeYn}" />
+                <input type="hidden" id="saleSignatureName" name="saleSignatureName"
+                    value="${baseInfo.saleSignatureName}" />
+                <input type="hidden" id="saleSignatureBirthDt" name="saleSignatureBirthDt"
+                    value="${baseInfo.saleSignatureBirthDt}" />
                 <span class="input">
-                  <input type="checkbox" id="chk1" value="" />
-                  <label for="chk1">서명</label>
+                  <input type="checkbox" id="saleAgreeSignature" value="Y" disabled="disabled" <c:if
+                    test="${baseInfo.saleAgreeYn=='Y' || baseInfo.saleAgreeYn=='N'}"> checked="checked"
+                  </c:if> />
+                  <label for="saleAgreeSignature">서명</label>
                 </span>
                 <span class="more">
-                  영업비밀 침해금지 동의서 <a href="">보기</a>
+                  영업비밀 침해금지 동의서 <a href="#n" onclick="agreePopup('SALE','X','${jobNoticeInfo.jobNoticeId}');"><LTag:message code="app.cont.view" /></a>
                 </span>
               </div>
             </td>
           </tr>
+        </c:if>
         </tbody>
       </table>
     </div>
   </article>
+</c:if>
+<!-- 동의서 end -->
 
+
+<!-- 공인어학성적 -->
+<c:if test="${jobNoticeInfo.languageInputFlag == 'N'}">
   <article class="sec3">
-    <h3>공인어학성적(2)</h3>
+    <h3><LTag:message code="app.lbl.languageGrade" /> <span id="languageCount">(1)</span></h3>
     <div class="addWrap">
-      <button class="add" type="button">추가</button>
+      <button class="add" type="button"><span class="skip"><LTag:message code="app.lbl.languageGrade" /></span>추가</button>
     </div>
     <div class="table type2">
-      <table>
+      <table id="languageTable">
         <caption>
-          공인어학성적(2) - 언어, 시험명, 점수(급), 취득일자에 대한 정보 제공
+          <LTag:message code="app.lbl.languageGrade" />
         </caption>
         <colgroup>
           <col style="width: 23%" />
@@ -1682,13 +3985,33 @@
         </colgroup>
         <thead>
           <tr>
-            <th scope="col">언어<span class="essential">필수 입력</span></th>
-            <th scope="col">시험명<span class="essential">필수 입력</span></th>
-            <th scope="col">
-              점수(급)<span class="essential">필수 입력</span>
+            <th scope="col"><label class="required" for="offilanguageCode_1">
+              <LTag:message code="app.lbl.language" />
+              <span class="essential">필수 입력</span></label>
             </th>
             <th scope="col">
-              취득일자<span class="essential">필수 입력</span>
+              <label for="offilangTestCode_1">
+                <LTag:message code="app.lbl.testName" />
+                <!--시험명--><span class="essential">필수 입력</span>
+              </label>
+              </th>
+            <th scope="col">
+              <label for="offipointGradeValue_1">
+                <c:choose>
+                  <c:when test="${jobNoticeInfo.passOption == 'Y'}">
+                    <LTag:message code="app.lbl.passOptionFlag" />
+                  </c:when>
+                  <c:otherwise>
+                    <LTag:message code="app.lbl.testScore" />
+                  </c:otherwise>
+                </c:choose><span class="essential">필수 입력</span>
+              </label>
+            </th>
+            <th scope="col">
+              <label for="offitestDate_1">
+                <LTag:message code="app.lbl.acquiredDate" />
+                <!--취득일자--><span class="essential">필수 입력</span>
+              </label>
             </th>
             <th scope="col"><span class="skip">삭제</span></th>
           </tr>
@@ -1696,109 +4019,71 @@
         <tbody>
           <tr>
             <td>
-              <select title="셀렉트 이름">
-                <option value="">--선택--</option>
-                <option value="">선택1</option>
-                <option value="">선택2</option>
-                <option value="">선택3</option>
-                <option value="">선택4</option>
-                <option value="">선택5</option>
-                <option value="">선택6</option>
+              <select id="offilanguageCode_1" name="offilanguageCode_1"
+              onChange="getlangTestList(this,'')" title="<LTag:message code=" app.lbl.language" />">
+            <option value="">
+              <LTag:message code="app.lbl.select" />
+            </option>
+            <c:forEach items="${languageTypeList.code}" varStatus="l">
+              <option value="<c:out value='${languageTypeList.code[l.index]}' />">
+                <c:out value='${languageTypeList.value[l.index]}' />
+              </option>
+            </c:forEach>
               </select>
             </td>
             <td>
-              <select title="셀렉트 이름">
-                <option value="">--선택--</option>
-                <option value="">선택1</option>
-                <option value="">선택2</option>
-                <option value="">선택3</option>
-                <option value="">선택4</option>
-                <option value="">선택5</option>
-                <option value="">선택6</option>
+              <select id="offilangTestCode_1" name="offilangTestCode_1"
+              onChange="getGradeValueList(this,'')" title="<LTag:message code=" app.lbl.testName" />">
+            <option value="">
+              <LTag:message code="app.lbl.select" />
+            </option>
               </select>
             </td>
             <td>
-              <div class="inputBox">
+              <div id="divoffipointGradeValue_1"> 
+                <c:choose>
+                  <c:when test="${jobNoticeInfo.passOption == 'Y'}">
+                    <select id="offipointGradeValue_1" name="offipointGradeValue_1"
+                      title="<LTag:message code=" app.lbl.passOptionFlag" />">
+                    <option value="">
+                      <LTag:message code="app.lbl.select" />
+                    </option>
+                    <option value="PASS" <c:if
+                      test="${languageTypeList.pointGradeValue[j.index] == 'PASS'}">
+                      selected
+                    </c:if>>Pass</option>
+                    <option value="FAIL" <c:if test="${languageTypeList.pointGradeValue[j.index] == 'FAIL'}">
+                    selected </c:if>>Fail</option>
+                    </select>
+                    </c:when>
+                    <c:otherwise>
+                    <select id="offipointGradeValue_1" name="offipointGradeValue_1" title="<LTag:message code="
+                      app.lbl.testScore" />">
+                    <option value="">
+                      <LTag:message code="app.lbl.select" />
+                    </option>
+                    </select>
+                    </c:otherwise>
+
+                    </c:choose>
+              <!-- <div class="inputBox">
                 <label for="inputText1">텍스트입력</label>
                 <input type="text" id="inputText1" placeholder="텍스트 입력" />
-              </div>
+              </div> -->
+            </div>
             </td>
             <td>
               <span class="duration">
                 <span class="inputBox">
-                  <input
-                    type="text"
-                    id="inputText1"
-                    placeholder="텍스트 입력"
-                  />
+                  <input type="text" class="Ltext dateText" id="offitestDate_1" name="offitestDate_1"
+                  maxlength="11" readonly="readonly" title="<LTag:message code=" app.lbl.acquiredDate" />">
                 </span>
-                <button
-                  type="button"
-                  id="milStartDate_cal"
-                  class="LiconCalendar"
-                  data-calendar="milStartDate"
-                >
-                  달력
-                </button>
+                <button type="button" class="LiconCalendar" id="offiCal" data-calendar="offitestDate_1">달력</button>
               </span>
             </td>
             <td class="tRight">
-              <button type="button" class="delete">
-                <span>1번 째 공인어학성적 삭제</span>
-              </button>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <select title="셀렉트 이름">
-                <option value="">--선택--</option>
-                <option value="">선택1</option>
-                <option value="">선택2</option>
-                <option value="">선택3</option>
-                <option value="">선택4</option>
-                <option value="">선택5</option>
-                <option value="">선택6</option>
-              </select>
-            </td>
-            <td>
-              <select title="셀렉트 이름">
-                <option value="">--선택--</option>
-                <option value="">선택1</option>
-                <option value="">선택2</option>
-                <option value="">선택3</option>
-                <option value="">선택4</option>
-                <option value="">선택5</option>
-                <option value="">선택6</option>
-              </select>
-            </td>
-            <td>
-              <div class="inputBox">
-                <label for="inputText1">텍스트입력</label>
-                <input type="text" id="inputText1" placeholder="텍스트 입력" />
-              </div>
-            </td>
-            <td>
-              <span class="duration">
-                <span class="inputBox">
-                  <input
-                    type="text"
-                    id="inputText1"
-                    placeholder="텍스트 입력"
-                  />
-                </span>
-                <button
-                  type="button"
-                  id="milStartDate_cal"
-                  class="LiconCalendar"
-                  data-calendar="milStartDate"
-                >
-                  달력
-                </button>
-              </span>
-            </td>
-            <td class="tRight">
-              <button type="button" class="delete">
-                <span>1번 째 공인어학성적 삭제</span>
+              <button type="button" class="deleteBtn" id="languageDelBtn_1" onClick="deleteRow(this);">
+                <span>행 삭제</span>
               </button>
             </td>
           </tr>
@@ -1807,22 +4092,26 @@
     </div>
     <ul class="bu">
       <li>해당 직무와 연관성이 높은 항목부터 입력해주시기 바랍니다.</li>
-      <li>
-        공인어학성적은 지원서 접수 마감일 기준 최근 2년 이내의 성적을
-        입력해주시기 바랍니다.
-      </li>
+      <li><LTag:message code="app.cont.additionalTip16" /></li>
     </ul>
   </article>
+</c:if>
+</c:if>
 
+<!-- 외국어 역량 가이드 -->
+<c:if test="${jobNoticeInfo.globalInputFlag == 'N'}">
   <article class="sec4">
-    <h3>외국어역량(1)</h3>
+    <h3>      
+      <LTag:message code="app.titl.global" /> <span id="globalCount">(
+        <c:out value='${globalCount}' />)
+      <!--외국어역량(1)--></h3>
     <div class="addWrap">
-      <button class="add" type="button">추가</button>
+      <button class="add" id="globalAddBtn" type="button" title="<LTag:message code="app.titl.global" />">추가</button>
     </div>
     <div class="table type2">
-      <table>
+      <table id="globalTable">
         <caption>
-          외국어역량(1) - 언어, 사용국가, 사용 가능 정도에 대한 정보 제공
+          <LTag:message code="app.titl.global" />
         </caption>
         <colgroup>
           <col style="width: 30%" />
@@ -1833,73 +4122,114 @@
         </colgroup>
         <thead>
           <tr>
-            <th scope="col">언어<span class="essential">필수 입력</span></th>
             <th scope="col">
-              사용국가<span class="essential">필수 입력</span>
+              <label for="glolanguageType_1">
+                <LTag:message code="app.lbl.language" />
+                <!--언어--><span class="essential">필수 입력</span></th>
+              </label>
+              
+            <th scope="col">
+              <label for="glouseCountryCode_1">
+                <LTag:message code="app.lbl.languageNation" />
+                <!--사용국가--><span class="essential">필수 입력</span>
+              </label>
+              
             </th>
             <th scope="col">
+              <label for="glouseStartDate_1">
+                <LTag:message code="app.lbl.languageLevel" />
+                <button type="button" class="moreInfo" onclick="languageGuidePopup();">
+                  사용 가능 정도 기준 알아보기
+                </button>
+              </label>
               사용 가능 정도<span class="essential">필수 입력</span>
-              <button type="button" class="moreInfo">
-                사용 가능 정도 기준 알아보기
-              </button>
+              
             </th>
             <th scope="col"><span class="skip">삭제</span></th>
           </tr>
         </thead>
         <tbody>
+          <c:forEach items="${globalCompetList.jobNoticeId}" varStatus="i">
           <tr>
             <td>
-              <select title="셀렉트 이름">
-                <option value="">--선택--</option>
-                <option value="">선택1</option>
-                <option value="">선택2</option>
-                <option value="">선택3</option>
-                <option value="">선택4</option>
-                <option value="">선택5</option>
-                <option value="">선택6</option>
+              <select class="glolanguageType"
+                  id="glolanguageType_${i.index+1}"
+                  name="glolanguageType_${i.index+1}"
+                  title="<LTag:message code=" app.lbl.language" />">
+                <option value="">
+                  <LTag:message code="app.lbl.select" />
+                </option>
+                <c:forEach items="${languageTypeList2.code}" varStatus="l">
+                  <option
+                    value="<c:out value='${languageTypeList2.code[l.index]}' />"
+                    <c:if
+                    test="${globalCompetList.languageType[i.index] == languageTypeList2.code[l.index]}">
+                    selected</c:if>>
+                  <c:out value='${languageTypeList2.value[l.index]}' />
+                </option>
+                </c:forEach>
               </select>
             </td>
             <td>
               <div class="inputSearch inputBox">
-                <input type="text" disabled />
-                <button type="button" class="searchBtn">검색</button>
+                <input type="text" id="glouseCountryName_${i.index+1}"
+                  name="glouseCountryName_${i.index+1}"
+                  value="<c:out value='${globalCompetList.useCountryName[i.index]}' />"
+                  readonly="readonly" title="<LTag:message code=" app.lbl.languageNation" />" <c:if
+                  test="${not (globalCompetList.languageType[i.index] eq 'LANG999')}">
+                  disabled="disabled"</c:if>/>
+              <input type="hidden" class="glouseCountryCode" id="glouseCountryCode_${i.index+1}"
+                  name="glouseCountryCode_${i.index+1}"
+                  value="<c:out value='${globalCompetList.useCountryCode[i.index]}' />" />
+              <button type="button" class="searchBtn" onclick="searchCodePopup(this,'NA');">검색</button>
               </div>
             </td>
             <td>
-              <select title="셀렉트 이름">
-                <option value="">--선택--</option>
-                <option value="">선택1</option>
-                <option value="">선택2</option>
-                <option value="">선택3</option>
-                <option value="">선택4</option>
-                <option value="">선택5</option>
-                <option value="">선택6</option>
+              <select id="glolanguageLevel_${i.index+1}" name="glolanguageLevel_${i.index+1}"
+              title="<LTag:message code=" app.lbl.languageLevel" />">
+            <option value="">
+              <LTag:message code="app.lbl.select" />
+            </option>
+            <c:forEach items="${languageLevelList.code}" varStatus="l">
+              <option value="<c:out value='${languageLevelList.code[l.index]}' />" <c:if
+                test="${globalCompetList.languageLevel[i.index] == languageLevelList.code[l.index]}">
+                selected </c:if>>
+                <c:out value='${languageLevelList.value[l.index]}' />
+              </option>
+            </c:forEach>
               </select>
+              <%-- FPT - Static Analysis Handle - DELETE --%>
             </td>
             <td class="tRight">
-              <button type="button" class="delete">
-                <span>1번 째 외국어역량 삭제</span>
+              <button type="button" class="deleteBtn" id="globalDelBtn_${i.index+1}" onClick="deleteRow(this);">
+                <span>행 삭제</span>
               </button>
             </td>
           </tr>
+        </c:forEach>
         </tbody>
       </table>
     </div>
-    <p class="warning">
+    <p class="warning" title="안내사항">
       사용국가는 '기타 제 3외국어'를 선택하신 경우에 한해 정확히 입력해 주시기
       바랍니다.
     </p>
   </article>
+</c:if>
 
+
+<!-- 자격증 -->
+<c:if test="${jobNoticeInfo.qualificationInputFlag == 'N'}">
   <article class="sec5">
-    <h3>자격증(1)</h3>
+    <h3><LTag:message code="app.titl.qualif" /> <span id="qualifCount">(
+      <c:out value='${qualifiCount}' />)</h3>
     <div class="addWrap">
-      <button class="add" type="button">추가</button>
+      <button class="add" type="button" id="qualifAddBtn" title="<LTag:message code="app.titl.qualif" /> 추가">추가</button>
     </div>
     <div class="table type2">
-      <table>
+      <table id="qualifTable">
         <caption>
-          자격증(1) - 자격증명, 자격등급, 취득일자, 인증기관에 대한 정보 제공
+          <LTag:message code="app.titl.qualif" />
         </caption>
         <colgroup>
           <col style="width: 23%" />
@@ -1911,62 +4241,80 @@
         <thead>
           <tr>
             <th scope="col">
-              자격증명<span class="essential">필수 입력</span>
+              <label for="certiqualificationName_1">
+                <LTag:message code="app.lbl.qualificationName" />
+                <!--자격증명--><span class="essential">필수 입력</span>
+              </label>
+              
             </th>
             <th scope="col">
-              자격등급<span class="essential">필수 입력</span>
+              <label for="certiqualGradeName_1">
+                <LTag:message code="app.lbl.qualGrade" />
+                <!--자격등급--><span class="essential">필수 입력</span>                
+              </label>
             </th>
             <th scope="col">
-              취득일자<span class="essential">필수 입력</span>
+              <label for="certiacquisitionDate_1">
+                <LTag:message code="app.lbl.acquiredDate" />
+              <!--취득일자--><span class="essential">필수 입력</span>
+              </label>
             </th>
             <th scope="col">
-              인증기관<span class="essential">필수 입력</span>
+              <label for="certicertInstitutionName_1">
+                <LTag:message code="app.lbl.certInstitution" />
+              <!--인증기관--><span class="essential">필수 입력</span>
+              </label>
             </th>
             <th scope="col"><span class="skip">삭제</span></th>
           </tr>
         </thead>
         <tbody>
+          <c:forEach items="${qualificationList.jobNoticeId}" varStatus="i">
           <tr>
             <td>
               <div class="inputSearch inputBox">
-                <input type="text" />
-                <button type="button" class="searchBtn">검색</button>
+                <input type="text" id="certiqualificationName_${i.index+1}"
+                name="certiqualificationName_${i.index+1}"
+                value="<c:out value='${qualificationList.qualificationName[i.index]}' />"
+                readonly="readonly" title="<LTag:message code=" app.lbl.qualificationName" />" />
+              <input type="hidden" id="certiqualificationCode_${i.index+1}"
+                name="certiqualificationCode_${i.index+1}" class="searchBtn"
+                value="<c:out value='${qualificationList.qualificationCode[i.index]}'/>" />
+              <button type="button" onclick="searchCodePopup(this,'CR');" class="searchBtn">검색</button>
               </div>
             </td>
             <td>
               <div class="inputBox">
-                <label for="inputText1">텍스트입력</label>
-                <input type="text" id="inputText1" placeholder="텍스트 입력" />
+                <input type="text" id="certiqualGradeName_${i.index+1}"
+                  name="certiqualGradeName_${i.index+1}"
+                  value="<c:out value='${qualificationList.qualGradeName[i.index]}' />"
+                  maxlength="100" title="<LTag:message code=" app.lbl.qualGrade" />" >
               </div>
             </td>
             <td>
               <span class="duration">
                 <span class="inputBox">
-                  <input
-                    type="text"
-                    id="inputText1"
-                    placeholder="텍스트 입력"
-                  />
+                  <input type="text" class="Ltext calendarDate" id="certiacquisitionDate_${i.index+1}"
+                    name="certiacquisitionDate_${i.index+1}"
+                    value="<c:out value='${qualificationList.acquisitionDate[i.index]}' />" 
+                    maxlength="11" readonly="readonly" title="<LTag:message code=" app.lbl.acquiredDate" />"
+                  >
                 </span>
-                <button
-                  type="button"
-                  id="milStartDate_cal"
-                  class="LiconCalendar"
-                  data-calendar="milStartDate"
-                >
-                  달력
-                </button>
+                <button type="button" class="LiconCalendar" id="cal" data-position="up"
+                  data-calendar="certiacquisitionDate_${i.index+1}">달력</button>
               </span>
             </td>
             <td>
               <div class="inputBox">
-                <label for="inputText1">텍스트입력</label>
-                <input type="text" id="inputText1" placeholder="텍스트 입력" />
+                <input type="text" id="certicertInstitutionName_${i.index+1}"
+                  name="certicertInstitutionName_${i.index+1}"
+                  value="<c:out value='${qualificationList.certInstitutionName[i.index]}' />"
+                  maxlength="100" title="<LTag:message code=" app.lbl.certInstitution" />" >
               </div>
             </td>
             <td class="tRight">
-              <button type="button" class="delete">
-                <span>1번 째 자격증 삭제</span>
+              <button type="button" class="deleteBtn" id="qualDelBtn_${i.index+1}" onClick="deleteRow(this);">
+                <span>행 삭제</span>
               </button>
             </td>
           </tr>
@@ -1974,32 +4322,137 @@
       </table>
     </div>
     <ul class="bu">
-      <li>해당 직무와 관련된 면허가 있는 경우에도 입력 가능합니다.</li>
-      <li>직무와 연관성이 높은 항목부터 입력해주시기 바랍니다.</li>
-      <li>
-        모든 자격 사항은 지원서 작성 마감일 이전에 인증받은 사항만 인정됩니다.
-      </li>
+      <li><LTag:message code="app.cont.additionalTip21" /></li> 
+      <li><LTag:message code="app.cont.additionalTip20" /></li> 
+      <li><LTag:message code="app.cont.additionalTip17" /></li> 
     </ul>
   </article>
+</c:if>
+
+
+<!-- 추가입력사항 -->
+<c:if test="${jobNoticeInfo.addTextFlag == 'N'}">
+  <c:forEach items="${addTextList.jobNoticeId}" varStatus="i">
+<article>
+  <h3><c:out value='${addTextList.categoryName[i.index]}' /></h3>
+  <div class="table type2">
+    <table>
+      <caption><c:out value='${addTextList.title[i.index]}' /></caption>
+      <tbody>
+        <tr>
+        <th scope="col"><c:out value='${addTextList.title[i.index]}' /></th>
+      </tr>
+      <tr>
+        <td>
+          <input type="hidden" name="customFieldId" value="${addTextList.customFieldId[i.index]}" />
+          <input type="hidden" name="categoryName" value="${addTextList.categoryName[i.index]}" />
+          <input type="hidden" name="title" value="${addTextList.title[i.index]}" />
+          <c:choose>
+            <c:when test="${addTextList.type[i.index] eq 'TEXT'}">
+              <input type="hidden" name="addTextValue" value="${addTextList.value[i.index]}" />
+              <c:forEach begin="0" end="${jobNoticeInfo.addTextInputNum-1}" step="1" varStatus="k">
+                <input type="text" name="addTextValue_${k.index}" class="addTextValue"
+                  value="${fn:split(addTextList.value[i.index],'§')[k.index]}" />
+              </c:forEach>
+            </c:when>
+
+            <c:when test="${addTextList.type[i.index] eq 'TEXTAREA'}">
+              <div class="input">
+              <textarea
+                name="addTextValue"><c:out value="${addTextList.value[i.index]}"/></textarea>
+              </div>
+            </c:when>
+            <c:when test="${addTextList.type[i.index] eq 'CHECKBOX'}">
+              <input type="hidden" name="addTextValue" value="${addTextList.value[i.index]}" />
+              <c:forTokens items="${addTextList.labels[i.index]}" delims="§" var="tag">
+                <c:set var="addTextChecboxChecked" value="false" />
+                <c:forTokens items="${addTextList.value[i.index]}" delims="§" var="valueToken">
+                  <c:if test="${tag eq valueToken}">
+                    <c:set var="addTextChecboxChecked" value="true" />
+                  </c:if>
+                </c:forTokens>
+                <c:choose>
+                  <c:when test="${addTextChecboxChecked eq 'true'}">
+                    <span class="input">
+                      <input type="checkbox" class="addTextValue" value="${tag}" checked="checked" id="checkNew" />
+                      <label for="checkNew"><c:out value="${tag}" /></label>
+                    </span>                    
+                  </c:when>
+                  <c:otherwise>
+                    <span class="input">
+                      <input type="checkbox" class="addTextValue" value="${tag}" id="checkNew2" />
+                      <label for="checkNew2"><c:out value="${tag}" /></label>
+                    </span>
+                  </c:otherwise>
+                </c:choose>
+              </c:forTokens>
+            </c:when>
+            <c:when test="${addTextList.type[i.index] eq 'RADIO'}">
+              <c:forTokens items="${addTextList.labels[i.index]}" delims="§" var="tag">
+                <c:choose>
+                  <c:when test="${tag eq addTextList.value[i.index]}">
+                    <input type="radio" name="addTextValue" value="${tag}" checked="checked" />
+                    <c:out value="${tag}" />
+                  </c:when>
+                  <c:otherwise>
+                    <span class="input">
+                      <input type="radio" name="addTextValue" value="${tag}" id="radioNew1" />
+                      <label for="radioNew1"><c:out value="${tag}" /></label>
+                    </span>
+                  </c:otherwise>
+                </c:choose>
+              </c:forTokens>
+            </c:when>
+            <c:when test="${addTextList.type[i.index] eq 'SELECT'}">
+              <select name="addTextValue" title="추가사항 입력">
+                <c:forTokens items="${addTextList.labels[i.index]}" delims="§" var="tag">
+                  <c:choose>
+                    <c:when test="${tag eq addTextList.value[i.index]}">
+                      <option value="${tag}" selected="selected">
+                        <c:out value="${tag}" />
+                      </option>
+                    </c:when>
+                    <c:otherwise>
+                      <option value="${tag}">
+                        <c:out value="${tag}" />
+                      </option>
+                    </c:otherwise>
+                  </c:choose>
+                </c:forTokens>
+              </select>
+            </c:when>
+          </c:choose>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</article>
+</c:forEach>
+</c:if>
+</form>
 
   <div class="bottomWrap">
     <div class="left">
-      <button type="submit" class="btn round type6 prev">
-        <span>이전</span>
+      <button type="button" class="btn round type6 prev" onclick="nextTab(this,0);">
+        <span><LTag:message code="app.btn.back" /></span>
       </button>
     </div>
-    <div class="right">
-      <button type="submit" class="btn round type6">
-        <span>임시저장</span>
+    <div class="right"><c:if
+      test="${jobNoticeInfo.schoolInputFlag == 'N' || jobNoticeInfo.qualificationInputFlag == 'N' || jobNoticeInfo.languageInputFlag == 'N' || jobNoticeInfo.globalInputFlag =='N'}">
+      <button type="button" class="btn round type6" id="btnSaveAppDetail">
+        <span><LTag:message code="com.btn.save" /></span>
       </button>
-      <button type="submit" class="btn round type5 next">
-        <span>다음</span>
+    </c:if>
+      <button type="button" class="btn round type5 next" onclick="nextTab(this,2);">
+        <span><LTag:message code="com.btn.next" /></span>
       </button>
     </div>
   </div>
 </section>
+<!-- appDetailForm end div -->
 
-<!-- clone -->
+<!-- clone
 <section class="tabCon" id="tabCon2">
   <article class="sec1">
     <h3>최종 학력</h3>
@@ -3301,3 +5754,4 @@
     </div>
   </div>
 </section>
+ -->

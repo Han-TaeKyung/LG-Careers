@@ -223,7 +223,7 @@
 .mT80 {
   margin-top: 8rem;
 }
-.pT0{
+.pT0 {
   padding-top: 0 !important;
 }
 
@@ -840,7 +840,8 @@ select {
   -moz-appearance: none;
   appearance: none;
   min-width: 12rem;
-  // background: url(/common/images/icon/selectBg.svg) no-repeat right 1.5rem center;
+  background: url(/common/images/icon/selectBg.svg) no-repeat right 1.5rem
+    center;
   color: $LGBlack;
   font-size: 1.4rem;
   line-height: 2;
@@ -1207,6 +1208,36 @@ select {
       &:last-child {
         margin-bottom: 0;
       }
+    }
+  }
+}
+
+.blt {
+  @include subText1;
+  margin-bottom: 0.5rem;
+  position: relative;
+  padding-left: 1.1rem;
+  color: $Gray6B;
+  &::before {
+    display: block;
+    content: " ";
+    width: 0.3rem;
+    height: 0.3rem;
+    border-radius: 50%;
+    background-color: $Gray6B;
+    position: absolute;
+    left: 0;
+    top: 0.75rem;
+  }
+  &.type2 {
+    &::before {
+      content: " ";
+      width: 0.5rem;
+      height: 0.1rem;
+      background-color: $Gray6B;
+      left: 0;
+      top: 1rem;
+      position: absolute;
     }
   }
 }
@@ -1979,32 +2010,28 @@ select {
   }
 }
 //반응형
-@include tablet{
-    /*브라우저 사이즈768px이상, 1199px 이하일때*/
-  .alert{
-    margin-top:6rem;
+@include tablet {
+  /*브라우저 사이즈768px이상, 1199px 이하일때*/
+  .alert {
+    margin-top: 6rem;
     z-index: 1;
   }
-  
-
-
 }
-@include mobile{
+@include mobile {
   /*브라우저 767px 이하일때*/
 
-  .btn{
-    &.xlarge{
+  .btn {
+    &.xlarge {
       width: 100%;
       max-width: 50rem;
       min-width: inherit;
     }
-    &.large{
-      min-width:inherit;
+    &.large {
+      min-width: inherit;
       max-width: 24.4rem;
       width: 48.5%;
-
     }
-    & +.btn{
+    & + .btn {
       margin-left: 1%;
     }
   }

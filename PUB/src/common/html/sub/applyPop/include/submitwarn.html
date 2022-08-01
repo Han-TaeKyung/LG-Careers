@@ -1,0 +1,205 @@
+<div class="dmui_dialog_container fade in" style="display: block">
+  <div class="dmui_dialog" style="left: 734px; top: 107px">
+    <div
+      class="dmui_dialog_content LsimplePopup submitwarn width280"
+      tabindex="-1"
+      style="outline: none"
+    >
+      <div class="dmui_dialog_header">
+        <h1 class="dmui_dialog_title">입력 사항 확인 안내</h1>
+      </div>
+      <div class="dmui_dialog_body" tabindex="0">
+        <div class="LblockPopupMain submitwarn" id="submitWarn">
+          <div class="p_warn">
+            <p>
+              <strong
+                >아래의 항목들을 다시 한번 확인 후<br />제출하시기
+                바랍니다.</strong
+              >
+            </p>
+          </div>
+
+          <div
+            class="LblockDetailTable headerTop"
+            id="checkApplyTable"
+            style="height: 240px"
+          >
+            <table>
+              <caption>
+                미입력 사항 목록
+              </caption>
+              <thead>
+                <tr>
+                  <th scope="col">구분</th>
+                  <th scope="col">미입력 사항</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>기본인적사항</td>
+                  <td>
+                    <a href="javascript:;" onclick="goTab(0,'orgCode_1');"
+                      >1지망 조직</a
+                    >
+                    미입력
+                  </td>
+                </tr>
+                <tr>
+                  <td>기본인적사항</td>
+                  <td>
+                    <a href="javascript:;" onclick="goTab(0,'jobCode_1');"
+                      >1지망 직무</a
+                    >
+                    미입력
+                  </td>
+                </tr>
+                <tr>
+                  <td>기본인적사항</td>
+                  <td>
+                    <a href="javascript:;" onclick="goTab(0,'locationCode_1');"
+                      >1지망 근무지</a
+                    >
+                    미입력
+                  </td>
+                </tr>
+                <tr>
+                  <td>기본인적사항</td>
+                  <td>
+                    <a href="javascript:;" onclick="goTab(0,'genderCode');"
+                      >성별</a
+                    >
+                    미입력
+                  </td>
+                </tr>
+                <tr>
+                  <td>기본인적사항</td>
+                  <td>
+                    <a
+                      href="javascript:;"
+                      onclick="goTab(0,'additionalContact');"
+                      >추가 연락처</a
+                    >
+                    미입력
+                  </td>
+                </tr>
+                <tr>
+                  <td>기본인적사항</td>
+                  <td>
+                    <a
+                      href="javascript:;"
+                      onclick="goTab(0,'addressLine1Info');"
+                      >기본주소</a
+                    >
+                    미입력
+                  </td>
+                </tr>
+                <tr>
+                  <td>기본인적사항</td>
+                  <td>
+                    <a
+                      href="javascript:;"
+                      onclick="goTab(0,'applychannelCode');"
+                      >지원채널</a
+                    >
+                    미입력
+                  </td>
+                </tr>
+                <tr>
+                  <td>기본인적사항</td>
+                  <td>
+                    <a
+                      href="javascript:;"
+                      onclick="goTab(0,'milDischargeCode');"
+                      >병역구분</a
+                    >
+                    미입력
+                  </td>
+                </tr>
+                <tr>
+                  <td>상세인적사항</td>
+                  <td>
+                    <a href="javascript:;" onclick="goTab(1);"
+                      >최종학력 미선택</a
+                    >
+                  </td>
+                </tr>
+                <tr>
+                  <td>상세인적사항</td>
+                  <td>
+                    <a href="javascript:;" onclick="goTab(1,'reputeAgreeYn');"
+                      >평판 조회 동의</a
+                    >
+                    미입력
+                  </td>
+                </tr>
+                <tr>
+                  <td>상세인적사항</td>
+                  <td>
+                    <a
+                      href="javascript:;"
+                      onclick="goTab(1,'saleSecViolAgreeYn');"
+                      >영업비밀 침해금지 동의</a
+                    >
+                    미입력
+                  </td>
+                </tr>
+                <tr>
+                  <td>경력사항</td>
+                  <td>
+                    <a href="javascript:;" onclick="goTab(2,'targetSalary');"
+                      >희망연봉(만원)</a
+                    >
+                    미입력
+                  </td>
+                </tr>
+                <tr>
+                  <td>경력사항</td>
+                  <td>
+                    <a href="javascript:;" onclick="goTab(2,'entryDate');"
+                      >입사가능일</a
+                    >
+                    미입력
+                  </td>
+                </tr>
+                <tr>
+                  <td>자기소개서</td>
+                  <td>
+                    <a href="javascript:;" onclick="goTab(3,'content_1');"
+                      >지원동기</a
+                    >
+                    미입력
+                  </td>
+                </tr>
+                <tr>
+                  <td>자기소개서</td>
+                  <td>
+                    <a href="javascript:;" onclick="goTab(3,'content_2');"
+                      >성격의 장단점</a
+                    >
+                    미입력
+                  </td>
+                </tr>
+                <tr>
+                  <td>자기소개서</td>
+                  <td>
+                    <a href="javascript:;" onclick="goTab(3,'content_3');"
+                      >주요역량</a
+                    >
+                    미입력
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <div id="tooltip" style="display: none"></div>
+          </div>
+        </div>
+      </div>
+      <div class="dmui_dialog_footer">
+        <span><a href="#" class="dmui_dialog_footer_btn">확인</a></span>
+      </div>
+      <div class="dmui_dialog_btn">
+        <span class="dmui_dialog_btn_close"><a href="#">닫기</a></span>
+      </div>
+    </div>
+  </div>
+</div>
