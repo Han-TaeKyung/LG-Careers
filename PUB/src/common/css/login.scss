@@ -608,3 +608,107 @@ p.formError {
   }
   
 }
+
+//반응형
+@include tablet{
+    /*브라우저 사이즈768px이상, 1199px 이하일때*/
+  .subConWrap{
+    width: 92%;
+    padding: 10rem 0 10rem;
+  }
+  .joinnWrap{
+    .joinForm {
+      > ul{
+        flex-wrap: wrap;
+        .formH{
+          width: 100%;
+          margin-bottom: .5rem;
+        }
+        .formD{
+          width: 100%;
+        }
+      }
+    }
+    .wd228{
+      width: 31%;
+    }
+    .wd464{
+      width: calc(100% - 26rem);
+    }
+    .wd356 {
+      width: 49%;
+    }
+  } 
+}
+@include mobile{
+  /*브라우저 767px 이하일때*/
+  .loginWrap {
+    .formPWC{
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      p{
+        width: 100%;
+        margin-bottom: 1rem;
+        padding-top: 0;
+        white-space: break-spaces;
+        line-height: 1.4rem;
+      }
+      .inputBox{
+        width: 100%;
+      }
+    }
+    .completeTxt{
+      font-size: 2rem;
+    }
+    .loginComBox{
+      border-radius: 1.5rem;
+      overflow: hidden;
+      .boxGray{
+        padding: 2.5rem 2rem;
+        p{
+          font-size: 1.6rem;
+          br{
+            display: none;
+          }
+        }
+      }
+    }
+  }
+  .joinnWrap{
+    .joinForm{
+      >ul{
+        .formD{
+          >div{
+            flex-wrap: wrap;
+            .wd228{
+              width: 45%;
+            }
+            .wd464{
+              width: calc(100% - 9.5rem);
+            }
+            .selectBox{
+              width: 100%;
+              margin-top: .5rem;
+            }
+          }
+          &.crtWrap{
+            .btn.minW{
+              margin-bottom: .5rem;
+            }
+          }
+        }
+      }
+    }
+    .joinStep {
+      h5{
+        font-size: 1.8rem;
+      }
+      .subTitle2{
+        font-size: 1.4rem;
+      }
+    }
+    .conBox{
+      padding: 2rem 2rem 2.4rem;
+    }
+  } 
+}
