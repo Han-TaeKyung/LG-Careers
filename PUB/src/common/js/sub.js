@@ -97,6 +97,16 @@ $(function () {
     $thisBtn.focus();
   }
 
+  //window open pop
+  var $winPop = $(".popWindow");
+  $winPop.each(function () {
+    var $this = $(this),
+      $thisClose = $this.find(".close");
+    $thisClose.on("click", function () {
+      window.close();
+    });
+  });
+
   //리스트목록 정렬
   var $formList = $(".listLineUp"),
     $formSelect = $formList.find(".luSelect"),

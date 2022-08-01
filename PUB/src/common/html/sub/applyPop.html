@@ -8,6 +8,9 @@
     .popup {
       display: none;
     }
+    .dmui_dialog_btn {
+      cursor: pointer;
+    }
   </style>
   <body>
     <div id="headers">@@include('./../layouts/include/header.html')</div>
@@ -34,7 +37,7 @@
           <button
             type="button"
             class="btn type4"
-            onclick="window.open('./applyPop/include/RetrievePolicyAgree.html','_blank','width=900,height=900')"
+            onclick="window.open('./applyPop/RetrievePolicyAgree.html','_blank','width=900,height=900')"
           >
             [전체변경] 개인정보동의서
           </button>
@@ -68,23 +71,46 @@
           </button>
           <button
             class="btn type4"
-            onclick="window.open('./applyPop/include/RetrieveAgreePopup.html','_blank','width=570,height=1157')"
+            onclick="window.open('./applyPop/RetrieveAgreePopup.html','_blank','width=570,height=1157')"
           >
             [하단 폼 변경] 평판조회 동의
           </button>
           <button
             class="btn type4"
-            onclick="window.open('./applyPop/include/RetrieveAgreePopup2.html','_blank','width=570,height=1157')"
+            onclick="window.open('./applyPop/RetrieveAgreePopup2.html','_blank','width=570,height=1157')"
           >
             [하단 폼 변경] 영업비밀침해금지 동의
           </button>
+          <button
+            class="btn type4"
+            onclick="window.open('./applyPop/talentGuide.html','_blank','width=765,height=780')"
+          >
+            [전체 변경] 외국어 역량 등급 설명
+          </button>
+          <button
+            class="btn type4"
+            onclick="window.open('./applyPop/introductionGuide.html','_blank','width=765,height=600')"
+          >
+            [전체 변경] 자기소개서 작성가이드
+          </button>
+          <button
+            class="btn type4"
+            onclick="window.open('./applyPop/appGuide.html','_blank','width=765,height=780')"
+          >
+            [전체 변경] 외국어 역량 등급 설명
+          </button>
 
           <script>
-            $(".pops button").on("click", function () {
-              var $this = $(this);
-              $(".pops")
-                .find("." + $this.attr("data-pop"))
-                .css("display", "block");
+            $(function () {
+              $(".pops button").on("click", function () {
+                var $this = $(this);
+                $(".pops")
+                  .find("." + $this.attr("data-pop"))
+                  .css("display", "block");
+              });
+              $(".dmui_dialog_btn").on("click", function () {
+                $(this).closest(".popup").css("display", "none");
+              });
             });
           </script>
           <div class="popup country">
