@@ -651,3 +651,33 @@
         }
     }
 }
+@include tablet{
+    .mypageLnb{ //잠시 숨김
+        display: none;
+    }
+    .subConWrap{
+        
+        .mpContent{
+            width: 100%;
+        }
+    } 
+}
+@include mobile{
+    .mypageModify{
+        .joinForm{
+            width: 100%;
+            margin-top: 3rem;
+            > ul{
+                flex-wrap: wrap;
+                .formH{
+                    width: 100%;
+                    margin-top: 0;
+                    margin-bottom: .5rem;
+                }
+                .formD{
+                    width: 100%;
+                }
+            }
+        }
+    }
+}

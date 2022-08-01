@@ -1,6 +1,7 @@
 @charset "UTF-8";
 /*@import url(http://fonts.googleapis.com/earlyaccess/nanummgothic.css);*/
 
+@import "_variables", "_mixin";
 @font-face {
   font-family: "LGSmart";
   font-style: normal;
@@ -60,10 +61,22 @@
   // letter-spacing: -0.05em;
 }
 
-:root {
-  font-size: 62.5%;
+// :root {
+//   font-size: 62.5%;
+// }
+html{
+  font-size: 10px;
 }
-
+@include tablet{
+  html{
+    font-size: 9px;
+  }
+}
+@include mobile{
+  html{
+    font-size: 8px;
+  }
+}
 * {
   margin: 0;
   padding: 0;
