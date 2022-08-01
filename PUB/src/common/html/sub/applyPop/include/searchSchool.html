@@ -1,0 +1,123 @@
+<div class="dmui_dialog_container fade in" style="display: block">
+  <div class="dmui_dialog" style="left: 725.5px; top: 26px">
+    <div
+      class="dmui_dialog_content LsimplePopup searchschool"
+      tabindex="-1"
+      style="outline: none"
+    >
+      <div class="dmui_dialog_header">
+        <h1 class="dmui_dialog_title">학교 검색</h1>
+      </div>
+      <div class="dmui_dialog_body" tabindex="0">
+        <div class="LblockPopupMain search">
+          <div class="Lexplanation">
+            <p>검색 버튼을 눌러 학교명을 선택하여 주시기 바랍니다.</p>
+            <p>
+              학교명이 검색되지 않는 경우 직접입력 버튼을 통해 학교명을 입력해
+              주시기 바랍니다.
+            </p>
+          </div>
+          <div class="LblockSearch">
+            <form method="post" action="#" id="schoolForm" name="schoolForm">
+              <div id="schoolSearchPopup_search">
+                <div class="divSchoolGroup">
+                  <select id="schoolGroup" name="schoolGroup">
+                    <option value="ko">한글</option>
+                    <option value="en">영문</option>
+                  </select>
+                </div>
+                <div class="divSearchButton">
+                  <button type="button" onclick="dlgSchool_search();">
+                    검색
+                  </button>
+                </div>
+                <div class="divCodeName">
+                  <input
+                    id="codeName"
+                    name="codeName"
+                    type="text"
+                    placeholder="두 글자 이상 입력해 주세요."
+                    title="학교 검색"
+                  />
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="LblockListTable">
+            <div class="LtableScroll" tabindex="0">
+              <table
+                id="dlgSearchSchool_tableSearchSchoolList"
+                class="LsearchResult"
+              >
+                <caption>
+                  학교 검색 결과목록
+                </caption>
+                <thead>
+                  <tr>
+                    <th scope="col" class="Lfirst">학교명</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="Ltemplate">
+                    <td>
+                      <a
+                        href="#"
+                        onclick="dlgSchool_select(this,'N'); return false;"
+                        >{$codeName}</a
+                      ><input
+                        type="hidden"
+                        id="code"
+                        name="code"
+                        value="{$codeValue}"
+                      />
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div
+            id="divDirectInput"
+            class="LblockDetailTable LscrollWrapper"
+            style="display: none"
+          >
+            <table class="directInput">
+              <caption>
+                학교명 직접입력
+              </caption>
+              <colgroup>
+                <col style="width: 30%" />
+                <col style="width: 70%" />
+              </colgroup>
+              <tbody>
+                <tr>
+                  <th scope="row">
+                    <label for="directInput">직접 입력</label>
+                  </th>
+                  <td>
+                    <div class="LsubInstruction">
+                      직접 입력 후 엔터를 치시면 적용됩니다.
+                    </div>
+                    <input
+                      type="text"
+                      id="directInput"
+                      maxlength="150"
+                      class="displayblockInPhone"
+                    />
+                    <button id="confirmDirect"><span>확인</span></button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="dmui_dialog_footer">
+        <span><a href="#" class="dmui_dialog_footer_btn">닫기</a></span>
+      </div>
+      <div class="dmui_dialog_btn">
+        <span class="dmui_dialog_btn_close"><a href="#">닫기</a></span>
+      </div>
+    </div>
+  </div>
+</div>

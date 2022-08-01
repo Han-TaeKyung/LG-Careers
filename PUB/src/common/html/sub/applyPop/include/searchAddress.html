@@ -1,0 +1,163 @@
+<div class="dmui_dialog_container fade in" style="display: block">
+  <div class="dmui_dialog" style="left: 725.5px; top: 51px">
+    <div
+      class="dmui_dialog_content LsimplePopup searchaddress"
+      tabindex="-1"
+      style="outline: none"
+    >
+      <div class="dmui_dialog_header">
+        <h1 class="dmui_dialog_title">주소 검색</h1>
+      </div>
+      <div class="dmui_dialog_body" tabindex="0">
+        <div class="LblockPopupMain search">
+          <p class="p_sub">
+            <strong>도로명주소(신주소) 로 검색해 주십시오.</strong>
+          </p>
+          <div class="Linformation">
+            <p>
+              지번(구주소)을 통해 도로명주소(신주소)를 확인하시고 싶으신 분은
+              <a href="http://www.juso.go.kr" target="_blank" title="새 창"
+                >도로명주소 안내사이트</a
+              >를 이용해 주시기 바랍니다.
+            </p>
+          </div>
+          <div class="LblockSearch">
+            <form method="post" action="#" id="addrForm" name="addrForm">
+              <div class="LblockDetailTable">
+                <table id="desireTable">
+                  <caption>
+                    시/도/군/구 선택
+                  </caption>
+                  <colgroup>
+                    <col style="width: 35%" />
+                    <col style="width: 65%" />
+                  </colgroup>
+                  <tbody>
+                    <tr>
+                      <th scope="row">
+                        <label class="required" for="doName">시/도</label>
+                      </th>
+                      <td>
+                        <select
+                          id="doName"
+                          name="doName"
+                          class="displayblockInPhone"
+                        >
+                          <option value="">선택하세요</option>
+
+                          <option value="강원도">강원도</option>
+
+                          <option value="경기도">경기도</option>
+
+                          <option value="경상남도">경상남도</option>
+
+                          <option value="경상북도">경상북도</option>
+
+                          <option value="광주광역시">광주광역시</option>
+
+                          <option value="대구광역시">대구광역시</option>
+
+                          <option value="대전광역시">대전광역시</option>
+
+                          <option value="부산광역시">부산광역시</option>
+
+                          <option value="서울특별시">서울특별시</option>
+
+                          <option value="세종특별자치시">세종특별자치시</option>
+
+                          <option value="울산광역시">울산광역시</option>
+
+                          <option value="인천광역시">인천광역시</option>
+
+                          <option value="전라남도">전라남도</option>
+
+                          <option value="전라북도">전라북도</option>
+
+                          <option value="제주특별자치도">제주특별자치도</option>
+
+                          <option value="충청남도">충청남도</option>
+
+                          <option value="충청북도">충청북도</option>
+                        </select>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">
+                        <label class="required" for="gunName">시/군/구</label>
+                      </th>
+                      <td>
+                        <select
+                          id="gunName"
+                          name="gunName"
+                          class="displayblockInPhone"
+                        >
+                          <option value="">선택하세요</option>
+                        </select>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <span>
+                <input
+                  id="streetName"
+                  name="streetName"
+                  type="text"
+                  size="30"
+                  placeholder="도로명, 건물번호, 읍면동명, 건물명으로 조회하세요."
+                  title="도로명 검색"
+                />
+                <input id="cityName" name="cityName" type="hidden" />
+                <input id="gunGuName" name="gunGuName" type="hidden" />
+                <button type="button" onclick="dlgAddr_search();">검색</button>
+              </span>
+            </form>
+          </div>
+          <div class="LblockListTable">
+            <div class="LtableScroll" tabindex="0" style="height: 150px">
+              <table id="LtableZipCodeList" class="LsearchResult address">
+                <caption>
+                  도로명 검색 결과목록(우편번호, 도로명)
+                </caption>
+                <colgroup>
+                  <col style="width: 30%" />
+                  <col style="width: 70%" />
+                </colgroup>
+                <thead>
+                  <tr>
+                    <th scope="col" class="Lfirst">우편번호</th>
+                    <th scope="col" class="Llast">도로명</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="Ltemplate">
+                    <td>
+                      <a
+                        href="#"
+                        onclick="dlgZipCode_select(this); return false;"
+                        >{$postalCode}</a
+                      >
+                    </td>
+                    <td class="LtextLeft">
+                      <a
+                        href="#"
+                        onclick="dlgZipCode_select(this); return false;"
+                        >{$address}</a
+                      >
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="dmui_dialog_footer">
+        <span><a href="#" class="dmui_dialog_footer_btn">닫기</a></span>
+      </div>
+      <div class="dmui_dialog_btn">
+        <span class="dmui_dialog_btn_close"><a href="#">닫기</a></span>
+      </div>
+    </div>
+  </div>
+</div>

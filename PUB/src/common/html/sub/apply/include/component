@@ -1,0 +1,18 @@
+
+attatch-->
+
+
+<c:forEach
+                                  items="${baseApplyFileList.attachFileId}"
+                                  varStatus="j">
+                                  <div class="fileUploadForm">
+                                    <a class="fileName" href="javascript:;"
+                                            onClick="fileDownload('${baseApplyFileList.dlFileName[j.index]}','${baseApplyFileList.attachFileId[j.index]}')">
+                                      <c:out value='${baseApplyFileList.dlFileName[j.index]}' />
+                                    </a>
+                                    <button type="button" class="fileDelete" onclick='deleteItem(this);'>삭제</button>                  
+                                    <input type="hidden" id="fileSeqNo"
+                                        name="fileSeqNo"
+                                        value="<c:out value='${baseApplyFileList.fileSeqNo[j.index]}'/>" />
+                                  </div>
+                              </c:forEach>

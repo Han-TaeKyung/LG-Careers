@@ -1,0 +1,842 @@
+<!-- FPT - Static Analysis Handle - ADD START -->
+<!DOCTYPE html>
+<!-- FPT - Static Analysis Handle - ADD END -->
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="Cache-Control" content="no-cache; no-store; no-save" />
+    <meta http-equiv="Expires" content="0" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"
+    />
+    <meta name="format-detection" content="telephone=no" />
+    <link rel="stylesheet" href="/common/css/sub.css" />
+    <script
+      type="text/javascript"
+      src="https://apply.lg.com/common/js/msg/message_ko.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://apply.lg.com/devon-mscreen.min/lib/jquery-1.7.1.min.js"
+    ></script>
+    <script type="text/javascript">
+      var CONTEXT_PATH = "";
+      var CDN_PATH = "/"; /*https://apply.lg.com*/
+      $(document).ready(function () {
+        $.ajaxSetup({
+          cache: false,
+        });
+
+        $(document)
+          .ajaxStart(function () {
+            //$('#REC_LOADING').show();
+          })
+          .ajaxStop(function () {
+            //$('#REC_LOADING').hide();
+          })
+          .ajaxError(function (
+            event,
+            XMLHttpRequest,
+            ajaxOptions,
+            thrownError
+          ) {
+            //$('#REC_LOADING').hide();
+            if (XMLHttpRequest.status == "403") {
+              alert(XMLHttpRequest.status + ", " + ajaxOptions.url);
+            } else if (XMLHttpRequest.status == "404") {
+              alert(XMLHttpRequest.status + ", " + ajaxOptions.url);
+            } else if (XMLHttpRequest.status == "500") {
+              var message =
+                thrownError === undefined
+                  ? XMLHttpRequest.responseText
+                  : thrownError.message;
+              if (message != undefined) alert(message);
+            } else {
+              var message =
+                thrownError === undefined
+                  ? XMLHttpRequest.responseText
+                  : thrownError.message;
+              if (message != undefined) alert(message);
+            }
+          });
+      });
+    </script>
+    <script
+      type="text/javascript"
+      src="https://apply.lg.com/devon-mscreen.min/dms_config.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://apply.lg.com/devon-mscreen.min/js/dms.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://apply.lg.com/common/js/common.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://apply.lg.com/common/jquery/js/jquery-ui.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://apply.lg.com/common/jquery/js/jquery.form.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://apply.lg.com/common/jquery/js/jquery.validate.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://apply.lg.com/common/jquery/js/jquery.rec.js"
+    ></script>
+
+    <script type="text/javascript">
+      /******************************************************************
+       * 팝업설정
+       ******************************************************************/
+
+      /**
+       * @namespace 팝업설정
+       * @property {function} execute	- 팝업수행을 위해 실행할 함수
+       * @property {boolean} enabled - 활성화 여부
+       * @property {date} startDate -	팝업시작 시각. null이면 바로 시작
+       * @property {date} endDate - 팝업종료 시각. null이면 infinite
+       * @property {Array.<string>} urlFilter - 팝업을 허용할 URL 패턴. 이 패턴과 매칭되는 request에서만 팝업이 된다. AntPattern 사용. ex) /system/**, /main/Index.rti
+       * @웹변조 재업로드
+       */
+      var popupConfigurations = [
+        //시스템 작업 공지
+        {
+          execute: function () {
+            if (getCookie("__careers__Popup") != "done" && !dms.screen.phone) {
+              var hostname = "devmeet.lg.com:8000";
+              if (
+                location.hostname == "recruiter.lg.com" ||
+                location.hostname == "apply.lg.com" ||
+                location.hostname == "careers.lg.com"
+              ) {
+                hostname = "meet.lg.com";
+              } else if (
+                location.hostname == "localrecruiter.lg.com" ||
+                location.hostname == "localapply.lg.com"
+              ) {
+                hostname = "localmeet.lg.com:8280";
+              }
+              var url = "http://" + hostname + "/main/EventPopup.rmi";
+              if (hostname != "") {
+                window.open(
+                  url,
+                  "popup",
+                  "scrollbars=no,location=no,menubar=no,width=428px,height=526px"
+                );
+              }
+            }
+          },
+          enabled: true,
+          startDate: new Date(2018, 11, 20, 08, 30, 0),
+          endDate: new Date(2018, 11, 28, 21, 0, 0), // 월은 0 ~ 11
+          urlFilter: ["/main/Intro.rpi", "/main/Index.rpi"],
+        },
+      ];
+
+      $(document).ready(function () {
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////
+        // 팝업 수행
+        //
+
+        /**
+         * @function 요청주소가 주어진 패턴 목록에 매칭되는지 검사한다.
+         * @param {Array.<string>} targets - 패턴목록.
+         * @return {boolean} 요청주소가 targets 중 하나에 매칭이 되면 true, 아니면 false
+         */
+        var match = function (targets) {
+          if (targets && $.isArray(targets)) {
+            for (var i = 0; i < targets.length; i++) {
+              if (antPatternMatcher(targets[i], location.pathname)) {
+                return true;
+              }
+            }
+
+            return false;
+          } else {
+            return true;
+          }
+        };
+
+        // POPUP 수행
+        if (popupConfigurations && $.isArray(popupConfigurations)) {
+          var now = new Date();
+          for (var i = 0; i < popupConfigurations.length; i++) {
+            var popup = popupConfigurations[i];
+            // 활성화 되어있고, 현재 시각에 표시해야하고, 요청주소가 URL 패턴 설정에 매칭되는 경우 팝업
+            if (
+              popup.enabled &&
+              (!popup.startDate ||
+                (popup.startDate && popup.startDate <= now)) &&
+              (!popup.endDate || (popup.endDate && popup.endDate > now)) &&
+              match(popup.urlFilter)
+            ) {
+              popup.execute();
+            }
+          }
+        }
+      });
+
+      /**
+       * @function Cookie값을 읽는다.
+       *
+       * @param {string} cname - cookie name
+       * @return {string} cookie value
+       */
+      function getCookie(cname) {
+        var name = cname + "=";
+        var ca = document.cookie.split(";");
+        for (var i = 0; i < ca.length; i++) {
+          var c = ca[i];
+          while (c.charAt(0) == " ") {
+            c = c.substring(1);
+          }
+          if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+          }
+        }
+        return "";
+      }
+
+      /**
+       * @function 주어진 문자열이 패턴에 매칭되는지 검사한다. AntPattern 사용. 현재 시간관계상 AntPattern 매칭은 구현하지 못했다.
+       *
+       * @param {string} pattern - 패턴. AntPattern. ex) /system/**, /main/Index.rti
+       * @param {string} str - 패턴에 일치하는지 검사할 문자열
+       * @return {boolean} 문자열이 패턴에 일치하면 true, 아니면 false
+       */
+      function antPatternMatcher(pattern, str) {
+        return pattern == str;
+      }
+    </script>
+    <title>개인정보 동의서</title>
+    <script type="text/javascript">
+      var userId = "";
+    </script>
+    <script
+      type="text/javascript"
+      src="https://apply.lg.com/common/js/sys/notice/popupPrivacyPolicyAgreeForApply.js"
+    ></script>
+  </head>
+
+  <body class="Lpopup">
+    <div id="LblockContent" class="LblockContent">
+      <div class="LdialoguePopup">
+        <div class="LblockPageHeader">
+          <h1>개인정보 동의서</h1>
+        </div>
+
+        <div class="LblockContentMain">
+          <form method="post" id="agreeForm" name="agreeForm">
+            <input
+              type="hidden"
+              id="jobNoticeId"
+              name="jobNoticeId"
+              value="19544"
+            />
+            <p>
+              귀하께서 LG Careers 홈페이지를 통해 지원하는 LG 계열회사<a
+                href="javascript:;"
+                onclick="openCompanyGroup1_2()"
+                ><u>(상세 계열회사 보기)</u></a
+              >
+              및 채용 통합 지원 업무를 수행하는 ㈜LG CNS(이하 “회사”)는 지원자
+              여러분들의 개인정보를 소중히 보호하고 있습니다. 아래의 개인정보
+              수집 및 이용, 제공에 대한 내용을 주의 깊게 읽어 보신 후 동의해
+              주시면 다음 단계를 진행할 수 있습니다.
+            </p>
+            <div id="complist1_2" style="display: none">
+              <a href="javascript:;" onclick="closeCompanyGroup1_2()"
+                ><u>(상세 계열회사 닫기)</u></a
+              ><br />
+              <table border="1" style="width: 80%">
+                <tbody>
+                  <tr>
+                    <th><strong>회 사</strong></th>
+                    <th>
+                      <strong>개인정보 보호업무 관련 담당부서 및 문의처</strong>
+                    </th>
+                  </tr>
+                  <tr>
+                    <td class="tCenter">LG전자</td>
+                    <td>
+                      &nbsp;- 개인정보 보호업무 관련 담당부서 :
+                      개인정보Compliance팀<br />
+                      &nbsp;- 문의처 : privacy-protection@lge.com
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="tCenter">LG화학</td>
+                    <td>
+                      &nbsp;- 개인정보 보호업무 관련 담당부서 : 보안진단팀<br />
+                      &nbsp;- 문의처 : security@lgchem.com
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="tCenter">LG디스플레이</td>
+                    <td>
+                      &nbsp;- 개인정보 보호업무 관련 담당부서 : 경영관리 PI
+                      팀<br />
+                      &nbsp;- 문의처 : privacy@lgdisplay.com
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="tCenter">LG유플러스</td>
+                    <td>
+                      &nbsp;- 개인정보 보호업무 관련 담당부서 : 정보보호담당<br />
+                      &nbsp;- 문의처 : securitypol@lguplus.co.kr
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="tCenter">LG CNS</td>
+                    <td>
+                      &nbsp;- 개인정보 보호업무 관련 담당부서 : 정보보안팀<br />
+                      &nbsp;- 문의처 : infosec01@lgcns.com
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="tCenter">LG이노텍</td>
+                    <td>
+                      &nbsp;- 개인정보 보호업무 관련 담당부서 : 보안전략팀<br />
+                      &nbsp;- 문의처 : security@lginnotek.com
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="tCenter">LG생활건강</td>
+                    <td>
+                      &nbsp;- 개인정보 보호업무 관련 담당부서 : 정보보안센터<br />
+                      &nbsp;- 문의처 : privacy@lghnh.com
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="tCenter">에스앤아이코퍼레이션</td>
+                    <td>
+                      &nbsp;- 개인정보 보호업무 관련 담당부서 :
+                      정보보안사무국<br />
+                      &nbsp;- 문의처 : privacy@sni.co.kr
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="tCenter">지투알</td>
+                    <td>
+                      &nbsp;- 개인정보 보호업무 관련 담당부서 : 정보전략팀<br />
+                      &nbsp;- 문의처 : g2ritteam@g2rgroup.com
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="tCenter">
+                      LG경영개발원<br />(LG경영연구원, LG인화원)
+                    </td>
+                    <td>
+                      &nbsp;- 개인정보 보호업무 관련 담당부서 : 연구지원팀<br />
+                      &nbsp;- 문의처 : webmaster@lgeri.com
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="tCenter">팜한농</td>
+                    <td>
+                      &nbsp;- 개인정보 보호업무 관련 담당부서 : 업무혁신파트<br />
+                      &nbsp;- 문의처 : yhnoh@farmhannong.com
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="tCenter">하이프라자</td>
+                    <td>
+                      &nbsp;- 개인정보 보호업무 관련 담당부서 :
+                      법무/정보보안팀<br />
+                      &nbsp;- 문의처 : security@hiplaza.co.kr
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="tCenter">ZKW라이팅시스템즈코리아</td>
+                    <td>
+                      &nbsp;- 개인정보 보호업무 관련 담당부서 : HR팀<br />
+                      &nbsp;- 문의처 : office@zkw.kr
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="tCenter">LG스포츠</td>
+                    <td>
+                      &nbsp;- 개인정보 보호업무 관련 담당부서 : 데이터분석팀<br />
+                      &nbsp;- 문의처 : security@sportslg.com
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="tCenter">하이텔레서비스</td>
+                    <td>
+                      &nbsp;- 개인정보 보호업무 관련 담당부서 : 경영관리실<br />
+                      &nbsp;- 문의처 : jieun1.park@lge.com
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="tCenter">LG Magna</td>
+                    <td>
+                      &nbsp;- 개인정보 보호업무 관련 담당부서 : 정보보안파트<br />
+                      &nbsp;- 문의처 : lgmagna.cpo@lgmagna.com
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="tCenter">LG 에너지솔루션</td>
+                    <td>
+                      &nbsp;- 개인정보 보호업무 관련 담당부서 : 보안정책팀<br />
+                      &nbsp;- 문의처 : privacy.es@lgensol.com
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <br />
+            <h2>개인정보 수집 및 이용에 대한 동의(필수)</h2>
+            <div class="conWrap">
+            <h3>1. 수집 항목 및 수집 목적</h3>
+            <table class="tLeft">
+              <colgroup>
+                <col style="width: 50%" />
+                <col style="width: 50%" />
+              </colgroup>
+              <thead>
+                <tr>
+                  <th scope="col">수집 항목</th>
+                  <th scope="col">수집 목적</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                      <p class="blt type2">필수항목: 성별, 국적, 추가 연락처, 채용전형
+                    결과<br />(지원회사/부서, 공고명, 공고기간, 서류 및 면접 결과, 인적성 결과(응시일자, 회사, 공고명,
+                    결과)), 장애정보, 보훈정보, 경력사항, 주소,
+                    병역사항, 학력사항, 사진, 자기소개서, 신체검사 결과</p>
+                    </ul>
+                  </td>
+                  <td width="580px;">
+                    채용 적합성 판단 및 서류 심사/면접 등의 근거 자료, 수시채용
+                    및 인재발굴을 위한 인력풀 활용
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <p class="blt type2">자동수집 항목 : 회사별 응시여부, 시스템사용내역, 쿠키,
+                    접속로그, 접속IP, 통계데이터</p>
+                  </td>
+                  <td>
+                    과다 지원 방지, 정상적인 접속경로 확인 및 입사 지원 서비스
+                    제공
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <h3>2. 보유 및 이용기간</h3>
+            <h4>2.1최종 전형 합격자</h4>
+            <ul>
+              <li>입사자: 퇴직 후 3년 까지</li>
+              <li>입사 예정자: 퇴직 후 3년 까지</li>
+              <li>입사 포기자: 입사 포기 후 3년 까지</li>
+            </ul>
+            <h4>2.2. 최종 전형 합격자 外</h4>
+            <p>전형 탈락 후 3년까지</p>
+            <h4>2.3. 정보주체의 별도 요청이 있는 경우에는 지체 없이 삭제</h4>
+            <h3>
+              3. 지원자는 개인정보 수집 및 이용에 동의하지 않을 권리가 있습니다.
+              <br />다만, 상기 개인정보를 제공하지 않으실 경우 회사는 공정한
+              채용을 진행할 수 없기 때문에 지원에 제한이 있을 수 있습니다.
+            </h3>
+            <div class="tRight mT20">
+              <span id="privacyAgree01_1Error"></span>
+              <span class="input">
+                <input
+                  name="privacyAgree01_1"
+                  id="privacyAgree01_1"
+                  type="checkbox"
+                />
+                <label for="privacyAgree01_1"
+                  >개인정보 수집 및 이용에 대한 동의(필수)</label
+                >
+              </span>
+            </div>
+            </div>
+
+            <h2>개인정보 수집 및 이용에 대한 동의(선택)</h2>
+            <div class="conWrap">
+            <h3>1. 수집 항목 및 수집 목적</h3>
+            <table>
+              <colgroup>
+                <col style="width: 50%" />
+                <col style="width: 50%" />
+              </colgroup>
+              <thead>
+                <tr>
+                  <th scope="col">수집 항목</th>
+                  <th scope="col">수집 목적</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <p class="blt type2">선택항목: 어학 등 자격사항, 기초생활수급자/차상위계층
+                        여부, 계좌번호</p>
+                  </td>
+                  <td>채용 전형 진행 시 참고 자료, 면접비 지급</td>
+                </tr>
+              </tbody>
+            </table>
+            <h3>2. 보유 및 이용기간</h3>
+            <h4>2.1최종 전형 합격자</h4>
+            <ul>
+              <li>입사자: 퇴직 후 3년 까지</li>
+              <li>입사 예정자: 퇴직 후 3년 까지</li>
+              <li>입사 포기자: 입사 포기 후 3년 까지</li>
+            </ul>
+
+            <h4>2.2. 최종 전형 합격자 外</h4>
+            <p>전형 탈락 후 3년까지</p>
+            <h4>2.3. 정보주체의 별도 요청이 있는 경우에는 지체 없이 삭제</h4>
+            <h3>
+              3. 지원자는 개인정보 수집 및 이용에 동의하지 않을 권리가 있습니다.<br />
+              다만, 상기 개인정보를 제공하지 않으실 경우 회사는 공정한 채용을
+              진행할 
+              수 없기 때문에 지원에 제한이 있을 수 있습니다.
+            </h3>
+            <div class="tRight mT20">
+              <span class="input">
+                <span id="selectPrivacyAgree_Error"></span>
+                <input
+                  name="selectPrivacyAgree"
+                  id="selectPrivacyAgree"
+                  type="checkbox"
+                />
+                <label for="selectPrivacyAgree"
+                  >개인정보 수집 및 이용에 대한 동의(선택)</label
+                >
+              </span>
+            </div>
+            </div>
+
+            <h2>개인정보 제3자 제공에 대한 동의(필수)</h2>
+            <div class="conWrap">
+            <p>
+              지원서에 기재하신 사항을 검증하고 지원자의 적합성 판단 및 서류
+              심사/면접 등 채용 전형의 근거 자료로 사용하기 위해 아래와 같이
+              개인정보를 제공합니다.
+            </p>
+
+            <h3>1. 어학사항</h3>
+            <ul>
+              <li>
+                제공대상: 한국토익위원회, YBM시사, 서울대학교 TEPS 관리위원회,
+                크레듀, DELE시행기관, TORFL시행기관, JLPT실시위원회,
+                HSK한국사무국, 한국G-TELP위원회,
+                한국외국어대학교, FLEX센터, NEAT 1급 시행기관, Celpe-Bras
+                시행기관
+              </li>
+              <li>제공목적: 어학 사항에 대한 확인</li>
+              <li>제공항목: 성명, 응시일자</li>
+              <li>제공받은 회사의 보유 및 이용기간: 채용 전형 기간</li>
+            </ul>
+            <h3>2. 자격사항</h3>
+            <ul>
+              <li>제공대상: 대한상공회의소</li>
+              <li>제공목적: 자격 사항에 대한 확인</li>
+              <li>제공항목: 성명, 응시일자</li>
+              <li>제공받은 회사의 보유 및 이용기간: 채용 전형 기간</li>
+            </ul>
+
+            <h3>3. 보훈대상 여부 확인</h3>
+            <ul>
+              <li>제공대상: 보훈처</li>
+              <li>제공목적: 보훈대상 여부 확인</li>
+              <li>제공항목: 성명, 생년월일</li>
+              <li>제공받은 회사의 보유 및 이용기간: 채용 전형 기간</li>
+            </ul>
+
+            <h3>4. 장애 정보 확인</h3>
+            <ul>
+              <li>제공대상: 장애인 고용공단</li>
+              <li>제공목적: 장애 여부 확인</li>
+              <li>제공항목: 성명, 장애유형, 생년월일, 주소</li>
+              <li>제공받은 회사의 보유 및 이용기간: 채용 전형 기간</li>
+            </ul>
+            <h3>5. 입사 지원 정보</h3>
+            <ul>
+              <li>
+                제공대상: ㈜LG CNS가 귀하께서 LG Careers를 통해 입사를 지원하는
+                LG 계열회사<a href="javascript:;" onclick="openCompanyGroup2()"
+                  ><u>(상세 계열회사 보기)</u></a
+                >
+                에게 제공
+                <div id="complist2" style="display: none">
+                  <a href="javascript:;" onclick="closeCompanyGroup2()"
+                    ><u>(상세 계열회사 닫기)</u></a
+                  ><br />
+                  <table>
+                    <colgroup>
+                      <col style="width: 40%" />
+                      <col />
+                    </colgroup>
+                    <tbody>
+                      <tr>
+                        <th><strong>회 사</strong></th>
+                        <th>
+                          <strong
+                            >개인정보 보호업무 관련 담당부서 및 문의처</strong
+                          >
+                        </th>
+                      </tr>
+                      <tr>
+                        <td class="tCenter">LG전자</td>
+                        <td>
+                          &nbsp;- 개인정보 보호업무 관련 담당부서 :
+                          개인정보Compliance팀<br />
+                          &nbsp;- 문의처 : privacy-protection@lge.com
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="tCenter">LG화학</td>
+                        <td>
+                          &nbsp;- 개인정보 보호업무 관련 담당부서 :
+                          보안진단팀<br />
+                          &nbsp;- 문의처 : security@lgchem.com
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="tCenter">LG디스플레이</td>
+                        <td>
+                          &nbsp;- 개인정보 보호업무 관련 담당부서 : 경영관리 PI
+                          팀<br />
+                          &nbsp;- 문의처 : privacy@lgdisplay.com
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="tCenter">LG유플러스</td>
+                        <td>
+                          &nbsp;- 개인정보 보호업무 관련 담당부서 :
+                          정보보호담당<br />
+                          &nbsp;- 문의처 : securitypol@lguplus.co.kr
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="tCenter">LG CNS</td>
+                        <td>
+                          &nbsp;- 개인정보 보호업무 관련 담당부서 :
+                          정보보안팀<br />
+                          &nbsp;- 문의처 : infosec01@lgcns.com
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="tCenter">LG이노텍</td>
+                        <td>
+                          &nbsp;- 개인정보 보호업무 관련 담당부서 :
+                          보안전략팀<br />
+                          &nbsp;- 문의처 : security@lginnotek.com
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="tCenter">LG생활건강</td>
+                        <td>
+                          &nbsp;- 개인정보 보호업무 관련 담당부서 :
+                          정보보안센터<br />
+                          &nbsp;- 문의처 : privacy@lghnh.com
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="tCenter">에스앤아이코퍼레이션</td>
+                        <td>
+                          &nbsp;- 개인정보 보호업무 관련 담당부서 :
+                          정보보안사무국<br />
+                          &nbsp;- 문의처 : privacy@sni.co.kr
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="tCenter">지투알</td>
+                        <td>
+                          &nbsp;- 개인정보 보호업무 관련 담당부서 :
+                          정보전략팀<br />
+                          &nbsp;- 문의처 : g2ritteam@g2rgroup.com
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="tCenter">
+                          LG경영개발원<br />(LG경영연구원, LG인화원)
+                        </td>
+                        <td>
+                          &nbsp;- 개인정보 보호업무 관련 담당부서 :
+                          연구지원팀<br />
+                          &nbsp;- 문의처 : webmaster@lgeri.com
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="tCenter">팜한농</td>
+                        <td>
+                          &nbsp;- 개인정보 보호업무 관련 담당부서 :
+                          업무혁신파트<br />
+                          &nbsp;- 문의처 : yhnoh@farmhannong.com
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="tCenter">하이프라자</td>
+                        <td>
+                          &nbsp;- 개인정보 보호업무 관련 담당부서 :
+                          법무/정보보안팀<br />
+                          &nbsp;- 문의처 : security@hiplaza.co.kr
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="tCenter">ZKW라이팅시스템즈코리아</td>
+                        <td>
+                          &nbsp;- 개인정보 보호업무 관련 담당부서 : HR팀<br />
+                          &nbsp;- 문의처 : office@zkw.kr
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="tCenter">LG스포츠</td>
+                        <td>
+                          &nbsp;- 개인정보 보호업무 관련 담당부서 :
+                          데이터분석팀<br />
+                          &nbsp;- 문의처 : security@sportslg.com
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="tCenter">하이텔레서비스</td>
+                        <td>
+                          &nbsp;- 개인정보 보호업무 관련 담당부서 :
+                          경영관리실<br />
+                          &nbsp;- 문의처 : jieun1.park@lge.com
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="tCenter">LG Magna</td>
+                        <td>
+                          &nbsp;- 개인정보 보호업무 관련 담당부서 :
+                          정보보안파트<br />
+                          &nbsp;- 문의처 : lgmagna.cpo@lgmagna.com
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="tCenter">LG 에너지솔루션</td>
+                        <td>
+                          &nbsp;- 개인정보 보호업무 관련 담당부서 :
+                          보안정책팀<br />
+                          &nbsp;- 문의처 : privacy.es@lgensol.com
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </li>
+              <li>
+                제공목적: 적합성 판단 및 서류 심사, 인적성검사 시행 및 면접 등
+                채용 전형의 근거 자료, 수시채용 및 인재발굴을 위한 인재풀 활용
+              </li>
+              <li>
+                제공항목: 지원자 인적사항 및 자격사항, 기존 채용 지원자의 경우
+                LG 계열회사의 입사 지원 이력 및 채용 전형 결과(이전
+                지원회사/부서, 공고명, 공고기간, 서류 및 면접 결과, 인적성
+                결과(응시일자, 회사, 공고명, 결과)
+              </li>
+              <li>
+                제공받은 회사의 보유 및 이용기간: 채용 전형 기간<br />※ LG그룹의
+                온라인 인적성 검사가 최초로 시행된 날 이후의 정보부터
+                제공합니다.
+              </li>
+            </ul>
+
+            <p>
+              지원자는 개인정보의 제3자 제공에 동의하지 않을 권리가 있습니다.
+              <br />다만, 동의를 거부하실 경우 회사는 공정한 채용을 진행할 수
+              없기 때문에지원에 제한이 있을 수 있습니다.
+            </p>
+
+            <div class="tRight mT20">
+              <span id="privacyAgree02Error"></span>
+              <span class="input">
+                <input
+                  name="privacyAgree02"
+                  id="privacyAgree02"
+                  type="checkbox"
+                />
+                <label for="privacyAgree02"
+                  >개인정보 제3자 제공에 대한 동의</label
+                >
+              </span>
+            </div>
+            </div>
+            <h2>민감정보 처리에 대한 동의</h2>
+            <div class="conWrap">
+            <h3>1. 장애정보</h3>
+            <ul>
+              <li>수집 및 이용 목적: 채용 적합성 판단 및 가산점 부여</li>
+              <li>
+                보유 및 이용기간: 입사자/입사예정자는 퇴직 후 3년 까지이며 별도
+                요청 시 삭제, 입사포기자/전형 탈락자는 전형 탈락 후 3년 까지
+              </li>
+            </ul>
+            <h3>2. 보훈정보</h3>
+            <ul>
+              <li>수집 및 이용 목적: 채용 적합성 판단 및 가산점 부여</li>
+              <li>
+                보유 및 이용기간: 입사자/입사예정자는 퇴직 후 3년 까지이며 별도
+                요청 시 삭제, 입사포기자/전형 탈락자는 전형 탈락 후 3년 까지
+              </li>
+            </ul>
+            <h3>3. 신체검사 결과</h3>
+            <ul>
+              <li>수집 및 이용 목적: 채용 적합성 판단</li>
+              <li>
+                보유 및 이용기간: 입사자/입사예정자는 퇴직 후 3년 까지이며 별도
+                요청 시 삭제, 입사포기자/전형 탈락자는 전형 탈락 후 3년 까지
+              지원자는 민감정보 처리에 동의하지 않을 권리가 있습니다. <br />
+              다만, 상기 민감정보를 제공하지 않으실 경우 회사는 공정한 채용을 진행할 수
+              없기 때문에 지원에 제한이있을 수 있습니다.
+              </li>
+            </ul>
+
+            <div class="tRight mT20">
+              <span id="policyAgreeError"></span>
+              <span class="input">
+                <input name="policyAgree" id="policyAgree" type="checkbox" />
+                <label for="policyAgree">민감정보 처리에 대한 동의</label>
+              </span>
+            </div>
+            <div>
+        </div>
+            </div>
+              <div class="input mT50">
+                <input
+                  name="policyCheckAll"
+                  id="policyCheckAll"
+                  type="checkbox"
+                />
+                <label for="policyCheckAll"
+                  >위의 개인정보 수집에 대한 동의, 개인정보 제3차 제공에 대한
+                  동의, 민감정보 수집에 대한 동의 내용에 모두 동의합니다.</label
+                >
+              </div>
+            <div class="LblockButton">
+              <button type="button" id="btnConfirm">
+                <span>확인</span>
+              </button>
+            </div>
+          </form>
+
+        <div class="LpopupClose">
+          <a href="#" onclick="self.close();"
+            ><span
+              class="image"
+              data-src="popup/btn_dialogue_close.png"
+              data-alt="닫기"
+            ></span
+          ></a>
+        </div>
+      </div>
+    </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,415 @@
+
+
+
+<!-- FPT - Static Analysis Handle - ADD START -->
+<!DOCTYPE html>
+<!-- FPT - Static Analysis Handle - ADD END -->
+<html lang="ko">
+<head>
+
+
+
+
+
+
+
+
+<meta charset="utf-8">
+<meta http-equiv="Cache-Control" content="no-cache; no-store; no-save">
+<meta http-equiv="Expires" content="0">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+<meta name="format-detection" content="telephone=no">
+
+
+
+
+
+	<link rel="stylesheet" href="/common/css/sub.css">
+	
+	
+	
+	<script type="text/javascript" src="https://apply.lg.com/common/js/msg/message_ko.js"></script>
+	
+
+<script type="text/javascript" src="https://apply.lg.com/devon-mscreen.min/lib/jquery-1.7.1.min.js"></script>
+<script type="text/javascript">
+
+var CONTEXT_PATH = "";
+var CDN_PATH = "/";
+$(document).ready(function() {
+	$.ajaxSetup ({
+		cache: false
+	});
+
+	$(document).ajaxStart(function() {
+		//$('#REC_LOADING').show();
+	}).ajaxStop(function() {
+		//$('#REC_LOADING').hide();
+	}).ajaxError(function(event, XMLHttpRequest, ajaxOptions, thrownError){
+		//$('#REC_LOADING').hide();
+		if(XMLHttpRequest.status == '403') {
+			alert(XMLHttpRequest.status + ", " + ajaxOptions.url);
+		} else if(XMLHttpRequest.status == '404') {
+			alert(XMLHttpRequest.status + ", " + ajaxOptions.url);
+		} else if(XMLHttpRequest.status == '500') {
+			var message = thrownError === undefined? XMLHttpRequest.responseText : thrownError.message;
+			if(message != undefined)
+				alert(message);
+		} else {
+			var message = thrownError === undefined? XMLHttpRequest.responseText : thrownError.message;
+			if(message != undefined)
+				alert(message);
+		}
+	});
+});
+</script>
+<script type="text/javascript" src="https://apply.lg.com/devon-mscreen.min/dms_config.js"></script>
+<script type="text/javascript" src="https://apply.lg.com/devon-mscreen.min/js/dms.js"></script>
+<script type="text/javascript" src="https://apply.lg.com/common/js/common.js"></script>
+<script type="text/javascript" src="https://apply.lg.com/common/jquery/js/jquery-ui.js"></script>
+<script type="text/javascript" src="https://apply.lg.com/common/jquery/js/jquery.form.js"></script>
+<script type="text/javascript" src="https://apply.lg.com/common/jquery/js/jquery.validate.min.js"></script>
+<script type="text/javascript" src="https://apply.lg.com/common/jquery/js/jquery.rec.js"></script>
+
+
+
+
+
+<script type="text/javascript">
+
+
+
+/******************************************************************
+ * 팝업설정
+ ******************************************************************/
+
+/**
+ * @namespace 팝업설정
+ * @property {function} execute	- 팝업수행을 위해 실행할 함수
+ * @property {boolean} enabled - 활성화 여부
+ * @property {date} startDate -	팝업시작 시각. null이면 바로 시작
+ * @property {date} endDate - 팝업종료 시각. null이면 infinite
+ * @property {Array.<string>} urlFilter - 팝업을 허용할 URL 패턴. 이 패턴과 매칭되는 request에서만 팝업이 된다. AntPattern 사용. ex) /system/**, /main/Index.rti
+ * @웹변조 재업로드
+ */
+var popupConfigurations = [
+
+    //시스템 작업 공지
+    {
+        execute: function() {
+
+            if(getCookie('__careers__Popup')!='done' && !dms.screen.phone) {
+
+                var hostname = "devmeet.lg.com:8000";
+                if(location.hostname=='recruiter.lg.com' || location.hostname=='apply.lg.com' || location.hostname=='careers.lg.com') {
+                    hostname = "meet.lg.com";
+                } else if(location.hostname=='localrecruiter.lg.com' || location.hostname=='localapply.lg.com') {
+                	hostname = 'localmeet.lg.com:8280';
+                }
+                var url = "http://" + hostname + "/main/EventPopup.rmi";
+                if(hostname!="") {
+                    window.open(url ,'popup','scrollbars=no,location=no,menubar=no,width=428px,height=526px');
+                }
+            }
+
+        }
+        , enabled: true
+        , startDate: new Date(2018, 11, 20, 08, 30, 0)
+        , endDate: new Date(2018, 11, 28, 21, 0, 0) // 월은 0 ~ 11
+        , urlFilter: ['/main/Intro.rpi', '/main/Index.rpi']
+    }
+
+];
+
+
+$(document).ready(function() {
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////
+    // 팝업 수행
+    //
+
+    /**
+     * @function 요청주소가 주어진 패턴 목록에 매칭되는지 검사한다.
+     * @param {Array.<string>} targets - 패턴목록.
+     * @return {boolean} 요청주소가 targets 중 하나에 매칭이 되면 true, 아니면 false
+     */
+     var match = function(targets) {
+    	if(targets && $.isArray(targets)) {
+
+    		for(var i=0; i<targets.length; i++) {
+    		    if(antPatternMatcher(targets[i], location.pathname)) {
+    		    	return true;
+    		    }
+    		}
+
+    		return false;
+
+    	} else {
+    		return true;
+    	}
+    }
+
+    // POPUP 수행
+    if(popupConfigurations && $.isArray(popupConfigurations)) {
+
+        var now = new Date();
+        for(var i=0; i<popupConfigurations.length; i++) {
+            var popup = popupConfigurations[i];
+            // 활성화 되어있고, 현재 시각에 표시해야하고, 요청주소가 URL 패턴 설정에 매칭되는 경우 팝업
+            if(popup.enabled
+                    && (!popup.startDate || (popup.startDate && popup.startDate<=now))
+                    && (!popup.endDate || (popup.endDate && popup.endDate>now))
+                    && match(popup.urlFilter))
+            {
+                popup.execute();
+
+            }
+        }
+
+    }
+
+});
+
+/**
+ * @function Cookie값을 읽는다.
+ *
+ * @param {string} cname - cookie name
+ * @return {string} cookie value
+ */
+function getCookie(cname) {
+    var name = cname + "=";
+    var ca = document.cookie.split(';');
+    for(var i = 0; i <ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length,c.length);
+        }
+    }
+    return "";
+}
+
+/**
+ * @function 주어진 문자열이 패턴에 매칭되는지 검사한다. AntPattern 사용. 현재 시간관계상 AntPattern 매칭은 구현하지 못했다.
+ *
+ * @param {string} pattern - 패턴. AntPattern. ex) /system/**, /main/Index.rti
+ * @param {string} str - 패턴에 일치하는지 검사할 문자열
+ * @return {boolean} 문자열이 패턴에 일치하면 true, 아니면 false
+ */
+function antPatternMatcher(pattern, str) {
+	return pattern==str;
+}
+
+</script>
+
+<title>동의서</title>
+<script type="text/javascript">
+var agreeYn = "";
+var agreeTypeCode = "SALE";
+var koreanName = "홍길동";
+var birthDate = "19840629";
+function doSignature(){
+	var temp = $(':radio[name="agreeYn"]:checked').val();
+	if(temp == "Y" || temp == "N"){
+		if($("#signatureName").val().empty()){
+            alert("성명을 입력하십시요.");
+            $("#signatureName").focus();
+            return false;
+        }
+        if($("#signatureBirthDt").val().empty()){
+            alert("생년월일을 입력하십시요.");
+            $("#signatureBirthDt").focus();
+            return false;
+        }
+        if ($.trim($("#signatureBirthDt").val()).length < 8) {
+            alert("생년월일을 YYYYMMDD 형식으로 입력하십시요.");
+            $("#signatureBirthDt").focus();
+            return false;
+        }
+        if(!isValidDate($("#signatureBirthDt").val())){
+        	alert("올바른 생년월일을 입력하십시요.");
+            $("#signatureBirthDt").focus();
+            return false;
+        }
+        if($("#signatureName").val() != koreanName){
+        	alert("회원가입시 성명와 다릅니다. 성명을 확인해 주세요.");
+            $("#signatureName").focus();
+            return false;
+        }
+        if($("#signatureBirthDt").val() != birthDate){
+            alert("회원가입시 생년월일과 다릅니다. 생년월일을 확인해 주세요.");
+            $("#signatureBirthDt").focus();
+            return false;
+        }
+
+        $.ajaxSubmit("/app/appl/aplc/saveAgree.rpix", $("#agreeForm"), function(json, textStatus) {
+            if(json.msg == "SUCCESS") {
+            	//alert("동의서 서명을 성공적으로 저장했습니다.");
+            	doSignatureEnd(temp);
+            } else {
+            	alert("동의서 서명을 저장하는데 실패했습니다.");
+                return;
+            }
+        });
+
+	}else{
+		alert("동의함 또는 동의하지 않음을 선택하세요.");
+	}
+}
+
+function doSignatureEnd(temp){
+	if(agreeTypeCode == "REPUTE"){
+        if(temp == "Y"){
+            $(opener.document).find("#reputeAgreeYn_yes").attr("checked", true);
+            $(opener.document).find("#reputeAgreeSignature").attr("checked", true);
+            $(opener.document).find("#reputeAgreeYn").val("Y");
+        }else if(temp == "N"){
+            $(opener.document).find("#reputeAgreeYn_no").attr("checked", true);
+            $(opener.document).find("#reputeAgreeSignature").attr("checked", true);
+            $(opener.document).find("#reputeAgreeYn").val("N");
+        }
+        $(opener.document).find("#reputeSignatureName").val($("#signatureName").val());
+        $(opener.document).find("#reputeSignatureBirthDt").val($("#signatureBirthDt").val());
+    }else if(agreeTypeCode == "SALE"){
+        if(temp == "Y"){
+            $(opener.document).find("#saleSecViolAgreeYn_yes").attr("checked", true);
+            $(opener.document).find("#saleAgreeSignature").attr("checked", true);
+            $(opener.document).find("#saleSecViolAgreeYn").val("Y");
+        }else if(temp == "N"){
+            $(opener.document).find("#saleSecViolAgreeYn_no").attr("checked", true);
+            $(opener.document).find("#saleAgreeSignature").attr("checked", true);
+            $(opener.document).find("#saleSecViolAgreeYn").val("N");
+        }
+        $(opener.document).find("#saleSignatureName").val($("#signatureName").val());
+        $(opener.document).find("#saleSignatureBirthDt").val($("#signatureBirthDt").val());
+    }
+    self.close();
+}
+
+function isValidDate(param) {
+    try{
+    	var year = Number(param.substring(0, 4));
+        var month = Number(param.substring(4, 6));
+        var day = Number(param.substring(6, 8));
+
+        var dd = day / 0;
+
+        if( month<1 || month>12 ) {
+            return false;
+        }
+
+        var maxDaysInMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+        var maxDay = maxDaysInMonth[month-1];
+
+        // 윤년 체크
+        if( month==2 && ( year%4==0 && year%100!=0 || year%400==0 ) ) {
+            maxDay = 29;
+        }
+
+        if( day<=0 || day>maxDay ) {
+            return false;
+        }
+        return true;
+    }catch(err){
+	    return false;
+	}  
+}
+
+</script>
+</head>
+<body class="Lpc Llandscape" style="overflow-y:hidden;">
+
+  <div class="dmui_dialog">
+    <div class="dmui_dialog_content introjobdetail" tabindex="-1">
+        <div class="dmui_dialog_header new_h101"> <!--클래스 추가 new_h101-->
+            <h1 class="dmui_dialog_title">영업비밀침해금지 원칙 동의서</h1>
+        </div>
+        <div class="dmui_dialog_body" tabindex="0" style="height:450px;overflow-y: scroll!important;">
+
+          <div class="pop_txtbox">
+            당사는 영업정보, 기술정보, 경영정보, 업무상 비밀 등 기타의 경제적 가치가  있는 모든 정보를 정당한 정보원으로부터 적법하게 수집하며, 타인의 정보를 입수, 이용, 공유할 때는 적법하고 올바른 절차를 준수합니다.  또한 타인의 아이디어, 저작물, 기타 지적 산물은 권리자가 라이선스 권을 부여해준 경우 등 당사가 사용할 수 있는 법적 권한을 가지고 있는 경우에만 한정하여 사용합니다. 특히 당사는 타사의 영업비밀을 부정한 방법으로 취득, 사용하지 않습니다.<br />
+            이상과 같은 공정경쟁 원칙에 따라 당사는 지원자로부터 입사지원 시 前 또는 現 직장(이하 “前 직장” 이라 한다) 소유의 어떠한 자료도 요구하거나 전달받지 않습니다. 따라서 귀하는 업무 능력 증명 등의 목적으로 당사에 前 회사의 영업비밀 관련 자료를 전달해서는 안되며, 前 직장 영업비밀을 임의로 전달할 경우에는 채용상 불이익이 있을 수 있습니다.
+            지원자께서는 前 직장의 영업비밀을 침해하는 일이 없도록 각별히 유의하시기 바라며, 침해 시 본인의 책임임을 주지하여 주시기 바랍니다.
+            이와 관련하여 아래 사항 주의하시길 바랍니다.
+          </div>
+
+          <div class="pop_txtbox02">
+            <ul class="bullet_no">
+              <li class="no">
+                <span>1.</span>
+                귀하는 前 직장 소유의 문서, 서적, 매뉴얼, 파일 등을 무단으로 반출해서는 안됩니다.
+              </li>
+              <li class="no">
+                <span>2.</span>
+                前 직장에서 업무수행 시 사용했던 PC, 프린터, FAX, 전화, 저장매체, 출입카드 등 전산장치 기타일체의  장비와, 前 직장 소유의 문서, 서적, 매뉴얼, 파일 등은 前 직장에 모두 반납해야 합니다.
+              </li>
+              <li class="no">
+                <span>3.</span>
+                귀하 자택 또는 자동차에 보관하고 있는 상기 자료 또한 前 직장에 모두 반납해야 합니다.
+              </li>
+              <li class="no">
+                <span>4.</span>
+                前 회사에서 퇴사 시 또는 그 이전 일정 기간 동안 前 직장의 자료를 출력, 이메일 전송
+                (본인 계정에서 본인 계정으로 이전하는 것 포함), USB 등 외장하드에 저장, 사진
+                촬영해서는 안됩니다.   또한, 퇴사에 근접한 시기에 회사 서버에 접속하여 회사 자료를
+                다량 또는 집중적으로 다운로드   받거나  이러한 작업 후 삭제 TOOL(흔적을 지우는
+                프로그램)을 사용해서는 안됩니다.
+              </li>
+              <li class="no">
+                <span>5.</span>
+                만약 귀하가 당사에 채용될 경우 前 직장 소유의 문서, 서적, 매뉴얼 등을 당사로 반입해서는 안됩니다. 개인적 사용의 목적이라도 당사로 반입해서는 안됩니다.
+              </li>
+              <li class="no">
+                <span>6.</span>
+                이상 前 회사 영업비밀 침해금지 의무 위반행위 확인 시 채용에 불이익이 있을 수 있습니다.
+              </li>
+            </ul>
+          </div>
+
+          <div class="txt_15">
+            본인은 주식회사 LG화학의 영업비밀침해금지 원칙을 확인하였으며 주의사항을 준수하겠습니다.
+          </div>
+
+          <div class="agree_area">
+          <form id="agreeForm" name="agreeForm" method="post">
+          <input type="hidden" name="agreeTypeCode" value="SALE">
+          <input type="hidden" name="jobNoticeId" value="19548">
+
+            <div class="agree_box tCenter">
+
+              <span class="input">
+                <input name="agreeYn" id="agreeY" type="radio" />
+                <label for="agreeY">동의함</label>
+              </span>
+              
+              <span class="input">
+                <input name="agreeYn" id="agreeN" type="radio" />
+                <label for="agreeN">동의하지 않음</label>
+              </span>
+
+            </div>
+
+            <div class="day_box">
+              2022 년 07 월 29 일
+            </div>
+            <div class="name_box">
+              <span>성 명</span> <input type="text" id="signatureName" name="signatureName" value="" maxlength="30"/> <input type="submit" id="" name="" value="서명" class="btn" onclick="doSignature();return false;"/>  <span>생년월일</span> <input type="text" id="signatureBirthDt" name="signatureBirthDt" value="" maxlength="8" onKeyPress="return $.onKeyPressFilter('[0-9]', event);" style="ime-mode:disabled;width:80px;" onkeyup="this.value=this.value.replace(/[^0-9-]/g,'')"/>
+            </div>
+            <div class="bottom_box mT30 tCenter">
+              <span>(성명은 회원가입시 입력한 성명을 입력해주십시요.</br>생년월일은 YYYYMMDD 형식으로 작성해주시기 바랍니다.)</span>
+            </div>
+          </form>
+          </div>
+
+        </div>
+
+        <div class="dmui_dialog_btn"><span class="dmui_dialog_btn_close"><a href="#" onclick="self.close();">닫기</a></span></div>
+    </div>
+</div>
+
+</body>
+
+</html>

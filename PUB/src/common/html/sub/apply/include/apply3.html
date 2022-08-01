@@ -1,3 +1,346 @@
+ <c:if test="${jobNoticeInfo.careerTypeCode != 'A' && jobNoticeInfo.careerTypeCode != 'C'}">
+<section class="tabCon" id="tabCon3">
+  <form id="prevExpInfoForm" name="prevExpInfoForm" method="post">
+    <rec:savedToken name="sessionscopeexp" scope="session" />    
+    <div class="skip"><LTag:message code="app.tab.prevExpInfo" /></div>
+
+<!-- 지원서 작성 안내 -->
+<p class="more">
+  <LTag:message code="app.btn.applyWriteGuide" />
+  <a href="" onclick="applcationGuidePopup();"><LTag:message code="app.cont.view" /></a>
+</p>
+
+<c:if test="${!empty beforeAppExprInfo.jobNoticeId}">
+  <div class="moreWrap right">
+    <p class="more" id="beforePrevExpr">
+      <LTag:message code="app.cont.topCont_1" />
+      <a href="#" onClick="retrieveBeforeAppExpr();">
+        <c:choose>
+          <c:when
+            test="${jobNoticeInfo.careerTypeCode == 'A' || jobNoticeInfo.careerTypeCode == 'C'}">
+            <LTag:message code="app.cont.sociTopCont_3" />
+          </c:when>
+          <c:otherwise>
+            <LTag:message code="app.cont.topCont_3" />
+          </c:otherwise>
+        </c:choose>
+      </a>
+    </p>
+  </div>
+</c:if>
+<!-- //지원서 작성 안내 끝 -->
+
+  <article class="sec1">
+    <h3>      
+      <c:choose>
+        <c:when
+          test="${jobNoticeInfo.careerTypeCode == 'A' || jobNoticeInfo.careerTypeCode == 'C'}">
+          <LTag:message code="app.titl.sociExp" />
+        </c:when>
+        <c:otherwise>
+          <LTag:message code="app.titl.prevExpInfo" />
+        </c:otherwise>
+      </c:choose>
+      <!--경력사항--></h3>
+    <div class="addWrap">
+      <button type="button" class="add" id="exprAddBtn">
+        <span class="skip">
+          <c:choose>
+          <c:when
+            test="${jobNoticeInfo.careerTypeCode == 'A' || jobNoticeInfo.careerTypeCode == 'C'}">
+            <LTag:message code="app.titl.sociExp" />
+          </c:when>
+          <c:otherwise>
+            <LTag:message code="app.titl.prevExpInfo" />
+          </c:otherwise>
+        </c:choose>
+      </span>
+        추가</button>
+    </div>
+
+    <c:forEach items="${prevExperList.jobNoticeId}" varStatus="k">
+      <c:if test="${k.index != 0}">
+        <div class="tRight">
+          <button type="button" class="deleteBtn" onClick="delDataInfo(this);">다음 항목
+            삭제</button>
+        </div>
+      </c:if>
+
+    <div class="table">
+      <table>
+        <caption>
+          <LTag:message code="app.tab.prevExpInfo" />
+        </caption>
+        <colgroup>
+          <col style="width: 12%" />
+          <col style="width: 35%" />
+          <col style="width: 18%" />
+          <col />
+        </colgroup>
+        <tbody>
+          <tr>
+            <th scope="row">              
+              <input type="hidden" id="wperiod_${k.index+1}" name="wperiod_${k.index+1}"
+              value="<c:out value='${prevExperList.wperiod[k.index]}' />" />
+              <label for="companyName_${k.index+1}">
+                <LTag:message code="app.lbl.companyName" />
+                <!--회사명--><span class="essential">필수 입력</span>
+              </label>
+            </th>
+            <td>
+              <div class="inputBox">                
+                <input type="text" id="companyName_${k.index+1}" name="companyName_${k.index+1}"
+                value="<c:out value='${prevExperList.companyName[k.index]}' />" maxlength="100" />
+              </div>
+            </td>
+            <th scope="row">
+              <label for="startDate_${k.index+1}">
+                <LTag:message code="app.lbl.preriodDate" />
+                <!--기간--><span class="essential">필수 입력</span>
+              </label>
+            </th>
+            <td>
+              <div class="duration">
+                <div class="inputBox">
+                  <input type="text" placeholder="YYYYMM"z id="startDate_${k.index+1}"
+                  name="startDate_${k.index+1}" maxlength="7" placeholder="YYYY.MM"
+                  title="기간 시작일(YYYY.MM)"
+                  value="<c:out value='${prevExperList.startDate[k.index]}' />"
+                  onKeyPress="return $.onKeyPressFilter('[0-9.]', event);"
+                  onkeyup="this.value=this.value.replace(/[^0-9.]/g,'')" />
+                </div>
+                <span class="bar">~</span>
+                <div class="inputBox">
+                  <input type="text" placeholder="YYYYMM" id="endDate_${k.index+1}"
+                  name="endDate_${k.index+1}" maxlength="7" placeholder="YYYY.MM"
+                  title="기간 종료일(YYYY.MM)"
+                  value="<c:out value='${prevExperList.endDate[k.index]}' />"
+                  onKeyPress="return $.onKeyPressFilter('[0-9.]', event);"
+                  onkeyup="this.value=this.value.replace(/[^0-9.]/g,'')" />
+                </div>
+              </div>
+              <!-- phone
+                <span id="calculDate_${k.index+1}" class="displayblockInPhone">
+                  <c:if test='${!empty prevExperList.wperiod[k.index]}'>
+                    (
+                    <c:out value='${prevExperList.wperiod[k.index]}' />
+                    )
+                  </c:if>
+                </span>
+              -->
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">
+              <label for="careerLocationName_${k.index+1}">
+                <LTag:message code="app.lbl.locationName" />
+                 <!--소재지--><span class="essential">필수 입력</span>
+              </label>
+            </th>
+            <td>
+              <div class="inputSearch inputBox">
+                <input type="text" id="careerLocationName_${k.index+1}"
+                name="locationName_${k.index+1}"
+                value="<c:out value='${prevExperList.locationName[k.index]}' />"
+                readonly="readonly" maxlength="300" /><input type="hidden" id="careerAddressSido_${k.index+1}"
+                name="addressSido_${k.index+1}"
+                value="<c:out value='${prevExperList.addressSido[k.index]}' />" />
+              <input type="hidden" id="careerAddressSigu_${k.index+1}"
+                name="addressSigu_${k.index+1}" class="searchBtn"
+                value="<c:out value='${prevExperList.addressSigu[k.index]}' />" />
+              <button type="button" onclick="searchSchoolLocPopup(this);">검색</button>
+              </div>
+            </td>
+            <th scope="row">
+              <label for="orgName_${k.index+1}">
+                <LTag:message code="app.lbl.interdept" />
+              <!--부서명--><span class="essential">필수 입력</span>
+              </label>
+            </th>
+            <td>
+              <div class="inputBox">
+                <input type="text" id="orgName_${k.index+1}" name="orgName_${k.index+1}"
+                value="<c:out value='${prevExperList.orgName[k.index]}' />" maxlength="300" />
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">              
+              <label for="gradeName_${k.index+1}">
+                <LTag:message code="app.lbl.jobPosition" />
+              <!--직급-->
+              </label>
+            </th>
+            <td>
+              <div class="inputBox">
+                <input type="text" id="gradeName_${k.index+1}" name="gradeName_${k.index+1}"
+                value="<c:out value='${prevExperList.gradeName[k.index]}' />" maxlength="100" />
+              </div>
+            </td>
+            <th scope="row">
+              <label for="careerJobCode_${k.index+1}">
+                <LTag:message code="app.lbl.jobCode" />
+              <!--직무--><span class="essential">필수 입력</span>
+              </label>
+            </th>
+            <td>
+              <div class="inputBox">
+                <input type="text" id="careerJobCode_${k.index+1}" name="jobCode_${k.index+1}"
+                value="<c:out value='${prevExperList.jobCode[k.index]}' />" maxlength="30" />
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">
+              <label for="exitReasonCode_${k.index+1}">
+                <LTag:message code="app.lbl.retireReason" />
+                <!--이직사유--><span class="essential">필수 입력</span>
+              </label>
+              
+            </th>
+            <td>
+              <div class="row">
+                <select id="exitReasonCode_${k.index+1}" name="exitReasonCode_${k.index+1}"
+                onChange="changeExitReason(this)" class="minwidth100">
+                <option value="">
+                    <LTag:message code="app.lbl.select" />
+                  </option>
+                  <c:forEach items="${retirementList.code}" varStatus="l">
+                    <option value="<c:out value='${retirementList.code[l.index]}' />" <c:if
+                      test="${retirementList.code[l.index] == prevExperList.exitReasonCode[k.index] }">
+                      selected="selected"
+                  </c:if>>
+                  <c:out value='${retirementList.value[l.index]}' />
+                  </option>
+                  </c:forEach>
+                </select>
+                <div class="inputBox mL10">
+                  <input title="퇴직사유 직접입력" type="text" id="exitReasonDetail_${k.index+1}"
+                  name="exitReasonDetail_${k.index+1}" <c:if
+                  test="${prevExperList.exitReasonCode[k.index] != 'RETIRE099'}"> disabled="disabled" </c:if>
+                value="
+                <c:out value='${prevExperList.exitReasonDetail[k.index]}' />" maxlength="100" />
+                </div>
+                <input type="hidden" id="index_${k.index+1}" name="index_${k.index+1}" value="${k.index+1}" />
+              </div>
+            </td>
+            <th scope="row">
+              <label for="salary_${k.index+1}">
+                <LTag:message code="app.lbl.salary" /><!--연봉(만원)-->
+              </label>
+            </th>
+            <td>
+              <div class="inputBox">
+                <input type="text" id="salary_${k.index+1}" name="salary_${k.index+1}"
+                value="<c:out value='${prevExperList.salary[k.index]}' />" maxlength="15"
+                onKeyPress="return $.onKeyPressFilter('[0-9]', event);"
+                onkeyup="this.value=this.value.replace(/[^0-9]/g,'')" />
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <th scope="col" colspan="4" class="thOnly">
+              <label for="expContent_${i.index+1}">
+                <LTag:message code="app.lbl.expDetailContent" />
+                <!--직무경험 상세 기술--><span class="essential">필수 입력</span>
+              </label>
+              
+            </th>
+          </tr>
+          <tr>
+            <td colspan="4" class="tdOnly">
+              <div class="inputBox">
+                <textarea id="expContent_${k.index+1}" name="expContent_${k.index+1}"
+                class="LtextArea"><c:out value='${prevExperList.expContent[k.index]}' /></textarea>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </c:forEach>
+    <ul class="bu">
+      <li><LTag:message code="app.cont.additionalTip5" /></li>
+      <li><LTag:message code="app.cont.additionalTip6" /></li>
+      <li><LTag:message code="app.cont.additionalTip19" /></li>
+    </ul>
+  </article>
+
+  
+  <c:if test="${jobNoticeInfo.careerTypeCode == 'B' || jobNoticeInfo.careerTypeCode == 'D'}">
+  <article>
+    <h3><LTag:message code="app.titl.addInfo" /><!--추가사항--></h3>
+    <div class="table">
+      <table>
+        <caption>
+          <LTag:message code="app.titl.addInfo" />
+        </caption>
+        <colgroup>
+          <col style="width: 12%" />
+          <col style="width: 35%" />
+          <col style="width: 18%" />
+          <col />
+        </colgroup>
+        <tbody>
+          <tr>
+            <th scope="row">
+              <label for="targetSalary">
+                <LTag:message code="app.lbl.targetSalary" />
+                <!--희망연봉(만원)--><span class="essential">필수 입력</span>
+              </label>
+            </th>
+            <td>
+              <div class="inputBox">
+                <input type="text" id="targetSalary" name="targetSalary"
+                value="<c:out value='${baseInfo.targetSalary}'/>" maxlength="15"
+                onKeyPress="return $.onKeyPressFilter('[0-9]', event);" style="ime-mode:disabled;"
+                onkeyup="this.value=this.value.replace(/[^0-9]/g,'')" />
+              </div>
+            </td>
+            <th scope="row">
+              <label for="entryDate">
+                <LTag:message code="app.lbl.entryDate" />
+              <!--입사가능일--><span class="essential">필수 입력</span>  
+              </label>
+            </th>
+            <td>
+              <span class="duration">
+                <span class="inputBox">
+                  <input id="entryDate" name="entryDate" type="text" class="Ltext"
+                  value="<c:out value='${baseInfo.entryDate}' />">
+                </span>
+                <button type="button" class="LiconCalendar" data-position="up"
+                  data-calendar="entryDate">달력</button>
+              </span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </article>
+</c:if>
+</form>
+
+  <div class="bottomWrap">
+    <div class="left">
+      <button type="button" class="btn round type6 prev" onclick="nextTab(this,1);">
+        <span><LTag:message code="app.btn.back" /></span>
+      </button>
+    </div>
+    <div class="right">
+      <button type="button" class="btn round type6" id="btnSavePreExp">
+        <span><LTag:message code="com.btn.save" /></span>
+      </button>
+      <button type="button" class="btn round type5 next" onclick="nextTab(this,3);">
+        <span><LTag:message code="com.btn.next" /></span>
+      </button>
+    </div>
+  </div>
+</section>
+</c:if>
+
+
+<!-- clone
 <section class="tabCon" id="tabCon3">
   <article class="sec1">
     <h3>경력사항</h3>
@@ -188,3 +531,4 @@
     </div>
   </div>
 </section>
+ -->

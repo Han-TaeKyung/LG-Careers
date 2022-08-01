@@ -51,7 +51,7 @@
       min-height: 225px;
       padding: 0 3rem 5rem;
       width: 100% !important;
-      &.minH150{
+      &.minH150 {
         min-height: 15rem;
       }
       .joinPop {
@@ -81,31 +81,30 @@
   &.active {
     display: flex;
   }
-  .popMyApp{
+  .popMyApp {
     max-height: 80rem;
     overflow: auto;
-    >div + div{
+    > div + div {
       margin-top: 4rem;
     }
   }
-  .popMyTitle{
+  .popMyTitle {
     font-size: 2rem;
-      line-height: 2rem;
-      letter-spacing: -0.02em;
-      color: $LGBlack;
-      font-weight: 600;
-      margin-bottom: 1.5rem;
+    line-height: 2rem;
+    letter-spacing: -0.02em;
+    color: $LGBlack;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
   }
-  .popPhoto{
-    
-    >ul{
-      border-top:.1rem solid $LGBlack;
-      border-bottom: .1rem solid $GrayD9;
+  .popPhoto {
+    > ul {
+      border-top: 0.1rem solid $LGBlack;
+      border-bottom: 0.1rem solid $GrayD9;
       display: flex;
       justify-content: flex-start;
       padding: 2rem;
-      .photoBox{
-        border:.1rem solid $GrayE7;
+      .photoBox {
+        border: 0.1rem solid $GrayE7;
         width: 12rem;
         height: 14rem;
         background-image: url(/common/images/icon/photoFile.png);
@@ -113,62 +112,62 @@
         background-position: center;
         margin-right: 2rem;
       }
-      .bu{
+      .bu {
         margin-top: 1.5rem;
         font-size: 1.4rem;
         letter-spacing: -0.02em;
-        color:$LGBlack;
-        li{
-          margin-bottom: .6rem;
-          &::before{
-            top:0.85rem;
+        color: $LGBlack;
+        li {
+          margin-bottom: 0.6rem;
+          &::before {
+            top: 0.85rem;
           }
         }
       }
     }
   }
-  .popTable{
-    &.type2{
-      >div{
-        .popTd{
+  .popTable {
+    &.type2 {
+      > div {
+        .popTd {
           line-height: 1.6rem;
         }
       }
     }
-    
-    >div{
-      border-top:.1rem solid $LGBlack;
-      border-bottom:.1rem solid $GrayD9;
+
+    > div {
+      border-top: 0.1rem solid $LGBlack;
+      border-bottom: 0.1rem solid $GrayD9;
       display: flex;
       justify-content: space-between;
-      .wid12{
+      .wid12 {
         width: 12%;
       }
-      .wid14{
+      .wid14 {
         width: 14%;
       }
-      .wid17{
+      .wid17 {
         width: 17%;
       }
-      .wid18{
+      .wid18 {
         width: 18%;
       }
-      .wid23{
+      .wid23 {
         width: 23%;
       }
-      .wid25{
+      .wid25 {
         width: 25%;
       }
-      .wid31{
+      .wid31 {
         width: 31%;
       }
-      .wid33{
+      .wid33 {
         width: 33%;
       }
-      .wid34{
+      .wid34 {
         width: 34%;
       }
-      .popTh{
+      .popTh {
         background-color: #f8f8f8;
         font-size: 1.6rem;
         line-height: 1.6rem;
@@ -177,7 +176,7 @@
         text-align: center;
         padding: 2rem 0;
       }
-      .popTd{
+      .popTd {
         padding: 2rem 1rem;
         text-align: center;
         vertical-align: middle;
@@ -188,67 +187,67 @@
       }
     }
   }
-  .popBank{
-    .bank{
-      border-top:.1rem solid $LGBlack;
-      border-bottom: .1rem solid $GrayD9;
+  .popBank {
+    .bank {
+      border-top: 0.1rem solid $LGBlack;
+      border-bottom: 0.1rem solid $GrayD9;
       padding: 2rem 0;
-      ul{
+      ul {
         display: flex;
         justify-content: flex-start;
         align-items: center;
         margin-bottom: 1.5rem;
-        &:last-child{
+        &:last-child {
           margin-bottom: 0;
         }
-        .bankT{
-          width:18rem;
-          &.rgt{
+        .bankT {
+          width: 18rem;
+          &.rgt {
             margin-left: 7rem;
           }
         }
-        .bankD{
+        .bankD {
           width: 24.6rem;
-          .input{
+          .input {
             width: 100%;
           }
         }
       }
     }
   }
-  .popMy{
+  .popMy {
     margin-top: 4rem;
-    &.bu{
+    &.bu {
       line-height: 2.1rem;
-      li{
-        &::before{
-          top:0.85rem
+      li {
+        &::before {
+          top: 0.85rem;
         }
       }
     }
   }
-  .appSummary{
+  .appSummary {
     background-color: #f8f8f8;
     border-radius: 1.5rem;
     padding: 3rem;
     margin-bottom: 6rem;
-    ul{
+    ul {
       display: flex;
       justify-content: flex-start;
-      align-items:center;
+      align-items: center;
       margin-bottom: 2rem;
-        &:last-child{
-          margin-bottom: 0;
-        }
-      li{
-        &.sumT{
+      &:last-child {
+        margin-bottom: 0;
+      }
+      li {
+        &.sumT {
           width: 18rem;
           font-size: 1.6rem;
           line-height: 1.6rem;
           letter-spacing: -0.02em;
           color: $LGBlack;
         }
-        &.sumC{
+        &.sumC {
           width: calc(100% - 18rem);
           font-size: 2rem;
           letter-spacing: -0.02em;
@@ -258,7 +257,7 @@
       }
     }
   }
-  .popMyApp{
+  .popMyApp {
     .resultTitle {
       margin: 6rem 0 5rem;
       font-size: 2.4rem;
@@ -266,81 +265,84 @@
       letter-spacing: -0.02em;
       font-weight: 600;
     }
-    .sec1{
-      >h3{
+    .sec1 {
+      > h3 {
         font-size: 2rem;
         line-height: 2rem;
         letter-spacing: -0.02em;
-        color:$LGBlack;
+        color: $LGBlack;
         font-weight: 600;
         margin-bottom: 1.5rem;
         margin-top: 4rem;
-      } 
-      .introCon{
-        border-top:.1rem solid $LGBlack;
-        .introConT{
-          border-bottom: .1rem solid $GrayE7;
+      }
+      .introCon {
+        border-top: 0.1rem solid $LGBlack;
+        .introConT {
+          border-bottom: 0.1rem solid $GrayE7;
           display: flex;
           justify-content: space-between;
           align-items: center;
           padding: 1.8rem 0;
-          p{
+          p {
             font-size: 1.6rem;
             letter-spacing: -0.02em;
             color: $LGBlack;
           }
-          span{
+          span {
             font-size: 1.3rem;
             letter-spacing: -0.02em;
             line-height: 1.6rem;
-            color:$Gray6B;
+            color: $Gray6B;
           }
         }
-        .introConC{
-          border-bottom: .1rem solid $GrayE7;
+        .introConC {
+          border-bottom: 0.1rem solid $GrayE7;
           font-size: 1.6rem;
           letter-spacing: -0.02em;
           line-height: 2.56rem;
-          color:$LGBlack;
+          color: $LGBlack;
           padding: 2rem 0;
         }
       }
     }
-    .table.type5{
+    .table.type5 {
       margin-bottom: 4rem;
-      &.type6{
-        table{
-          tr{
-            th,td{
+      &.type6 {
+        table {
+          tr {
+            th,
+            td {
               padding: 2rem 0 !important;
             }
           }
         }
       }
-      table{
-        border-bottom: .1rem solid $GrayE7;
-        tr{
-          th{
+      table {
+        border-bottom: 0.1rem solid $GrayE7;
+        tr {
+          th {
             vertical-align: middle;
             font-size: 1.6rem;
             letter-spacing: -0.02em;
             color: $LGBlack;
             padding: 1.5rem 0;
           }
-          td{
+          td {
             border-bottom: 0;
             font-size: 1.6rem;
             letter-spacing: -0.02em;
             color: $LGBlack;
             padding: 1.5rem 0;
           }
-          &:first-child{
-            th,td{
+          &:first-child {
+            th,
+            td {
               padding: 2rem 0 1.5rem;
             }
           }
-          &:last-child{
-            th,td{
+          &:last-child {
+            th,
+            td {
               padding: 1.5rem 0 2rem;
             }
           }
@@ -350,21 +352,21 @@
   }
 }
 //팝업 첨부파일형식
-.inputBox.upload{
-  &.inputFile{
-    border:.1rem solid $GrayD9;
+.inputBox.upload {
+  &.inputFile {
+    border: 0.1rem solid $GrayD9;
     height: 4.8rem;
     line-height: 4.8rem;
-    border-radius: .5rem;
-    padding:1rem;
+    border-radius: 0.5rem;
+    padding: 1rem;
     display: flex;
     justify-content: space-between;
-    .uploadWrap{
+    .uploadWrap {
       display: inherit;
       height: 100%;
       background-color: $White;
     }
-    input{
+    input {
       display: block;
       height: 100%;
       width: calc(100% - 3.8rem);
@@ -386,14 +388,13 @@
       cursor: pointer;
       width: 2.8rem;
       height: 2.8rem;
-      border-radius: .5rem;
+      border-radius: 0.5rem;
       background-image: url(/common/images/icon/file.svg);
       background-repeat: no-repeat;
       background-position: center;
     }
   }
 }
-
 
 /* 윈도우팝업 */
 .popWindow {
@@ -417,6 +418,7 @@
     }
   }
   .close {
+    display: none;
     position: absolute;
     right: 3rem;
     top: 3rem;
@@ -615,25 +617,24 @@
 }
 
 //반응형
-@include tablet{
+@include tablet {
   /*브라우저 사이즈768px이상, 1199px 이하일때*/
-
 }
-@include mobile{ 
+@include mobile {
   /*브라우저 사이즈767px이하일때*/
-  .popPanel{
-    .popConWrap{
-      &.wid500{
-        width:94%;
+  .popPanel {
+    .popConWrap {
+      &.wid500 {
+        width: 94%;
         max-width: 50rem;
         min-width: inherit;
       }
-      .popTitle{
+      .popTitle {
         padding: 2rem 2rem 3rem;
       }
-      .close{
-        right:2rem;
-        top:2rem;
+      .close {
+        right: 2rem;
+        top: 2rem;
       }
     }
   }
