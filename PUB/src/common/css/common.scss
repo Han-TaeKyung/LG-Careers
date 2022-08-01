@@ -840,7 +840,7 @@ select {
   -moz-appearance: none;
   appearance: none;
   min-width: 12rem;
-  background: url(../images/icon/selectBg.svg) no-repeat right 1.5rem center;
+  // background: url(/common/images/icon/selectBg.svg) no-repeat right 1.5rem center;
   color: $LGBlack;
   font-size: 1.4rem;
   line-height: 2;
@@ -1976,5 +1976,39 @@ select {
     cursor: pointer;
     border: 1px solid $GrayAE;
     text-align: center;
+  }
+}
+//반응형
+@include tablet{
+    /*브라우저 사이즈768px이상, 1199px 이하일때*/
+  .alert{
+    margin-top:6rem;
+    z-index: 1;
+  }
+  
+
+
+}
+@include mobile{
+  /*브라우저 767px 이하일때*/
+
+  .btn{
+    &.xlarge{
+      width: 100%;
+      max-width: 50rem;
+      min-width: inherit;
+    }
+    &.large{
+      min-width:inherit;
+      max-width: 24.4rem;
+      width: 48.5%;
+
+    }
+    & +.btn{
+      margin-left: 1%;
+    }
+  }
+  h3.subTitle{
+    font-size: 3.4rem;
   }
 }
