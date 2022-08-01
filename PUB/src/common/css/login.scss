@@ -638,6 +638,17 @@ p.formError {
     .wd356 {
       width: 49%;
     }
+    .joinComp{
+      .joinSlide{
+        padding: 4rem 2rem;
+        .slick-list{
+          width: calc(100% - 8.9rem);
+          .slick-slide{
+            margin-right: 1rem;
+          }
+        }
+      }
+    }
   } 
 }
 @include mobile{
@@ -709,6 +720,39 @@ p.formError {
     }
     .conBox{
       padding: 2rem 2rem 2.4rem;
+    }
+    .joinComp{
+      >h5{
+        font-size: 2.2rem;
+        line-height: 2.6rem;
+      }
+      >p{
+        font-size: 1.6rem;
+        line-height: 2.1rem;
+      }
+      .joinSlider{
+        >div{
+          a{
+            p{
+              bottom: 1.5rem;
+              .joinJob{
+                margin-bottom: .7rem;
+              }
+            }
+          }
+        }
+      }
+      .joinSlide{
+        padding: 3rem 2rem;
+        margin-top: 4rem;
+        .slick-list{
+          width: calc(100% - 6.9rem);
+          margin-left: 3.4rem;
+          .slick-slide{
+            margin-right: 0;
+          }
+        }
+      }
     }
   } 
 }
