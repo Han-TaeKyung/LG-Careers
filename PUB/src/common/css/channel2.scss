@@ -33,6 +33,7 @@
         margin-left: 1rem;
         background: url(../images/icon/accArrow.svg) no-repeat center center;
         transform: rotate(180deg);
+        background-size: contain;
         vertical-align: middle;
       }
     }
@@ -117,6 +118,34 @@
     background-color: $LGBlack;
     &:hover {
       background-color: $RedD0;
+    }
+  }
+}
+
+@include mobile{
+  .channel {
+    .tableWrap {
+      table {
+        width: 100%;
+        tr{
+          display: block;
+          margin-bottom: 1.5rem;
+        }
+        th {
+          display: block;
+          padding: 0;
+        } 
+        td {
+          display: block;
+          .fileUpload{
+            flex-wrap: wrap;
+            p{
+                margin-left: 0;
+                margin-top: 1rem;
+            }
+        }
+        }
+      }
     }
   }
 }

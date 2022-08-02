@@ -295,7 +295,7 @@
         }
         .q {
             .qBtn {
-                display: block;
+                display: flex;
                 position: relative;
                 width: 100%;
                 min-height: 7rem;
@@ -317,15 +317,18 @@
                 }
                 .accTitle{
                     font-size: 1.6rem;
-                    line-height: 1.6rem;
+                    line-height: 1.8rem;
                     font-weight: 400;
                     letter-spacing: -0.02em;
                     color: $LGBlack;
                     width: 9rem;
                 }
                 .accQuery{
+                    width: calc(100% - 9rem);
+                    padding-right: 2.5rem;
                     .qTitlte{
                         font-size: 1.6rem;
+                        line-height: 1.8rem;
                         letter-spacing: -0.02em;
                         color: $LGBlack;
                     }
@@ -385,7 +388,7 @@
                         margin: 2rem 0;
                         li{
                             width: 40rem;
-                            height: 24rem;
+                            max-height: 24rem;
                             overflow: hidden;
                             margin-right: 2rem;
                             &:last-child{
@@ -405,6 +408,7 @@
                             padding-right: 2.8rem;
                             line-height: 1.8rem;
                             display: inline-block;
+                            background-size: contain;
                     
                             a{
                                 font-size: 1.5rem;
@@ -421,6 +425,7 @@
                             background-image: url(/common/images/icon/fileIcon.svg);
                             background-repeat: no-repeat;
                             background-position: left center;
+                            background-size: contain;
                             padding-left: 2.4rem;
                             line-height: 1.6rem;
                             margin-bottom: .8rem;
@@ -652,7 +657,7 @@
     }
 }
 @include tablet{
-    .mypageLnb{ //잠시 숨김
+    .mypageLnb, #lnb{ //잠시 숨김
         display: none;
     }
     .subConWrap{
@@ -660,7 +665,23 @@
         .mpContent{
             width: 100%;
         }
+        .mypageModify{
+            &.mypageModifyForm{
+                width: 100%;
+            }
+        }
     } 
+    .mypageInquiry{
+        .guideAcc {
+            .q {
+                .qBtn{
+                    &:after{
+                        background-size: contain;
+                    }  
+                } 
+            }
+        }
+    }
 }
 @include mobile{
     .mypageModify{
@@ -676,6 +697,74 @@
                 }
                 .formD{
                     width: 100%;
+                }
+            }
+        }
+        &.mypageModifyForm{
+            .joinForm{
+                >ul{
+                    .formH{
+                        width: 100%;
+                        margin-bottom: .5rem;
+                    }
+                    .formD{
+                        width: 100%;
+                        >div{
+                            flex-wrap: wrap;
+                            .wd228{
+                                width: 45%;
+                            }
+                            .wd356{
+                                width: 49%;
+                            }
+                            .wd464{
+                                width: calc(100% - 9.5rem);
+                            }
+                            .selectBox{
+                                width: 100%;
+                                margin-top: .5rem;
+                            }
+                        }
+                        &.crtWrap{
+                            .btn.minW{
+                                margin-bottom: .5rem;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .mypageInquiry{
+        .guideAcc {
+            .q {
+                .qBtn{
+                    padding: 2rem 1.5rem;   
+                    &:after{
+                        right:1.5rem;
+                    }
+                }
+            }
+        }
+        .tableWrap{
+            table{
+                tr{
+                    display: block;
+                    margin-bottom: 1.5rem;
+                    th{
+                        display: block;
+                        padding: 0;
+                    }
+                    td{
+                        display: block;
+                        .fileUpload{
+                            flex-wrap: wrap;
+                            p{
+                                margin-left: 0;
+                                margin-top: 1rem;
+                            }
+                        }
+                    }
                 }
             }
         }

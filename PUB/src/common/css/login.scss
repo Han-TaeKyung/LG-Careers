@@ -651,6 +651,11 @@ p.formError {
       }
     }
   } 
+  .loginWrap{
+    .pwInfo{
+      line-height: 2.1rem;
+    }
+  }
 }
 @include mobile{
   /*브라우저 767px 이하일때*/
@@ -668,6 +673,9 @@ p.formError {
       .inputBox{
         width: 100%;
       }
+    }
+    .pwInfo{
+      line-height: 2.3rem;
     }
     .loginComBox{
       border-radius: 1.5rem;

@@ -647,6 +647,7 @@ p {
         height: 0.8rem;
         background: url(/common/images/icon/checkGray.svg) no-repeat center
           center;
+        background-size: contain;
         transition: all 0.2s;
       }
     }
@@ -840,8 +841,8 @@ select {
   -moz-appearance: none;
   appearance: none;
   min-width: 12rem;
-  background: url(/common/images/icon/selectBg.svg) no-repeat right 1.5rem
-    center;
+  // background: url(/common/images/icon/selectBg.svg) no-repeat right 1.5rem
+  //   center;
   color: $LGBlack;
   font-size: 1.4rem;
   line-height: 2;
@@ -1312,6 +1313,7 @@ select {
         width: 1.4rem;
         height: 0.7rem;
         background: url(../images/icon/accArrow.svg) no-repeat center center;
+        background-size: contain;
       }
 
       .accTitle {
@@ -1972,6 +1974,8 @@ select {
     width: 1.8rem;
     height: 1.8rem;
     background-image: url(/common/images/icon/fileClose.png);
+    background-size: contain;
+    background-repeat: no-repeat;
     text-indent: -9999;
     font-size: 0;
     position: absolute;
