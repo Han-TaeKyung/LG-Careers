@@ -905,3 +905,11 @@
     }
   }
 }
+
+@include mobile{
+  .subConWrap {
+    .subContent{
+      width: 100%;
+    }
+  }
+}
