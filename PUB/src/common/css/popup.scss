@@ -542,6 +542,8 @@
       width: 1.9rem;
       height: 1.8rem;
       background-image: url(/common/images/icon/infoAlert.png);
+      background-size: contain;
+      background-repeat: no-repeat;
       left: 0;
       top: 0;
     }
@@ -587,6 +589,7 @@
             width: 2.2rem;
             height: 2.4rem;
             background-image: url(/common/images/icon/numBg.png);
+            background-size: contain;
             background-repeat: no-repeat;
             font-size: 1.2rem;
             line-height: 2.4rem;
